@@ -3724,7 +3724,9 @@ margin:
 	bottom: 0px;
 }
 .products-grid .item:hover .item-inner .item-info .info-inner .item-title a {
-	color: #000;
+	
+	color: #CCA000;
+	font-weight: bold;
 }
 /* New & Sale Label */
 
@@ -4654,7 +4656,7 @@ font-size: 13px;
 	color: #333;
 	text-decoration: none;
 	padding: 6px 0 6px 55px;
-	background: brown;                   /* fallback color */
+	/* background: brown;                   fallback color */
 	background: #f4f4f4;
 	position: relative;
 	display: block;
@@ -5140,7 +5142,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 }
 /* Block: Layered Navigation */
 .block-layered-nav {
-	background-color: #FFFFFF;
+	background-color: #CCCCCC;
 }
 .block-layered-nav .block-content {
 	padding: 0;
