@@ -4701,7 +4701,7 @@ font-size: 13px;
 }
 .breadcrumb li:last-child a {
 	background: transparent !important;
-	color: #333;
+	color: #CCA000;
 	pointer-events: none;
 	cursor: default;
 	font-size: 13px;
@@ -5143,7 +5143,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 }
 /* Block: Layered Navigation */
 .block-layered-nav {
-	background-color: #CCCCCC;
+	background-color: black;
 }
 .block-layered-nav .block-content {
 	padding: 0;
