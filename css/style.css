@@ -687,7 +687,7 @@ ul.currencies_list li a:hover {
 	
 }
 .top-cart-contain .price {
-	color: #C2A476;
+	color: #CCA000;
 	font-weight: bold;
 	text-transform: uppercase;
 	padding-left: 0px;
@@ -2053,6 +2053,7 @@ ul.level1 {
 	text-align: center;
 	height: 110px;
 	line-height: 110px;
+	margin-bottom: 15px;
 }
 .brand-logo .owl-pagination {
 	top: -45px;
@@ -3991,8 +3992,8 @@ li .list {
 	letter-spacing: 0.5px
 }
 .products-list .product-shop .btn-cart {
-	border: 1px #C2A476 solid;
-	background: #C2A476;
+	border: 1px #CCA000 solid;
+	background: #CCA000;
 	padding: 7px 15px;
 	color: #fff
 }
@@ -4085,11 +4086,11 @@ li .list {
 	margin: 0;
 	padding: 9px 15px!important;
 	text-decoration: none;
-	background-color: #C2A476;
+	background-color: #CCA000;
 	color: #FFFFFF !important;
 	display: inline-block;
 	margin-right: 8px;
-	border: 2px #C2A476 solid
+	border: 2px #CCA000 solid
 }
 .products-list .actions .add-to-links a.link-compare:hover {
 	font-size: 10px;
@@ -4097,11 +4098,11 @@ li .list {
 	margin: 0;
 	padding: 9px 15px!important;
 	text-decoration: none;
-	background-color: #C2A476;
+	background-color: #CCA000;
 	color: #FFFFFF !important;
 	display: inline-block;
 	margin-right: 8px;
-	border: 2px #C2A476 solid
+	border: 2px #CCA000 solid
 }
 ul.products-grid {
 	padding: 0;
@@ -4257,7 +4258,7 @@ a.button.detail-bnt span {
 }
 .special-price .price {
 	font-size: 16px;
-	color: #C2A476;
+	color: #CCA000;
 	font-weight: 400;
 }
 .special-price .price-label {
@@ -4747,7 +4748,9 @@ font-size: 13px;
 }
 .block {
 	margin: 0 0 35px;
-	border:1px #e5e5e5 solid
+	border:1px black solid;
+	background-color: #525252;
+	opacity: 85%;
 }
 .block .block-title {
 	color: #d3523d;
@@ -5143,7 +5146,8 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 }
 /* Block: Layered Navigation */
 .block-layered-nav {
-	background-color: black;
+	background-color: #525252;
+	opacity: 85%;
 }
 .block-layered-nav .block-content {
 	padding: 0;
@@ -5447,7 +5451,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 }
 /* Block: Compare Products */
 .block-compare {
-	background-color: #fff;
+	background-color: #525252;
 	padding: 0px;
 }
 .block-compare li {
@@ -5502,7 +5506,7 @@ ol#compare-items li.last {
 }
 /* Block: Recently Viewed */
 .block-viewed .block-content {
-	background-color: #fff;
+	background-color: #525252;
 	padding: 0px;
 }
 .block-viewed li {
@@ -5636,7 +5640,7 @@ ol#compare-items li.last {
 }
 /* Block: Poll */
 .block-poll {
-	background-color: #fff;
+	background-color: #525252;
 	padding: 0px;
 }
 .block-poll label {
@@ -5681,7 +5685,7 @@ ol#compare-items li.last {
 }
 /* Block: Tags */
 .block-tags {
-	background-color: #fff;
+	background-color: #525252;
 	padding: 0px;
 }
 .block-tags .block-content {
