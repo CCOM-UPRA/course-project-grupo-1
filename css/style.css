@@ -41,6 +41,9 @@ body {
 	color: #FFF;
 	
 }
+#new1{
+	color: #001D3D;
+}
 h2, .h2 {
 	font-size: 20px;
 }
@@ -180,9 +183,9 @@ button.button:hover {
 	color: #FF4C4C;
 }
 .button.coupon, .button.get-quote, .button.btn-continue, .button.continue, .button.login, button.btn-share, .button.create-account {
-	background-color: #C2A476;
+	background-color: #CCA000;
 	color: #fff;
-	border-color: #ab8d5f;
+	border-color: #CCA000;
 }
 .multiple_addresses .button.btn-update {
 	background-color: #fff;

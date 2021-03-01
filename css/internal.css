@@ -1089,6 +1089,10 @@ div.mgkosc-wide .input-text {
 /*======== (F) Login css =========*/		
 .account-login {
 	background-color: #FFFFFF;
+	/* padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px; */
+	padding: 15px;
 }
 .account-login .page-title h1, .account-login .page-title h2 {
 	border-bottom: none;
