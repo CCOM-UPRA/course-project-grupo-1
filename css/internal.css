@@ -27,11 +27,11 @@ fieldset {
 }
 /* Color Style */
 .one-page-checkout .active .step-title .number {
-	background: none repeat scroll 0 0 #C2A476;
-	border: 1px solid #C2A476;
+	background: none repeat scroll 0 0 #CCA000;
+	border: 1px solid #CCA000;
 }
 .one-page-checkout .active .step-title h3 {
-	color: #C2A476;
+	color: #CCA000;
 }
 button.button.btn-proceed-checkout {
 	background: #d3523d;
