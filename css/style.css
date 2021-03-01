@@ -4748,8 +4748,8 @@ font-size: 13px;
 }
 .block {
 	margin: 0 0 35px;
-	border:1px black solid;
-	background-color: #525252;
+	border:1px #fff solid;
+	background-color: #001D3D;
 	opacity: 85%;
 }
 .block .block-title {
@@ -5026,7 +5026,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 .sidebar .block dt {
 	font-size: 13px;
 	font-weight: bold;
-	color: #333;
+	color: #FFF;
 	padding: 10px 0;
 	padding-bottom: 0px!important;
 	letter-spacing:1px
@@ -5049,7 +5049,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 	font-weight: normal;
 }
 .block-layered-nav .block-subtitle, .block-layered-nav dt {
-	color: #565656;
+	color: #f5cc00;
 	font-weight: bold;
 }
 .block-layered-nav .currently ol {
@@ -5058,7 +5058,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 	border-radius: 3px;
 }
 .sidebar a, .sidebar .block-layered-nav .price .sub {
-	color: #222;
+	color: #fff;
 	font-size: 13px;
 }
 .sidebar .block-layered-nav .price {
@@ -5091,7 +5091,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 .block .block-content .price {
 	font-size: 12px;
 	font-weight: normal;
-	color: #C2A476;
+	color: #f5cc00;
 }
 /* Block: Account */
 .block-account {
@@ -5146,7 +5146,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 }
 /* Block: Layered Navigation */
 .block-layered-nav {
-	background-color: #525252;
+	background-color: #001D3D;
 	opacity: 85%;
 }
 .block-layered-nav .block-content {
@@ -5225,11 +5225,11 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 	font-weight: normal;
 	padding: 2px 0;
 	text-shadow: none;
-	color: #000;
+	color: #fff;
 	font-size: 100%;
 }
 .block-cart .subtotal .price {
-	color: #C2A476;
+	color: #f5cc00;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -5451,7 +5451,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 }
 /* Block: Compare Products */
 .block-compare {
-	background-color: #525252;
+	background-color: #001D3D;
 	padding: 0px;
 }
 .block-compare li {
@@ -5465,7 +5465,7 @@ ol#compare-items li a.product-name {
 	padding:0px;
 	margin: 0;
 	font-weight: normal;
-	color: #333;
+	color: #fff;
 	line-height: 20px;
 	text-transform: none;
 	display: inline-block;
@@ -5506,7 +5506,7 @@ ol#compare-items li.last {
 }
 /* Block: Recently Viewed */
 .block-viewed .block-content {
-	background-color: #525252;
+	background-color: #001D3D;
 	padding: 0px;
 }
 .block-viewed li {
@@ -5565,7 +5565,7 @@ ol#compare-items li.last {
 	display: inline-block
 }
 #recently-viewed-items .product-name a {
-	color: #333;
+	color: #fff;
 	font-size: 12px;
 	font-weight: normal;
 	text-decoration: none;
