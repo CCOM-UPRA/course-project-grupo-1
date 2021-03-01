@@ -152,8 +152,8 @@ button {
 	color: #333
 }
 .button:hover {
-	background: #C2A476;
-	border-color: #C2A476;
+	background: #CCA000;
+	border-color: #CCA000;
 	color: #fff
 }
 button.button {
@@ -6841,7 +6841,7 @@ button.button.btn-add:before {
 }
 .form-add-tags button.button:hover {
 	display: inline;
-	background: #C2A476;
+	background: #CCA000;
 	transition: all 0.3s linear;
 	-moz-transition: all 0.3s linear;
 	-webkit-transition: all 0.3s linear;
