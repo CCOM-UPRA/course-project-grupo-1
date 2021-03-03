@@ -3567,8 +3567,8 @@ margin:
 	line-height: 50px;
 }
 .products-grid .item .link-compare a:before {
-	content: "\f012";
-	font-family: 'FontAwesome';
+	content: "\e03a";
+	font-family: 'Simple-Line-Icons';
 	font-size: 14px;
 }
 .products-grid .item .link-compare span {
