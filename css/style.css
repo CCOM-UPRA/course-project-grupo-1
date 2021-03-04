@@ -4041,8 +4041,8 @@ li .list {
 	font-family: 'FontAwesome';
 }
 .products-list .actions .add-to-links a.link-compare:before {
-	content: "\f012";
-	font-family: 'FontAwesome';
+	content: "\e03a";
+	font-family: 'Simple-Line-Icons';
 }
 .products-list .actions .add-to-links a.link-wishlist {
 	color: #000;
