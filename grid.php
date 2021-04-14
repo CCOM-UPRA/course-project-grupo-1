@@ -121,7 +121,8 @@ include("partials/navbar.php");
               <div class="sorter">
                 <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="list.php" title="List" class="button-list">&nbsp;</a> </div>
               </div>
-              <div id="sort-by">
+              <div id="sort-by" style="";>
+              <form>
                 <label class="left">Sort By: </label>
                 <select id="sorting" onchange="selectionChange()">
                     <option  value="Sort By" selected>Sort Products</option>
@@ -129,99 +130,75 @@ include("partials/navbar.php");
                     <option value="Sort By A-Z" id="az" >Sort By A-Z</option>
                     <option value="Sort By Z-A" id="az" >Sort By Z-A</option>
                   </select>
-                <!-- <ul>
-                  <li><a href="grid.php">Position<span class="right-arrow"></span></a>
-                    <ul>
-                      <li><a id="name">Name</a></li>
-                      <li><a href="#">Price</a></li>
-                    </ul>
-                  </li>
-                </ul> -->
-                <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
-              <!-- <div class="pager">
-                <div id="limiter">
-                  <label>View: </label>
-                  <ul>
-                    <li><a href="#">15<span class="right-arrow"></span></a>
-                      <ul>
-                        <li><a href="#">20</a></li>
-                        <li><a href="#">30</a></li>
-                        <li><a href="#">35</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pages">
-                  <label>Page:</label>
-                  <ul class="pagination">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div> -->
+                  <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
+                </form>
+               
+  
             </div>
+
+
             <div class="category-products">
+
+
+
+            <?php
+            $sql = "Select * from products NATURAL JOIN categories where category_type = 'Movie'";
+            $results = $connect->query($sql);
+            
+
+            while($final = $results->fetch_assoc()){ ?>
+
+              
+
+
+
+
+
+
+
+
               <ul class="products-grid">
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title=" Avengers Endgame" class="product-image"><img src="newImages/Movies/movies/AvengersEndGame.jpg" alt="Avengers Endgame" title="Avengers Endgame"></a>
-                        <div class="new-label new-top-left">New</div>
+                      <div class="item-img-info">
+                      <img class = "product-img" src="<?php echo $final['photo']?>" alt="Avengers Endgame" title="Avengers Endgame" class="product-image">
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
+  
                       </div>
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Avengers Endgame">Avengers Endgame</a> </div>
+                        <div class="item-title"><?php echo $final['product_name']?> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$19.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price"> $ <?php echo $final['price']?></span> </span> </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </li>
-                <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+
+                
+                <?php } ?>
+                <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Avengers Infinity War" class="product-image"><img src="newImages/Movies/movies/Infinity.jpg" alt="Avengers Infinity War" title="Avengers Infinity War"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -241,21 +218,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Avengers Age of Ultron" class="product-image"><img src="newImages/Movies/movies/ultron.jpg" alt="Avengers Age of Ultron" title="Avengers Age of Ultron"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -275,21 +243,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Star Wars The Rise of the Skywalker" class="product-image"><img src="newImages/Movies/movies/starwars.jpg" alt="Star Wars The Rise of the Skywalker" title="Star Wars The Rise of the Skywalker"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -309,21 +268,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Jumanji" class="product-image"><img src="newImages/Movies/movies/Jumanji.jpg" alt="Jumanji" title="Jumanji"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -343,21 +293,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Wonder Woman" class="product-image"><img src="newImages/Movies/movies/wonder.jpg" alt="Wonder Woman" title="Wonder Woman"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -377,21 +318,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Justice League" class="product-image"><img src="newImages/Movies/movies/justic.jpg" alt="Justice League" title="Justice League"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -411,21 +343,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Joker" class="product-image"><img src="newImages/Movies/movies/joker.jpg" alt="Joker" title="Joker"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -446,21 +369,12 @@ include("partials/navbar.php");
                       <div class="item-img-info"><a href="#" title="Sonic The Hedgehog" class="product-image"><img src="newImages/Movies/movies/sonic.jpeg" alt="Sonic The Hedgehog" title="Sonic The Hedgehog"></a>
                         <div class="new-label new-top-left">New</div>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -481,21 +395,12 @@ include("partials/navbar.php");
                       <div class="item-img-info"><a href="#" title="Beauty and The Beast" class="product-image"><img src="newImages/Movies/movies/beauty.jpg" alt="Beauty and The Beast" title="Beauty and The Beast"></a>
                         <div class="new-label new-top-left">New</div>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -515,21 +420,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="The Conjuring 2" class="product-image"><img src="newImages/Movies/movies/TheConjuring.jpg" alt="The Conjuring 2" title="The Conjuring 2"></a>
                          <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -549,21 +445,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Deadpool 2" class="product-image"><img src="newImages/Movies/movies/deadpool.jpg" alt="Deadpool 2" title="Deadpool 2"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -578,7 +465,9 @@ include("partials/navbar.php");
                     </div>
                   </div>
                 </li>
-              </ul>
+              </ul> -->
+
+              
             </div>
           </article>
           <!--	///*///======    End article  ========= //*/// --> 
@@ -599,26 +488,6 @@ include("partials/navbar.php");
                       <li> <a href="#"><span class="price">$30.00</span> and above</a> (6) </li>
                     </ol>
                   </dd>
-                 <!-- <dt class="even">Manufacturer</dt>
-                  <dd class="even">
-                    <ol>
-                      <li> <a href="#">Superb</a> (9) </li>
-                      <li> <a href="#">Nexus</a> (4) </li>
-                      <li> <a href="#">Xperia</a> (1) </li>
-                    </ol>
-                  </dd>
-                  <dt class="odd">Color</dt>
-                  <dd class="odd">
-                    <ol>
-                      <li> <a href="#">Green</a> (1) </li>
-                      <li> <a href="#">White</a> (5) </li>
-                      <li> <a href="#">Black</a> (5) </li>
-                      <li> <a href="#">Gray</a> (4) </li>
-                      <li> <a href="#">Dark Gray</a> (3) </li>
-                      <li> <a href="#">Blue</a> (1) </li>
-                    </ol>
-                  </dd>
--->
                   <dt class="last even">Rating</dt>
                   <dd class="last even">
                     <ol>
@@ -819,223 +688,6 @@ include("partials/footer.php");
 
 ?>
     <!-- Footer  -->
-</div>
-<div id="mobile-menu">
-  <ul>
-    <li>
-      <div class="mm-search">
-        <form id="search_mob" name="search">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> </button>
-            </div>
-            <input type="text" class="form-control simple" placeholder="Search ..." name="srch-term" id="srch-term">
-          </div>
-        </form>
-      </div>
-    </li>
-    <li>
-      <div class="home"><a href="#"><i class="icon-home"></i>Home</a> </div>
-    </li>
-    <li><a href="#">Pages</a>
-      <ul>
-        <li><a href="grid.php">Grid</a> </li>
-        <li> <a href="list.php">List</a> </li>
-        <li> <a href="product_detail.php">Product Detail</a> </li>
-        <li> <a href="shopping_cart.php">Shopping Cart</a> </li>
-        <li><a href="checkout.php">Checkout</a>
-          <ul>
-            <li><a href="checkout_method.php">Checkout Method</a> </li>
-            <li><a href="checkout_billing_info.php">Checkout Billing Info</a> </li>
-          </ul>
-        </li>
-        <!-- <li> <a href="wishlist.php">Wishlist</a> </li> -->
-        <li> <a href="dashboard.php">Dashboard</a> </li>
-        <li> <a href="multiple_addresses.php">Multiple Addresses</a> </li>
-        <li> <a href="about_us.php">About us</a> </li>
-        <li><a href="blog.php">Blog</a>
-          <ul>
-            <li><a href="blog-detail.php">Blog Detail</a> </li>
-          </ul>
-        </li>
-        <li><a href="contact_us.php">Contact us</a> </li>
-        <li><a href="404error.php">404 Error Page</a> </li>
-      </ul>
-    </li>
-    <li><a href="#">Women</a>
-      <ul>
-        <li> <a href="#" class="">Stylish Bag</a>
-          <ul>
-            <li> <a href="#" class="">Clutch Handbags</a> </li>
-            <li> <a href="#l" class="">Diaper Bags</a> </li>
-            <li> <a href="#" class="">Bags</a> </li>
-            <li> <a href="#" class="">Hobo handbags</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Material Bag</a>
-          <ul>
-            <li> <a href="#">Beaded Handbags</a> </li>
-            <li> <a href="#">Fabric Handbags</a> </li>
-            <li> <a href="#">Handbags</a> </li>
-            <li> <a href="#">Leather Handbags</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Shoes</a>
-          <ul>
-            <li> <a href="#">Flat Shoes</a> </li>
-            <li> <a href="#">Flat Sandals</a> </li>
-            <li> <a href="#">Boots</a> </li>
-            <li> <a href="#">Heels</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Jwellery</a>
-          <ul>
-            <li> <a href="#">Bracelets</a> </li>
-            <li> <a href="#">Necklaces &amp; Pendent</a> </li>
-            <li> <a href="#l">Pendants</a> </li>
-            <li> <a href="#">Pins &amp; Brooches</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Dresses</a>
-          <ul>
-            <li> <a href="#">Casual Dresses</a> </li>
-            <li> <a href="#">Evening</a> </li>
-            <li> <a href="#">Designer</a> </li>
-            <li> <a href="#">Party</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Swimwear</a>
-          <ul>
-            <li> <a href="#">Swimsuits</a> </li>
-            <li> <a href="#">Beach Clothing</a> </li>
-            <li> <a href="#">Clothing</a> </li>
-            <li> <a href="#">Bikinis</a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Men</a>
-      <ul>
-        <li> <a href="#" class="">Shoes</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Sport Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Casual Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Leather Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">canvas shoes</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Dresses</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Casual Dresses</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Evening</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Designer</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Party</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Jackets</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Coats</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Formal Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Leather Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Blazers</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Watches</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Casio</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Titan</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Tommy-Hilfiger</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Sunglasses</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Ray Ban</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Police</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Oakley</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Accesories</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Backpacks</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Wallets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Laptops Bags</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Belts</a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Electronics</a>
-      <ul>
-        <li> <a href="#"><span>Mobiles</span></a>
-          <ul>
-            <li> <a href="#"><span>Samsung</span></a> </li>
-            <li> <a href="#"><span>Nokia</span></a> </li>
-            <li> <a href="#"><span>IPhone</span></a> </li>
-            <li> <a href="#"><span>Sony</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#" class=""><span>Accesories</span></a>
-          <ul>
-            <li> <a href="#"><span>Mobile Memory Cards</span></a> </li>
-            <li> <a href="#"><span>Cases &amp; Covers</span></a> </li>
-            <li> <a href="#"><span>Mobile Headphones</span></a> </li>
-            <li> <a href="#"><span>Bluetooth Headsets</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Cameras</span></a>
-          <ul>
-            <li> <a href="#"><span>Camcorders</span></a> </li>
-            <li> <a href="#"><span>Point &amp; Shoot</span></a> </li>
-            <li> <a href="#"><span>Digital SLR</span></a> </li>
-            <li> <a href="#"><span>Camera Accesories</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Audio &amp; Video</span></a>
-          <ul>
-            <li> <a href="#"><span>MP3 Players</span></a> </li>
-            <li> <a href="#"><span>IPods</span></a> </li>
-            <li> <a href="#"><span>Speakers</span></a> </li>
-            <li> <a href="#"><span>Video Players</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Computer</span></a>
-          <ul>
-            <li> <a href="#"><span>External Hard Disk</span></a> </li>
-            <li> <a href="#"><span>Pendrives</span></a> </li>
-            <li> <a href="#"><span>Headphones</span></a> </li>
-            <li> <a href="#"><span>PC Components</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Appliances</span></a>
-          <ul>
-            <li> <a href="#"><span>Vaccum Cleaners</span></a> </li>
-            <li> <a href="#"><span>Indoor Lighting</span></a> </li>
-            <li> <a href="#"><span>Kitchen Tools</span></a> </li>
-            <li> <a href="#"><span>Water Purifier</span></a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Furniture</a> </li>
-    <li><a href="#">Kids</a> </li>
-    <li><a href="contact-us.php">Contact Us</a> </li>
-  </ul>
-  <div class="dropdown block-language-wrapper">
-                <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/english.png" alt="language"> English </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/francais.png" alt="language"> French </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
-                </ul>
-              </div>
-              <div class="dropdown block-currency-wrapper"> 
-                <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
-                </ul>
-              </div>
 </div>
 <!-- End Footer --> 
 
