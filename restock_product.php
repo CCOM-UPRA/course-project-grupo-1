@@ -246,129 +246,15 @@
 <body id="new1" class="customer-account-login inner-page">
 <div id="page"> 
   
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="header-top">
-        <div class="container">
-          <div class="row"> 
-            <!-- Header Language -->
-            <div class="col-xs-7 col-sm-6">
-              <div class="dropdown block-language-wrapper hidden-xs"> <a role="button" data-toggle="dropdown" data-target="#" class="block-language dropdown-toggle" href="#"> <img src="images/english.png" alt="language"> English <span class="caret"></span> </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/english.png" alt="language"> English </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/francais.png" alt="language"> French </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
-                </ul>
-              </div>
-              <!-- End Header Language --> 
-              
-              <!-- Header Currency -->
-              <div class="dropdown block-currency-wrapper hidden-xs"> <a role="button" data-toggle="dropdown" data-target="#" class="block-currency dropdown-toggle" href="#"> USD <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
-                </ul>
-              </div>
-              <!-- End Header Currency -->
-              
-              <div class="welcome-msg hidden-xs"> Welcome to our site! </div>
-            </div>
-            <div class="col-xs-5 col-sm-6"> 
-              
-              <div class="top-cart-contain pull-right"> 
-            <!-- Top Cart -->
-            <div class="mini-cart">
-              <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"><a href="shopping_cart.php">  My Cart <span class="cart_count">2</span></a></div>
-              <div>
-                <div class="top-cart-content" style="display: none;">
-                  <div class="actions">
-                    <button class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
-                    <a href="shopping_cart.php" class="view-cart" ><span>View Cart</span></a> </div>
-                  <!--block-subtitle-->
-                  <ul class="mini-products-list" id="cart-sidebar">
-                    <li class="item first">
-                      <div class="item-inner"><a class="product-image" title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" href="#l"><img alt="The Incredibles 2" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a>
-                        <div class="product-details">
-                          <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                          <!--access--> <strong>1</strong> x <span class="price">$9.99</span>
-                          <p class="product-name"><a href="#">The Incredibles 2</a></p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item last">
-                      <div class="item-inner"><a class="product-image" title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" href="#"><img alt="Spiderman Far From Home" src="newImages/CartMovieImages/FarFromHomeMini.jpeg"></a>
-                        <div class="product-details">
-                          <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                          <!--access--> <strong>1</strong> x <span class="price">$10.99</span>
-                          <p class="product-name"><a href="#">Spiderman Far From Home</a></p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <!--actions--> 
-                </div>
-              </div>
-            </div>
-            <!-- Top Cart -->
-            <div id="ajaxconfig_info" style="display:none"><a href="#/"></a>
-              <input value="" type="hidden">
-              <input id="enable_module" value="1" type="hidden">
-              <input class="effect_to_cart" value="1" type="hidden">
-              <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
-            </div>
-          </div>
-          
-          <div class="top-search">
-            <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
-              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="images/interstitial-close.png" alt="close"> </button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="navbar-form">
-                        <div id="search">
-                          <div class="input-group">
-                            <input name="search" placeholder="Search" class="form-control" type="text">
-                            <button type="button" class="btn-search"><i class="fa fa-search"></i></button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          
-              <!-- Header Top Links -->
-              <div class="toplinks">
-                <div class="links">
-                
-                  <div class="myaccount"><a title="My Account" href="login.php"><span class="hidden-xs">My Account</span></a></div>
-                  <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
-                  <div class="demo"><a title="Blog" href="admin_buttons.php"><span class="hidden-xs">Admin</span></a></div>
-                  <!-- Header Company -->
-                  
-                  <!-- End Header Company -->
-                  <div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
-                  
-                </div>
-                
-              </div>
-              <!-- End Header Top Links --> 
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- end header --> 
+<?php
+include("partials/header.php");
+
+?>
+  <!-- Navbar -->
+<?php
+include("partials/navbar.php");
+
+?> 
   
   <!-- Navbar -->
   <nav>
@@ -649,92 +535,13 @@
   
       <!-- Brand logo ends  --> 
   
-      <footer>
-        <div class="footer-inner">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12 col-xs-12 col-lg-8">
-                <div class="footer-column pull-left">
-                  <h4>CUSTOMMER SERVICE</h4>
-                  <ul class="links">
-                    <li class="first"><a href="login.php" title="My Account">My Account</a></li>
-                    <!--<li><a href="#" title="About us">Order History</a></li>
-                    <li><a href="#" title="faq">FAQ</a></li>
-                    <li><a href="#" title="Popular Searches">Specials</a></li>-->
-                    <li class="last"><a href="#" title="Help Center">Help Center</a></li>
-    
-                  </ul>
-                </div>
-                <div class="footer-column pull-left">
-                  <h4>Corporation</h4>
-                  <ul class="links">
-                    <li class="first"><a title="About us" href="about_us.php">About us</a></li>
-                    <li><a title="Customer Service" href="#">Customer Service</a></li>
-                    <!--<li><a title="Addresses" href="#">Company</a></li>
-                    <li><a title="Addresses" href="#">Investor Relations</a></li>
-                    <li class="last"><a title="Orders History" href="#">Advanced Search</a></li>-->
-                   
-                  </ul>
-                </div>
-                <div class="footer-column pull-left">
-                  <h4>Why choose Us</h4>
-                  <ul class="links">
-                    <li><a href="company.php" title="Company">Company</a></li>
-                      <!--<li><a href="#" title="Blog">Blog</a></li>
-                    <li class="first"><a href="#" title="About us">Shopping Guide</a></li>
-                    <li><a href="#" title="Investor Relations">Investor Relations</a></li> -->
-                    <li class=" last"><a href="contact_us.php" title="Contact Us">Contact Us</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-xs-12 col-lg-4">
-                <div class="footer-column-last">
-                  <div class="newsletter-wrap">
-                    <h4>Sign up for emails</h4>
-                    <form id="newsletter-validate-detail" method="post" action="#">
-                      <div id="container_form_news">
-                        <div id="container_form_news2">
-                          <input type="text" class="input-text required-entry validate-email" value="Enter your email address" onFocus=" this.value='' " title="Sign up for our newsletter" id="newsletter" name="email">
-                          <button class="button subscribe" title="Subscribe" type="submit"><span>Subscribe</span></button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <!--<br>
-                  <div class="social">
-                    <h4>Follow Us</h4>
-                    <ul class="link">
-                      <li class="fb pull-left"><a href="#"></a></li>
-                      <li class="tw pull-left"><a href="#"></a></li>
-                      <li class="googleplus pull-left"><a href="#"></a></li>
-                      <li class="rss pull-left"><a href="#"></a></li>
-                      <li class="pintrest pull-left"><a href="#"></a></li>
-                      <li class="linkedin pull-left"><a href="#"></a></li>
-                      <li class="youtube pull-left"><a href="#"></a></li>
-                    </ul>
-                  </div>-->
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container">
-          <div class="col-sm-12 col-xs-12 footer-logo"><img alt="Prism" src="newImages/HomeImages/PageIcon/LogoPrincipal2.png"></div>
-          <address>
-             <i class="fa fa-mobile"></i><span> +1(787)517-5533</span> <i class="fa fa-envelope"></i><span> PrismMoviesOnline@gmail.com</span>
-              </address>
-          </div>
-        </div>
-        
-        <div class="footer-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12 col-xs-12 coppyright">&copy; 2021 Prism. All Rights Reserved.</div>
-              
-            </div>
-          </div>
-        </div>
-      </footer>
+       <!-- Footer  --> 
+  
+<?php
+include("partials/footer.php");
+
+?>
+    <!-- Footer  -->
 </div>
 <div id="mobile-menu">
   <ul>
