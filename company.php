@@ -37,7 +37,7 @@
 <body class="cms-page-view cms-about-us rtl inner-page">
 <div id="page"> 
   
-  <?php
+<?php
 include("partials/header.php");
 
 ?>

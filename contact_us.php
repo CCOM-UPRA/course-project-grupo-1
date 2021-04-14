@@ -38,11 +38,13 @@
 <div id="page"> 
   
  <?php
+    error_reporting(0);
 include("partials/header.php");
-
+include("admin/handler/contact.php")
 ?>
   <!-- Navbar -->
 <?php
+    error_reporting(0);
 include("partials/navbar.php");
 
 ?> 
@@ -59,7 +61,8 @@ include("partials/navbar.php");
             <fieldset class="group-select">
               <ul>
                 <li id="billing-new-address-form">
-                  <fieldset>
+                    	<!-- Content page -->	
+                  <form action="" method= "POST">
                     <legend>New Address</legend>
                     <input type="hidden"  id="billing:address_id">
                     <ul>
@@ -68,49 +71,39 @@ include("partials/navbar.php");
                           <div class="input-box name-firstname">
                             <label for="billing:firstname"> First Name<span class="required">*</span></label>
                             <br>
-                            <input type="text" id="billing:firstname" name="" title="First Name" class="input-text" style="color: black;">
+                            <input type="text" name="firstName" title="firstName" class="input-text" style="color: black;">
                           </div>
                           <div class="input-box name-lastname">
                             <label for="billing:lastname"> Email Address <span class="required">*</span> </label>
                             <br>
-                            <input type="text" id="billing:lastname" name="" title="Last Name" class="input-text" style="color: black;">
+                            <input type="text" name="email" title="email" class="input-text" style="color: black;">
                           </div>
                         </div>
                       </li>
                       <li>
-                        <div class="input-box">
-                          <label for="billing:company">Company</label>
-                          <br>
-                          <input type="text" id="billing:company" name="" title="Company" class="input-text" style="color: black;">
-                        </div>
+                        
                         <div class="input-box">
                           <label for="billing:email">Telephone <span class="required">*</span></label>
                           <br>
-                          <input type="text" name="" id="billing:email" title="Email Address" class="input-text" style="color: black;">
+                          <input type="text" name="" id="billing:telephone" title="Email Add" class="input-text" style="color: black;">
                         </div>
                       </li>
-                      <li>
-                        <label for="billing:street1">Address <span class="required">*</span></label>
-                        <br>
-                        <input type="text" title="Street Address" name="" class="input-text" style="color: black;">
-                      </li>
-                      <li>
-                        <input type="text" title="Street Address 2" name="" class="input-text" style="color: black;">
-                      </li>
+                      
                       <li class="">
                         <label for="comment">Comment<em class="required">*</em></label>
                         <br>
                         <div style="float:none" class="">
-                          <textarea name="" id="comment" title="Comment" class="input-text" cols="5" rows="3" style="color: black;"></textarea>
+                          <textarea name="message" id="message" title="message" class="input-text" cols="5" rows="3" style="color: black;"></textarea>
                         </div>
                       </li>
                     </ul>
-                  </fieldset>
+                    <span class="require"><em class="required">* </em>Required Fields</span>
+                    <div class="buttons-set">
+                        <button type="submit" title="Submit" class="button submit"> <span> Submit </span> </button>
+                    </div>
+                    </form>
                 </li>
-                <span class="require"><em class="required">* </em>Required Fields</span>
-                <div class="buttons-set">
-                  <button type="submit" title="Submit" class="button submit"> <span> Submit </span> </button>
-                </div>
+                
               </ul>
             </fieldset>
           </div>

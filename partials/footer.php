@@ -6,7 +6,7 @@
                 <div class="footer-column pull-left">
                   <h4>CUSTOMMER SERVICE</h4>
                   <ul class="links">
-                    <li class="first"><a href="login.html" title="My Account">My Account</a></li>
+                    <li class="first"><a href="login.php" title="My Account">My Account</a></li>
                     <!--<li><a href="#" title="About us">Order History</a></li>
                     <li><a href="#" title="faq">FAQ</a></li>
                     <li><a href="#" title="Popular Searches">Specials</a></li>-->
@@ -17,7 +17,7 @@
                 <div class="footer-column pull-left">
                   <h4>Corporation</h4>
                   <ul class="links">
-                    <li class="first"><a title="About us" href="about_us.html">About us</a></li>
+                    <li class="first"><a title="About us" href="about_us.php">About us</a></li>
                     <li><a title="Customer Service" href="#">Customer Service</a></li>
                     <!--<li><a title="Addresses" href="#">Company</a></li>
                     <li><a title="Addresses" href="#">Investor Relations</a></li>
@@ -28,43 +28,15 @@
                 <div class="footer-column pull-left">
                   <h4>Why choose Us</h4>
                   <ul class="links">
-                    <li><a href="company.html" title="Company">Company</a></li>
+                    <li><a href="company.php" title="Company">Company</a></li>
                       <!--<li><a href="#" title="Blog">Blog</a></li>
                     <li class="first"><a href="#" title="About us">Shopping Guide</a></li>
                     <li><a href="#" title="Investor Relations">Investor Relations</a></li> -->
-                    <li class=" last"><a href="contact_us.html" title="Contact Us">Contact Us</a></li>
+                    <li class=" last"><a href="contact_us.php" title="Contact Us">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
-              <div class="col-xs-12 col-lg-4">
-                <div class="footer-column-last">
-                  <div class="newsletter-wrap">
-                    <h4>Sign up for emails</h4>
-                    <form id="newsletter-validate-detail" method="post" action="#">
-                      <div id="container_form_news">
-                        <div id="container_form_news2">
-                          <input type="text" class="input-text required-entry validate-email" value="Enter your email address" onFocus=" this.value='' " title="Sign up for our newsletter" id="newsletter" name="email">
-                          <button class="button subscribe" title="Subscribe" type="submit"><span>Subscribe</span></button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <!--<br>
-                  <div class="social">
-                    <h4>Follow Us</h4>
-                    <ul class="link">
-                      <li class="fb pull-left"><a href="#"></a></li>
-                      <li class="tw pull-left"><a href="#"></a></li>
-                      <li class="googleplus pull-left"><a href="#"></a></li>
-                      <li class="rss pull-left"><a href="#"></a></li>
-                      <li class="pintrest pull-left"><a href="#"></a></li>
-                      <li class="linkedin pull-left"><a href="#"></a></li>
-                      <li class="youtube pull-left"><a href="#"></a></li>
-                    </ul>
-                  </div>-->
-                  
-                </div>
-              </div>
+              
             </div>
           </div>
           <div class="container">
@@ -104,27 +76,27 @@
     </li>
     <li><a href="#">Pages</a>
       <ul>
-        <li><a href="grid.html">Grid</a> </li>
-        <li> <a href="list.html">List</a> </li>
-        <li> <a href="product_detail.html">Product Detail</a> </li>
-        <li> <a href="shopping_cart.html">Shopping Cart</a> </li>
-        <li><a href="checkout.html">Checkout</a>
+        <li><a href="grid.php">Grid</a> </li>
+        <li> <a href="list.php">List</a> </li>
+        <li> <a href="product_detail.php">Product Detail</a> </li>
+        <li> <a href="shopping_cart.php">Shopping Cart</a> </li>
+        <li><a href="checkout.php">Checkout</a>
           <ul>
-            <li><a href="checkout_method.html">Checkout Method</a> </li>
-            <li><a href="checkout_billing_info.html">Checkout Billing Info</a> </li>
+            <li><a href="checkout_method.php">Checkout Method</a> </li>
+            <li><a href="checkout_billing_info.php">Checkout Billing Info</a> </li>
           </ul>
         </li>
-        <!-- <li> <a href="wishlist.html">Wishlist</a> </li> -->
-        <li> <a href="dashboard.html">Dashboard</a> </li>
-        <li> <a href="multiple_addresses.html">Multiple Addresses</a> </li>
-        <li> <a href="about_us.html">About us</a> </li>
-        <li><a href="blog.html">Blog</a>
+        <!-- <li> <a href="wishlist.php">Wishlist</a> </li> -->
+        <li> <a href="dashboard.php">Dashboard</a> </li>
+        <li> <a href="multiple_addresses.php">Multiple Addresses</a> </li>
+        <li> <a href="about_us.php">About us</a> </li>
+        <li><a href="blog.php">Blog</a>
           <ul>
-            <li><a href="blog-detail.html">Blog Detail</a> </li>
+            <li><a href="blog-detail.php">Blog Detail</a> </li>
           </ul>
         </li>
-        <li><a href="contact_us.html">Contact us</a> </li>
-        <li><a href="404error.html">404 Error Page</a> </li>
+        <li><a href="contact_us.php">Contact us</a> </li>
+        <li><a href="404error.php">404 Error Page</a> </li>
       </ul>
     </li>
     <li><a href="#">Women</a>
@@ -285,7 +257,7 @@
     </li>
     <li><a href="#">Furniture</a> </li>
     <li><a href="#">Kids</a> </li>
-    <li><a href="contact-us.html">Contact Us</a> </li>
+    <li><a href="contact-us.php">Contact Us</a> </li>
   </ul>
   <div class="dropdown block-language-wrapper">
                 <ul>
