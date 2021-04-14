@@ -73,7 +73,8 @@ include("partials/navbar.php");
                   </thead>
                   <tfoot>
                     <tr class="first last">
-                      <td class="a-right last" colspan="50"><button onclick="#" class="button btn-continue" title="Continue Shopping" type="button"><span>Continue Shopping</span></button>
+                      <td class="a-right last" colspan="50">
+                       <button onclick="#/index.php" class="button btn-continue" title="Continue Shopping" type="button"><span>Continue Shopping</span></button>
                         <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>
                         <button id="empty_cart_button" class="button" title="Clear Cart" value="empty_cart" name="update_cart_action" type="submit"><span>Clear Cart</span></button></td>
                     </tr>
@@ -83,7 +84,7 @@ include("partials/navbar.php");
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a></td>
                       <td><h2 class="product-name"> <a href="#">Incredibles 2</a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
-                      <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
+                    <!--  <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td> -->
                       <td class="a-center hidden-table"><span class="cart-price"> <span class="price">$9.99</span> </span></td>
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
                       <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$9.99</span> </span></td>
