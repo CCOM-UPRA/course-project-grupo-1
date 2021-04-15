@@ -36,8 +36,8 @@
 </head>
 
 <body class="inner-page">
-<div id="page"> 
-  
+<div id="page">
+
  <?php
 include("partials/header.php");
 
@@ -46,7 +46,12 @@ include("partials/header.php");
 <?php
 include("partials/navbar.php");
 
-?> 
+?>
+   <!-- Navbar -->
+<?php
+include("functions/phpFunctions.php");
+
+?>
   <!-- Main Container -->
   <section class="main-container col1-layout" style="padding: 10px;">
     <div class="main container">
@@ -73,33 +78,45 @@ include("partials/navbar.php");
                   </thead>
                   <tfoot>
                     <tr class="first last">
-                      <td class="a-right last" colspan="50">
-                       <button onClick="index.php" class="button btn-continue" title="Continue Shopping" type="button"><span>Continue Shopping</span></button>
+                      <td class="a-right last" colspan="50"><button onclick="#" class="button btn-continue" title="Continue Shopping" type="button"><span>Continue Shopping</span></button>
                         <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>
                         <button id="empty_cart_button" class="button" title="Clear Cart" value="empty_cart" name="update_cart_action" type="submit"><span>Clear Cart</span></button></td>
                     </tr>
                   </tfoot>
+
+                  <!-- Scripts para anadir y remover -->
+
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <tbody>
                     <tr class="first odd">
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a></td>
-                      <!--<td><h2 class="product-name"> <a href="#">Incredibles 2</a> </h2></td> -->
+                      <td><h2 class="product-name"> <a href="#">Incredibles 2</a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
-                     <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
+                      <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
                       <td class="a-center hidden-table"><span class="cart-price"> <span class="price">$9.99</span> </span></td>
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
                       <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$9.99</span> </span></td>
-                      <td class="a-center last"><a class="button remove-item" title="Remove item" href="#"><span><span>Remove item</span></span></a></td>
+                      <td class="a-center last"><a class="button remove-item" title="Remove item" href="#"onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>
                     <tr class="last even">
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/FarFromHomeMini.jpeg"></a></td>
-                      <td><h2 class="product-name"> <a href="#">Stylish Girl- Fashion Closet and Style Shopping</a> </h2></td>
+                      <td><h2 class="product-name"> <a id = "remove1" href="#">Stylish Girl- Fashion Closet and Style Shopping</a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
                       <td class="a-center hidden-table"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
                       <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
-                      <td class="a-center last"><a class="button remove-item" title="Remove item" href="#"><span><span>Remove item</span></span></a></td>
+                      <td class="a-center last"><a class="button remove-item" title="Remove item" href="#" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>
+                    <tr class="last even">
+                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/FarFromHomeMini.jpeg"></a></td>
+                      <td><h2 class="product-name"> <a id = "remove1" href="#">Stylish Girl- Fashion Closet and Style Shopping</a> </h2></td>
+                      <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
+                      <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
+                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
+                      <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
+                      <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
+                      <td class="a-center last"><a class="button remove-item" title="Remove item" href="#" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                   </tbody>
                 </table>
               </fieldset>
@@ -143,7 +160,7 @@ include("partials/navbar.php");
                       </li>
                     </ul>
                     <div class="buttons-set11">
-                      <button class="button get-quote" title="Get a Quote" type="button" ><span>Get a Quote</span></button>
+                      <button onclick = "alert('Free Shipping!')" class="button get-quote" title="Get a Quote" type="button" ><span>Get a Quote</span></button>
                     </div>
                     <!--buttons-set11-->
                   </form>
@@ -185,7 +202,7 @@ include("partials/navbar.php");
                   </table>
                   <ul class="checkout">
                     <li>
-                      <button id ="checkoutButton" onclick = alert()  class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+                      <button onclick = alert(location.hostname) class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
                     </li>
                     <br>
                     <li><a title="Checkout with Multiple Addresses" href="#">Checkout with Multiple Addresses</a> </li>
@@ -193,67 +210,67 @@ include("partials/navbar.php");
                   </ul>
                 </div>
               </div>
-              <!--inner--> 
-              
+              <!--inner-->
+
             </div>
           </div>
-          
-          <!--cart-collaterals--> 
-          
+
+          <!--cart-collaterals-->
+
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Brand logo starts  -->
   <div class="brand-logo wow bounceInUp animated">
     <div class="container">
       <div class="slider-items-products">
         <div id="brand-logo-slider" class="product-flexslider hidden-buttons">
-          <div class="slider-items slider-width-col6"> 
-            
+          <div class="slider-items slider-width-col6">
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="newImages/Page Icon/sony.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="newImages/Page Icon/paramount.com" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
             <!-- Item -->
             <div class="item"><a href="#"><img src="images/b-logo4.png" alt="Image"></a> </div>
-            <!-- End Item --> 
-            
+            <!-- End Item -->
+
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Brand logo ends  --> 
-  
-   <!-- Footer  --> 
-  
+
+  <!-- Brand logo ends  -->
+
+   <!-- Footer  -->
+
 <?php
 include("partials/footer.php");
 
@@ -469,7 +486,7 @@ include("partials/footer.php");
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
                 </ul>
               </div>
-              <div class="dropdown block-currency-wrapper"> 
+              <div class="dropdown block-currency-wrapper">
                 <ul>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
@@ -477,22 +494,15 @@ include("partials/footer.php");
                 </ul>
               </div>
 </div>
-<!-- JavaScript --> 
-<script type="text/javascript" src="js/jquery.min.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/parallax.js"></script> 
-<script type="text/javascript" src="js/common.js"></script> 
-<script type="text/javascript" src="js/jquery.flexslider.js"></script> 
-<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-<script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script> 
+<!-- JavaScript -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/parallax.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script>
 <script type="text/javascript" src="js/cloud-zoom.js"></script>
 
-<?php
-alert("Hello World");
-
-function alert($msg) {
-    echo "<script type='text/javascript'>alert('$msg');</script>";
-}
-?>
 </body>
 </html>
