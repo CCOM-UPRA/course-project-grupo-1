@@ -14,9 +14,8 @@ $address = $_POST['shipping'];
 if($password==$password2)
 {
     $sql="INSERT INTO user(firstName, lastName,email,password, phonenumber) VALUES('$firstname','$lastname','$email',PASSWORD('$password'),'$phonenumber')";
+    $sql2 ="INSERT INTO address(street1, street2,postal_code,city,country) VALUES('$address','$PO_box','$state','$country','$zip')";
     $connect->query($sql);
-    
-    $sql2 ="INSERT INTO address(address_id, street1,street2,postal_code,city) VALUES('$address','$PO_box','$state','$country','$zip')";
     $connect->query($sql2);
     echo "<script> alert('You are registered');
     window.location.href='login.php';
@@ -25,7 +24,7 @@ if($password==$password2)
 
 }else{
     echo "<script> alert('Password did not match');
-    window.location.href='sign_up.php';
+    window.location.href='/sign_up.php';
     </script>";
 }
 
