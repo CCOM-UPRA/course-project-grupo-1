@@ -140,7 +140,7 @@ include("partials/navbar.php");
             <div class="category-products">
 
 
-
+    //verifica
             <?php
             $sql = "Select * from products NATURAL JOIN categories where category_type = 'Movie'";
             $results = $connect->query($sql);
