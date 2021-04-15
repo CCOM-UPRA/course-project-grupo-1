@@ -74,14 +74,14 @@ include("partials/navbar.php");
                       <th class="a-center" rowspan="1">&nbsp;</th>
                     </tr>
                   </thead>
-                  <tfoot>
+                 <!-- <tfoot>
                     <tr class="first last">
                       <td class="a-right last" colspan="50"><button  class="button btn-continue" onclick = "index.php" title="Continue Shopping" type="submit"><span>Continue Shopping</span></button>
 
-                       <!-- <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button> -->
+                       <!-- <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>
                         <button id="empty_cart_button" class="button" title="Clear Cart" value="empty_cart" name="update_cart_action" onclick = "$('#shopping-cart-table tbody tr').remove()" type="submit"><span>Clear Cart</span></button></td>
                     </tr>
-                  </tfoot>
+                  </tfoot> -->
 
                   <!-- Scripts para anadir y remover -->
 
@@ -138,6 +138,9 @@ include("partials/navbar.php");
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
                             <option value="AL">Albania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="VQ">Vieques</option>
+                            <option value="CL">Culebra</option>
                           </select>
                         </div>
                       </li>
@@ -201,7 +204,7 @@ include("partials/navbar.php");
                   </table>
                   <ul class="checkout">
                     <li>
-                      <button onclick = alert(location.hostname) class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+                      <button  href = "checkout.php"class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
                     </li>
                     <br>
                     <li><a title="Checkout with Multiple Addresses" href="#">Checkout with Multiple Addresses</a> </li>
