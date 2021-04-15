@@ -36,9 +36,8 @@
 
 <body class="customer-account-index customer-account inner-page">
 <div id="page"> 
-
+  
  <?php
-error_reporting(0);
 include("partials/header.php");
 
 ?>
@@ -47,7 +46,6 @@ include("partials/header.php");
 include("partials/navbar.php");
 
 ?> 
-
   
   <!-- Main Container -->
   <section class="main-container col2-right-layout">
@@ -68,15 +66,15 @@ include("partials/navbar.php");
                     <li class="fields">
                       <div class="customer-name">
                         <div class="input-box name-firstname">
-                          <label for="firstName">First Name<span class="required">*</span></label>
+                          <label for="firstname">First Name<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="firstName" id="firstName" name="firstName" value="" title="" maxlength="255" class="input-text required-entry">
+                            <input type="text" id="firstname" name="" value="" title="" maxlength="255" class="input-text required-entry">
                           </div>
                         </div>
-                        <div class="input-box name-lastName">
+                        <div class="input-box name-lastname">
                           <label for="lastname">Last Name<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="lastName" id="lastName" name="lastName" value="" title="" maxlength="255" class="input-text required-entry">
+                            <input type="text" id="lastname" name="" value="" title="" maxlength="255" class="input-text required-entry">
                           </div>
                         </div>
                       </div>
@@ -84,52 +82,52 @@ include("partials/navbar.php");
                     <li>
                       <label for="email">Email Address<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="email" name="email" id="email" value="John.morales@ABC.co" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="email" name="" id="email" value="John.morales@ABC.co" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li>
-                      <label for="">Address Line 1<em class="required">*</em></label>
+                      <label for="email">Address Line 1<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="shpping" id="" value="Alden Town 2333" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="text" name="" id="email" value="Alden Town 2333" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li>
-                      <label for="">Address Line 2 (optional)<em class="required">*</em></label>
+                      <label for="email">Address Line 2 (optional)<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="po_box" id="" value="Apt 322" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="text" name="" id="email" value="Apt 322" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li>
-                      <label for="">City<em class="required">*</em></label>
+                      <label for="email">City<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="nation" id="" value="Chicago" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="text" name="" id="email" value="Chicago" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li>
-                      <label for="">State<em class="required">*</em></label>
+                      <label for="email">State<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="region" id="" value="E.U" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="text" name="" id="email" value="E.U" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                       <li>
-                      <label for="">Postal Code<em class="required">*</em></label>
+                      <label for="email">Postal Code<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="code" id="code" value="55245" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="text" name="" id="email" value="55245" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                       <label for="Phone">Phone Number<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="number" id="phone" name="phoneNumber" value="xxx-xxx-xxxx" title="" maxlength="255" class="input-text required-entry">
+                            <input type="number" id="phone" name="" value="7878543366" title="" maxlength="255" class="input-text required-entry">
                           </div>
                       <li>
-                  <label for="passWord">Password <span class="required">*</span></label>
+                  <label for="password">Password <span class="required">*</span></label>
                   <br>
-                  <input type="passWord" title="passWord" name="passWord" id="passWord" placeholder="password" class="input-text" name="">
+                  <input type="password" title="" id="password" placeholder="password" class="input-text" name="">
                 </li>
                       <li>
                   <label for="password">Confirm Password <span class="required">*</span></label>
                   <br>
-                  <input type="password"  title="password" placeholder="Confirm Password"  id="password" class="input-text" name="pass">
+                  <input type="password" title="" placeholder="password" id="password" class="input-text" name="">
                 </li>
                    <!-- <li class="control">
                       <input type="checkbox" name="" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="Change Password" class="checkbox">
@@ -150,13 +148,13 @@ include("partials/navbar.php");
                       <div class="field">
                         <label for="password">New Password<em class="required">*</em></label>
                         <div class="input-box">
-                          <input type="password" title="New Password" class="input-text validate-password" name="password" id="password">
+                          <input type="password" title="New Password" class="input-text validate-password" name="" id="password">
                         </div>
                       </div>
                       <div class="field">
                         <label for="confirmation">Confirm New Password<em class="required">*</em></label>
                         <div class="input-box">
-                          <input type="password" title="Confirm New Password" class="input-text validate-password" name="password2" id="confirmation">
+                          <input type="password" title="Confirm New Password" class="input-text validate-cpassword" name="" id="confirmation">
                         </div>
                       </div>
                     </li>
@@ -164,7 +162,7 @@ include("partials/navbar.php");
                 </div>
                 <div class="buttons-set">
                   <p class="required">* Required Fields</p>
-                  <button type="submit" title="Save" class="button" ><span>Create Account</span></button>
+                  <button type="submit" title="Save" class="button"><span>Create Account</span></button>
                   <a href="#"><small>« </small>Back</a> </div>
               </form>
             </div>

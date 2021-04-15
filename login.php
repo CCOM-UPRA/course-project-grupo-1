@@ -45,7 +45,11 @@ include("partials/header.php");
 <?php
 include("partials/navbar.php");
 
-?>  
+?> 
+
+<?php
+include("customer_login.php")
+?>
   
   <!-- Main Container -->
   <section class="main-container col1-layout bounceInUp animated">
@@ -69,19 +73,19 @@ include("partials/navbar.php");
               <p>If you have an account with us, please log in.</p>
               <ul class="form-list">
                 <li>
-                  <label for="email">Email Address <span class="required">*</span></label>
+                  <label for="uname"> Username <span class="required"></span></label>
                   <br>
-                  <input type="text" title="" class="input-text" id="email" value="" name="">
+                  <input type="text" title="" class="input-text" id="username" placeholder="username" name="username">
                 </li>
                 <li>
-                  <label for="pass">Password <span class="required">*</span></label>
+                  <label for="password">Password <span class="required"></span></label>
                   <br>
-                  <input type="password" title="" id="pass" class="input-text" name="">
+                  <input type="password" title="password" id="password" class="input-text" name="password" placeholder="password">
                 </li>
               </ul>
               <p class="required">* Required Fields</p>
               <div class="buttons-set">
-                <button id="send2" name="" type="submit" class="button login"><span>Log in</span></button>
+                <button id="login" class="button login" name="login"><span>Log in</span></button>
                 <a class="forgot-word" href="#">Forgot Your Password?</a> </div>
             </div>
           </div>
@@ -370,6 +374,7 @@ include("partials/footer.php");
               </div>
 </div>
 <!-- JavaScript --> 
+<script type="text/javascript" src="js/main_login.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="js/parallax.js"></script> 
@@ -378,5 +383,6 @@ include("partials/footer.php");
 <script type="text/javascript" src="js/owl.carousel.min.js"></script> 
 <script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script> 
 <script type="text/javascript" src="js/cloud-zoom.js"></script>
+
 </body>
 </html>
