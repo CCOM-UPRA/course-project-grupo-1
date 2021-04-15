@@ -26,6 +26,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+<link rel="stylesheet" type="text/css" href="css/newstyle.css" media="all">
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -37,6 +38,7 @@
   
  <?php
 include("partials/header.php");
+include("partials/retreivesingleproductID.php");
 
 ?>
   <!-- Navbar -->
@@ -45,21 +47,7 @@ include("partials/navbar.php");
 
 ?> 
   <!-- Breadcrumbs -->
-  <div class="breadcrumbs">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Movies</a></li>
-            <!-- <li><a href="#">Holiday</a></li>
-            <li><a href="#">Jeans</a></li>
-            <li><a href="#">Retis lapen casen</a></li> -->
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <!-- Breadcrumbs End --> 
 <!-- Main Container -->
 
@@ -68,106 +56,60 @@ include("partials/navbar.php");
     
     <div class="row">
       <div class="col-main col-sm-9 col-sm-push-3">
-        <div class="category-description std">
-          <div class="slider-items-products">
-            <div id="category-desc-slider" class="product-flexslider hidden-buttons">
-              <div class="slider-items slider-width-col1 owl-carousel owl-theme"> 
-                
-                <!-- Item -->
-                <div class="item"> <a href="#"><img alt="" src="newImages/Movies/Slide/classic.jpg"></a>
-                  <div class="cat-img-title cat-bg cat-box">
-                    <!-- <div class="small-tag"><span>Hot Sale</span> 49% OFF</div> -->
-                    <h2 class="cat-heading">Movie Collection</h2>
-                    <p>Here you can find the bests movies on the market. </p>
-                  </div>
-                </div>
-                <!-- End Item --> 
-                
-                <!-- Item -->
-                <div class="item"> <a href="#"><img alt="" src="newImages/Movies/Slide/marvel.jpg"></a> 
-                  
-                  <!-- End Item --> 
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <article class="col-main">
           <div class="page-title">
             <h1>Movies</h1>
           </div>
         
-          <div class="toolbar">
-            <div class="sorter">
-                <div class="view-mode"> <a href="grid.php" title="Grid" class="button button-grid">&nbsp;</a>&nbsp; <span title="List" class="button button-active button-list">&nbsp;</span>&nbsp; </div>
-              </div>
-            <div id="sort-by">
-              <label class="left">Sort By: </label>
-              <ul>
-                <li><a href="#">Position<span class="right-arrow"></span></a>
-                  <ul>
-                    <li><a href="#">Name</a></li>
-                    <li><a href="#">Price</a></li>
-                    <li><a href="#">Position</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
-            <div class="pager">
-              <div id="limiter">
-                <label>View: </label>
-                <ul>
-                  <li><a href="#">15<span class="right-arrow"></span></a>
-                    <ul>
-                      <li><a href="#">20</a></li>
-                      <li><a href="#">30</a></li>
-                      <li><a href="#">35</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <!-- <div class="pages">
-                <label>Page:</label>
-                <ul class="pagination">
-                  <li><a href="#">&laquo;</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
-              </div> -->
-            </div>
-          </div>
+    
           <div class="category-products">
+          <?php
+
+                //We will the item info for the product id sent by the shop grid
+                //mysqli_connect() function opens a new connection to the MYSQL server
+
+                $query = "SELECT product_id, product_name, price, photo FROM products Inner JOIN categories ON products.category_id = categories.category_id WHERE product_id = '$id'";  //definimos query para mostrar nombre, precio,descripcion,categoria y foto
+                $stmt = $connect->prepare($query);     //prepare $stmt to be executed with a defined connection
+                $stmt->execute();                   // execute statement
+                $results = $stmt->get_result();     //get results from query 
+                $final = $results->fetch_assoc() ?>
+            
+
+            
             <ol class="products-list" id="products-list">
           <li class="item first">
-            <div class="product-image"> <a href="#" title="Avengers Endgame"> <img class="small-image" src="newImages/Movies/movies/AvengersEndGame.jpg" alt="Avengers Endgame" title="Avengers Engame"> </a> </div>
+            <div class="product-image"> <a href="#" title="Avengers Endgame"> <img class="small-image" src="<?php echo $final['photo']?>" alt="Avengers Endgame" title="Avengers Engame"> </a> </div>
             <div class="product-shop">
-              <h2 class="product-name"><a href="#/htc-rhyme-sense.php" title="Avengers Endgame">Avengers Endgame</a></h2>
-            <!--  <div class="ratings">
-                <div class="rating-box">
-                  <div style="width:50%" class="rating"></div>
-                </div>
-                <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-              </div>-->
+              <h2 class="product-name"><a href="#/htc-rhyme-sense.php" title="Avengers Endgame"><?php echo $final['product_name']?></a></h2>
               <div class="desc std">
-                <p>Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.</p>
+                <span>Director: <?php echo $final['director']?></span>
+            </br>
+                <span>Starring: <?php echo $final['starring']?></span>
+                </br>
+                <span>Rating: <?php echo $final['rating']?></span>
+                </br>
+                <span>Launch Date: <?php echo $final['launch_date']?></span>
+                </br>
+                <span>Description: </span>
+                </br>
+                </br>
+                <p><?php echo $final['description']?></p>
               </div>
               <div class="price-box">
                
-                <!-- <p class="special-price"> <span class="price-label"></span> <span class="price"> $19.99 </span> </p> <p class="old-price"> <span class="price-label"></span> <span class="price"> $442.99 </span> </p> -->
-                <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
+                <div class="price-box"> <span class="regular-price"> <span class="price">$ <?php echo $final['price']?></span> </span> </div>
               </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
-                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
+                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="<?php echo $final['trailer']?>"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
-          <li class="item even">
+
+         
+
+
+          <!-- <li class="item even">
             <div class="product-image"> <a href="#/microsoft-natural-ergonomic-keyboard-4000.php" title="Avengers Infinity War"> <img class="small-image" src="newImages/Movies/movies/Infinity.jpg" alt="Avengers Infinity War" title="Avengers Infinity War"> </a> </div>
             <div class="product-shop">
               <h2 class="product-name"><a href="#/microsoft-natural-ergonomic-keyboard-4000.php" title="Avengers Infinity War">Avengers Infinity War</a></h2>
@@ -177,7 +119,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-               <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -191,7 +132,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                 <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -205,7 +145,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-               <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -219,7 +158,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$14.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-               <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -233,7 +171,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                 <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -247,7 +184,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$14.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-               <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -261,7 +197,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$14.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-               <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -275,7 +210,6 @@ include("partials/navbar.php");
               <div class="price-box"> <span class="regular-price"> <span class="price">$7.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-               <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
                <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
           </li>
@@ -283,22 +217,15 @@ include("partials/navbar.php");
             <div class="product-image"> <a href="#/logitech-dinovo-edge-keyboard.php" title="Beauty and The Beast"> <img class="small-image" src="newImages/Movies/movies/beauty.jpg" alt="Beauty and The Beast" title="Beauty and The Beast"> </a> </div>
             <div class="product-shop">
               <h2 class="product-name"><a href="#/logitech-dinovo-edge-keyboard.php" title="Beauty and The Beast">Beauty and The Beast</a></h2>
-            <!--  <div class="ratings">
-                <div class="rating-box">
-                  <div style="width:80%" class="rating"></div>
-                </div>
-                <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
-              </div>-->
               <div class="desc std">
                 <p>Belle (Emma Watson), a bright, beautiful and independent young woman, is taken prisoner by a beast (Dan Stevens) in its castle. Despite her fears, she befriends the castle's enchanted staff and learns to look beyond the beast's hideous exterior, allowing her to recognize the kind heart and soul of the true prince that hides on the inside.</p>
                             </div>
               <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-<!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
 <span class="add-to-links">  <a title="Watch Trailer" class="button link-compare" href="#"><span>Watch Trailer</span></a> </span> </div>
             </div>
-          </li>
+          </li> -->
         </ol>
           </div>
         </article>
@@ -420,68 +347,7 @@ include("partials/navbar.php");
                 </ol>
               </div>
             </div>
-           <!-- <div class="block block-poll">
-              <div class="block-title">Community Poll </div>
-              <form id="pollForm" action="#" method="post" onSubmit="return validatePollAnswerIsSelected();">
-                <div class="block-content">
-                  <p class="block-subtitle">What is your favorite Magento feature?</p>
-                  <ul id="poll-answers">
-                    <li class="odd">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_5" value="5">
-                      <span class="label">
-                      <label for="vote_5">Layered Navigation</label>
-                      </span> </li>
-                    <li class="even">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_6" value="6">
-                      <span class="label">
-                      <label for="vote_6">Price Rules</label>
-                      </span> </li>
-                    <li class="odd">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_7" value="7">
-                      <span class="label">
-                      <label for="vote_7">Category Management</label>
-                      </span> </li>
-                    <li class="last even">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_8" value="8">
-                      <span class="label">
-                      <label for="vote_8">Compare Products</label>
-                      </span> </li>
-                  </ul>
-                  <div class="actions">
-                    <button type="submit" title="Vote" class="button button-vote"><span>Vote</span></button>
-                  </div>
-                </div>
-              </form>
-            </div>
-           <!-- <div class="block block-tags">
-              <div class="block-title"> Popular Tags</div>
-              <div class="block-content">
-                <ul class="tags-list">
-                  <li><a href="#" style="font-size:98.3333333333%;">Camera</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">Hohoho</a></li>
-                  <li><a href="#" style="font-size:145%;">SEXY</a></li>
-                  <li><a href="#" style="font-size:75%;">Tag</a></li>
-                  <li><a href="#" style="font-size:110%;">Test</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">bones</a></li>
-                  <li><a href="#" style="font-size:110%;">cool</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">cool t-shirt</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">crap</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">good</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">green</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">hip</a></li>
-                  <li><a href="#" style="font-size:75%;">laptop</a></li>
-                  <li><a href="#" style="font-size:75%;">mobile</a></li>
-                  <li><a href="#" style="font-size:75%;">nice</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">phone</a></li>
-                  <li><a href="#" style="font-size:98.3333333333%;">red</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">tight</a></li>
-                  <li><a href="#" style="font-size:75%;">trendy</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">young</a></li>
-                </ul>
-                <div class="actions"> <a href="#" class="view-all">View All Tags</a> </div>
-              </div>
-            </div> -->
-
+         
           </aside>
         </div>
     </div>

@@ -1,0 +1,14 @@
+option{
+    color:black;
+  }
+  select {
+	width: 100px;
+  height: 33px;
+}
+#sorting{
+  color:black;
+}
+.newimg{
+    width: 400px;
+    height: 350px;
+}
