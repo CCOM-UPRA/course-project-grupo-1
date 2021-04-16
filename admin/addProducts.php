@@ -78,7 +78,7 @@ include("productHandler.php");
                 </div>
                 <?php
                   
-                  include('../partials/connect.php')
+                  include('../partials/connect.php');
                   $cat
                   ?>
                  <!--<div class= "form-group">
