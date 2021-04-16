@@ -176,7 +176,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="Thor Love and Thunder">Thor Love and Thunder</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$19.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">February 11, 2022</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -210,7 +210,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="Black Widow">Black Widow</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$14.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">July 9, 2022</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -244,7 +244,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="Doctor Strange in  the Multiverse of Madness">D. S. Multiverse of Madness</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$19.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">March 25, 2022</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -278,7 +278,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="newImages/ComingSoon/kenobiedited.jpg" title="Kenobi Series">Obi-Wan Kenobi</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$14.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">2022</span> </div>
                           </div>
                         </div>
                       </div>
@@ -312,7 +312,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="The Bad Batch">The Bad Batch</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$14.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">May 4, 2021</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -346,7 +346,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="Ahsoka">Ahsoka</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$14.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">2024</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -380,7 +380,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="Sonic the Hedgehog 2">Sonic the Hedgehog 2</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$19.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">April 7, 2022</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -414,7 +414,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="John Wick Chapter 4">John Wick Chapter 4</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$19.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">May 27, 2022</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -449,7 +449,7 @@ include("partials/navbar.php");
                         <div class="item-title"><a href="#" title="Jurassic World Dominion">Jurassic World Dominion</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$19.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">June 10, 2022</span> </span> </div>
                           </div>
                         </div>
                       </div>

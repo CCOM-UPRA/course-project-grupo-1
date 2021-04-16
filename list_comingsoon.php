@@ -159,7 +159,7 @@ include("partials/navbar.php");
               <div class="price-box">
                
                 <!-- <p class="special-price"> <span class="price-label"></span> <span class="price"> $19.99 </span> </p> <p class="old-price"> <span class="price-label"></span> <span class="price"> $442.99 </span> </p> -->
-                <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
+                <div class="price-box"> <span class="regular-price"> <span class="price">February 11, 2022</span> </span> </div>
               </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
@@ -174,7 +174,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>Black Widow is an upcoming American superhero film based on the Marvel Comics character of the same name. Produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures, it is intended to be the 24th film in the Marvel Cinematic Universe (MCU). The film was directed by Cate Shortland and written by Eric Pearson from a story by Jac Schaeffer and Ned Benson, and stars Scarlett Johansson as Natasha Romanoff / Black Widow alongside Florence Pugh, David Harbour, O-T Fagbenle, William Hurt, Ray Winstone, and Rachel Weisz. Set after Captain America: Civil War (2016), the film sees Romanoff on the run and forced to confront her past.</p>
               </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">July 9, 2022</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
@@ -187,7 +187,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>Doctor Strange in the Multiverse of Madness is an upcoming American superhero film based on the Marvel Comics character Doctor Strange. Produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures, it is intended to be the sequel to Doctor Strange (2016) and the 28th film of the Marvel Cinematic Universe (MCU). The film is directed by Sam Raimi from a script written by Jade Bartlett and Michael Waldron, and stars Benedict Cumberbatch as Stephen Strange, alongside Elizabeth Olsen, Benedict Wong, Rachel McAdams, Chiwetel Ejiofor, and Xochitl Gomez. In the film, Strange unleashes an unspeakable evil as he faces a friend-turned-enemy.</p>              
               </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">March 25, 2022</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
@@ -200,7 +200,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>The Obi-Wan Kenobi series has an opportunity to truly explore the legacy of the iconic Star Wars character. Kenobi debuted to audiences in 1977 with Alec Guinness. Ewan McGregor later played the role of Kenobi, filling in the story of his life from a padawan learner to Jedi master in the Star Wars prequels. He now returns to the role of Obi-Wan once more to fill in the remaining gaps in the character's story.</p>             
                </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$14.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">2022</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
@@ -213,7 +213,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>Star Wars: The Bad Batch is an upcoming American animated series created by Dave Filoni. It is part of the Star Wars franchise, acting as both a sequel to and spin-off from the series Star Wars: The Clone Wars. Clone Force 99, also known as the Bad Batch take on daring mercenary missions in the aftermath of the Clone Wars.</p>
                             </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$14.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">May 4, 2021</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
@@ -226,7 +226,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>In December 2020, Ahsoka was announced. Developed by Favreau and Filoni, it exists alongside The Mandalorian and Rangers of the New Republic through interconnected stories culminating in a "climactic story event". Rosario Dawson headlines the series, reprising her role as Ahsoka Tano. It will be a limited series</p>       
                      </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$14.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">2024</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
@@ -239,7 +239,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>Sonic the Hedgehog is an upcoming live action/computer-animated action-adventure comedy film based on the Sonic the Hedgehog video game franchise published by Sega. Directed by Jeff Fowler (in his feature directorial debut) and written by Pat Casey and Josh Miller, it stars Ben Schwartz and Jim Carrey. It is the second installment of Sonic the Hedgehog film series. </p>
                             </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">April 7, 2022</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
@@ -252,7 +252,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>This upcoming film focuses on John Wick who must do whatever it takes to obtain military grade secure documents that will prevent World War 3. Keanu stated that he would continue making sequels, as long as the films are successful. The film is now scheduled for release on May 27, 2022, with Spiral taking its previous spot.</p>
                             </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">May 27, 2022</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
@@ -272,7 +272,7 @@ include("partials/navbar.php");
               <div class="desc std">
                 <p>Jurassic World: Dominion is an upcoming American science fiction adventure dinosaur film directed by Colin Trevorrow, who wrote the screenplay with Emily Carmichael, based on a story by Trevorrow and his writing partner, Derek Connolly. It is the sequel to Jurassic World: Fallen Kingdom (2018), the sixth installment in the Jurassic Park franchise, and the third and final film in the Jurassic World trilogy. As with its predecessors, Frank Marshall and Patrick Crowley will produce the film, with Trevorrow and Jurassic Park (1993) director Steven Spielberg acting as executive producers. </p>
                             </div>
-              <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
+              <div class="price-box"> <span class="regular-price"> <span class="price">June 10, 2022</span> </span> </div>
               <div class="actions">
                 <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                 <!-- <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.php"><span>Add to Wishlist</span></a> -->
