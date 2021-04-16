@@ -166,9 +166,9 @@ include("partials/navbar.php");
                         </fieldset>
                       </li>
                       <li>
-                        <input type="radio" name="" id="billing:use_for_shipping_yes" value="1" class="radio">
+                        <input type="radio" name="shipwhere" id="billing:use_for_shipping_yes" value="1" class="radio">
                         <label for="billing:use_for_shipping_yes">Ship to this address</label>
-                        <input type="radio" name="" id="billing:use_for_shipping_no" value="0" checked="checked" class="radio">
+                        <input type="radio" name="shipwhere" id="billing:use_for_shipping_no" value="0" checked="checked" class="radio">
                         <label for="billing:use_for_shipping_no">Ship to different address</label>
                       </li>
                     </ul>
