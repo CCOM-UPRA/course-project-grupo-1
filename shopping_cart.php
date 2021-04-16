@@ -204,7 +204,12 @@ include("partials/navbar.php");
                   </table>
                   <ul class="checkout">
                     <li>
-                      <button  href = "checkout.php"class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+                        <script>
+                            function test1000() {
+                            location.replace("checkout.php")
+                            }
+                        </script>
+                      <button onclick="test1000()" href="checkout.php" class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
                     </li>
                     <br>
                     <li><a title="Checkout with Multiple Addresses" href="#">Checkout with Multiple Addresses</a> </li>
