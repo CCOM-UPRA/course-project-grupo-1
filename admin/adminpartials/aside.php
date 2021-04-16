@@ -81,7 +81,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Manage User</a></li>
+            <li><a href="../admin/manageUser.php"><i class="fa fa-circle-o"></i> Manage User</a></li>
             <li><a href="../admin/addUser.php"><i class="fa fa-circle-o"></i> Add User</a></li>
           </ul>
         </li>
