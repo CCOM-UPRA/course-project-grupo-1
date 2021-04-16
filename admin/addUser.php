@@ -37,6 +37,7 @@ move_uploaded_file($file_tmp,$file_store);
 $sql="INSERT INTO user(firstName, lastName, email, password, phoneNumber, birthdate, user_admin, status) 
 VALUES('$firstName','$lastName','$email','$password','$phoneNumber','$birthdate','$user_admin','$status')";
 
+
 //$sql="INSERT INTO categories(category_genre, category_type) VALUES('$genres','$category_type')";
 
 $connect->query($sql);
@@ -141,7 +142,6 @@ include("adminpartials/aside.php");
               <div class="box-footer">
                 <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
                 <button ><a href="adminindex.php" >Back</a></button>
-                
               </div>
 
             </form>

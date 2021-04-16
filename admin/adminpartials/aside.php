@@ -26,7 +26,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
@@ -34,7 +34,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="../admin/adminindex.php"><i class="fa fa-circle-o"></i> Overview</a></li>
+            <li><a href="../admin/adminindex.php"><i class="fa fa-circle-o"></i> Overview</a></li>
           </ul>
         </li>
         <!--<li class="treeview">
@@ -96,7 +96,7 @@
             <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Sales Report</a></li>
             <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Product Sales</a></li>
             <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Cancel Orders</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Inventory</a></li>
+            <li><a href="../admin/inventory.php"><i class="fa fa-circle-o"></i> Inventory</a></li>
           </ul>
         </li>
         <!--<li class="treeview">

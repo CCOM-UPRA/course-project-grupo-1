@@ -124,7 +124,7 @@
     .text-danger {
         color: #ff5b5b;
     }
-    .pagination {
+    /* .pagination {
         float: right;
         margin: 0 0 5px;
     }
@@ -155,6 +155,10 @@
     .pagination li i {
         font-size: 16px;
         padding-top: 6px
+    } */
+    img{
+        width:100px;
+        height:100px;
     }
     .hint-text {
         float: left;
@@ -202,40 +206,32 @@ include("../partials/connect.php");
                     <div class="table-title">
                         <div class="row">
                             <div class="col-xs-5">
-                                <h2>User <b>Management</b></h2>
+                                <h2>Inventory <b>Report</b></h2>
                             </div>
                         </div>
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Image</th>
                                 <th>Name</th>
-                                <th>Last Name</th>						
-                                <th>Date Created</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Role</th>
-                                <th>Edit</Em></th>
+                                <th>Category</th>						
+                                <th>Genre</th>
+                                <th>Stock</Em></th>
                             <tbody>
-                            <?php
-            $sql = "Select * from user";
+                            
+            <?php
+            $sql = "Select * from products";
             $results = $connect->query($sql);
             
 
             while($final = $results->fetch_assoc()){ ?>
                             <tr>
-                                
-                                <td><?php echo $final['userID']?></td>
-                                <td><?php echo $final['firstName']?></td>
-                                <td><?php echo $final['lastName']?></td>   
-                                <td><?php echo $final['created_at']?></td>
-                                <td><?php echo $final['email']?></td>                     
-                                <td><?php echo $final['phoneNumber']?></td>
-                                <td>Admin</td>
-                                <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-bars"></i></a>
-                                </td>
+                                <td><img src="../<?php echo $final['photo']?>"></td>
+                                <td><?php echo $final['product_name']?></td>
+                                <td><?php echo $final['category']?></td>   
+                                <td><?php echo $final['genres']?></td>
+                                <td><?php echo $final['stocks_amount']?></td>
                             </tr>
                             <?php } ?>
                         </tbody>

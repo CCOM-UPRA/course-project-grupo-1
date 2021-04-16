@@ -22,7 +22,8 @@ if(isset($_POST['submit']) ){
 include("../partials/connect.php");
 //products
 $product_Name=$_POST['product_Name'];
-$Category=$_POST['Category'];
+$category=$_POST['category'];
+$photo= basename( $_FILES["photo"]["product_Name"]);
 $genres=$_POST['genres'];
 $rating=$_POST['rating'];
 $price=$_POST['price'];
@@ -32,18 +33,21 @@ $starring=$_POST['starring'];
 $launch_Date=$_POST['launch_Date'];
 $description=$_POST['description'];
 
-//$category_type=$_POST['category_type'];
-/*
-$target="../uploads/";
-$file_path=$target.basename($_FILES['file']['name']);
-$file_name=$_FILES['file']['name'];
-$file_tmp=$_FILES['file']['tmp_name'];
-$file_store="../uploads/".$file_name;
 
-move_uploaded_file($file_tmp,$file_store);
-*/
-$query = ("SELECT category_id from categories where $genres = category_genre AND $Category = category_type");
-$sql="INSERT INTO products(product_Name,category_id,genres, rating, price, director, stocks_amount, starring, launch_Date, description) VALUES('$product_Name','$query','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description')";
+$target_dir = "../newImages/"; 
+$target_file = $target_dir . basename($_FILES["photo"]["product_Name"]);
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// $target="../newImages/";
+// $file_path=$target . basename($_FILES['file']['name']);
+// $file_name=$_FILES['file']['name'];
+// $file_tmp=$_FILES['file']['tmp_name'];
+// $file_store="../newImages/".$file_name;
+
+// move_uploaded_file($file_tmp,$file_store);
+
+// $query = ("SELECT category_id from categories where $genres = category_genre AND $category = category_type");
+$sql="INSERT INTO products(product_Name,photo,category,genres, rating, price, director, stocks_amount, starring, launch_Date, description)
+ VALUES('$product_Name','$category','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description',$photo)";
 
 
 
@@ -88,8 +92,8 @@ mysqli_close($connect);
                   <input type="text" class="form-control" id="product_name" name="product_Name" placeholder="Enter Product Name">
                 </div>
                 <div class="form-group">
-                  <label for="Category">Category</label>
-                  <input type="text" class="form-control" id="Category" name="Category" placeholder="Enter Category">
+                  <label for="category">Category</label>
+                  <input type="text" class="form-control" id="category" name="category" placeholder="Enter Category">
                 </div>
                 <div class="form-group">
                   <label for="genres">Genres</label>
