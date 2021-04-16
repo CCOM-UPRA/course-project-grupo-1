@@ -6,13 +6,54 @@
     ?>
     
 <body class="hold-transition skin-blue sidebar-mini">
+<?php
+include("../partials/connect.php");
+error_reporting(0);
+
+
+$firstName=$_POST['firstName'];
+$lastName=$_POST['lastName'];
+$email=$_POST['email'];
+$password=$_POST['password'];
+$phoneNumber=$_POST['phoneNumber'];
+$birthdate=$_POST['birthdate'];
+$user_admin=$_POST['user_admin'];
+$status=$_POST['status'];
+
+
+//$category_type=$_POST['category_type'];
+/*
+$target="../uploads/";
+$file_path=$target.basename($_FILES['file']['name']);
+$file_name=$_FILES['file']['name'];
+$file_tmp=$_FILES['file']['tmp_name'];
+$file_store="../uploads/".$file_name;
+
+move_uploaded_file($file_tmp,$file_store);
+*/
+
+$sql="INSERT INTO user(firstName, lastName, email, password, phoneNumber, birthdate, user_admin, status) 
+VALUES('$firstName','$lastName','$email','$password','$phoneNumber','$birthdate','$user_admin','$status')";
+
+//$sql="INSERT INTO categories(category_genre, category_type) VALUES('$genres','$category_type')";
+
+$connect->query($sql);
+
+mysqli_close($connect);
+
+
+// header("Location: adminindex.php");
+
+
+?>
 <div class="wrapper">
 
 <?php 
 error_reporting(0);
 include("adminpartials/header.php");
 include("adminpartials/aside.php");
-include("userHandler.php");
+
+//include_once "conn.php";
 ?>
   
 
@@ -42,35 +83,35 @@ include("userHandler.php");
               <div class="box-body">
                 <div class="form-group">
                   <label for="firstName">First Name</label>
-                  <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name">
+                  <input type="text" class="form-control" id="firstName" name="firstName" required placeholder="Enter First Name">
                 </div>
                 <div class="form-group">
                   <label for="lastName">Last Name</label>
-                  <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter Last name">
+                  <input type="text" class="form-control" id="lastName" name="lastName" required placeholder="Enter Last name">
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+                  <input type="text" class="form-control" id="email" name="email" required placeholder="Enter Email">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="text" class="form-control" id="password" name="password" placeholder="Enter Password">
+                  <input type="text" class="form-control" id="password" name="password" required placeholder="Enter Password">
                 </div>
                 <div class="form-group">
                   <label for="phoneNumber">Phone number</label>
-                  <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone number">
+                  <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required placeholder="Enter Phone number">
                 </div>
                 <div class="form-group">
                   <label for="birthdate">Birth Date</label>
-                  <input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="month day#, year">
+                  <input type="text" class="form-control" id="birthdate" name="birthdate" required placeholder="month day#, year">
                 </div>
                 <div class="form-group">
                   <label for="user_admin">Admin</label>
-                  <input type="text" class="form-control" id="user_admin" name="user_admin" placeholder="Enter Role">
+                  <input type="text" class="form-control" id="user_admin" name="user_admin" required placeholder="Enter Role">
                 </div>
                 <div class="form-group">
                   <label for="status">Status</label>
-                  <input type="text" class="form-control" id="status" name="status" placeholder="Enter Status">
+                  <input type="text" class="form-control" id="status" name="status" required placeholder="Enter Status">
                 </div>
                 <!-- <div class="form-group">
                     <label for="description">Description</label>
