@@ -107,7 +107,7 @@ include("partials/connect.php");
                 
                   <div class="myaccount"><a title="My Account" href="login.php"><span class="hidden-xs">My Account</span></a></div>
                   <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
-                  <div class="demo"><a title="Blog" href="admin_buttons.php"><span class="hidden-xs">Admin</span></a></div>
+                  <div class="demo"><a title="Blog" href="../admin/adminindex.php"><span class="hidden-xs">Admin</span></a></div>
                   <!-- Header Company -->
                   
                   <!-- End Header Company -->

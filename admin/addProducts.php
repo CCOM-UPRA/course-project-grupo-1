@@ -76,7 +76,11 @@ include("productHandler.php");
                   <label for="photos">File input</label>
                   <input type="file" id="photos" name="file">
                 </div>
-                
+                <?php
+                  
+                  include('../partials/connect.php')
+                  $cat
+                  ?>
                  <!--<div class= "form-group">
                        <label for="category_type">Category Type</label>
                       <select id= "category_type" name="category_type">
