@@ -173,7 +173,7 @@
 error_reporting(0);
 include("adminpartials/header.php");
 include("adminpartials/aside.php");
-include("userHandler.php");
+include("../partials/connect.php");
 ?>
   
 
@@ -194,6 +194,7 @@ include("userHandler.php");
     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
+     
       <div class="container">
             <div class="table-responsive">
                 <div class="table-wrapper">
@@ -208,79 +209,41 @@ include("userHandler.php");
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>						
+                                <th>Name</th>
+                                <th>Last Name</th>						
                                 <th>Date Created</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Role</th>
-                                <th>Edit/Delete</Em></th>
+                                <th>Edit</Em></th>
                             <tbody>
+                            <?php
+            $sql = "Select * from user";
+            $results = $connect->query($sql);
+            
+
+            while($final = $results->fetch_assoc()){ ?>
                             <tr>
-                                <td>1</td>
-                                <td>Juan Ayala</td>
-                                <td>3/5/2021</td>   
-                                <td>juan@upr.edu</td>
-                                <td>787-342-3521</td>                     
-                                <td>User</td>
+                                
+                                <td><?php echo $final['userID']?></td>
+                                <td><?php echo $final['firstName']?></td>
+                                <td><?php echo $final['lastName']?></td>   
+                                <td><?php echo $final['created_at']?></td>
+                                <td><?php echo $final['email']?></td>                     
+                                <td><?php echo $final['phoneNumber']?></td>
+                                <td>Admin</td>
                                 <td>
                                     <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Yamil Galan</td>
-                                <td>3/5/2021</td>
-                                <td>yamil@upr.edu</td>
-                                <td>787-342-3521</td>                         
-                                <td>User</td>
-                                <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Carlos Colon</td>
-                                <td>3/5/2021</td>
-                                <td>carlos@upr.edu</td>
-                                <td>787-342-3521</td>  
-                                <td>User</td>
-                                                        <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                </td>                        
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Jean Gonzalez</td>
-                                <td>3/5/2021</td>
-                                <td>jean@upr.edu</td>
-                                <td>787-342-3521</td>  
-                                <td>User</td>
-                                <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Eliana Valenzuela</td>
-                                <td>3/5/2021</td>
-                                <td>eliana@upr.edu</td>
-                                <td>787-342-3521</td>                          
-                                <td>User</td>
-                                <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                </td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
 
                 </div>
             </div>        
         </div>
+        
     </section>
     <!-- /.content -->
   </div>
