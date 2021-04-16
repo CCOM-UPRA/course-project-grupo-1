@@ -138,7 +138,7 @@ include("partials/navbar.php");
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" onclick = " " type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                            <button class="button btn-cart" onclick = "addToCart($final['product_id'],$final['product_name'],$final['price'],$final['photo']) " type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
       

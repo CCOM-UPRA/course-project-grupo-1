@@ -99,18 +99,19 @@ include("partials/navbar.php");
 
                   </table>
 
-
+<!--
                           <?php
              $sql = "SELECT photo, product_id, product_name, price FROM products";
-            $results = $connect->query($sql);
+            $products = $connect->query($sql);
 
 
-            while($final = $results->fetch_assoc()){ ?>
+            while($final = $products->fetch_assoc()){ ?>
 
-
-
-
-
+          <!-- Navbar -->
+            <?php
+            include("partials/addToCart.php");
+                            echo addToCart();
+            ?>
 
 
                 <table class="data-table cart-table" id="shopping-cart-table">
@@ -137,7 +138,7 @@ include("partials/navbar.php");
 
                   <!-- Scripts para anadir y remover -->
 
-                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+               <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <tbody>
                     <tr class="first odd">
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a></td>
@@ -161,7 +162,7 @@ include("partials/navbar.php");
                       <td class="a-center last"><a class="button remove-item" title="Remove item" href="#" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>-->
 
-                  </tbody>
+               <!--   </tbody>
                   <?php } ?>
                 </table>
               </fieldset>
