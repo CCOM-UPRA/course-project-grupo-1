@@ -7,9 +7,11 @@
     
 <body class="hold-transition skin-blue sidebar-mini">
 <?php
-include("../partials/connect.php");
-error_reporting(0);
 
+error_reporting(E_ALL);
+
+if(isset($_POST['submit']) ){
+include("../partials/connect.php");
 
 $firstName=$_POST['firstName'];
 $lastName=$_POST['lastName'];
@@ -41,8 +43,8 @@ $connect->query($sql);
 
 mysqli_close($connect);
 
+}
 
-// header("Location: adminindex.php");
 
 
 ?>
@@ -137,8 +139,11 @@ include("adminpartials/aside.php");
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+                <button ><a href="adminindex.php" >Back</a></button>
+                
               </div>
+
             </form>
             </div>
         </div>

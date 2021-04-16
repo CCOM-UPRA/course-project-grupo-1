@@ -66,9 +66,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Manage Products</a></li>
+            <li><a href="../admin/manageProducts.php"><i class="fa fa-circle-o"></i> Manage Products</a></li>
             <li><a href="../admin/addProducts.php"><i class="fa fa-circle-o"></i> Add Products</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Product Category</a></li>
+            <!-- <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Product Category</a></li> -->
             
           </ul>
         </li>
