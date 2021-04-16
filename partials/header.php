@@ -40,7 +40,12 @@ include("partials/connect.php");
               <div>
                 <div class="top-cart-content" style="display: none;">
                   <div class="actions">
-                    <button class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
+                      <script>
+                            function sendtocheckout() {
+                            location.replace("checkout.php")
+                            }
+                        </script>
+                    <button class="btn-checkout" onclick="sendtocheckout()" title="Checkout" type="button"><span>Checkout</span></button>
                     <a href="shopping_cart.php" class="view-cart" ><span>View Cart</span></a> </div>
                   <!--block-subtitle-->
                   <ul class="mini-products-list" id="cart-sidebar">
