@@ -40,23 +40,7 @@
 <?php
 include("partials/header.php");
 include("partials/navbar.php");
-    
-    if(isset($_POST['login'])){
-    
-    include("partials/connect.php");
-        
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $sql="SELECT * from user Where email ='$email' AND password='$password'";
-    $results=$connect->query($sql);
-    $final=$results->fetch_assoc();
-        
-    if($email=$final['email']){
-        echo "<script> alert('Credentials are right');     window.location.href='admin/adminindex.php';     </script>"; 
-    }else{
-        echo "<script> alert('Credentials are wrong');     window.location.href='login.php';     </script>"; 
-    }        
-}
+include("customer_login.php");
 ?>
   
   <!-- Main Container -->
@@ -86,7 +70,7 @@ include("partials/navbar.php");
                 <li>
                   <label for="email"> Username <span class="required"></span></label>
                   <br>
-                  <input type="text" title="email" class="input-text"  placeholder="Username" name="email">
+                  <input type="email" title="email" class="input-text"  placeholder="Username" name="email">
                 </li>
                 <li>
                   <label for="password">Password <span class="required"></span></label>

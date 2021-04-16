@@ -14,7 +14,7 @@ $address = $_POST['shipping'];
 $birth = $_POST['birthdate'];
 if($password==$password2)
 {
-    $sql="INSERT INTO user(firstName, lastName,birthdate,email,password, phonenumber) VALUES('$firstname','$lastname','$birth','$email',PASSWORD('$password'),'$phonenumber')";
+    $sql="INSERT INTO user(firstName, lastName,birthdate,email,password, phonenumber) VALUES('$firstname','$lastname','$birth','$email','$password','$phonenumber')";
     $sql2 ="INSERT INTO address(street1, street2,postal_code,city,country) VALUES('$address','$PO_box','$state','$country','$zip')";
     $connect->query($sql);
     $connect->query($sql2);
