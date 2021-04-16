@@ -48,7 +48,7 @@ include("partials/navbar.php");
 ?> 
 
 <?php
-include("customer_login.php")
+include("customer_login.php");
 ?>
   
   <!-- Main Container -->
@@ -68,28 +68,35 @@ include("customer_login.php")
               </div>
             </div>
           </div>
+          
           <div class="col-2 registered-users"><strong>Registered Customers</strong>
             <div class="content">
+            
               <p>If you have an account with us, please log in.</p>
+              
               <ul class="form-list">
                 <li>
-                  <label for="uname"> Username <span class="required"></span></label>
+                  <label for="username"> Username <span class="required"></span></label>
                   <br>
-                  <input type="text" title="" class="input-text" id="username" placeholder="username" name="username">
+                  <input type="text" title="" class="input-text"  placeholder="Username" name="username">
                 </li>
                 <li>
                   <label for="password">Password <span class="required"></span></label>
                   <br>
-                  <input type="password" title="password" id="password" class="input-text" name="password" placeholder="password">
+                  <input type="password" title="password"  class="input-text" name="password" placeholder="password">
                 </li>
               </ul>
               <p class="required">* Required Fields</p>
               <div class="buttons-set">
                 <button id="login" class="button login" name="login"><span>Log in</span></button>
                 <a class="forgot-word" href="#">Forgot Your Password?</a> </div>
+                
             </div>
+            
           </div>
+          
         </fieldset>
+        
       </div>
       <br>
       <br>

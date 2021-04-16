@@ -82,6 +82,12 @@ include("partials/navbar.php");
                       </div>
                     </li>
                     <li>
+                      <label for="">Birth Date<em class="required">*</em></label>
+                      <div class="input-box">
+                        <input type="text" name="birthdate" id="" value="" title="Email Address" class="input-text required-entry validate-email">
+                      </div>
+                    </li>
+                    <li>
                       <label for="email">Email Address<em class="required">*</em></label>
                       <div class="input-box">
                         <input type="email" name="email" id="email" value="John.morales@ABC.co" title="Email Address" class="input-text required-entry validate-email">
@@ -90,7 +96,7 @@ include("partials/navbar.php");
                     <li>
                       <label for="">Address Line 1<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="shpping" id="" value="Alden Town 2333" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="text" name="shipping" id="" value="Alden Town 2333" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li>
