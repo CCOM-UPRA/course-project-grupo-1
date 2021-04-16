@@ -57,7 +57,7 @@ include("partials/navbar.php");
           <div class="my-account">
             <div class="page-title">
               <h1>Edit Account Information</h1>
-            </div>
+            </div> 
             <div class="line"></div>
             <div class="dashboard">
               <form action="#" method="post" id="form-validate">

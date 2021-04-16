@@ -34,7 +34,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Overview</a></li>
+            <li class="active"><a href="../admin/adminindex.php"><i class="fa fa-circle-o"></i> Overview</a></li>
           </ul>
         </li>
         <!--<li class="treeview">
@@ -66,10 +66,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Manage Products</a></li>
+            <li><a href="../admin/addProducts.php"><i class="fa fa-circle-o"></i> Add Products</a></li>
+            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Product Category</a></li>
+            
           </ul>
         </li>
         <li class="treeview">
@@ -81,12 +81,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="../admin/manageUser.php"><i class="fa fa-circle-o"></i> Manage User</a></li>
+            <li><a href="../admin/addUser.php"><i class="fa fa-circle-o"></i> Add User</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -97,9 +93,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Product Sales</a></li>
+            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Cancel Orders</a></li>
+            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Inventory</a></li>
           </ul>
         </li>
         <!--<li class="treeview">
@@ -186,6 +183,7 @@
           </ul>
         </li>-->
         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Orders</span></a></li>
+          <li><a href="https://adminlte.io/docs"><i class="fa fa-circle-o"></i> <span>Log Out</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -21,9 +21,6 @@
           <!-- User Account: style can be found in dropdown.less -->
           
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
         </ul>
       </div>
     </nav>

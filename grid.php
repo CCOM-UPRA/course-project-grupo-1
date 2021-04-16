@@ -10,23 +10,10 @@
 <meta name="author" content="">
 
 <!-- Favicons Icon -->
-<link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="http://demo.thmthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
+<!-- <link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://demo.thmthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" /> -->
+<link rel="stylesheet" type="text/css" href="css/newstyle.css" media="all">
 <title>PRISM - Buy Movies Online</title>
-<style>
-  option{
-    color:black;
-  }
-  select {
-	width: 100px;
-	margin: 10px;
-  height: 33px;
-}
-#sorting{
-  color:black;
-}
-
-</style>
 
 <!-- Mobile Specific -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -38,6 +25,7 @@
 
 
 <!-- CSS Style -->
+<link rel="stylesheet" type="text/css" href="css/quick.css" media="all">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
 <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
@@ -47,6 +35,9 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -121,7 +112,7 @@ include("partials/navbar.php");
               <div class="sorter">
                 <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="list.php" title="List" class="button-list">&nbsp;</a> </div>
               </div>
-              <div id="sort-by" style="";>
+              <div id="sort-by">
               <form>
                 <label class="left">Sort By: </label>
                 <select id="sorting" onchange="selectionChange()">
@@ -140,8 +131,10 @@ include("partials/navbar.php");
             <div class="category-products">
 
 
-    //verifica
-            <?php
+   
+   
+
+                <?php
             $sql = "Select * from products NATURAL JOIN categories where category_type = 'Movie'";
             $results = $connect->query($sql);
             
@@ -149,13 +142,7 @@ include("partials/navbar.php");
             while($final = $results->fetch_assoc()){ ?>
 
               
-
-
-
-
-
-
-
+ 
 
               <ul class="products-grid">
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
@@ -164,7 +151,7 @@ include("partials/navbar.php");
                       <div class="item-img-info">
                       <img class = "product-img" src="<?php echo $final['photo']?>" alt="Avengers Endgame" title="Avengers Endgame" class="product-image">
                         <div class="actions">
-                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
+                          <div class="quick-view-btn"><a href="#" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
@@ -464,8 +451,8 @@ include("partials/navbar.php");
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul> -->
+                </li>-->
+              </ul> 
 
               
             </div>
@@ -533,23 +520,6 @@ include("partials/navbar.php");
             </div>
               
                    
-            <!--<div class="block block-compare">
-              <div class="block-title ">Compare Products (2)</div>
-              <div class="block-content">
-                <ol id="compare-items">
-                  <li class="item odd">
-                    <input type="hidden" value="2173" class="compare-item-id">
-                    <a class="btn-remove1" title="Remove This Item" href="#"></a> <a href="#" class="product-name"> Office Colored Ladies Shirt</a> </li>
-                  <li class="item last even">
-                    <input type="hidden" value="2174" class="compare-item-id">
-                    <a class="btn-remove1" title="Remove This Item" href="#"></a> <a href="#" class="product-name"> Office Colored Ladies Shirt</a> </li>
-                </ol>
-                <div class="ajax-checkout">
-                  <button type="submit" title="Submit" class="button button-compare"><span>Compare</span></button>
-                  <button type="submit" title="Submit" class="button button-clear"><span>Clear</span></button>
-                </div>
-              </div>
-            </div>-->
             <div class="block block-list block-viewed">
               <div class="block-title"> Recently Viewed </div>
               <div class="block-content">
@@ -566,67 +536,7 @@ include("partials/navbar.php");
                 </ol>
               </div>
             </div>
-           <!-- <div class="block block-poll">
-              <div class="block-title">Community Poll </div>
-              <form id="pollForm" action="#" method="post" onSubmit="return validatePollAnswerIsSelected();">
-                <div class="block-content">
-                  <p class="block-subtitle">What is your favorite Magento feature?</p>
-                  <ul id="poll-answers">
-                    <li class="odd">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_5" value="5">
-                      <span class="label">
-                      <label for="vote_5">Layered Navigation</label>
-                      </span> </li>
-                    <li class="even">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_6" value="6">
-                      <span class="label">
-                      <label for="vote_6">Price Rules</label>
-                      </span> </li>
-                    <li class="odd">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_7" value="7">
-                      <span class="label">
-                      <label for="vote_7">Category Management</label>
-                      </span> </li>
-                    <li class="last even">
-                      <input type="radio" name="vote" class="radio poll_vote" id="vote_8" value="8">
-                      <span class="label">
-                      <label for="vote_8">Compare Products</label>
-                      </span> </li>
-                  </ul>
-                  <div class="actions">
-                    <button type="submit" title="Vote" class="button button-vote"><span>Vote</span></button>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="block block-tags">
-              <div class="block-title"> Popular Tags</div>
-              <div class="block-content">
-                <ul class="tags-list">
-                  <li><a href="#" style="font-size:98.3333333333%;">Camera</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">Hohoho</a></li>
-                  <li><a href="#" style="font-size:145%;">SEXY</a></li>
-                  <li><a href="#" style="font-size:75%;">Tag</a></li>
-                  <li><a href="#" style="font-size:110%;">Test</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">bones</a></li>
-                  <li><a href="#" style="font-size:110%;">cool</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">cool t-shirt</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">crap</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">good</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">green</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">hip</a></li>
-                  <li><a href="#" style="font-size:75%;">laptop</a></li>
-                  <li><a href="#" style="font-size:75%;">mobile</a></li>
-                  <li><a href="#" style="font-size:75%;">nice</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">phone</a></li>
-                  <li><a href="#" style="font-size:98.3333333333%;">red</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">tight</a></li>
-                  <li><a href="#" style="font-size:75%;">trendy</a></li>
-                  <li><a href="#" style="font-size:86.6666666667%;">young</a></li>
-                </ul>
-                <div class="actions"> <a href="#" class="view-all">View All Tags</a> </div>
-              </div>
-            </div> -->
+          
 
           </aside>
         </div>
@@ -778,6 +688,28 @@ $(document).ready(function(){
 });
 </script>
 
+<script> 
+    var popupViews = document.querySelectorAll('.popup-view');
+    var popupBtns = document.querySelectorAll('.quick-view-btn');
+    var closeBtns = document.querySelectorAll('.close-btn');
 
+    var popup = function(popupClick){
+      popupViews[popupClick].classList.add('active');
+    }
+    popupBtns.forEach((popupBtn, i) => {
+      popupBtn.addEventListener("click", () => {
+        popup(i);
+      });
+    });
+
+    //close
+    closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener("click", () => {
+          popupViews.forEach((popupView) => {
+            popupView.classList.remove('active');
+          });
+        });
+    });
+  </script>
 </body>
 </html>
