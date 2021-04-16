@@ -39,12 +39,27 @@
   
 <?php
 include("partials/header.php");
+<<<<<<< HEAD
 include("partials/navbar.php");
 include("customer_login.php");
+=======
+
+>>>>>>> cac1ff9dc25bc9c87ad4c3abed3b02e5c0f2d5e9
 ?>
-  
+  <!-- Navbar -->
+<?php
+include("partials/navbar.php");
+
+?> 
+
+
+  <?php
+include("customer_login.php");
+  ?>
   <!-- Main Container -->
+ 
   <section class="main-container col1-layout bounceInUp animated">
+ 
     <div class="main container">
       <div class="account-login">
         <div class="page-title">
@@ -60,17 +75,23 @@ include("customer_login.php");
               </div>
             </div>
           </div>
-        <form class="form-horizontal" action="login.php" method="post">
+         
           <div class="col-2 registered-users"><strong>Registered Customers</strong>
             <div class="content">
-            
+           <form action="login.php" method="$_POST">
               <p>If you have an account with us, please log in.</p>
               
               <ul class="form-list">
+              
                 <li>
-                  <label for="email"> Username <span class="required"></span></label>
+               
+                  <label for="username"> Username <span class="required"></span></label>
                   <br>
+<<<<<<< HEAD
                   <input type="email" title="email" class="input-text"  placeholder="Username" name="email">
+=======
+                  <input type="text" title="" class="input-text" placeholder="Username" name="username">
+>>>>>>> cac1ff9dc25bc9c87ad4c3abed3b02e5c0f2d5e9
                 </li>
                 <li>
                   <label for="password">Password <span class="required"></span></label>
@@ -80,14 +101,13 @@ include("customer_login.php");
               </ul>
               <p class="required">* Required Fields</p>
               <div class="buttons-set">
-                <button id="login" class="button login" name="login"><span>Log in</span></button>
-                <a class="forgot-word" href="#">Forgot Your Password?</a> </div>
-                
+                <button  class="button login" name="login" ><span>Log in</span></button>
+                <a class="forgot-word" href="#">Forgot Your Password?</a>  </div>
+                </form>
+                    
             </div>
             
-            
           </div>
-        </form>
           
         </fieldset>
         
@@ -98,6 +118,7 @@ include("customer_login.php");
       <br>
       <br>
     </div>
+     
   </section>
   <!-- Main Container End --> 
   
@@ -375,7 +396,7 @@ include("partials/footer.php");
               </div>
 </div>
 <!-- JavaScript --> 
-<script type="text/javascript" src="js/main_login.js"></script>
+
 <script type="text/javascript" src="js/jquery.min.js"></script> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="js/parallax.js"></script> 
