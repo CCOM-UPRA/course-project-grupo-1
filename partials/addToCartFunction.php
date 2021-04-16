@@ -1,22 +1,22 @@
 <? php
 
-function addToCart($product_id,$product_name, $price, $photo){
+function addToCart($variable_name){
 
 
-
-
-
-
-             $sql = "SELECT photo, product_id, product_name, price FROM products";
-            $products = $connect->query($sql);
+             $sql = "SELECT photo, product_id, product_name, price
+                    FROM products
+                    where $variable_name = product_name";
+            $results = $connect->query($sql);
             $totalPrice = 0;
             $totalPrice = $totalPrice + $price;
 
-            while($final = $products->fetch_assoc()){ ?>
 
 
+    while($final = $results->fetch_assoc()){ ?>
 
 
+<html>
+               <body>
                 <table class="data-table cart-table" id="shopping-cart-table">
                   <thead>
                     <tr class="first last">
@@ -45,12 +45,15 @@ function addToCart($product_id,$product_name, $price, $photo){
                   <tbody>
                     <tr class="first odd">
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a></td>
-                        <td><h2 class="product-name"> <a href="#"><?php echo product_id?></a> </h2></td>
+                        <td><h2 class="product-name"> <a href="#"><?php echo $final['product_name']?></a> </h2></td>
+
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
-                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price"><?php echo price?></span> </span></td>
+                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price"><?php echo $final['price']?></span> </span></td>
+
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
                       <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$totalPrice</span> </span></td>
+
                       <td class="a-center last"><a class="button remove-item" title="Remove item" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>
                     <!--
@@ -66,7 +69,13 @@ function addToCart($product_id,$product_name, $price, $photo){
                     </tr>-->
 
                   </tbody>
-                  <?php } ?>
+                   php } ?>
+                   </table>
+                   </body>
+                   </html>
+
+
+
 }
 
 
