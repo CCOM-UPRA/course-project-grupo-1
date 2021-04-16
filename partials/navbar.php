@@ -9,7 +9,7 @@
         </div>
      
           <ul class="nav hidden-xs menu-item menu-item-left">
-            <li class="level0 parent drop-menu active"><a href="index.php"><span>Home</span></a>
+            <li class="mega-menu"><a href="index.php"><span>Home</span></a>
               
             </li>
             <li class="level0 parent drop-menu"><a href="free.php"><span>Free</span> </a>

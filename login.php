@@ -39,16 +39,24 @@
   
 <?php
 include("partials/header.php");
-
-?>
-  <!-- Navbar -->
-<?php
 include("partials/navbar.php");
-
-?> 
-
-<?php
-include("customer_login.php");
+    
+    if(isset($_POST['login'])){
+    
+    include("partials/connect.php");
+        
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $sql="SELECT * from user Where email ='$email' AND password='$password'";
+    $results=$connect->query($sql);
+    $final=$results->fetch_assoc();
+        
+    if($email=$final['email']){
+        echo "<script> alert('Credentials are right');     window.location.href='admin/adminindex.php';     </script>"; 
+    }else{
+        echo "<script> alert('Credentials are wrong');     window.location.href='login.php';     </script>"; 
+    }        
+}
 ?>
   
   <!-- Main Container -->
@@ -68,7 +76,7 @@ include("customer_login.php");
               </div>
             </div>
           </div>
-          
+        <form class="form-horizontal" action="login.php" method="post">
           <div class="col-2 registered-users"><strong>Registered Customers</strong>
             <div class="content">
             
@@ -76,9 +84,9 @@ include("customer_login.php");
               
               <ul class="form-list">
                 <li>
-                  <label for="username"> Username <span class="required"></span></label>
+                  <label for="email"> Username <span class="required"></span></label>
                   <br>
-                  <input type="text" title="" class="input-text"  placeholder="Username" name="username">
+                  <input type="text" title="email" class="input-text"  placeholder="Username" name="email">
                 </li>
                 <li>
                   <label for="password">Password <span class="required"></span></label>
@@ -93,7 +101,9 @@ include("customer_login.php");
                 
             </div>
             
+            
           </div>
+        </form>
           
         </fieldset>
         
