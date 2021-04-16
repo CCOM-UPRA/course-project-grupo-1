@@ -39,23 +39,11 @@
   
 <?php
 include("partials/header.php");
-<<<<<<< HEAD
 include("partials/navbar.php");
 include("customer_login.php");
-=======
-
->>>>>>> cac1ff9dc25bc9c87ad4c3abed3b02e5c0f2d5e9
 ?>
   <!-- Navbar -->
-<?php
-include("partials/navbar.php");
 
-?> 
-
-
-  <?php
-include("customer_login.php");
-  ?>
   <!-- Main Container -->
  
   <section class="main-container col1-layout bounceInUp animated">
@@ -78,20 +66,18 @@ include("customer_login.php");
          
           <div class="col-2 registered-users"><strong>Registered Customers</strong>
             <div class="content">
-           <form action="login.php" method="$_POST">
+           <form class="form-horizontal "action="login.php" method="post">
               <p>If you have an account with us, please log in.</p>
               
               <ul class="form-list">
               
                 <li>
                
-                  <label for="username"> Username <span class="required"></span></label>
+                  <label for="email"> Username <span class="required"></span></label>
                   <br>
-<<<<<<< HEAD
-                  <input type="email" title="email" class="input-text"  placeholder="Username" name="email">
-=======
-                  <input type="text" title="" class="input-text" placeholder="Username" name="username">
->>>>>>> cac1ff9dc25bc9c87ad4c3abed3b02e5c0f2d5e9
+
+                  <input type="email" title="" class="input-text" placeholder="Username" name="email">
+
                 </li>
                 <li>
                   <label for="password">Password <span class="required"></span></label>
