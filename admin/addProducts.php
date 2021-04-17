@@ -32,25 +32,36 @@ $stocks_amount=$_POST['stocks_amount'];
 $starring=$_POST['starring'];
 $launch_Date=$_POST['launch_Date'];
 $description=$_POST['description'];
+$status = $_POST['status'];
+$photo= basename( $_FILES["photo"]["product_Name"]);
 
 
-$target_dir = "../newImages/"; 
+// $target_dir = "newImages/"; 
 
 
   
+  if($category == 'Movie'){
+    $target_dir = "newImages/Movies/movies"; 
+   
+  }
+  else if($category == 'Free'){
+    $target_dir = "newImages/Free/"; 
+  }
+  else if($category == 'Series'){
+    $target_dir = "newImages/Series/tv/"; 
+  }
+  else if($category == 'Coming Soon'){
+    $target_dir = "newImages/Coming Soon/"; 
+  }else if($category == 'Sales'){
+    $target_dir = "newImages/Movies/movies/"; 
+  }
+  $fileName = basename($_FILES["photo"]["name"]);
+  $targetFilePath = $target_dir . $fileName;
+  $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+  $allowTypes = array('jpg','png', 'jpeg','gif', 'pdf');
+  if(in_array($fileType, $allowTypes)){
 
-  
-
-  // if(!empty($_FILES["photo"]["product_Name"])){
-
-      $fileName = basename($_FILES["photo"]["name"]);
-      $targetFilePath = $target_dir . $fileName;
-      $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-      $allowTypes = array('jpg','png', 'jpeg','gif', 'pdf');
-
-  
-  
-      $insert = $connect -> query("INSERT INTO products (photo) VALUES()");
+  }
       
 // $target="../newImages/";
 // $file_path=$target . basename($_FILES['file']['name']);
@@ -61,12 +72,11 @@ $target_dir = "../newImages/";
 // move_uploaded_file($file_tmp,$file_store);
 
 // $query = ("SELECT category_id from categories where $genres = category_genre AND $category = category_type");
-$sql="INSERT INTO products(product_Name,photo,category,genres, rating, price, director, stocks_amount, starring, launch_Date, description)
- VALUES('$product_Name','".$fileName."','$category','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description')";
+$sql="INSERT INTO products(product_Name,photo,category,genres, rating, price, director, stocks_amount, starring, launch_Date, description,status)
+ VALUES('$product_Name','$targetFilePath','$category','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description','$status')";
 
 
 
-//$sql="INSERT INTO categories(category_genre, category_type) VALUES('$genres','$category_type')";
 
 $connect->query($sql);
 
@@ -133,6 +143,10 @@ mysqli_close($connect);
                 <div class="form-group">
                   <label for="starring">Starring</label>
                   <input type="text" class="form-control" id="staring" name="starring" placeholder="Enter Starring">
+                </div>
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <input type="text" class="form-control" id="status" name="status" placeholder="Enter Status">
                 </div>
                 <div class="form-group">
                   <label for="launch_Date">Launch Date or Launched Date</label>
