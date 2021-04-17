@@ -251,7 +251,7 @@ include("partials/footer.php");
           <ul>
             <li><a href="blog-detail.php">Blog Detail</a> </li>
           </ul>
-        </li>
+        </li> 
         <li><a href="contact_us.php">Contact us</a> </li>
         <li><a href="404error.php">404 Error Page</a> </li>
       </ul>
