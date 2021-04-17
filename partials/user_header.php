@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once("partials/connect.php");
+
 ?>
 
 <header>
@@ -114,25 +114,11 @@ require_once("partials/connect.php");
                   <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
                   
                   <!-- Header Company -->
-                  <?php 
-                 
-                    if($_SESSION['loggedin']){ // I use false condition
-                        echo '<div class="login"><a href="login.php"><span class="hidden-xs">';
-                        echo $_SESSION['userName'];
-                        echo'</span></a></div>';
-                    }
-                    else{
-                        echo '<div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
-                        </div> ';
-                    }
-
-                    
-                    
-                    
-                    ?>
-             
                   
-                </div> 
+                  <!-- End Header Company -->
+                  <div class="login"><a href="login.php"><span class="hidden-xs">My Account</span></a></div>
+                  
+                </div>
                 
               </div>
               <!-- End Header Top Links --> 

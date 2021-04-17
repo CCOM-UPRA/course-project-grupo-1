@@ -1,3 +1,8 @@
+<?php 
+require_once("partials/connect.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +43,7 @@
 <div id="page"> 
 
 <?php
-include("partials/header.php");
-
+    include("partials/header.php");
 ?>
   <!-- Navbar -->
 <?php
