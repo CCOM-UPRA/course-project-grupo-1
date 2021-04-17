@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<?php
+require_once("partials/connect.php");
+?>
 <head>
 <meta charset="utf-8">
 <!--[if IE]>
@@ -39,8 +42,9 @@
   
   
 <?php
-include("partials/header.php");
 
+include("partials/header.php");
+//include("account_info.php");
 ?>
   <!-- Navbar -->
 <?php
@@ -60,7 +64,7 @@ include("partials/navbar.php");
             </div> 
             <div class="line"></div>
             <div class="dashboard">
-              <form action="#" method="post" id="form-validate">
+              <form action="" method="post" id="form-validate">
                 <div class="fieldset">
                   <input name="" type="hidden" value="bO6ubPokBJ71l86o">
                   <h2 class="legend">Account Information</h2>
@@ -70,13 +74,17 @@ include("partials/navbar.php");
                         <div class="input-box name-firstname">
                           <label for="firstname">First Name<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="text" id="firstname" name="" value="John" title="" maxlength="255" class="input-text required-entry">
+                            <input type="text" id="firstname1" name="firstName1" value=" <?php if($_SESSION['loggedin']){
+                            echo $_SESSION['userName'];
+                    }?>" title="" maxlength="255" class="input-text required-entry">
                           </div>
                         </div>
                         <div class="input-box name-lastname">
                           <label for="lastname">Last Name<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="text" id="lastname" name="" value="Morales" title="" maxlength="255" class="input-text required-entry">
+                            <input type="text" id="lastname1" name="lastname1" value="<?php if($_SESSION['loggedin']){
+                            echo $_SESSION['lastName'];
+                    }?>" title="" maxlength="255" class="input-text required-entry">
                           </div>
                         </div>
                       </div>
@@ -84,7 +92,9 @@ include("partials/navbar.php");
                     <li>
                       <label for="email">Email Address<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="" id="email" value="John.Morales@ABC.co" title="Email Address" class="input-text required-entry validate-email">
+                        <input type="text" name="email1" id="email1" value="<?php if($_SESSION['loggedin']){
+                            echo $_SESSION['email'];
+                    }?>" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li class="control">
