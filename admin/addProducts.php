@@ -12,9 +12,56 @@
 error_reporting(0);
 include("adminpartials/header.php");
 include("adminpartials/aside.php");
-include("productHandler.php");
+//include("productHandler.php");
 ?>
-  
+  <?php
+
+error_reporting(E_ALL);
+
+if(isset($_POST['submit']) ){
+include("../partials/connect.php");
+//products
+$product_Name=$_POST['product_Name'];
+$category=$_POST['category'];
+$photo= basename( $_FILES["photo"]["product_Name"]);
+$genres=$_POST['genres'];
+$rating=$_POST['rating'];
+$price=$_POST['price'];
+$director=$_POST['director'];
+$stocks_amount=$_POST['stocks_amount'];
+$starring=$_POST['starring'];
+$launch_Date=$_POST['launch_Date'];
+$description=$_POST['description'];
+
+
+$target_dir = "../newImages/"; 
+$target_file = $target_dir . basename($_FILES["photo"]["product_Name"]);
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// $target="../newImages/";
+// $file_path=$target . basename($_FILES['file']['name']);
+// $file_name=$_FILES['file']['name'];
+// $file_tmp=$_FILES['file']['tmp_name'];
+// $file_store="../newImages/".$file_name;
+
+// move_uploaded_file($file_tmp,$file_store);
+
+// $query = ("SELECT category_id from categories where $genres = category_genre AND $category = category_type");
+$sql="INSERT INTO products(product_Name,photo,category,genres, rating, price, director, stocks_amount, starring, launch_Date, description)
+ VALUES('$product_Name','$category','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description',$photo)";
+
+
+
+//$sql="INSERT INTO categories(category_genre, category_type) VALUES('$genres','$category_type')";
+
+$connect->query($sql);
+
+mysqli_close($connect);
+
+}
+
+
+
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -45,6 +92,10 @@ include("productHandler.php");
                   <input type="text" class="form-control" id="product_name" name="product_Name" placeholder="Enter Product Name">
                 </div>
                 <div class="form-group">
+                  <label for="category">Category</label>
+                  <input type="text" class="form-control" id="category" name="category" placeholder="Enter Category">
+                </div>
+                <div class="form-group">
                   <label for="genres">Genres</label>
                   <input type="text" class="form-control" id="genres" name="genres" placeholder="Enter Genres">
                 </div>
@@ -55,6 +106,10 @@ include("productHandler.php");
                 <div class="form-group">
                   <label for="price">Price</label>
                   <input type="text" class="form-control" id="price" name="price" placeholder="Enter Price">
+                </div>
+                <div class="form-group">
+                  <label for="stocks_amount">Stock</label>
+                  <input type="text" class="form-control" id="stocks_amount" name="stocks_amount" placeholder="Enter Stock">
                 </div>
                 <div class="form-group">
                   <label for="director">Director</label>
@@ -96,7 +151,8 @@ include("productHandler.php");
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+                <button ><a href="adminindex.php" >Back</a></button>
               </div>
             </form>
             </div>

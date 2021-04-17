@@ -202,7 +202,7 @@ include("../partials/connect.php");
                     <div class="table-title">
                         <div class="row">
                             <div class="col-xs-5">
-                                <h2>User <b>Management</b></h2>
+                                <h2>Product <b>Management</b></h2>
                             </div>
                         </div>
                     </div>
@@ -211,28 +211,22 @@ include("../partials/connect.php");
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Last Name</th>						
-                                <th>Date Created</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Role</th>
+                                <th>Stock</th>						
+                                <th>Available</th>
                                 <th>Edit</Em></th>
                             <tbody>
-                            <?php
-            $sql = "Select * from user";
+                            
+            <?php
+            $sql = "Select * from products";
             $results = $connect->query($sql);
             
 
             while($final = $results->fetch_assoc()){ ?>
                             <tr>
-                                
-                                <td><?php echo $final['userID']?></td>
-                                <td><?php echo $final['firstName']?></td>
-                                <td><?php echo $final['lastName']?></td>   
-                                <td><?php echo $final['created_at']?></td>
-                                <td><?php echo $final['email']?></td>                     
-                                <td><?php echo $final['phoneNumber']?></td>
-                                <td>Admin</td>
+                                <td><?php echo $final['product_id']?></td>
+                                <td><?php echo $final['product_name']?></td>
+                                <td><?php echo $final['stocks_amount']?></td>   
+                                <td><?php echo $final['status']?></td>
                                 <td>
                                     <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-bars"></i></a>
                                 </td>

@@ -133,12 +133,12 @@ include("partials/navbar.php");
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner"> 
                     <div class="item-img"> 
-                      <div class="item-img-info"><a href="#" title=" Iron Man 2" class="product-image"><img src="<?php echo $final['photo']?>" alt="Iron Man 2" title="Iron Man 2"></a>
+                      <div class="item-img-info"><img src="<?php echo $final['photo']?>" alt="Iron Man 2" title="Iron Man 2">
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                          <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                            <button class="button btn-cart" onclick = "getProductName($final['product_name']) " type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
       
@@ -146,7 +146,7 @@ include("partials/navbar.php");
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Iron Man 2"><?php echo $final['product_name']?></a> </div>
+                        <div class="item-title"><?php echo $final['product_name']?> </div>
                         <div class="item-content">
                           <div class="item-price">
                             <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>

@@ -33,7 +33,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-
+<link rel="stylesheet" type="text/css" href="css/newstyle.css" media="all">
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -108,101 +108,63 @@ include("partials/navbar.php");
                 <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="series_list.php" title="List" class="button-list">&nbsp;</a> </div>
               </div>
               <div id="sort-by">
+              <form>
                 <label class="left">Sort By: </label>
-                <ul>
-                  <li><a href="#">Position<span class="right-arrow"></span></a>
-                    <ul>
-                      <li><a href="#">Name</a></li>
-                      <li><a href="#">Price</a></li>
-                      <li><a href="#">Position</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
-              <div class="pager">
-                <div id="limiter">
-                  <label>View: </label>
-                  <ul>
-                    <li><a href="#">15<span class="right-arrow"></span></a>
-                      <ul>
-                        <li><a href="#">20</a></li>
-                        <li><a href="#">30</a></li>
-                        <li><a href="#">35</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <!-- <div class="pages">
-                  <label>Page:</label>
-                  <ul class="pagination">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div> -->
-              </div>
+                <select id="sorting" onchange="selectionChange()">
+                    <option  value="Sort By" selected>Sort Products</option>
+                    <option value="Sort By Price" id="price" >Sort By Price</option>
+                    <option value="Sort By A-Z" id="az" >Sort By A-Z</option>
+                    <option value="Sort By Z-A" id="az" >Sort By Z-A</option>
+                  </select>
+                  <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
+                </form>
+               
+  
             </div>
             <div class="category-products">
+            <?php
+            $sql = "Select * from products NATURAL JOIN categories where category_type = 'Series'";
+            $results = $connect->query($sql);
+            
+
+            while($final = $results->fetch_assoc()){ ?>
               <ul class="products-grid">
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="Friends" class="product-image"><img src="newImages/Series/tv/friends.jpg" alt="Friends" title="Friends"></a>
-                        <div class="new-label new-top-left">New</div>
+                      <div class="item-img-info"><img src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>">
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
+                          <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
-                        <!-- </div>
-                        <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Friends">Friends</a> </div>
+                        <div class="item-title"><?php echo $final['product_name']?> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$79.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price"><?php echo $final['price']?></span> </span> </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </li>
-                <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                <?php } ?>
+                <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="How I Met Your Mother" class="product-image"><img src="newImages/Series/tv/howimetyourmother.jpg" alt="How I Met Your Mother" title="How I Met Your Mother"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -216,27 +178,18 @@ include("partials/navbar.php");
                       </div>
                     </div>
                   </div>
-                </li>
-                <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                </li> -->
+                <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="The Crown" class="product-image"><img src="newImages/Series/tv/crown.jpg" alt="The Crown" title="The Crown"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -250,27 +203,19 @@ include("partials/navbar.php");
                       </div>
                     </div>
                   </div>
-                </li>
-                <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                </li> -->
+  
+                <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Arrow" class="product-image"><img src="newImages/Series/tv/arrow.jpg" alt="Arrow" title="Arrow"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -290,21 +235,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="The Office" class="product-image"><img src="newImages/Series/tv/theoffice.jpeg" alt="The Office" title="The Office"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>AWatch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -324,21 +260,13 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="wonder" class="product-image"><img src="newImages/Series/tv/vikings.jpg" alt="Vikings" title="Vikings"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
+
                       </div>
                     </div>
                     <div class="item-info">
@@ -358,21 +286,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Cobra Kai" class="product-image"><img src="newImages/Series/tv/cobra.jpg" alt="Cobra Kai" title="Cobra Kai"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -392,21 +311,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="Supernatural" class="product-image"><img src="newImages/Series/tv/super.png" alt="Supernatural" title="Supernatural"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -427,21 +337,12 @@ include("partials/navbar.php");
                       <div class="item-img-info"><a href="#" title="American Horror Story" class="product-image"><img src="newImages/Series/tv/american.jpg" alt="American Horror Story" title="American Horror Story"></a>
                         <div class="new-label new-top-left">New</div>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -462,21 +363,12 @@ include("partials/navbar.php");
                       <div class="item-img-info"><a href="#" title="Naruto" class="product-image"><img src="newImages/Series/tv/naruto2.jpg" alt="Naruto" title="Naruto"></a>
                         <div class="new-label new-top-left">New</div>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -497,20 +389,11 @@ include("partials/navbar.php");
                       <div class="item-img-info"><a href="#" title="Attack on Titan" class="product-image"><img src="newImages/Series/tv/attack.jpg" alt="Attack on Titan" title="Attack on Titan"></a>
                          <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -530,21 +413,12 @@ include("partials/navbar.php");
                     <div class="item-img">
                       <div class="item-img-info"><a href="#" title="deadpool" class="product-image"><img src="newImages/Series/tv/demon.jpg" alt="Demon Slayer" title="Demon Slayer"></a>
                         <div class="actions">
-                          <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                          <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
-                        <!-- <div class="rating">
-                          <div class="ratings">
-                            <div class="rating-box">
-                              <div class="rating" style="width:80%"></div>
-                            </div>
-                            <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
                     <div class="item-info">
@@ -558,7 +432,7 @@ include("partials/navbar.php");
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> -->
               </ul>
             </div>
           </article>

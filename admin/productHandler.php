@@ -10,7 +10,7 @@ $director=$_POST['director'];
 $starring=$_POST['starring'];
 $launch_Date=$_POST['launch_Date'];
 $description=$_POST['description'];
-
+ 
 //$category_type=$_POST['category_type'];
 /*
 $target="../uploads/";

@@ -61,7 +61,12 @@ include("partials/navbar.php");
           <div class="table-responsive">
             <form method="post" action="#">
               <fieldset>
-                <table class="data-table cart-table" id="shopping-cart-table">
+
+
+
+
+
+                           <table class="data-table cart-table" id="shopping-cart-table">
                   <thead>
                     <tr class="first last">
                       <th rowspan="1">&nbsp;</th>
@@ -74,6 +79,30 @@ include("partials/navbar.php");
                       <th class="a-center" rowspan="1">&nbsp;</th>
                     </tr>
                   </thead>
+
+
+
+
+                 <?php
+
+                   function getProductName ($websiteProductName){
+                    $sql = "SELECT *
+                    FROM products
+                    where product_name = websiteProductName";
+                    $results = $connect->query($sql);
+                    $totalPrice = 0;
+                    $totalPrice = $totalPrice + $price;
+                   }
+
+             $sql = "SELECT photo, product_id, product_name, price FROM products";
+            $results = $connect->query($sql);
+
+
+
+                  while($final = $results->fetch_assoc()){ ?>
+
+
+
                  <!-- <tfoot>
                     <tr class="first last">
                       <td class="a-right last" colspan="50"><button  class="button btn-continue" onclick = "index.php" title="Continue Shopping" type="submit"><span>Continue Shopping</span></button>
@@ -89,34 +118,28 @@ include("partials/navbar.php");
                   <tbody>
                     <tr class="first odd">
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a></td>
-                      <td><h2 class="product-name"> <a href="#">Incredibles 2</a> </h2></td>
+                        <td><h2 class="product-name"> <a href="<?php echo['photo'] ?>"><?php echo $final['product_name']?></a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
-                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price">$9.99</span> </span></td>
+                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price"><?php echo $final['price'] ?></span> </span></td>
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
-                      <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$9.99</span> </span></td>
+                      <td class="a-center movewishlist"><span class="cart-price"> <span class="price"><?php echo $totalPrice ?></span> </span></td>
                       <td class="a-center last"><a class="button remove-item" title="Remove item" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>
-                    <tr class="last even">
+
+                   <!-- <tr class="last even">
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/FarFromHomeMini.jpeg"></a></td>
                       <td><h2 class="product-name"> <a id = "remove1" href="#">Stylish Girl- Fashion Closet and Style Shopping</a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
-                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
+                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price"><?php echo $final['price'] ?></span> </span></td>
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
                       <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
                       <td class="a-center last"><a class="button remove-item" title="Remove item" href="#" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
-                    </tr>
-                    <tr class="last even">
-                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/FarFromHomeMini.jpeg"></a></td>
-                      <td><h2 class="product-name"> <a id = "remove1" href="#">Stylish Girl- Fashion Closet and Style Shopping</a> </h2></td>
-                      <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
-                      <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
-                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
-                      <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
-                      <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
-                      <td class="a-center last"><a class="button remove-item" title="Remove item" href="#" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
-                  </tbody>
+                    </tr> -->
+
+                 </tbody>
+                  <?php } ?>
                 </table>
               </fieldset>
             </form>
@@ -204,12 +227,8 @@ include("partials/navbar.php");
                   </table>
                   <ul class="checkout">
                     <li>
-                        <script>
-                            function test1000() {
-                            location.replace("checkout.php")
-                            }
-                        </script>
-                      <button onclick="test1000()" href="checkout.php" class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+                        
+                      <button onclick="sendtocheckout()" href="checkout.php" class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
                     </li>
                     <br>
                     <li><a title="Checkout with Multiple Addresses" href="#">Checkout with Multiple Addresses</a> </li>
