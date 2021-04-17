@@ -2,12 +2,7 @@
 session_start();
 
 
-function transfer($name){
 
-    $_SESSION['name'] = $name;
-
-
-}
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,12 +100,11 @@ include("partials/navbar.php");
                    // $results = $connect->query($sql);
                    //            $sql = "SELECT *
                    // FROM cart
-                   // where product_name = websiteProductName";
-                    $id=$_GET['$final['product_name']'];
+
                 $results = $connect->query($sql);
             $websiteProductName = " ";
              $websiteProductName = $_SESSION['name'];
-                          echo 'websiteProductName';
+
 
              $sql = "SELECT photo, product_id, product_name, price
                     FROM products
