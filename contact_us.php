@@ -83,7 +83,7 @@ include("partials/navbar.php");
                       <li>
                         
                         <div class="input-box">
-                          <label for="billing:phoneNumber">phoneNumber <span class="required">*</span></label>
+                          <label for="billing:phoneNumber">Phone Number <span class="required">*</span></label>
                           <br>
                           <input type="text" name="phoneNumber" id="billing:telephone" title="phoneNumber" class="input-text" style="color: black;">
                         </div>

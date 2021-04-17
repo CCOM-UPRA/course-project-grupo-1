@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2021 at 11:07 PM
+-- Generation Time: Apr 17, 2021 at 09:18 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -48,7 +48,9 @@ INSERT INTO `address` (`address_id`, `userID`, `street1`, `street2`, `postal_cod
 (1, 0, '', '', 0, 'Arecibo', '00612', '', '', 0),
 (2, 0, '', 'Apt 322', 0, 'Arecibo', '00612', '', '', 0),
 (3, 0, '', 'Apt 322', 0, 'Arecibo', '00612', '', '', 0),
-(4, 0, 'HC5 Box 92126', 'Apt 322', 0, 'Arecibo', '00612', '', '', 0);
+(4, 0, 'HC5 Box 92126', 'Apt 322', 0, 'Arecibo', '00612', '', '', 0),
+(5, 0, 'HC5 Box 92126', 'Apt 322', 0, 'Arecibo', '00612', '', '', 0),
+(6, 0, 'HC5 Box 92126', 'Apt 322', 0, 'Arecibo', '00612', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,7 @@ CREATE TABLE `products` (
   `launch_date` varchar(20) NOT NULL,
   `director` varchar(30) NOT NULL,
   `starring` varchar(30) NOT NULL,
-  `Category` varchar(20) NOT NULL,
+  `category` varchar(20) NOT NULL,
   `genres` varchar(20) NOT NULL,
   `rating` varchar(12) NOT NULL,
   `status` varchar(20) NOT NULL
@@ -140,7 +142,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `category_id`, `stocks_amount`, `price`, `photo`, `description`, `trailer`, `launch_date`, `director`, `starring`, `Category`, `genres`, `rating`, `status`) VALUES
+INSERT INTO `products` (`product_id`, `product_name`, `category_id`, `stocks_amount`, `price`, `photo`, `description`, `trailer`, `launch_date`, `director`, `starring`, `category`, `genres`, `rating`, `status`) VALUES
 (1, 'Avengers Endgame', 4, 5, 19.99, 'newImages/Movies/movies/AvengersEndGame.jpg', 'Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.', 'https://www.youtube.com/watch?v=TcMBFSGVi1c', 'April 22, 2019', 'Russo Brothers', 'Chris Evans', 'Movie', 'Action', 'PG-13', 'available'),
 (2, 'Jumanji', 1, 5, 14.99, 'newImages/Movies/movies/Jumanji.jpg', 'When Spencer goes back into the fantastical world of Jumanji, pals Martha, Fridge and Bethany re-enter the game to bring him home. But the game is now broken -- and fighting back. Everything the friends know about Jumanji is about to change, as they soon discover there\'s more obstacles and more danger to overcome.', 'https://www.youtube.com/watch?v=2QKg5SZ_35I', 'December 4, 2019', 'Jake Kasdan', 'Kevin Hart', 'Movie', 'Comedy', 'PG-13', 'available'),
 (3, 'Joker', 3, 5, 14.99, 'newImages/Movies/movies/joker.jpg', 'Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he is part of the world around him. Isolated, bullied and disregarded by society, Fleck begins a slow descent into madness as he transforms into the criminal mastermind known as the Joker.', 'https://www.youtube.com/watch?v=zAGVQLHvwOY', 'October 2, 2019', 'Tod Phillips', 'Joaquin Phoenix', 'Movie', 'Drama', 'R', 'available'),
@@ -156,7 +158,7 @@ INSERT INTO `products` (`product_id`, `product_name`, `category_id`, `stocks_amo
 (13, 'Hunger Games', 27, 5, 2.99, 'newImages/Movies/movies/Hunger_Games.png', 'In what was once North America, the Capitol of Panem maintains its hold on its 12 districts by forcing them each to select a boy and a girl, called Tributes, to compete in a nationally televised event called the Hunger Games. Every citizen must watch as the youths fight to the death until only one remains. District 12 Tribute Katniss Everdeen (Jennifer Lawrence) has little to rely on, other than her hunting skills and sharp instincts, in an arena where she must weigh survival against love.', 'https://www.youtube.com/watch?v=mfmrPu43DF8', 'March 12, 2012', 'Francis Lawrence', 'Jennifer Lawrence', 'Sales', 'Drama', 'PG-13', 'available'),
 (14, 'If I Stay', 27, 5, 4.99, 'newImages/Movies/movies/If_I_Stay.png', 'Mia Hall (Chloë Grace Moretz), a talented young cellist, thought the most difficult decision she would ever have to make would be whether to pursue her musical dreams at prestigious Juilliard or follow her heart to be with the love of her life, Adam (Jamie Blackley), a rock singer/guitarist. However, a car wreck changes everything in an instant, and now Mias life hangs in the balance. Suspended between life and death, Mia faces a choice that will decide her future.', 'https://www.youtube.com/watch?v=rMp896hfp74', 'August 18, 2014', 'R.J Cutler', 'Chloe Grace', 'Sales', 'Drama', 'PG-13', 'available'),
 (15, 'Hobbs & Shaw', 28, 5, 4.99, 'newImages/Movies/movies/Hobbs & Shaw.png', 'Brixton Lorr is a cybernetically enhanced soldier who possesses superhuman strength, a brilliant mind and a lethal pathogen that could wipe out half of the worlds population. It is now up to hulking lawman Luke Hobbs and lawless operative Deckard Shaw to put aside their past differences and work together to prevent the seemingly indestructible Lorr from destroying humanity.', 'https://www.youtube.com/watch?v=HZ7PAyCDwEg', 'July 13, 2019', 'David Leitch', 'Dwayne Johnson', 'Sales', 'Action', 'PG-13', 'available'),
-(16, 'Boruto', 0, 5, 15, '', 'gfhfdghfgdh', '', 'May 1, 2342', 'Yo', 'Tu', '', 'Family', 'PG', '');
+(82, 'Boruto', 0, 5, 15, 'newImages/Series/tv/Uzumaki.Boruto.full.2079838.jpg', 'sfdgdsgf', 'https://www.youtube.com/watch?v=Qyonn5Vbg7s', 'May 1, 2010', 'Yo', 'Tu', 'Series', 'Family', 'PG', 'available');
 
 -- --------------------------------------------------------
 
@@ -179,15 +181,6 @@ CREATE TABLE `user` (
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `updated_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`userID`, `firstName`, `lastName`, `email`, `password`, `phoneNumber`, `birthdate`, `user_admin`, `status`, `age`, `message`, `created_at`, `updated_at`) VALUES
-(87, 'Jonathan', 'Santos', 'jonathan.santos@upr.edu', '12345', '+178790568', 'August 24,2000', 1, 'active', 0, '', '2021-04-16', '2021-04-16'),
-(88, 'Jonathan', 'Santos', 'jonathan.santos@upr.edu', '12345', '+178790568', 'August 24,2000', 1, 'active', 0, '', '2021-04-16', '2021-04-16'),
-(89, 'Jonathan', 'Santos', 'jonathan.santos@upr.edu', '654654', '7879056891', 'August 24,2000', 1, 'active', 0, '', '2021-04-16', '2021-04-16');
 
 --
 -- Indexes for dumped tables
@@ -231,7 +224,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -249,13 +242,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

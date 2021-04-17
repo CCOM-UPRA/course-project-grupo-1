@@ -121,8 +121,8 @@ include("partials/navbar.php");
                 <select id="sorting" name="sort" >
                     <option  value="Sort By" selected disabled > Sort Products </option>
                     <option value="price" id="price" > Sort By Price </option>
-                    <option value="sortA" id="az" > Sort By A-Z </option>
-                    <option value="sortZ" id="az" > Sort By Z-A </option>
+                    <option value="Sort By A-Z" id="az" > Sort By A-Z </option>
+                    <option value="Sort By Z-A" id="az" > Sort By Z-A </option>
                   </select>
                   <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
                   <input type="submit" name="submit" />
@@ -133,7 +133,7 @@ include("partials/navbar.php");
                   if(isset($_POST["submit"])):
                     $getoption=$_POST['sort'];
                     
-                      if($getoption == 'price')
+                      if($getoption == 'price'):
                         $sql = "Select * from products  where category = 'Movie' ORDER BY price ASC";
                         $results = $connect->query($sql);
                         while($final = $results->fetch_assoc()): ?>
@@ -167,43 +167,8 @@ include("partials/navbar.php");
                                               </div>
                                             </li>
                        
-                      <?php endwhile; ?>         
-                      <?php
-                        else:
-                        $sql = "Select * from products  where category = 'Movie' ORDER BY product_name";
-                        $results = $connect->query($sql);
-                        while($final = $results->fetch_assoc()): ?>
-
-                            <ul class="products-grid">
-                                            <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
-                                              <div class="item-inner">
-                                                <div class="item-img">
-                                                  <div class="item-img-info">
-                                                  <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
-                                                    <div class="actions">
-                                                      <div class="quick-view-btn"><a href="#" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
-                                                      <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                                      <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                                      </div>
-                                                    </div>
-                              
-                                                  </div>
-                                                </div>
-                                                <div class="item-info">
-                                                  <div class="info-inner">
-                                                    <div class="item-title"><?php echo $final['product_name']?> </div>
-                                                    <div class="item-content">
-                                                      <div class="item-price">
-                                                        <div class="price-box"><span class="regular-price"><span class="price"> $ <?php echo $final['price']?></span> </span> </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </li>
-                       
-                      <?php endwhile; ?> 
+                      <?php endwhile; ?>
+                     <?php endif; ?> 
                   <?php endif; ?>
             </div>
 

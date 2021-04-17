@@ -11,4 +11,4 @@ $sql="INSERT INTO user(firstName, email, phoneNumber, message) VALUES('$firstNam
 
 $connect->query($sql);
 
-?>
+?> 
