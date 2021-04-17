@@ -28,6 +28,7 @@ $genres=$_POST['genres'];
 $rating=$_POST['rating'];
 $price=$_POST['price'];
 $director=$_POST['director'];
+$trailer=$_POST['trailer'];
 $stocks_amount=$_POST['stocks_amount'];
 $starring=$_POST['starring'];
 $launch_Date=$_POST['launch_Date'];
@@ -72,8 +73,8 @@ $photo= basename( $_FILES["photo"]["product_Name"]);
 // move_uploaded_file($file_tmp,$file_store);
 
 // $query = ("SELECT category_id from categories where $genres = category_genre AND $category = category_type");
-$sql="INSERT INTO products(product_Name,photo,category,genres, rating, price, director, stocks_amount, starring, launch_Date, description,status)
- VALUES('$product_Name','$targetFilePath','$category','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description','$status')";
+$sql="INSERT INTO products(product_Name,photo,category,genres,trailer,rating, price, director, stocks_amount, starring, launch_Date, description,status)
+ VALUES('$product_Name','$targetFilePath','$category','$genres','$trailer','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description','$status')";
 
 
 
@@ -155,6 +156,10 @@ mysqli_close($connect);
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" title="description" class="form-control" rows=4 style="color: black;"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="trailer">Trailer</label>
+                  <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Enter Trailer Link">
                 </div>
                 <div class="form-group">
                   <label for="photo">File input</label>

@@ -119,7 +119,7 @@ include("partials/navbar.php");
               include("partials/connect.php");
               function sort_price() {
                 error_reporting(E_ALL);
-                $sql = "Select * from products NATURAL JOIN categories where category_type = 'Movie' ORDER BY price ASC";
+                $sql = "Select * from products  where category = 'Movie' ORDER BY price ASC";
                 $results = $connect->query($sql);
                 
                 
@@ -144,7 +144,7 @@ include("partials/navbar.php");
                 <label class="left">Sort By: </label>
                 <select id="sorting">
                     <option  value="Sort By" selected> Sort Products </option>
-                    <option value="Sort By Price" id="price"  sort_price();> Sort By Price </option>
+                    <option value="Sort By Price" id="price"  onclick="sort_price()"> Sort By Price </option>
                     <option value="Sort By A-Z" id="az" > Sort By A-Z </option>
                     <option value="Sort By Z-A" id="az" > Sort By Z-A </option>
                   </select>
