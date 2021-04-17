@@ -102,13 +102,15 @@ include("partials/navbar.php");
                    // FROM cart
 
                 $results = $connect->query($sql);
-            $websiteProductName = " ";
+
+
+
              $websiteProductName = $_SESSION['name'];
 
 
              $sql = "SELECT photo, product_id, product_name, price
                     FROM products
-                    WHERE product_name = $id";
+                    WHERE product_name = $websiteProductName";
                      $totalPrice = 0;
                     $totalPrice = $totalPrice + $final['price'];
 

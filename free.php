@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+require_once("partials/connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,6 +135,9 @@ include("partials/navbar.php");
 
 
             while($final = $results->fetch_assoc()){ ?>
+
+             <form action="partials/addToCart.php" method="post">
+
               <ul class="products-grid">
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner"> 
@@ -141,7 +147,7 @@ include("partials/navbar.php");
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" onclick ="store($final['product_name'])" h  type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                            <button class="button btn-cart" onclick =" "   type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
       
@@ -160,6 +166,8 @@ include("partials/navbar.php");
                     </div>
                   </div>
                 </li>
+                </ul>
+                </form>
                 <?php } ?>
                 <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">

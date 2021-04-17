@@ -1,210 +1,204 @@
-<?php require_once("resources/config.php"); ?>
-<!-- ======= Property Search Section ======= -->
-  <div class="click-closed"></div>
-  <!--/ Form Search Star /-->
-  <div class="box-collapse">
-    <div class="title-box-d">
-      <h3 class="title-d">Search Property</h3>
-    </div>
-    <span class="close-box-collapse right-boxed bi bi-x"></span>
-    <div class="box-collapse-wrap form">
-      <form class="form-a">
-        <div class="row">
-          <div class="col-md-12 mb-2">
-            <div class="form-group">
-              <label class="pb-2" for="Type">Keyword</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="Type">Type</label>
-              <select class="form-control form-select form-control-a" id="Type">
-                <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="city">City</label>
-              <select class="form-control form-select form-control-a" id="city">
-                <option>All City</option>
-                <option>Alabama</option>
-                <option>Arizona</option>
-                <option>California</option>
-                <option>Colorado</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="bedrooms">Bedrooms</label>
-              <select class="form-control form-select form-control-a" id="bedrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="garages">Garages</label>
-              <select class="form-control form-select form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="bathrooms">Bathrooms</label>
-              <select class="form-control form-select form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="price">Min Price</label>
-              <select class="form-control form-select form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-b">Search Property</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div><!-- End Property Search Section -->>
 
-  <!-- ======= Header/Navbar ======= -->
-  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
-    <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a class="navbar-brand text-brand" href="index.php">Buy|<span class="color-b">SPACE</span></a>
 
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-        <ul class="navbar-nav">
 
-          <li class="nav-item">
-            <a class="nav-link " href="index.php">Home</a>
-          </li>
-
-<!--
-          <li class="nav-item">
-            <a class="nav-link " href="about.html">About</a>
-          </li>
--->
-
-          <li class="nav-item">
-            <a class="nav-link " href="browse.php">Browse</a>
-          </li>
-
-<!--
-          <li class="nav-item">
-            <a class="nav-link " href="agents-grid.html">Agents</a>
-          </li>
--->
-
-<!--
-          <li class="nav-item">
-            <a class="nav-link " href="contact.html">Contact</a>
-          </li>
--->
-
-           <?php
+<?php
+session_start();
+require_once("partials/connect.php");
 
 
 
 
 
-
-                    if(isset($_SESSION['loggedin'])){ // I use false condition
-                        if($_SESSION['access']=='admin'){
-                            echo '<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Management</a>
-            <div class="dropdown-menu"><a class="nav-link " href="dashboard.php">Dashboard</a></div>
-          </li>';
-                        }
-
-            echo '<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-            echo $_SESSION['name'];
-            echo'</a>
-            <div class="dropdown-menu"><a class="nav-link " href="account.php">Account</a><a class="nav-link " href="logout.php">Logout</a></div>
-          </li>';
-                    }else{
-
-            echo '<li class="nav-item">
-            <a class="nav-link " href="login.php".php">Login</a>
-          </li>';
-                    }
+if(isset($_POST['product'])){
 
 
+    $name=$_POST['name'];
+    $sql=("SELECT * from products Where product_name ='$name'");
+    $results=$connect->query($sql);
+    $final=$results->fetch_assoc();
+    $_SESSION['name']=$final['name'];
+
+}
+
+
+
+
+
+function addToCart($final_name)
+{
+
+    $_SESSION['name'] = $final_name;
+}
 
 ?>
 
 
+[2:04 PM, 4/17/2021] Christopher Ccom: <?php
+session_start();
+require_once("partials/connect.php");
 
-<!--
-          <li class="nav-item">
-            <a class="nav-link " href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="menu_adm.html">Admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="account.html">Account</a>
-          </li>
--->
-        </ul>
+
+if(isset($_POST['login'])){
+
+    $user_ad= 1;
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $sql=("SELECT * from user Where email ='$email' AND password='$password'");
+    $results=$connect->query($sql);
+    $final=$results->fetch_assoc();
+    $_SESSION['email']=$final['email'];
+    $_SESSION['password']=$final['password'];
+    $_SESSION['userName']=$final['firstName'];
+    $_SESSION['loggedin'] = false;
+
+    if($email=$final['email'] AND $password = $final['password']){
+
+        if($user_ad = $final['user_admin']){
+
+            echo "<script> alert('Credentials are right');     window.location.href='admin/adminindex.php';     </script>";
+         …
+<?php
+session_start();
+require_once("partials/connect.php");
+?>
+
+<header>
+    <div class="header-container">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <!-- Header Language -->
+            <div class="col-xs-7 col-sm-6">
+              <div class="dropdown block-language-wrapper hidden-xs"> <a role="button" data-toggle="dropdown" data-target="#" class="block-language dropdown-toggle" href="#"> <img src="images/english.png" alt="language"> English <span class="caret"></span> </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/english.png" alt="language"> English </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/francais.png" alt="language"> French </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
+                </ul>
+              </div>
+              <!-- End Header Language -->
+
+              <!-- Header Currency -->
+              <div class="dropdown block-currency-wrapper hidden-xs"> <a role="button" data-toggle="dropdown" data-target="#" class="block-currency dropdown-toggle" href="#"> USD <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
+                </ul>
+              </div>
+              <!-- End Header Currency -->
+
+              <div class="welcome-msg hidden-xs"> Welcome to our site! </div>
+            </div>
+            <div class="col-xs-5 col-sm-6">
+
+              <div class="top-cart-contain pull-right">
+            <!-- Top Cart -->
+            <div class="mini-cart">
+              <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"><a href="shopping_cart.php">  My Cart <span class="cart_count">2</span></a></div>
+              <div>
+                <div class="top-cart-content" style="display: none;">
+                  <div class="actions">
+                      <script>
+                            function sendtocheckout() {
+                            location.replace("checkout.php")
+                            }
+                        </script>
+                    <button class="btn-checkout" onclick="sendtocheckout()" title="Checkout" type="button"><span>Checkout</span></button>
+                    <a href="shopping_cart.php" class="view-cart" ><span>View Cart</span></a> </div>
+                  <!--block-subtitle-->
+                  <ul class="mini-products-list" id="cart-sidebar">
+                    <li class="item first">
+                      <div class="item-inner"><a class="product-image" title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" href="#l"><img alt="The Incredibles 2" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a>
+                        <div class="product-details">
+                          <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                          <!--access--> <strong>1</strong> x <span class="price">$9.99</span>
+                          <p class="product-name"><a href="#">The Incredibles 2</a></p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item last">
+                      <div class="item-inner"><a class="product-image" title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" href="#"><img alt="Spiderman Far From Home" src="newImages/CartMovieImages/FarFromHomeMini.jpeg"></a>
+                        <div class="product-details">
+                          <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                          <!--access--> <strong>1</strong> x <span class="price">$10.99</span>
+                          <p class="product-name"><a href="#">Spiderman Far From Home</a></p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <!--actions-->
+                </div>
+              </div>
+            </div>
+            <!-- Top Cart -->
+            <div id="ajaxconfig_info" style="display:none"><a href="#/"></a>
+              <input value="" type="hidden">
+              <input id="enable_module" value="1" type="hidden">
+              <input class="effect_to_cart" value="1" type="hidden">
+              <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
+            </div>
+          </div>
+
+          <div class="top-search">
+            <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="images/interstitial-close.png" alt="close"> </button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="navbar-form">
+                        <div id="search">
+                          <div class="input-group">
+                            <input name="search" placeholder="Search" class="form-control" type="text">
+                            <button type="button" class="btn-search"><i class="fa fa-search"></i></button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+              <!-- Header Top Links -->
+              <div class="toplinks">
+                <div class="links">
+
+
+                  <div class="check"><a title="Checkout" href="checkout.php"><span class="hidden-xs">Checkout</span></a></div>
+
+                  <!-- Header Company -->
+                  <?php
+
+                    if($_SESSION['loggedin']){ // I use false condition
+                        echo '<div class="login"><a href="login.php"><span class="hidden-xs">';
+                        echo $_SESSION['userName'];
+                        echo'</span></a></div>';
+                    }
+                    else{
+                        echo '<div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
+                        </div> ';
+                    }
+
+
+
+
+                    ?>
+
+
+                </div>
+
+              </div>
+              <!-- End Header Top Links -->
+
+            </div>
+          </div>
+        </div>
       </div>
-
-    <ul class="navbar-nav">
-
-          <li class="nav-item">
-            <a class="nav-link " href="browse.php"><span class="bi bi-search"></span></a>
-          </li>
-        <?php
-
-         if(isset($_SESSION['loggedin']) and $_SESSION['loggedin'] == 'true' and ($_SESSION['access']=='admin' or $_SESSION['access']=='agent' )){ // I use false condition
-
-
-         }
-        else{
-        echo '<li class="nav-item">
-            <a class="nav-link " href="cart.php"><span class="bi bi-cart"></span></a>
-          </li>';
-        }
-             ?>
-
-        </ul>
-<!--
-
-      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-        <i class="bi bi-search"></i>
-      </button>
--->
-
     </div>
-  </nav><!-- End Header/Navbar -->
+  </header>

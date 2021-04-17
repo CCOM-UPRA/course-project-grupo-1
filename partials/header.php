@@ -33,7 +33,19 @@ require_once("partials/connect.php");
             </div>
             <div class="col-xs-5 col-sm-6"> 
               
-              <div class="top-cart-contain pull-right"> 
+
+
+
+
+
+
+
+
+
+                <!-- Shopping Cart -->
+
+
+      <div class="top-cart-contain pull-right">
             <!-- Top Cart -->
             <div class="mini-cart">
               <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"><a href="shopping_cart.php">  My Cart <span class="cart_count">2</span></a></div>
@@ -81,6 +93,23 @@ require_once("partials/connect.php");
             </div>
           </div>
           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <div class="top-search">
             <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
               <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
