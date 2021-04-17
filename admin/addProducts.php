@@ -35,8 +35,23 @@ $description=$_POST['description'];
 
 
 $target_dir = "../newImages/"; 
-$target_file = $target_dir . basename($_FILES["photo"]["product_Name"]);
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+
+  
+
+  
+
+  // if(!empty($_FILES["photo"]["product_Name"])){
+
+      $fileName = basename($_FILES["photo"]["name"]);
+      $targetFilePath = $target_dir . $fileName;
+      $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+      $allowTypes = array('jpg','png', 'jpeg','gif', 'pdf');
+
+  
+  
+      $insert = $connect -> query("INSERT INTO products (photo) VALUES()");
+      
 // $target="../newImages/";
 // $file_path=$target . basename($_FILES['file']['name']);
 // $file_name=$_FILES['file']['name'];
@@ -47,7 +62,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // $query = ("SELECT category_id from categories where $genres = category_genre AND $category = category_type");
 $sql="INSERT INTO products(product_Name,photo,category,genres, rating, price, director, stocks_amount, starring, launch_Date, description)
- VALUES('$product_Name','$category','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description',$photo)";
+ VALUES('$product_Name','".$fileName."','$category','$genres','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description')";
 
 
 
@@ -128,8 +143,8 @@ mysqli_close($connect);
                     <textarea name="description" id="description" title="description" class="form-control" rows=4 style="color: black;"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="photos">File input</label>
-                  <input type="file" id="photos" name="file">
+                  <label for="photo">File input</label>
+                  <input type="file" id="photo" name="photo" value="Upload">
                 </div>
                 <?php
                   

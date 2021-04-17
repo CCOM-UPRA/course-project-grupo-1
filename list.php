@@ -235,7 +235,7 @@ include("partials/navbar.php");
           <aside class="col-left sidebar">
             <div class="side-nav-categories">
              
-              <!--box-content box-category--> 
+              <!--box-content box-category 
             </div>
             <div class="block block-layered-nav">
               <div class="block-title">Shop By</div>
@@ -268,7 +268,7 @@ include("partials/navbar.php");
                       <li> <a href="#">Blue</a> (1) </li>
                     </ol>
                   </dd>
--->
+
                   <dt class="last even">Rating</dt>
                   <dd class="last even">
                     <ol>
@@ -306,7 +306,7 @@ include("partials/navbar.php");
                       <strong>1</strong> x <span class="price">$10.99</span>
                       <p class="product-name"> <a href="#">Spiderman Far From Home</a> </p>
                       
-                      <!--access clearfix--> 
+                      <!--access clearfix 
                     </div>
                   </li>
                 </ul>
@@ -330,7 +330,7 @@ include("partials/navbar.php");
                   <button type="submit" title="Submit" class="button button-clear"><span>Clear</span></button>
                 </div>
               </div>
-            </div>-->
+            </div>
             <div class="block block-list block-viewed">
               <div class="block-title"> Recently Viewed </div>
               <div class="block-content">
@@ -349,7 +349,7 @@ include("partials/navbar.php");
             </div>
          
           </aside>
-        </div>
+        </div>-->
     </div>
   </div>
 </section>
