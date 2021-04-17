@@ -38,6 +38,15 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+<style>
+.dbimg{
+  width:284px;
+  height:284px;
+  display:right;
+}
+
+</style>
 </head>
 
 <body class="inner-page">
@@ -123,7 +132,7 @@ include("partials/navbar.php");
             </div>
             <div class="category-products">
             <?php
-            $sql = "Select * from products NATURAL JOIN categories where category_type = 'Series'";
+            $sql = "Select * from products where category = 'Series'";
             $results = $connect->query($sql);
             
 
@@ -132,7 +141,7 @@ include("partials/navbar.php");
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><img src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>">
+                      <div class="item-img-info"><img class="dbimg"src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>">
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
@@ -146,7 +155,7 @@ include("partials/navbar.php");
                         <div class="item-title"><?php echo $final['product_name']?> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price"><?php echo $final['price']?></span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -436,7 +445,7 @@ include("partials/navbar.php");
               </ul>
             </div>
           </article>
-          <!--	///*///======    End article  ========= //*/// 
+          <!--	//////======    End article  ========= ///// --> 
         </div>
         <div class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9">
           <aside class="col-left sidebar">
@@ -473,7 +482,7 @@ include("partials/navbar.php");
                       <li> <a href="#">Blue</a> (1) </li>
                     </ol>
                   </dd>
-
+-->
                   <dt class="last even">Rating</dt>
                   <dd class="last even">
                     <ol>
@@ -511,7 +520,7 @@ include("partials/navbar.php");
                       <strong>1</strong> x <span class="price">$10.99</span>
                       <p class="product-name"> <a href="#">Spiderman Far From Home</a> </p>
                       
-                      <!--access clearfix 
+                      <!--access clearfix--> 
                     </div>
                   </li>
                 </ul>
@@ -535,7 +544,7 @@ include("partials/navbar.php");
                   <button type="submit" title="Submit" class="button button-clear"><span>Clear</span></button>
                 </div>
               </div>
-            </div>
+            </div>-->
             <div class="block block-list block-viewed">
               <div class="block-title"> Recently Viewed </div>
               <div class="block-content">
@@ -612,11 +621,11 @@ include("partials/navbar.php");
                 </ul>
                 <div class="actions"> <a href="#" class="view-all">View All Tags</a> </div>
               </div>
-            </div>
+            </div> -->
 
           </aside>
         </div>
-      </div>--> 
+      </div>
     </div>
   </section>
   <!-- Main Container End -->
