@@ -94,7 +94,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Sales Report</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Product Sales</a></li>
+            <!-- <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Product Sales</a></li> -->
             <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Cancel Orders</a></li>
             <li><a href="../admin/inventory.php"><i class="fa fa-circle-o"></i> Inventory</a></li>
           </ul>
