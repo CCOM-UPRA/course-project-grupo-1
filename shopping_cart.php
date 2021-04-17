@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+
+
+function transfer($name){
+
+    $_SESSION['name'] = $name;
+
+
+}
+    ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -80,29 +91,6 @@ include("partials/navbar.php");
                     </tr>
                   </thead>
 
-
-
-
-                 <?php
-
-                   function getProductName ($websiteProductName){
-                    $sql = "SELECT *
-                    FROM products
-                    where product_name = websiteProductName";
-                    $results = $connect->query($sql);
-                    $totalPrice = 0;
-                    $totalPrice = $totalPrice + $price;
-                   }
-
-             $sql = "SELECT photo, product_id, product_name, price FROM products";
-            $results = $connect->query($sql);
-
-
-
-                  while($final = $results->fetch_assoc()){ ?>
-
-
-
                  <!-- <tfoot>
                     <tr class="first last">
                       <td class="a-right last" colspan="50"><button  class="button btn-continue" onclick = "index.php" title="Continue Shopping" type="submit"><span>Continue Shopping</span></button>
@@ -112,13 +100,34 @@ include("partials/navbar.php");
                     </tr>
                   </tfoot> -->
 
+
+                 <?php
+                   // $results = $connect->query($sql);
+                   //            $sql = "SELECT *
+                   // FROM cart
+                   // where product_name = websiteProductName";
+                    $id=$_GET['$final['product_name']'];
+                $results = $connect->query($sql);
+            $websiteProductName = " ";
+             $websiteProductName = $_SESSION['name'];
+                          echo 'websiteProductName';
+
+             $sql = "SELECT photo, product_id, product_name, price
+                    FROM products
+                    WHERE product_name = $id";
+                     $totalPrice = 0;
+                    $totalPrice = $totalPrice + $final['price'];
+
+
+                  while($final = $results->fetch_assoc()){ ?>
+
                   <!-- Scripts para anadir y remover -->
 
                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <tbody>
                     <tr class="first odd">
                       <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a></td>
-                        <td><h2 class="product-name"> <a href="<?php echo['photo'] ?>"><?php echo $final['product_name']?></a> </h2></td>
+                        <td><h2 class="product-name"> <a href="<?php echo $final['photo'] ?>"><?php echo $final['product_name']?></a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
                       <td class="a-center hidden-table"><span class="cart-price"> <span class="price"><?php echo $final['price'] ?></span> </span></td>
@@ -126,18 +135,6 @@ include("partials/navbar.php");
                       <td class="a-center movewishlist"><span class="cart-price"> <span class="price"><?php echo $totalPrice ?></span> </span></td>
                       <td class="a-center last"><a class="button remove-item" title="Remove item" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>
-
-                   <!-- <tr class="last even">
-                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/FarFromHomeMini.jpeg"></a></td>
-                      <td><h2 class="product-name"> <a id = "remove1" href="#">Stylish Girl- Fashion Closet and Style Shopping</a> </h2></td>
-                      <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
-                      <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
-                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price"><?php echo $final['price'] ?></span> </span></td>
-                      <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
-                      <td class="a-center movewishlist"><span class="cart-price"> <span class="price">$10.99</span> </span></td>
-                      <td class="a-center last"><a class="button remove-item" title="Remove item" href="#" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
-                    </tr> -->
-
                  </tbody>
                   <?php } ?>
                 </table>
