@@ -6,7 +6,7 @@ if(isset($_POST['login'])){
     $user_ad= 1;
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $sql=("SELECT * from user Where email ='$email' AND password='$password' AND user_admin = '$user_ad'");
+    $sql=("SELECT * from user Where email ='$email' AND password='$password'");
     $results=$connect->query($sql);
     $final=$results->fetch_assoc();
     
