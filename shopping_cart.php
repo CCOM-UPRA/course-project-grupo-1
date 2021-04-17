@@ -1,9 +1,4 @@
-﻿<?php
-session_start();
-
-
-
-    ?>
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +64,11 @@ include("partials/navbar.php");
               <fieldset>
 
 
-
+  <script>
+                            function sendtoIndex() {
+                            location.replace("index.php")
+                            }
+                        </script>
 
 
                            <table class="data-table cart-table" id="shopping-cart-table">
@@ -86,14 +85,14 @@ include("partials/navbar.php");
                     </tr>
                   </thead>
 
-                 <!-- <tfoot>
+                 <tfoot>
                     <tr class="first last">
-                      <td class="a-right last" colspan="50"><button  class="button btn-continue" onclick = "index.php" title="Continue Shopping" type="submit"><span>Continue Shopping</span></button>
+                      <td class="a-right last" colspan="50"><button  class="button btn-continue" onclick = "sendtoIndex()" title="Continue Shopping" type="submit"><span>Continue Shopping</span></button>
 
-                       <!-- <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>
+                            <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>
                         <button id="empty_cart_button" class="button" title="Clear Cart" value="empty_cart" name="update_cart_action" onclick = "$('#shopping-cart-table tbody tr').remove()" type="submit"><span>Clear Cart</span></button></td>
                     </tr>
-                  </tfoot> -->
+                  </tfoot>
 
 
                  <?php
@@ -101,7 +100,7 @@ include("partials/navbar.php");
                    //            $sql = "SELECT *
                    // FROM cart
 
-                $results = $connect->query($sql);
+
 
 
 
@@ -109,8 +108,8 @@ include("partials/navbar.php");
 
 
              $sql = "SELECT photo, product_id, product_name, price
-                    FROM products
-                    WHERE product_name = $websiteProductName";
+                    FROM products";
+                    $results = $connect->query($sql);
                      $totalPrice = 0;
                     $totalPrice = $totalPrice + $final['price'];
 
@@ -122,7 +121,7 @@ include("partials/navbar.php");
                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <tbody>
                     <tr class="first odd">
-                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="newImages/CartMovieImages/IncrediblesMini.jpeg"></a></td>
+                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="<?php echo $final['photo']?>"></a></td>
                         <td><h2 class="product-name"> <a href="<?php echo $final['photo'] ?>"><?php echo $final['product_name']?></a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
@@ -192,7 +191,7 @@ include("partials/navbar.php");
                   <label for="coupon_code" style="color: #001D3D;">Enter your coupon code if you have one.</label>
                   <input type="hidden" value="0" id="remove-coupone" name="remove">
                   <input type="text" name="coupon_code" id="coupon_code" class="input-text fullwidth">
-                  <button value="Apply Coupon" class="button coupon " title="Apply Coupon" type="button"><span>Apply Coupon</span></button>
+                  <button value="Apply Coupon" class="button coupon " title="Apply Coupon" type="button" onclick = "alert('Invalid Code')"><span>Apply Coupon</span></button>
                 </form>
               </div>
             </div>
