@@ -431,7 +431,7 @@ include("partials/navbar.php");
               </ul>
             </div>
           </article>
-          <!--	///*///======    End article  ========= //*/// --> 
+          <!--	///*///======    End article  ========= //*///  
         </div>
         <div class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9">
           <aside class="col-left sidebar">
@@ -450,7 +450,7 @@ include("partials/navbar.php");
                     </ol>
                   </dd>
    
--->
+
                   <dt class="last even">Rating</dt>
                   <dd class="last even">
                     <ol>
@@ -488,7 +488,7 @@ include("partials/navbar.php");
                       <strong>1</strong> x <span class="price">$10.99</span>
                       <p class="product-name"> <a href="#">Spiderman Far From Home</a> </p>
                       
-                      <!--access clearfix--> 
+                      <!--access clearfix 
                     </div>
                   </li>
                 </ul>
@@ -517,7 +517,7 @@ include("partials/navbar.php");
           </aside>
         </div>
       </div>
-    </div>
+    </div>-->
   </section>
   <!-- Main Container End -->
   
