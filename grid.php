@@ -112,27 +112,48 @@ include("partials/navbar.php");
               <div class="sorter">
                 <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="list.php" title="List" class="button-list">&nbsp;</a> </div>
               </div>
+
+
+              <?php
+
+              include("partials/connect.php");
+              function sort_price() {
+                error_reporting(E_ALL);
+                $sql = "Select * from products NATURAL JOIN categories where category_type = 'Movie' ORDER BY price ASC";
+                $results = $connect->query($sql);
+                
+                
+                while($final = $results->fetch_assoc()){
+                
+                
+                //we will use heredoc to display cause using echo messes up the ""
+                $reports= <<<DELIMITER
+                <tr>
+                <td>{$final['photo']}</td>
+                <td>{$final['product_name']}</td>
+                <td>{$final['price']}</td>
+                DELIMITER;
+                echo $final;
+                
+                //echo $row['product_price'];
+                    }
+                }
+              ?>
               <div id="sort-by">
               <form>
                 <label class="left">Sort By: </label>
-                <select id="sorting" onchange="selectionChange()">
-                    <option  value="Sort By" selected>Sort Products</option>
-                    <option value="Sort By Price" id="price" >Sort By Price</option>
-                    <option value="Sort By A-Z" id="az" >Sort By A-Z</option>
-                    <option value="Sort By Z-A" id="az" >Sort By Z-A</option>
+                <select id="sorting">
+                    <option  value="Sort By" selected> Sort Products </option>
+                    <option value="Sort By Price" id="price"  sort_price();> Sort By Price </option>
+                    <option value="Sort By A-Z" id="az" > Sort By A-Z </option>
+                    <option value="Sort By Z-A" id="az" > Sort By Z-A </option>
                   </select>
                   <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
                 </form>
-               
-  
             </div>
 
 
             <div class="category-products">
-
-
-   
-   
 
                 <?php
             $sql = "Select * from products NATURAL JOIN categories where category_type = 'Movie'";
@@ -149,7 +170,7 @@ include("partials/navbar.php");
                   <div class="item-inner">
                     <div class="item-img">
                       <div class="item-img-info">
-                      <img class = "product-img" src="<?php echo $final['photo']?>" alt="Avengers Endgame" title="Avengers Endgame" class="product-image">
+                      <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
