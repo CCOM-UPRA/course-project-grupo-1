@@ -60,12 +60,12 @@
                             <li class="level2 nav-6-1-1"><a href="#/sunglasses/oakley.php"><span>StarWars</span></a></li>
                           </ul>
                         </li>
-                        <li class="level1 nav-6-1 parent item"><a href="#/accesories.php"><span>Anime</span></a>
+                        <li class="level1 nav-6-1 parent item"><a href="#/accesories.php"><span>Romance</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/backpacks.php"><span>Naruto The Last</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/wallets.php"><span>Your Name</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/laptops-bags.php"><span>A Silent Voice</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/belts.php"><span>Demon Slayer Mugen Train</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/accesories/backpacks.php"><span>The Notebook</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/accesories/wallets.php"><span>Love Jones</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/accesories/laptops-bags.php"><span>In the Mood for Love</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/accesories/belts.php"><span>The Best Man</span></a></li>
                           </ul>
                         </li>
                       </ul>
@@ -124,12 +124,12 @@
                             <li class="level2 nav-6-1-1"><a href="#/computer/pc-components.php"><span>Vikings</span></a></li>
                           </ul>
                         </li>
-                        <li class="level1 nav-6-1 parent item"><a href="#/home-appliances.php"><span>Anime</span></a>
+                        <li class="level1 nav-6-1 parent item"><a href="#/home-appliances.php"><span>Romance</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/vaccum-cleaners.php"><span>One Piece</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/indoor-lighting.php"><span>Naruto</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/kitchen-tools.php"><span>Fairy Tail</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/water-purifier.php"><span>Attack on Titan</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/vaccum-cleaners.php"><span>Bridgerton</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/indoor-lighting.php"><span>Riverdale</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/kitchen-tools.php"><span>Love</span></a></li>
+                            <li class="level2 nav-6-1-1"><a href="#/water-purifier.php"><span>New Girl</span></a></li>
                           </ul>
                         </li>
                       </ul>
