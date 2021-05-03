@@ -129,7 +129,7 @@ include("partials/navbar.php");
             </div>
             <div class="category-products">
             <?php
-            $sql = "Select * from products NATURAL JOIN categories where category_type = 'Free'";
+            $sql = "Select * from products  where category = 'Free' order by product_name ASC";
             $results = $connect->query($sql);
             
 
