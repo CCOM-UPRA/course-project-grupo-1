@@ -137,7 +137,7 @@ include("partials/navbar.php");
             </form>
           </div>
           <!-- BEGIN CART COLLATERALS -->
-          <div class="cart-collaterals row">
+         <!-- <div class="cart-collaterals row">
             <div class="col-sm-4">
               <div class="shipping">
                 <h3>Estimate Shipping and Tax</h3>
@@ -179,12 +179,16 @@ include("partials/navbar.php");
                     <div class="buttons-set11">
                       <button onclick = "alert('Free Shipping!')" class="button get-quote" title="Get a Quote" type="button" ><span>Get a Quote</span></button>
                     </div>
-                    <!--buttons-set11-->
+                    <!--buttons-set11
                   </form>
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
+            -->
+
+            <!--
+             <div class="cart-collaterals row">
+             <div class="col-sm-4">
               <div class="discount">
                 <h3>Discount Codes</h3>
                 <form method="post" action="#" id="discount-coupon-form">
@@ -195,6 +199,8 @@ include("partials/navbar.php");
                 </form>
               </div>
             </div>
+            </div>-->
+            <div class="cart-collaterals row">
             <div class="col-sm-4">
               <div class="totals">
                 <h3>Shopping Cart Total</h3>
