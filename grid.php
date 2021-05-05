@@ -125,7 +125,7 @@ include("partials/navbar.php");
                     <option value="Sort By Z-A" id="az" > Sort By Z-A </option>
                   </select>
                   <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
-                  <input type="submit" name="submit" />
+                  
 
 
                 </form>
