@@ -230,9 +230,9 @@ include("../partials/connect.php");
                                 <td><?php echo $final['firstName']?></td>
                                 <td><?php echo $final['lastName']?></td>   
                                 <td><?php echo $final['created_at']?></td>
-                                <td><?php echo $final['email']?></td>                     
+                                <td><?php echo $final['email']?></td>                      
                                 <td><?php echo $final['phoneNumber']?></td>
-                                <td><?php if($final['user_admin'] == 1){echo 'admin';} else{echo 'customer';}?></td>
+                                <td><?php if($final['user_type'] == 1){echo 'admin';} else{echo 'customer';}?></td>
                                 <td>
                                     <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-bars"></i></a>
                                 </td>

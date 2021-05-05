@@ -1,7 +1,4 @@
-<?php 
-require_once("partials/connect.php");
 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,16 +19,16 @@ require_once("partials/connect.php");
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS Style -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="css/owl.theme.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
-<link rel="stylesheet" type="text/css" href="css/revslider.css" >
-<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/newstyle.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-menu.css">
+<link rel="stylesheet" type="text/css" href="assets/css/revslider.css" >
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/newstyle.css" media="all">
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -43,11 +40,11 @@ require_once("partials/connect.php");
 <div id="page"> 
 
 <?php
-    include("partials/header.php");
+    include("includes/header.php");
 ?>
   <!-- Navbar -->
 <?php
-include("partials/navbar.php");
+include("includes/navbar.php");
 
 ?> 
   <!-- End Navbar -->
@@ -60,23 +57,23 @@ include("partials/navbar.php");
         <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
           <ul>
             <!-- SLIDE  -->
-            <li data-index="rs-16" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/slide-img1.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-description=""> 
+            <li data-index="rs-16" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="assets/images/slide-img1.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-description=""> 
               <!-- MAIN IMAGE --> 
-              <img src="newImages/HomeImages/SliderImages/findingDory2.jpg" alt=""> 
+              <img src="assets/newImages/HomeImages/SliderImages/findingDory2.jpg" alt=""> 
               <!-- LAYERS --> 
               
               
             <!-- SLIDE  -->
-            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/slide-img2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Ken Burns" data-description=""> 
+            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="assets/images/slide-img2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Ken Burns" data-description=""> 
               <!-- MAIN IMAGE --> 
-              <img src="newImages/HomeImages/SliderImages/MonsterHunter2.png"  alt=""> 
+              <img src="assets/newImages/HomeImages/SliderImages/MonsterHunter2.png"  alt=""> 
               <!-- LAYERS --> 
               
             </li>
             <!-- SLIDE  -->
-            <li data-index="rs-19" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/video-img.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="HTML5 Video" data-description=""> 
+            <li data-index="rs-19" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="assets/images/video-img.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="HTML5 Video" data-description=""> 
               <!-- MAIN IMAGE --> 
-              <img src="newImages/HomeImages/SliderImages/The%20100%20SEason%203.jpg"  alt=""> 
+              <img src="assets/newImages/HomeImages/SliderImages/The%20100%20SEason%203.jpg"  alt=""> 
              
             
           </ul>
@@ -92,9 +89,9 @@ include("partials/navbar.php");
   <div class="promo-section">
   <div class="container">
   <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="Lucifer Morningstar" src="newImages/HomeImages/TopBanners/resized-image-Promo%20(2).jpeg"></div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="newImages/HomeImages/TopBanners/resized-image-Promo%20(3).jpeg"></div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="newImages/HomeImages/TopBanners/resized-image-Promo%20(10).jpeg"></div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="Lucifer Morningstar" src="assets/newImages/HomeImages/TopBanners/resized-image-Promo%20(2).jpeg"></div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="assets/newImages/HomeImages/TopBanners/resized-image-Promo%20(3).jpeg"></div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><img alt="promotion banner" src="assets/newImages/HomeImages/TopBanners/resized-image-Promo%20(10).jpeg"></div>
   </div>
   </div>
   </div>
@@ -111,7 +108,7 @@ include("partials/navbar.php");
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info">  <img class = "newimg" alt="Sonic The Hedgehog" src="newImages/HomeImages/secondSliderImages/sonicHedhog.jpeg">
+                <div class="item-img-info">  <img class = "newimg" alt="Sonic The Hedgehog" src="assets/newImages/HomeImages/secondSliderImages/sonicHedhog.jpeg">
                   <div class="actions">
                     <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
@@ -145,7 +142,7 @@ include("partials/navbar.php");
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="Avenger's End Game" href="#"> <img alt="Avengers End Game" src="newImages/HomeImages/secondSliderImages/AvengersEndGame.jpg"> </a>
+                <div class="item-img-info"> <a class="product-image" title="Avenger's End Game" href="#"> <img alt="Avengers End Game" src="assets/newImages/HomeImages/secondSliderImages/AvengersEndGame.jpg"> </a>
                   <div class="actions">
                     <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
@@ -182,7 +179,7 @@ include("partials/navbar.php");
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="Moana The Songs" href="#"> <img alt="Moana The Songs" src="newImages/HomeImages/secondSliderImages/Moana.webp"> </a>
+                <div class="item-img-info"> <a class="product-image" title="Moana The Songs" href="#"> <img alt="Moana The Songs" src="assets/newImages/HomeImages/secondSliderImages/Moana.webp"> </a>
                   <div class="sale-label new-top-left">Sale</div>
                   <div class="actions">
                     <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
@@ -219,7 +216,7 @@ include("partials/navbar.php");
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="Frozen 2" href="#"> <img alt="Retis lapen casen" src="newImages/HomeImages/secondSliderImages/frozen2.jpg"> </a>
+                <div class="item-img-info"> <a class="product-image" title="Frozen 2" href="#"> <img alt="Retis lapen casen" src="assets/newImages/HomeImages/secondSliderImages/frozen2.jpg"> </a>
                   <div class="actions">
                     <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
@@ -255,7 +252,7 @@ include("partials/navbar.php");
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="Jumanji the Next Level" href="#"> <img alt="Retis lapen casen" src="newImages/HomeImages/secondSliderImages/Jumanji.jpg"> </a>
+                <div class="item-img-info"> <a class="product-image" title="Jumanji the Next Level" href="#"> <img alt="Retis lapen casen" src="assets/newImages/HomeImages/secondSliderImages/Jumanji.jpg"> </a>
                   <div class="actions">
                     <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
@@ -290,7 +287,7 @@ include("partials/navbar.php");
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="The Conjuring 2" href="#"> <img alt="Retis lapen casen" src="newImages/HomeImages/secondSliderImages/TheConjuring.jpg"> </a>
+                <div class="item-img-info"> <a class="product-image" title="The Conjuring 2" href="#"> <img alt="Retis lapen casen" src="assets/newImages/HomeImages/secondSliderImages/TheConjuring.jpg"> </a>
                   <div class="actions">
                     <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
@@ -325,7 +322,7 @@ include("partials/navbar.php");
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="Batman vs Superman" href="#"> <img alt="Retis lapen casen" src="newImages/HomeImages/secondSliderImages/BatmanVSSuperman.jpg"> </a>
+                <div class="item-img-info"> <a class="product-image" title="Batman vs Superman" href="#"> <img alt="Retis lapen casen" src="assets/newImages/HomeImages/secondSliderImages/BatmanVSSuperman.jpg"> </a>
                      <div class="actions">
                     <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
@@ -393,7 +390,7 @@ include("partials/navbar.php");
                           <li class="item item-animate wide-first">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Frozen 2" class="product-image"><img src="newImages/HomeImages/secondSliderImages/frozen2.jpg" alt="Retis lapen casen"></a>
+                                <div class="item-img-info"><a href="#" title="Frozen 2" class="product-image"><img src="assets/newImages/HomeImages/secondSliderImages/frozen2.jpg" alt="Retis lapen casen"></a>
                        
                                   <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
@@ -428,7 +425,7 @@ include("partials/navbar.php");
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Spiderman Far From Home" class="product-image"><img src="newImages/HomeImages/BestSellers/spidermanFarFromHome.jpg"></a>
+                                <div class="item-img-info"><a href="#" title="Spiderman Far From Home" class="product-image"><img src="assets/newImages/HomeImages/BestSellers/spidermanFarFromHome.jpg"></a>
                       
                                   <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
@@ -463,7 +460,7 @@ include("partials/navbar.php");
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Wonder Woman" class="product-image"><img src="newImages/HomeImages/BestSellers/wonderwoman2.jpg"></a>
+                                <div class="item-img-info"><a href="#" title="Wonder Woman" class="product-image"><img src="assets/newImages/HomeImages/BestSellers/wonderwoman2.jpg"></a>
                       
                                   <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
@@ -498,7 +495,7 @@ include("partials/navbar.php");
                           <li class="item last item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Harry Potter and the Philosopher's Stone" class="product-image"><img src="newImages/HomeImages/BestSellers/Harry-Potter-and-the-Sorcerers-Stone.jpg" alt="Retis lapen casen"></a>
+                                <div class="item-img-info"><a href="#" title="Harry Potter and the Philosopher's Stone" class="product-image"><img src="assets/newImages/HomeImages/BestSellers/Harry-Potter-and-the-Sorcerers-Stone.jpg" alt="Retis lapen casen"></a>
                    
                                   <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
@@ -537,7 +534,7 @@ include("partials/navbar.php");
                           <li class="item item-animate wide-first">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Aquaman" class="product-image"><img src="newImages/HomeImages/NewRelease/aquaMan.jpg"></a>
+                                <div class="item-img-info"><a href="#" title="Aquaman" class="product-image"><img src="assets/newImages/HomeImages/NewRelease/aquaMan.jpg"></a>
                                             <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                     <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
@@ -571,7 +568,7 @@ include("partials/navbar.php");
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="The Incredibles 2" class="product-image"><img src="newImages/HomeImages/NewRelease/increibles-2.jpg" alt="The Incredibles 2"></a>
+                                <div class="item-img-info"><a href="#" title="The Incredibles 2" class="product-image"><img src="assets/newImages/HomeImages/NewRelease/increibles-2.jpg" alt="The Incredibles 2"></a>
                                          <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                     <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
@@ -605,7 +602,7 @@ include("partials/navbar.php");
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Star Wars Rise of the Skywalker" class="product-image"><img src="newImages/Movies/movies/starwars.jpg" alt="Star Wars Rise of the Skywalker"></a>
+                                <div class="item-img-info"><a href="#" title="Star Wars Rise of the Skywalker" class="product-image"><img src="assets/newImages/Movies/movies/starwars.jpg" alt="Star Wars Rise of the Skywalker"></a>
                             
                                   <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
@@ -640,7 +637,7 @@ include("partials/navbar.php");
                           <li class="item item-animate last">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="American Pie The Book of Love" class="product-image"><img src="newImages/HomeImages/NewRelease/americanPie.jpg" alt="American Pie"></a>
+                                <div class="item-img-info"><a href="#" title="American Pie The Book of Love" class="product-image"><img src="assets/newImages/HomeImages/NewRelease/americanPie.jpg" alt="American Pie"></a>
                                          <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                     <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
@@ -678,7 +675,7 @@ include("partials/navbar.php");
                           <li class="item item-animate wide-first">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Beauty and the Beast" class="product-image"><img src="newImages/HomeImages/Featured/BeautyandtheBeast.jpg" alt="Beauty and the Beast"></a>
+                                <div class="item-img-info"><a href="#" title="Beauty and the Beast" class="product-image"><img src="assets/newImages/HomeImages/Featured/BeautyandtheBeast.jpg" alt="Beauty and the Beast"></a>
                                       <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                     <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
@@ -712,7 +709,7 @@ include("partials/navbar.php");
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Parasite" class="product-image"><img src="newImages/HomeImages/Featured/Parasite.jpg" alt="Parasite"></a>
+                                <div class="item-img-info"><a href="#" title="Parasite" class="product-image"><img src="assets/newImages/HomeImages/Featured/Parasite.jpg" alt="Parasite"></a>
                                   <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                     <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
@@ -746,7 +743,7 @@ include("partials/navbar.php");
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="American Horror Story Collection" class="product-image"><img src="newImages/Series/tv/american.jpg" alt="Retis lapen casen"></a>
+                                <div class="item-img-info"><a href="#" title="American Horror Story Collection" class="product-image"><img src="assets/newImages/Series/tv/american.jpg" alt="Retis lapen casen"></a>
                                           <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                     <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
@@ -780,7 +777,7 @@ include("partials/navbar.php");
                           <li class="item item-animate last">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="The Conjuring 2" class="product-image"><img src="newImages/HomeImages/secondSliderImages/TheConjuring.jpg" alt="Retis lapen casen"></a>
+                                <div class="item-img-info"><a href="#" title="The Conjuring 2" class="product-image"><img src="assets/newImages/HomeImages/secondSliderImages/TheConjuring.jpg" alt="Retis lapen casen"></a>
                                       <div class="actions">
                                     <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                                     <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
@@ -826,67 +823,7 @@ include("partials/navbar.php");
   
  
   
-  <!-- Latest Blog 
-  <section class="latest-blog wow bounceInUp animated">
-    <div class="container">
-      <div class="new_title center">
-        <h1>Latest Blog</h1>
-        <div class="starSeparator"></div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-          <div class="blog_post">
-                  <div class="thumbnail">
-               <h2> <a href="#">Lorem ipsum dolor sit amet, consect adipiscing elit</a> </h2>
-					<div class="featured-img">
-					<span class="gradient-overlay"></span>
-					 <img src="images/blog-img1.jpg" alt="blog post">
-					
-					</div>
-                   
-                    </div>
-                    <div class="entry-meta">
-			<a href="#">
-  <span class="author-avatar byline"><img alt="" src="images/admin-photo.jpg" class="avatar avatar-96 photo">By John Doe</span> <span class="timestamp">January 26, 2016</span>
-</a>
-
-			
-
-		</div>
-                    <p> Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut mi metus, semper eu dictum nec, condimentum sed sapien.</p>
-                    <p> Nullam lobortis nunc semper ipsum luctus ut viverra ante eleifend... </p>
-                   <a href="#" class="continue-btn">Continue Reading <span>›</span></a>
-                  </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-          <div class="blog_post">
-                  <div class="thumbnail">
-               <h2> <a href="#"> Pellentesque aliquet, sem eget laoreet ultrices</a> </h2>
-					<div class="featured-img">
-					<span class="gradient-overlay"></span>
-					 <img src="images/blog-img2.jpg"  alt="blog post 2">
-					
-					</div>
-                   
-                    </div>
-                    <div class="entry-meta">
-			<a href="#">
-  <span class="author-avatar byline"><img alt="" src="images/admin-photo1.jpg"  class="avatar avatar-96 photo">By Saraha Smith</span>
-</a>
-<span class="timestamp">January 20, 2016</span>
-			
-
-		</div>
-                    <p>Aliquam laoreet consequat malesuada. Integer vitae diam sed dolor euismod laoreet eget ac felis. Donec non erat sed elit bibendum sodales.</p>
-                    <p> Donec eu cursus velit. Proin nunc lacus, gravida mollis dictum ut, vulputate eu turpis... </p>
-                   <a href="#" class="continue-btn">Continue Reading <span>›</span></a>
-                  </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-   End Latest Blog -->
+  
   
   <div class="brand-logo wow bounceInUp animated">
     <div class="container">
@@ -895,35 +832,35 @@ include("partials/navbar.php");
           <div class="slider-items slider-width-col6"> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/sony.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/sony.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/paramount.com" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/paramount.com" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo1.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo4.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo4.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
           </div>
@@ -936,7 +873,7 @@ include("partials/navbar.php");
    <!-- Footer  --> 
   
 <?php
-include("partials/footer.php");
+include("includes/footer.php");
 
 ?>
     <!-- Footer  -->
@@ -1146,9 +1083,9 @@ include("partials/footer.php");
   </ul>
   <div class="dropdown block-language-wrapper">
                 <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/english.png" alt="language"> English </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/francais.png" alt="language"> French </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/english.png" alt="language"> English </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/francais.png" alt="language"> French </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/german.png" alt="language"> German </a></li>
                 </ul>
               </div>
               <div class="dropdown block-currency-wrapper"> 
@@ -1163,14 +1100,14 @@ include("partials/footer.php");
 <!-- End Footer --> 
 
 <!-- JavaScript --> 
-<script type="text/javascript" src="js/jquery.min.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/common.js"></script> 
-<script type="text/javascript" src="js/countdown.js"></script> 
-<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-<script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script> 
-<script type="text/javascript" src="js/revolution-slider.js"></script> 
-<script type="text/javascript" src="js/revolution.extension.js"></script> 
+<script type="text/javascript" src="assets/js/jquery.min.js"></script> 
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="assets/js/common.js"></script> 
+<script type="text/javascript" src="assets/js/countdown.js"></script> 
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script> 
+<script type="text/javascript" src="assets/js/jquery.mobile-menu.min.js"></script> 
+<script type="text/javascript" src="assets/js/revolution-slider.js"></script> 
+<script type="text/javascript" src="assets/js/revolution.extension.js"></script> 
   <script type="text/javascript">
 var dthen1 = new Date("12/25/17 11:59:00 PM");
 	start = "05/03/15 03:02:11 AM";
@@ -1302,7 +1239,7 @@ var dthen1 = new Date("12/25/17 11:59:00 PM");
 				</script>
         
      
-     <script src="js/main_login.js"></script>
+     <script src="assets/js/main_login.js"></script>
           
 </body>
 </html>

@@ -16,28 +16,43 @@ include("adminpartials/aside.php");
 ?>
   <?php
 
-error_reporting(E_ALL);
+error_reporting(0);
 
 if(isset($_POST['submit']) ){
 include("../partials/connect.php");
 //products
 $product_name=$_POST['product_name'];
 $category=$_POST['category'];
-$photo= basename( $_FILES["photo"]["product_Name"]);
+$photo= basename( $_FILES["photo"]["product_name"]);
 $rating=$_POST['rating'];
 $price=$_POST['price'];
 $director=$_POST['director'];
 $trailer=$_POST['trailer'];
-$stocks_amount=$_POST['inventory_amount'];
+$inventory_amount=$_POST['inventory_amount'];
 $starring=$_POST['starring'];
-$release_Date=$_POST['release_Date'];
+$release_date=$_POST['release_date'];
 $description=$_POST['description'];
 $status = $_POST['status'];
-$photo= basename( $_FILES["photo"]["product_name"]);
+// $photo= basename( $_FILES["photo"]["product_name"]);
 
 
-$genres=$_POST['genres'];
+$genres=$_POST['genre_name'];
 
+
+
+if($genres == 'Drama'){
+  $genre_id = 1;
+}elseif($genres == 'Horror'){
+  $genre_id = 2;
+}elseif($genres == 'Family'){
+  $genre_id = 3;
+}elseif($genres == 'Comedy'){
+  $genre_id = 4;
+}elseif($genres == 'Action'){
+  $genre_id = 5;
+}elseif($genres == 'Romance'){
+  $genre_id = 6;
+}
 
   
   if($category == 'Movie'){
@@ -60,10 +75,11 @@ $genres=$_POST['genres'];
   if(in_array($fileType, $allowTypes)){
 
   }
+
       
 
-$sql="INSERT INTO products(product_name,photo,category,trailer,rating, price, director, inventory_amount, starring, release_Date, description,status)
- VALUES('$product_name','$targetFilePath','$category','$trailer','$rating','$price','$director','$inventory_amount','$starring','$release_Date','$description','$status')";
+$sql="INSERT INTO products(genre_id,product_name,photo,category,trailer,rating, price, director, inventory_amount, starring, release_date, description,status)
+ VALUES('$genre_id','$product_name','$targetFilePath','$category','$trailer','$rating','$price','$director','$inventory_amount','$starring','$release_date','$description','$status')";
 
 
 $connect->query($sql);
@@ -102,15 +118,15 @@ mysqli_close($connect);
               <div class="box-body">
                 <div class="form-group">
                   <label for="product_name">Product Name</label>
-                  <input type="text" class="form-control" id="product_name" name="product_Name" placeholder="Enter Product Name">
+                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter Product Name">
                 </div>
                 <div class="form-group">
                   <label for="category">Category</label>
                   <input type="text" class="form-control" id="category" name="category" placeholder="Enter Category">
                 </div>
                 <div class="form-group">
-                  <label for="genres">Genres</label>
-                  <input type="text" class="form-control" id="genres" name="genres" placeholder="Enter Genres">
+                  <label for="genre_name">Genres</label>
+                  <input type="text" class="form-control" id="genre_name" name="genre_name" placeholder="Enter Genres">
                 </div>
                 <div class="form-group">
                   <label for="rating">Rating</label>
@@ -121,8 +137,8 @@ mysqli_close($connect);
                   <input type="text" class="form-control" id="price" name="price" placeholder="Enter Price">
                 </div>
                 <div class="form-group">
-                  <label for="stocks_amount">Stock</label>
-                  <input type="text" class="form-control" id="stocks_amount" name="stocks_amount" placeholder="Enter Stock">
+                  <label for="inventory_amount">Stock</label>
+                  <input type="text" class="form-control" id="inventory_amount" name="inventory_amount" placeholder="Enter Stock">
                 </div>
                 <div class="form-group">
                   <label for="director">Director</label>
@@ -137,8 +153,8 @@ mysqli_close($connect);
                   <input type="text" class="form-control" id="status" name="status" placeholder="Enter Status">
                 </div>
                 <div class="form-group">
-                  <label for="launch_Date">Launch Date or Launched Date</label>
-                  <input type="text" class="form-control" id="launch_Date" name="launch_Date" placeholder="month day#, year">
+                  <label for="release_date">Launch Date or Launched Date</label>
+                  <input type="text" class="form-control" id="release_date" name="release_date" placeholder="month day#, year">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>

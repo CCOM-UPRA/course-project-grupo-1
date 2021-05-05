@@ -19,10 +19,15 @@ $email=$_POST['email'];
 $password=$_POST['password'];
 $phoneNumber=$_POST['phoneNumber'];
 $birthdate=$_POST['birthdate'];
-$user_admin=$_POST['user_admin'];
+$user_type=$_POST['user_type'];
 $status=$_POST['status'];
+$zip = $_POST['postal_code'];
+$city = $_POST['city'];
+$country = $_POST['country'];
+$street2 = $_POST['street2']; 
+$street1 = $_POST['street1'];
 
-
+$userID = $_SESSION['id'];
 //$category_type=$_POST['category_type'];
 /*
 $target="../uploads/";
@@ -34,13 +39,15 @@ $file_store="../uploads/".$file_name;
 move_uploaded_file($file_tmp,$file_store);
 */
 
-$sql="INSERT INTO user(firstName, lastName, email, password, phoneNumber, birthdate, user_admin, status) 
-VALUES('$firstName','$lastName','$email','$password','$phoneNumber','$birthdate','$user_admin','$status')";
+$sql="INSERT INTO user(firstName, lastName, email, password, phoneNumber, birthdate, user_type, status) 
+VALUES('$firstName','$lastName','$email','$password','$phoneNumber','$birthdate','$user_type','$status')";
 
+$sql2 ="INSERT INTO address(userID,street1, street2,country,city,postal_code) VALUES($userID,$street1','$street2','$country','$city','$zip')";
 
 //$sql="INSERT INTO categories(category_genre, category_type) VALUES('$genres','$category_type')";
 
 $connect->query($sql);
+$connect->query($sql2);
 
 mysqli_close($connect);
 
@@ -109,8 +116,28 @@ include("adminpartials/aside.php");
                   <input type="text" class="form-control" id="birthdate" name="birthdate" required placeholder="month day#, year">
                 </div>
                 <div class="form-group">
-                  <label for="user_admin">Admin</label>
-                  <input type="text" class="form-control" id="user_admin" name="user_admin" required placeholder="Enter Role">
+                  <label for="street1">Address</label>
+                  <input type="text" class="form-control" id="street1" name="street1" required placeholder="Enter Address">
+                </div>
+                <div class="form-group">
+                  <label for="street2">Address 2</label>
+                  <input type="text" class="form-control" id="street2" name="street2" required placeholder="Enter Address 2">
+                </div>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <input type="text" class="form-control" id="country" name="country" required placeholder="Enter Country">
+                </div>
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" name="city" required placeholder="Enter City">
+                </div>
+                <div class="form-group">
+                  <label for="postal_code">Zip Code</label>
+                  <input type="text" class="form-control" id="postal_code" name="postal_code" required placeholder="Enter Role">
+                </div>
+                <div class="form-group">
+                  <label for="user_type">User Type</label>
+                  <input type="text" class="form-control" id="user_type" name="user_type" required placeholder="Enter Role">
                 </div>
                 <div class="form-group">
                   <label for="status">Status</label>

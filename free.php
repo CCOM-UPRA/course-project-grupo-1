@@ -1,6 +1,5 @@
 <?php
-session_start();
-require_once("partials/connect.php");
+require_once("includes/config.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,22 +21,22 @@ require_once("partials/connect.php");
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS Style -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
 
 
 <!-- CSS Style -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/revslider.css" >
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="css/owl.theme.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
-<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/newstyle.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/revslider.css" >
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-menu.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/newstyle.css" media="all">
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -49,12 +48,12 @@ require_once("partials/connect.php");
 <div id="page">
 
  <?php
-include("partials/header.php");
+include("includes/header.php");
 
 ?>
   <!-- Navbar -->
 <?php
-include("partials/navbar.php");
+include("includes/navbar.php");
 
 ?> 
 
@@ -86,7 +85,7 @@ include("partials/navbar.php");
                 <div class="slider-items slider-width-col1 owl-carousel owl-theme">
 
                   <!-- Item -->
-                  <div class="item"> <a href="#"><img alt="" src="newImages/Movies/Slide/LevelUpBanner.png"></a>
+                  <div class="item"> <a href="#"><img alt="" src="assets/newImages/Movies/Slide/LevelUpBanner.png"></a>
                     <div class="cat-img-title cat-bg cat-box">
                       <!-- <div class="small-tag"><span>Hot Sale</span> 49% OFF</div> -->
                       <h2 class="cat-heading">FREE Movie Collection</h2>
@@ -96,7 +95,7 @@ include("partials/navbar.php");
                   <!-- End Item -->
 
                   <!-- Item -->
-                  <div class="item"> <a href="#"><img alt="" src="newImages/Movies/Slide/TheJungleBookBanner.png"></a>
+                  <div class="item"> <a href="#"><img alt="" src="assets/newImages/Movies/Slide/TheJungleBookBanner.png"></a>
 
                     <!-- End Item -->
 
@@ -644,35 +643,35 @@ include("partials/navbar.php");
           <div class="slider-items slider-width-col6">
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
             <!-- End Item -->
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
             <!-- End Item -->
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
             <!-- End Item -->
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
             <!-- End Item -->
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/sony.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/sony.png" alt="Image"></a> </div>
             <!-- End Item -->
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/paramount.com" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/paramount.com" alt="Image"></a> </div>
             <!-- End Item -->
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo1.png" alt="Image"></a> </div>
             <!-- End Item -->
 
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo4.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo4.png" alt="Image"></a> </div>
             <!-- End Item -->
 
           </div>
@@ -684,7 +683,7 @@ include("partials/navbar.php");
    <!-- Footer  --> 
   
 <?php
-include("partials/footer.php");
+include("includes/footer.php");
 
 ?>
     <!-- Footer  -->
@@ -893,9 +892,9 @@ include("partials/footer.php");
   </ul>
   <div class="dropdown block-language-wrapper">
                 <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/english.png" alt="language"> English </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/francais.png" alt="language"> French </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/english.png" alt="language"> English </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/francais.png" alt="language"> French </a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/german.png" alt="language"> German </a></li>
                 </ul>
               </div>
               <div class="dropdown block-currency-wrapper">
@@ -909,14 +908,14 @@ include("partials/footer.php");
 <!-- End Footer -->
 
 <!-- JavaScript -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/parallax.js"></script>
-<script type="text/javascript" src="js/revslider.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/parallax.js"></script>
+<script type="text/javascript" src="assets/js/revslider.js"></script>
+<script type="text/javascript" src="assets/js/common.js"></script>
+<script type="text/javascript" src="assets/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.mobile-menu.min.js"></script>
 <script type='text/javascript'>
         jQuery(document).ready(function(){
             jQuery('#rev_slider_4').show().revolution({

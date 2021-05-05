@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <?php
-require_once("partials/connect.php");
+require_once("includes/config.php");
 ?>
 <head>
 <meta charset="utf-8">
@@ -20,16 +20,16 @@ require_once("partials/connect.php");
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS Style -->
-<link rel="stylesheet" type="text/css" href="css/internal.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/revslider.css" >
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="css/owl.theme.css">
-<link rel="stylesheet" type="text/css" href="css/flexslider.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
+<link rel="stylesheet" type="text/css" href="assets/css/internal.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/revslider.css" >
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.css">
+<link rel="stylesheet" type="text/css" href="assets/css/flexslider.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-menu.css">
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -43,12 +43,12 @@ require_once("partials/connect.php");
   
 <?php
 
-include("partials/header.php");
+include("includes/header.php");
 //include("account_info.php");
 ?>
   <!-- Navbar -->
 <?php
-include("partials/navbar.php");
+include("includes/navbar.php");
 
 ?> 
   <!-- End Navbar -->
@@ -88,18 +88,21 @@ include("partials/navbar.php");
                             <p id = "address" class="input-text required-entry">  <?php 
                             // error_reporting(E_ERROR);
 
-                              if($_SESSION['loggedin']){
-                                $id = $_SESSION['id'];
-                                $query = "SELECT * FROM address WHERE userID = '$id'";
-                                $resultAddress = mysqli_query($connect, $query);
-                                $row_user_defaults = mysqli_fetch_assoc($resultAddress);
+                            if($_SESSION['loggedin']){
+                              $sql = "SELECT userID FROM user";
+                              $_SESSION['id'] = $sql;
+                              $id = $_SESSION['id'];
 
-                                if($row_user_defaults['street1'] == ''){
-                                  echo "No address information to display.";
-                                  echo $_SESSION['id'];
-                                }else{
-                                  echo $row_user_defaults['street1']. ' '.$row_user_defaults['city'].' '. $row_user_defaults['country']. ' '. $row_user_defaults['postal_code'];
-                                }
+                              $query = "SELECT * FROM address WHERE userID = '$id'";
+                              $resultAddress = mysqli_query($connect, $query);
+                              $row_user_defaults = mysqli_fetch_assoc($resultAddress);
+
+                              if($row_user_defaults['street1'] == ''){
+                                echo "No address information to display.";
+                                echo $_SESSION['id'];
+                              }else{
+                                echo $row_user_defaults['street1']. ' '.$row_user_defaults['city'].' '. $row_user_defaults['country']. ' '. $row_user_defaults['postal_code'];
+                              }
                                 }?></p>
                           </div>
                         </div>
@@ -163,35 +166,35 @@ include("partials/navbar.php");
             
            
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/sony.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/sony.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/paramount.com" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/paramount.com" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo1.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo4.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo4.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
           </div>
@@ -204,18 +207,18 @@ include("partials/navbar.php");
   <!-- Footer  --> 
   
 <?php
-include("partials/footer.php");
+include("includes/footer.php");
 
 ?>
 
 <!-- JavaScript --> 
-<script type="text/javascript" src="js/jquery.min.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/parallax.js"></script> 
-<script type="text/javascript" src="js/common.js"></script> 
-<script type="text/javascript" src="js/jquery.flexslider.js"></script> 
-<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-<script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script> 
-<script type="text/javascript" src="js/cloud-zoom.js"></script>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script> 
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="assets/js/parallax.js"></script> 
+<script type="text/javascript" src="assets/js/common.js"></script> 
+<script type="text/javascript" src="assets/js/jquery.flexslider.js"></script> 
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script> 
+<script type="text/javascript" src="assets/js/jquery.mobile-menu.min.js"></script> 
+<script type="text/javascript" src="assets/js/cloud-zoom.js"></script>
 </body>
 </html>

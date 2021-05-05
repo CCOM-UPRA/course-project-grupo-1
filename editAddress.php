@@ -17,16 +17,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" type="text/css" href="css/internal.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
-    <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-    <link rel="stylesheet" type="text/css" href="css/revslider.css" >
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.theme.css">
-    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/internal.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
+    <link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="assets/css/revslider.css" >
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-menu.css">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -38,11 +38,36 @@
 <body>
 	
         <?php
-            include "partials/connect.php";
-            include "partials/header.php";
-            include "partials/navbar.php";
+            include "includes/config.php";
+            include "includes/header.php";
+            include "includes/navbar.php";
             // include "includes/handlers/AddressUpdate.php";
         ?>
+
+<?php
+error_reporting(0);
+
+
+
+$zip = $_POST['postal_code'];
+$city = $_POST['city'];
+$country = $_POST['country'];
+$street2 = $_POST['street2']; 
+$street1 = $_POST['street1'];
+$userID = $_SESSION['id'];
+
+
+// $sql = "UPDATE address(street1, street2,postal_code,city,country) VALUES('$street1','$street2','$zip','$city','$country')";
+
+$sql = "UPDATE address SET street1 = '$street1', street2 = '$street2', country = '$country', city = '$city', postal_code = '$zip' WHERE userID = '$userID'";
+
+$connect->query($sql);
+
+
+
+
+
+?>
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		
@@ -137,35 +162,35 @@
             
            
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/disney icon.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/marvel.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/dc.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/universal.jpg" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/sony.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/sony.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="newImages/Page Icon/paramount.com" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/newImages/Page Icon/paramount.com" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo1.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo1.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
             <!-- Item -->
-            <div class="item"><a href="#"><img src="images/b-logo4.png" alt="Image"></a> </div>
+            <div class="item"><a href="#"><img src="assets/images/b-logo4.png" alt="Image"></a> </div>
             <!-- End Item --> 
             
           </div>
@@ -176,7 +201,7 @@
   <!-- Brand logo ends  --> 
 		<!-- Footer Area -->
 		<?php
-            include "partials/footer.php";
+            include "includes/footer.php";
         ?>
 		<!-- //Footer Area -->
 
@@ -184,14 +209,14 @@
 	<!-- //Main wrapper -->
 
 	<!-- JS Files -->
-<script type="text/javascript" src="js/jquery.min.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/parallax.js"></script> 
-<script type="text/javascript" src="js/common.js"></script> 
-<script type="text/javascript" src="js/jquery.flexslider.js"></script> 
-<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-<script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script> 
-<script type="text/javascript" src="js/cloud-zoom.js"></script>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script> 
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="assets/js/parallax.js"></script> 
+<script type="text/javascript" src="assets/js/common.js"></script> 
+<script type="text/javascript" src="assets/s/jquery.flexslider.js"></script> 
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script> 
+<script type="text/javascript" src="assets/js/jquery.mobile-menu.min.js"></script> 
+<script type="text/javascript" src="assets/js/cloud-zoom.js"></script>
 	
 </body>
 </html>
