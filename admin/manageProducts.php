@@ -225,7 +225,7 @@ include("../partials/connect.php");
                             <tr>
                                 <td><?php echo $final['product_id']?></td>
                                 <td><?php echo $final['product_name']?></td>
-                                <td><?php echo $final['stocks_amount']?></td>   
+                                <td><?php echo $final['inventory_amount']?></td>   
                                 <td><?php echo $final['status']?></td>
                                 <td>
                                     <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-bars"></i></a>

@@ -21,23 +21,22 @@ error_reporting(E_ALL);
 if(isset($_POST['submit']) ){
 include("../partials/connect.php");
 //products
-$product_Name=$_POST['product_Name'];
+$product_name=$_POST['product_name'];
 $category=$_POST['category'];
 $photo= basename( $_FILES["photo"]["product_Name"]);
-$genres=$_POST['genres'];
 $rating=$_POST['rating'];
 $price=$_POST['price'];
 $director=$_POST['director'];
 $trailer=$_POST['trailer'];
-$stocks_amount=$_POST['stocks_amount'];
+$stocks_amount=$_POST['inventory_amount'];
 $starring=$_POST['starring'];
-$launch_Date=$_POST['launch_Date'];
+$release_Date=$_POST['release_Date'];
 $description=$_POST['description'];
 $status = $_POST['status'];
-$photo= basename( $_FILES["photo"]["product_Name"]);
+$photo= basename( $_FILES["photo"]["product_name"]);
 
 
-// $target_dir = "newImages/"; 
+$genres=$_POST['genres'];
 
 
   
@@ -53,8 +52,6 @@ $photo= basename( $_FILES["photo"]["product_Name"]);
   }
   else if($category == 'Coming Soon'){
     $target_dir = "newImages/Coming Soon/"; 
-  }else if($category == 'Sales'){
-    $target_dir = "newImages/Movies/movies/"; 
   }
   $fileName = basename($_FILES["photo"]["name"]);
   $targetFilePath = $target_dir . $fileName;
@@ -64,19 +61,9 @@ $photo= basename( $_FILES["photo"]["product_Name"]);
 
   }
       
-// $target="../newImages/";
-// $file_path=$target . basename($_FILES['file']['name']);
-// $file_name=$_FILES['file']['name'];
-// $file_tmp=$_FILES['file']['tmp_name'];
-// $file_store="../newImages/".$file_name;
 
-// move_uploaded_file($file_tmp,$file_store);
-
-// $query = ("SELECT category_id from categories where $genres = category_genre AND $category = category_type");
-$sql="INSERT INTO products(product_Name,photo,category,genres,trailer,rating, price, director, stocks_amount, starring, launch_Date, description,status)
- VALUES('$product_Name','$targetFilePath','$category','$genres','$trailer','$rating','$price','$director','$stocks_amount','$starring','$launch_Date','$description','$status')";
-
-
+$sql="INSERT INTO products(product_name,photo,category,trailer,rating, price, director, inventory_amount, starring, release_Date, description,status)
+ VALUES('$product_name','$targetFilePath','$category','$trailer','$rating','$price','$director','$inventory_amount','$starring','$release_Date','$description','$status')";
 
 
 $connect->query($sql);
