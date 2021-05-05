@@ -162,6 +162,7 @@ include("partials/navbar.php");
                     </div>
                   </div>
                 </li>
+                </ul>
                 <?php } ?>
                 <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
