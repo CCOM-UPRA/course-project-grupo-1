@@ -43,7 +43,47 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<style>
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
 </head>
+
 
 <body class="inner-page">
 <div id="page"> 
@@ -191,7 +231,38 @@ include("partials/navbar.php");
                       <div class="item-img-info">
                       <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                         <div class="actions">
-                          <div class="quick-view-btn"><a href="#" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+                        <div  class="quick-view-btn"><a href="#" id="myBtn" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+                            <div id="myModal" class="modal">
+                              <div class="modal-content">
+                                            <ol class="products-list" id="products-list">
+                                              <li class="item first">
+                                                <div class="product-image"> <img class="small-image" src="<?php echo $final['photo']?>" alt="Avengers Endgame" title="Avengers Engame"></div>
+                                                <div class="product-shop">
+                                                  <h2 class="product-name"><?php echo $final['product_name']?></h2>
+                                                  <div class="desc std">
+                                                    <span>Director: <?php echo $final['director']?></span>
+                                                </br>
+                                                    <span>Starring: <?php echo $final['starring']?></span>
+                                                    </br>
+                                                    <span>Rating: <?php echo $final['rating']?></span>
+                                                    </br>
+                                                    <span>Launch Date: <?php echo $final['launch_date']?></span>
+                                                    </br>
+                                                    <span>Description: </span>
+                                                    </br>
+                                                    </br>
+                                                    <p><?php echo $final['description']?></p>
+                                                  </div>
+                                                  <div class="price-box">
+                                                    <div class="price-box"> <span class="regular-price"> <span class="price">$ <?php echo $final['price']?></span> </span> </div>
+                                                  </div>
+                                              </li>
+                                      </ol>
+                                   
+                                    </div>
+                                
+                              </div>
+
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
@@ -212,7 +283,7 @@ include("partials/navbar.php");
                     </div>
                   </div>
                 </li>
-
+              </ul>
                 
                 <?php } ?>
                 <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
@@ -492,7 +563,7 @@ include("partials/navbar.php");
                     </div>
                   </div>
                 </li>-->
-              </ul> 
+           
 
               
             </div>
@@ -728,28 +799,31 @@ $(document).ready(function(){
 });
 </script>
 
-<script> 
-    var popupViews = document.querySelectorAll('.popup-view');
-    var popupBtns = document.querySelectorAll('.quick-view-btn');
-    var closeBtns = document.querySelectorAll('.close-btn');
+<script>
+  var modal = document.getElementById("myModal");
 
-    var popup = function(popupClick){
-      popupViews[popupClick].classList.add('active');
-    }
-    popupBtns.forEach((popupBtn, i) => {
-      popupBtn.addEventListener("click", () => {
-        popup(i);
-      });
-    });
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-    //close
-    closeBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener("click", () => {
-          popupViews.forEach((popupView) => {
-            popupView.classList.remove('active');
-          });
-        });
-    });
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
   </script>
 </body>
 </html>
