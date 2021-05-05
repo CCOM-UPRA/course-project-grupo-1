@@ -176,7 +176,7 @@ include("partials/navbar.php");
             <div class="category-products">
 
                 <?php
-            $sql = "Select * from products NATURAL JOIN categories where category_type = 'Movie'";
+            $sql = "Select * from products  where category = 'Movie'";
             $results = $connect->query($sql);
 
             while($final = $results->fetch_assoc()){ ?>

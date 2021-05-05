@@ -74,7 +74,7 @@
         			<div class="col-lg-8 col-12">
         				<div class="contact-form-wrap">
                             
-                            <h2 class="contact__title">Add New Address</h2>
+                            <h2 class="contact__title">Edit Address</h2>
                             <form action="edit-address-handler.php" method="post">
                                 <div class="single-contact-form space-between">
                                     <input type="text" name="address1" placeholder="Address 1*" required>
@@ -86,7 +86,7 @@
                                     <input type="text" name="zipcode" placeholder="Zip Code*" required>
                                 </div>
                                 <div class="btn primary-btn">
-                                    <button type="submit" name="address">Add Address</button>
+                                    <button type="submit" name="address">Edit Address</button>
                                 </div>
                             </form>
                         </div>
