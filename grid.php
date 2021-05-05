@@ -185,7 +185,7 @@ include("includes/navbar.php");
                                                   <div class="item-img-info">
                                                   <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                                                     <div class="actions">
-                                                      <div class="quick-view-btn"><a href="#" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+                                                      <div class="quick-view-btn"><a href="quick_view.php" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                                       <div class="add_cart">
                                                         <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
@@ -231,37 +231,8 @@ include("includes/navbar.php");
                       <div class="item-img-info">
                       <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                         <div class="actions">
-                        <div  class="quick-view-btn"><a href="#" id="myBtn" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
-                            <div id="myModal" class="modal">
-                              <div class="modal-content">
-                                            <ol class="products-list" id="products-list">
-                                              <li class="item first">
-                                                <div class="product-image"> <img class="small-image" src="<?php echo $final['photo']?>" alt="Avengers Endgame" title="Avengers Engame"></div>
-                                                <div class="product-shop">
-                                                  <h2 class="product-name"><?php echo $final['product_name']?></h2>
-                                                  <div class="desc std">
-                                                    <span>Director: <?php echo $final['director']?></span>
-                                                </br>
-                                                    <span>Starring: <?php echo $final['starring']?></span>
-                                                    </br>
-                                                    <span>Rating: <?php echo $final['rating']?></span>
-                                                    </br>
-                                                    <span>Launch Date: <?php echo $final['launch_date']?></span>
-                                                    </br>
-                                                    <span>Description: </span>
-                                                    </br>
-                                                    </br>
-                                                    <p><?php echo $final['description']?></p>
-                                                  </div>
-                                                  <div class="price-box">
-                                                    <div class="price-box"> <span class="regular-price"> <span class="price">$ <?php echo $final['price']?></span> </span> </div>
-                                                  </div>
-                                              </li>
-                                      </ol>
-                                   
-                                    </div>
-                                
-                              </div>
+                        <div  class="quick-view-btn"><a href="quick_view.php"  class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">

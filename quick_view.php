@@ -19,15 +19,15 @@
 
 <!-- CSS Style -->
 
-<link rel="stylesheet" href="css/fancybox.css" type="text/css">
-<link rel="stylesheet" href="css/animate.css" type="text/css">
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css">
-<link rel="stylesheet" href="css/revslider.css" type="text/css">
-<link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="css/flexslider.css">
-<link rel="stylesheet" href="css/owl.theme.css" type="text/css">
-<link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+<link rel="stylesheet" href="assets/css/fancybox.css" type="text/css">
+<link rel="stylesheet" href="assets/css/animate.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<link rel="stylesheet" href="assets/css/revslider.css" type="text/css">
+<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+<link rel="stylesheet" type="assets/text/css" href="css/flexslider.css">
+<link rel="stylesheet" href="assets/css/owl.theme.css" type="text/css">
+<link rel="stylesheet" href="assets/css/font-awesome.css" type="text/css">
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
