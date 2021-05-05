@@ -166,7 +166,9 @@ include("includes/navbar.php");
                     <option value="rate" id="rate" > Rating R-PG</option>
                   </select>
                   <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> 
-                <br> <input type="submit" name="submit">
+                <br><br>
+<span style="margin-right:11em" ></span>
+ <input class="button button-active" type="submit" name="submit">
 
                 </form>
                   </div>
@@ -175,7 +177,7 @@ include("includes/navbar.php");
                    if(isset($_GET["submit"])):
                     $getoption=$_GET['sort'];
                     
-echo "Study " . $getoption . " at ";
+
 
                     if($getoption == 'price'):{
                         $sql = "Select * from products  where category = 'Movie' ORDER BY price ASC";
