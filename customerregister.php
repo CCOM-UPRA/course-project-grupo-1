@@ -9,7 +9,7 @@ $phonenumber = $_POST['phoneNumber'];
 $zip = $_POST['code'];
 $state = $_POST['region'];
 $country = $_POST['nation'];
-$PO_box = $_POST['po_box'];
+$PO_box = $_POST['po_box']; 
 $address = $_POST['shipping'];
 $birth = $_POST['birthdate'];
 if($password==$password2)

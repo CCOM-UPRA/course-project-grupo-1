@@ -5,7 +5,7 @@
           <!-- End Header Logo --> 
 
         <div class="mm-toggle-wrap">
-          <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label">Menu</span> </div>
+          <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label"></span> </div>
         </div>
      
           <ul class="nav hidden-xs menu-item menu-item-left">

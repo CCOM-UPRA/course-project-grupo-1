@@ -15,6 +15,8 @@ if(isset($_POST['login'])){
     $_SESSION['password']=$final['password'];
     $_SESSION['userName']=$final['firstName'];
     $_SESSION['lastName']=$final['lastName'];
+    $_SESSION['id']=$final["userID"];
+    $_SESSION['phone']=$final['phoneNumber'];
     $_SESSION['loggedin'] = false;
     
     if($email=$final['email'] AND $password = $final['password']){

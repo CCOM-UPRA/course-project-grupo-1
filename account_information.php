@@ -60,11 +60,11 @@ include("partials/navbar.php");
         <div class="col-main col-sm-9 animated" style="visibility: visible;">
           <div class="my-account">
             <div class="page-title">
-              <h1>Edit Account Information</h1>
+              <h1>Account Information</h1>
             </div> 
             <div class="line"></div>
             <div class="dashboard">
-              <form action="" method="post" id="form-validate">
+              <div id="form-validate">
                 <div class="fieldset">
                   <input name="" type="hidden" value="bO6ubPokBJ71l86o">
                   <h2 class="legend">Account Information</h2>
@@ -72,67 +72,65 @@ include("partials/navbar.php");
                     <li class="fields">
                       <div class="customer-name">
                         <div class="input-box name-firstname">
-                          <label for="firstname">First Name<span class="required">*</span></label>
+                          <label for="fullName"><b>Full Name</b></label>
                           <div class="input-box1">
-                            <input type="text" id="firstname1" name="firstName1" value=" <?php if($_SESSION['loggedin']){
-                            echo $_SESSION['userName'];
-                    }?>" title="" maxlength="255" class="input-text required-entry">
+                          <p id ="fullName" title="" maxlength="255" class="input-text"><?php if($_SESSION['loggedin']){
+                            $firstName = $_SESSION['userName']; 
+                            $lastName = $_SESSION['lastName'];
+                            echo $firstName. ' ' .$lastName;
+                            }?></p>
+                           
                           </div>
                         </div>
                         <div class="input-box name-lastname">
-                          <label for="lastname">Last Name<span class="required">*</span></label>
+                          <label for="address"><b>Address</b></label>
                           <div class="input-box1">
-                            <input type="text" id="lastname1" name="lastname1" value="<?php if($_SESSION['loggedin']){
-                            echo $_SESSION['lastName'];
-                    }?>" title="" maxlength="255" class="input-text required-entry">
+                            <p id = "address" class="input-text required-entry">  <?php 
+                            // error_reporting(E_ERROR);
+
+                              if($_SESSION['loggedin']){
+                                $id = $_SESSION['id'];
+                                $query = "SELECT * FROM address WHERE userID = '$id'";
+                                $resultAddress = mysqli_query($connect, $query);
+                                $row_user_defaults = mysqli_fetch_assoc($resultAddress);
+
+                                if($row_user_defaults['street1'] == ''){
+                                  echo "No address information to display.";
+                                  echo $_SESSION['id'];
+                                }else{
+                                  echo $row_user_defaults['street1']. ' '.$row_user_defaults['city'].' '. $row_user_defaults['country']. ' '. $row_user_defaults['postal_code'];
+                                }
+                                }?></p>
                           </div>
                         </div>
                       </div>
                     </li>
                     <li>
-                      <label for="email">Email Address<em class="required">*</em></label>
+                      <label for="email"><b>Email Address</b></label>
                       <div class="input-box">
-                        <input type="text" name="email1" id="email1" value="<?php if($_SESSION['loggedin']){
+                        <p   id="email" title="Email Address" class="input-text validate-email">
+                        <?php if($_SESSION['loggedin']){
                             echo $_SESSION['email'];
-                    }?>" title="Email Address" class="input-text required-entry validate-email">
+                        }?></p>
                       </div>
                     </li>
-                    <li class="control">
-                      <input type="checkbox" name="" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="Change Password" class="checkbox">
-                      <label for="change_password">Change Password</label>
-                    </li>
-                  </ul>
-                </div>
-                <div class="fieldset" style="display:none;">
-                  <h2 class="legend">Change Password</h2>
-                  <ul class="form-list">
                     <li>
-                      <label for="current_password">Current Password<em class="required">*</em></label>
+                      <label for="phone_number"><b>Phone Number</b></label>
                       <div class="input-box">
-                        <input type="password" title="Current Password" class="input-text" name="" id="current_password">
+                        <p   id="phone_number"  class="input-text">
+                        <?php if($_SESSION['loggedin']){
+                            echo $_SESSION['phone'];
+                        }?></p>
                       </div>
                     </li>
-                    <li class="fields">
-                      <div class="field">
-                        <label for="password">New Password<em class="required">*</em></label>
-                        <div class="input-box">
-                          <input type="password" title="New Password" class="input-text validate-password" name="" id="password">
-                        </div>
-                      </div>
-                      <div class="field">
-                        <label for="confirmation">Confirm New Password<em class="required">*</em></label>
-                        <div class="input-box">
-                          <input type="password" title="Confirm New Password" class="input-text validate-cpassword" name="" id="confirmation">
-                        </div>
-                      </div>
-                    </li>
+                   
                   </ul>
                 </div>
+               
                 <div class="buttons-set">
-                  <p class="required">* Required Fields</p>
-                  <button type="submit" title="Save" class="button"><span>Save</span></button>
-                  <a href="#"><small>« </small>Back</a> </div>
-              </form>
+                  <a class ="btn btn-primary" href = "editAddress.php"><span>Edit</span></button>
+                  <a href="#"><small></small></a></div>
+              </div>
             </div>
             <!--dashboard--> 
           </div>
@@ -146,19 +144,6 @@ include("partials/navbar.php");
                 <li class="current"><a>Account Information</a></li>
                 <li><a href="#"><span> My Wishlist</span></a></li>
                 <li><a href="#"><span> My Orders</span></a></li>
-                  <!--
-                <li><a href="#"><span> Address Book</span></a></li>
-                <li><a href="#"><span> Billing Agreements</span></a></li>
-                <li><a href="#"><span> Recurring Profiles</span></a></li>
-                <li><a href="#"><span> My Product Reviews</span></a></li>
-                <li><a href="#"><span> My Tags</span></a></li>
-                <li><a href="#"><span> My Applications</span></a></li>
-                <li class="last"><a href="#"><span> My Downloadable Products</span></a></li>
-                <li><a href="#"><span> Newsletter Subscriptions</span></a></li>-->
-               
-              </ul>
-            </div>
-            <!--block-content--> 
           </div>
           <!--block block-account--> 
           
@@ -222,227 +207,7 @@ include("partials/navbar.php");
 include("partials/footer.php");
 
 ?>
-    <!-- Footer  -->
-</div>
-<div id="mobile-menu">
-  <ul>
-    <li>
-      <div class="mm-search">
-        <form id="search_mob" name="search">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> </button>
-            </div>
-            <input type="text" class="form-control simple" placeholder="Search ..." name="srch-term" id="srch-term">
-          </div>
-        </form>
-      </div>
-    </li>
-    <li>
-      <div class="home"><a href="#"><i class="icon-home"></i>Home</a> </div>
-    </li>
-    <li><a href="#">Pages</a>
-      <ul>
-        <li><a href="grid.php">Grid</a> </li>
-        <li> <a href="list.php">List</a> </li>
-        <li> <a href="product_detail.php">Product Detail</a> </li>
-        <li> <a href="shopping_cart.php">Shopping Cart</a> </li>
-        <li><a href="checkout.php">Checkout</a>
-          <ul>
-            <li><a href="checkout_method.php">Checkout Method</a> </li>
-            <li><a href="checkout_billing_info.php">Checkout Billing Info</a> </li>
-          </ul>
-        </li>
-        <li> <a href="wishlist.php">Wishlist</a> </li>
-        <li> <a href="dashboard.php">Dashboard</a> </li>
-        <li> <a href="multiple_addresses.php">Multiple Addresses</a> </li>
-        <li> <a href="about_us.php">About us</a> </li>
-        <li><a href="blog.php">Blog</a>
-          <ul>
-            <li><a href="blog-detail.php">Blog Detail</a> </li>
-          </ul>
-        </li> 
-        <li><a href="contact_us.php">Contact us</a> </li>
-        <li><a href="404error.php">404 Error Page</a> </li>
-      </ul>
-    </li>
-    <li><a href="#">Women</a>
-      <ul>
-        <li> <a href="#" class="">Stylish Bag</a>
-          <ul>
-            <li> <a href="#" class="">Clutch Handbags</a> </li>
-            <li> <a href="#l" class="">Diaper Bags</a> </li>
-            <li> <a href="#" class="">Bags</a> </li>
-            <li> <a href="#" class="">Hobo handbags</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Material Bag</a>
-          <ul>
-            <li> <a href="#">Beaded Handbags</a> </li>
-            <li> <a href="#">Fabric Handbags</a> </li>
-            <li> <a href="#">Handbags</a> </li>
-            <li> <a href="#">Leather Handbags</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Shoes</a>
-          <ul>
-            <li> <a href="#">Flat Shoes</a> </li>
-            <li> <a href="#">Flat Sandals</a> </li>
-            <li> <a href="#">Boots</a> </li>
-            <li> <a href="#">Heels</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Jwellery</a>
-          <ul>
-            <li> <a href="#">Bracelets</a> </li>
-            <li> <a href="#">Necklaces &amp; Pendent</a> </li>
-            <li> <a href="#l">Pendants</a> </li>
-            <li> <a href="#">Pins &amp; Brooches</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Dresses</a>
-          <ul>
-            <li> <a href="#">Casual Dresses</a> </li>
-            <li> <a href="#">Evening</a> </li>
-            <li> <a href="#">Designer</a> </li>
-            <li> <a href="#">Party</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Swimwear</a>
-          <ul>
-            <li> <a href="#">Swimsuits</a> </li>
-            <li> <a href="#">Beach Clothing</a> </li>
-            <li> <a href="#">Clothing</a> </li>
-            <li> <a href="#">Bikinis</a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Men</a>
-      <ul>
-        <li> <a href="#" class="">Shoes</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Sport Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Casual Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Leather Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">canvas shoes</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Dresses</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Casual Dresses</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Evening</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Designer</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Party</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Jackets</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Coats</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Formal Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Leather Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Blazers</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Watches</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Casio</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Titan</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Tommy-Hilfiger</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Sunglasses</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Ray Ban</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Police</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Oakley</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Accesories</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Backpacks</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Wallets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Laptops Bags</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Belts</a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Electronics</a>
-      <ul>
-        <li> <a href="#"><span>Mobiles</span></a>
-          <ul>
-            <li> <a href="#"><span>Samsung</span></a> </li>
-            <li> <a href="#"><span>Nokia</span></a> </li>
-            <li> <a href="#"><span>IPhone</span></a> </li>
-            <li> <a href="#"><span>Sony</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#" class=""><span>Accesories</span></a>
-          <ul>
-            <li> <a href="#"><span>Mobile Memory Cards</span></a> </li>
-            <li> <a href="#"><span>Cases &amp; Covers</span></a> </li>
-            <li> <a href="#"><span>Mobile Headphones</span></a> </li>
-            <li> <a href="#"><span>Bluetooth Headsets</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Cameras</span></a>
-          <ul>
-            <li> <a href="#"><span>Camcorders</span></a> </li>
-            <li> <a href="#"><span>Point &amp; Shoot</span></a> </li>
-            <li> <a href="#"><span>Digital SLR</span></a> </li>
-            <li> <a href="#"><span>Camera Accesories</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Audio &amp; Video</span></a>
-          <ul>
-            <li> <a href="#"><span>MP3 Players</span></a> </li>
-            <li> <a href="#"><span>IPods</span></a> </li>
-            <li> <a href="#"><span>Speakers</span></a> </li>
-            <li> <a href="#"><span>Video Players</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Computer</span></a>
-          <ul>
-            <li> <a href="#"><span>External Hard Disk</span></a> </li>
-            <li> <a href="#"><span>Pendrives</span></a> </li>
-            <li> <a href="#"><span>Headphones</span></a> </li>
-            <li> <a href="#"><span>PC Components</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Appliances</span></a>
-          <ul>
-            <li> <a href="#"><span>Vaccum Cleaners</span></a> </li>
-            <li> <a href="#"><span>Indoor Lighting</span></a> </li>
-            <li> <a href="#"><span>Kitchen Tools</span></a> </li>
-            <li> <a href="#"><span>Water Purifier</span></a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Furniture</a> </li>
-    <li><a href="#">Kids</a> </li>
-    <li><a href="contact-us.php">Contact Us</a> </li>
-  </ul>
-  <div class="dropdown block-language-wrapper">
-                <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/english.png" alt="language"> English </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/francais.png" alt="language"> French </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="images/german.png" alt="language"> German </a></li>
-                </ul>
-              </div>
-              <div class="dropdown block-currency-wrapper"> 
-                <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
-                </ul>
-              </div>
-</div>
 
-<!-- End Footer --> 
 <!-- JavaScript --> 
 <script type="text/javascript" src="js/jquery.min.js"></script> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script> 
