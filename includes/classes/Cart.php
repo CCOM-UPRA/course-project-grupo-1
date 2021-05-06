@@ -14,8 +14,8 @@
            
             $fotos =$_SESSION['photos'][$valor];
             $product=$_SESSION['product_name'][$valor];
-            $_SESSION['price'][$valor];
-            $_SESSION['trailer'][$valor];
+            $price = $_SESSION['price'][$valor];
+            $trailer = $_SESSION['trailer'][$valor];
             
             
         }
