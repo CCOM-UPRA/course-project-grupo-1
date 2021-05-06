@@ -9,7 +9,17 @@
 			$this->errorArray = array();
 		}
     
-    
+        public function addToCart($valor) {
+		
+           
+            $fotos =$_SESSION['photos'][$valor];
+            $product=$_SESSION['product_name'][$valor];
+            $_SESSION['price'][$valor];
+            $_SESSION['trailer'][$valor];
+            
+            
+        }
+
     
     
     

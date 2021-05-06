@@ -54,7 +54,7 @@ include("includes/header.php");
   <!-- Navbar -->
 <?php
 include("includes/navbar.php");
-
+include("includes/classes/Cart.php")
 ?> 
 
   <!-- Breadcrumbs -->
@@ -216,7 +216,7 @@ include("includes/navbar.php");
 
               
             <?php 
-                $i= 0+1;
+                $i= $i+1;
                 ?>
 
               <ul class="products-grid">
@@ -232,9 +232,10 @@ include("includes/navbar.php");
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" type="button" name="add" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                            <button class="button btn-cart" type="button" name="add" onclick="<php addToCart($i);?>" data-toggle="tooltip" value="<?php $i?> "data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
+  
   
                       </div>
                     </div>
@@ -248,8 +249,8 @@ include("includes/navbar.php");
                           </div>
                         </div>
                           <?php
-                                
-                                $_SESSION['photos'][$i]=$final['photo'];             
+                                $_SESSION['photos'][$i]=$final['photo'];  
+                                $_SESSION['product_name']=$final['product_name'];
                                 $_SESSION['price'][$i]=$final['price'];
                                 $_SESSION['trailer'][$i]=$final['trailer'];
                                    
@@ -262,6 +263,8 @@ include("includes/navbar.php");
               </ul>
                 
                 <?php } ?>
+                
+                
                 <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
