@@ -19,7 +19,7 @@ include("adminpartials/aside.php");
 error_reporting(0);
 
 if(isset($_POST['submit']) ){
-include("../partials/connect.php");
+include "../includes/config.php";
 //products
 $product_name=$_POST['product_name'];
 $category=$_POST['category'];

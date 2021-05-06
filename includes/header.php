@@ -1,5 +1,7 @@
-<?php
-require_once("config.php");
+<?php 
+if(isset($_SESSION['userLoggedIn'])){
+        $userLoggedIn = $_SESSION['userLoggedIn'];
+}
 ?>
 
 <header>
@@ -144,22 +146,22 @@ require_once("config.php");
                   <!-- Header Company -->
                   <?php 
                  
-                    if($_SESSION['loggedin']){ // I use false condition
-                        echo '<div class="login"><a href="account_information.php"><span class="hidden-xs">';
-                        echo $_SESSION['userName'];
-                        echo'</span></a></div>';
-                        echo'<div class="login"><a href="login.php"><span class="hidden-xs">Log out</span></a></div>
-                        </div> ';
-                    }
-                    else{
-                        echo '<div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
-                        </div> ';
-                    }
+                 if(isset($_SESSION['userLoggedIn'])){ // I use false condition
+                     echo '<div class="login"><a href="account_information.php"><span class="hidden-xs">';
+                     echo "My Account";
+                     echo'</span></a></div>';
+                     echo'<div class="login"><a href="logout.php"><span class="hidden-xs">Log out</span></a></div>
+                     </div> ';
+                 }
+                 else{
+                     echo '<div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
+                     </div> ';
+                 }
 
-                    
-                    
-                    
-                    ?>
+                 
+                 
+                 
+                 ?>
              
                   
                 </div> 

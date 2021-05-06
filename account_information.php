@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <?php
-require_once("includes/config.php");
+// require_once("includes/config.php");
 ?>
 <head>
 <meta charset="utf-8">
@@ -14,7 +14,7 @@ require_once("includes/config.php");
 
 <!-- Favicons Icon -->
 
-<title>Superb premium HTML5 &amp; CSS3 template</title> 
+<title>Account Information</title> 
 
 <!-- Mobile Specific -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -42,9 +42,9 @@ require_once("includes/config.php");
   
   
 <?php
-
-include("includes/header.php");
-//include("account_info.php");
+include "includes/config.php";
+include "includes/header.php";
+include "includes/handlers/account-handler.php";
 ?>
   <!-- Navbar -->
 <?php
@@ -67,18 +67,13 @@ include("includes/navbar.php");
               <div id="form-validate">
                 <div class="fieldset">
                   <input name="" type="hidden" value="bO6ubPokBJ71l86o">
-                  <h2 class="legend">Account Information</h2>
                   <ul class="form-list">
                     <li class="fields">
                       <div class="customer-name">
                         <div class="input-box name-firstname">
                           <label for="fullName"><b>Full Name</b></label>
                           <div class="input-box1">
-                          <p id ="fullName" title="" maxlength="255" class="input-text"><?php if($_SESSION['loggedin']){
-                            $firstName = $_SESSION['userName']; 
-                            $lastName = $_SESSION['lastName'];
-                            echo $firstName. ' ' .$lastName;
-                            }?></p>
+                          <p id ="fullName" title="" maxlength="255" class="input-text"><?php echo $row_user_info['firstName'],' ', $row_user_info['lastName'];?></p>
                            
                           </div>
                         </div>
@@ -86,24 +81,12 @@ include("includes/navbar.php");
                           <label for="address"><b>Address</b></label>
                           <div class="input-box1">
                             <p id = "address" class="input-text required-entry">  <?php 
-                            // error_reporting(E_ERROR);
-
-                            if($_SESSION['loggedin']){
-                              $sql = "SELECT userID FROM user";
-                              $_SESSION['id'] = $sql;
-                              $id = $_SESSION['id'];
-
-                              $query = "SELECT * FROM address WHERE userID = '$id'";
-                              $resultAddress = mysqli_query($connect, $query);
-                              $row_user_defaults = mysqli_fetch_assoc($resultAddress);
-
-                              if($row_user_defaults['street1'] == ''){
+                            if($row_user_defaults['street1'] == ''){
                                 echo "No address information to display.";
-                                echo $_SESSION['id'];
                               }else{
                                 echo $row_user_defaults['street1']. ' '.$row_user_defaults['city'].' '. $row_user_defaults['country']. ' '. $row_user_defaults['postal_code'];
                               }
-                                }?></p>
+                            ?></p>
                           </div>
                         </div>
                       </div>
@@ -112,18 +95,14 @@ include("includes/navbar.php");
                       <label for="email"><b>Email Address</b></label>
                       <div class="input-box">
                         <p   id="email" title="Email Address" class="input-text validate-email">
-                        <?php if($_SESSION['loggedin']){
-                            echo $_SESSION['email'];
-                        }?></p>
+                        <?php echo $row_user_info['email']; ?></p>
                       </div>
                     </li>
                     <li>
                       <label for="phone_number"><b>Phone Number</b></label>
                       <div class="input-box">
                         <p   id="phone_number"  class="input-text">
-                        <?php if($_SESSION['loggedin']){
-                            echo $_SESSION['phone'];
-                        }?></p>
+                        <?php echo $row_user_info['phoneNumber']; ?></p>
                       </div>
                     </li>
                    

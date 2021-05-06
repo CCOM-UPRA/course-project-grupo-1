@@ -174,7 +174,7 @@
 error_reporting(0);
 include("adminpartials/header.php");
 include("adminpartials/aside.php");
-include("../partials/connect.php");
+include "../includes/config.php";
 ?>
   
 
@@ -182,7 +182,7 @@ include("../partials/connect.php");
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
+      <h1> 
         Dashboard
         <small>Control panel</small>
       </h1>
@@ -213,22 +213,22 @@ include("../partials/connect.php");
                                 <th>Name</th>
                                 <th>Stock</th>						
                                 <th>Available</th>
-                                <th>Edit</Em></th>
+                                <th></th>
                             <tbody>
                             
             <?php
             $sql = "Select * from products";
             $results = $connect->query($sql);
             
-
-            while($final = $results->fetch_assoc()){ ?>
+            while($final = $results->fetch_assoc()){ 
+                ?>
                             <tr>
                                 <td><?php echo $final['product_id']?></td>
                                 <td><?php echo $final['product_name']?></td>
                                 <td><?php echo $final['inventory_amount']?></td>   
                                 <td><?php echo $final['status']?></td>
                                 <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-bars"></i></a>
+                                    <?php echo "<a class='btn btn-primary' style='color: white;' title='Edit' data-toggle='tooltip' href='editproduct.php?productId={$final["product_id"]}'>Edit</a>";?>
                                 </td>
                             </tr>
                             <?php } ?>

@@ -44,15 +44,11 @@
 <body class="inner-page">
 <div id="page"> 
   
-  <?php
-include("includes/header.php");
-
-?>
-  <!-- Navbar -->
 <?php
-include("includes/navbar.php");
-
-?> 
+  include "includes/config.php";
+  include "includes/header.php";
+  include "includes/navbar.php";
+?>
   <!-- Breadcrumbs -->
   <div class="breadcrumbs">
     <div class="container">

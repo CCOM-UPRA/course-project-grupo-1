@@ -40,11 +40,12 @@
 <div id="page"> 
 
 <?php
-    include("includes/header.php");
+    include "includes/config.php";
+    include "includes/header.php";
 ?>
   <!-- Navbar -->
 <?php
-include("includes/navbar.php");
+include "includes/navbar.php";
 
 ?> 
   <!-- End Navbar -->

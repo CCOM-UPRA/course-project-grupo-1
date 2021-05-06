@@ -38,17 +38,18 @@
 <div id="page"> 
 
  <?php
-error_reporting(0);
-include("includes/header.php");
+include "includes/config.php";
+include "includes/header.php";
+include "includes/navbar.php";
+include "includes/classes/Constants.php";
+include "includes/classes/Account.php";
+
+$account = new Account($connect);
+
+include "includes/handlers/register-handler.php";
 
 ?>
-  <!-- Navbar -->
-<?php
-include("includes/navbar.php");
 
-?> 
-
-  
   <!-- Main Container -->
   <section class="main-container col2-right-layout">
     <div class="main container">
@@ -60,7 +61,7 @@ include("includes/navbar.php");
             </div>
             <div class="line"></div>
             <div class="dashboard">
-              <form action="customerregister.php" method="POST" id="form-validate">
+            <form action="" method="POST" id="form-validate">
                 <div class="fieldset">
                   <input name="" type="hidden" value="bO6ubPokBJ71l86o">
                   <h2 class="legend">Create an Account</h2>
@@ -70,107 +71,59 @@ include("includes/navbar.php");
                         <div class="input-box name-firstname">
                           <label for="firstName">First Name<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="firstName" id="firstName" name="firstName" value="" title="" maxlength="255" class="input-text required-entry">
+                          <?php echo $account->getError(Constants::$firstNameCharacters); ?>
+                            <input type="text" id="firstName" name="firstName" maxlength="255" class="input-text required-entry">
                           </div>
                         </div>
-                        <div class="input-box name-lastName">
-                          <label for="lastname">Last Name<span class="required">*</span></label>
+                        <div class="input-box name-lastname">
+                          <label for="lastName">Last Name<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="lastName" id="lastName" name="lastName" value="" title="" maxlength="255" class="input-text required-entry">
+                          <?php echo $account->getError(Constants::$lastNameCharacters); ?>
+                            <input type="text" id="lastName" name="lastName" value="" title="" maxlength="255" class="input-text required-entry">
                           </div>
                         </div>
-                      </div>
-                    </li>
-                    <li>
-                      <label for="">Birth Date<em class="required">*</em></label>
-                      <div class="input-box">
-                        <input type="text" name="birthdate" id="" value="" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li>
                       <label for="email">Email Address<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="email" name="email" id="email" value="John.morales@ABC.co" title="Email Address" class="input-text required-entry validate-email">
+                      <?php echo $account->getError(Constants::$emailInvalid); ?>
+                      <?php echo $account->getError(Constants::$emailTaken);?>
+                        <input type="email" name="email" id="email" value="" title="Email Address" class="input-text required-entry validate-email">
                       </div>
                     </li>
                     <li>
-                      <label for="">Address Line 1<em class="required">*</em></label>
+                      <label for="birthdate">Birth Date<em class="required">*</em></label>
                       <div class="input-box">
-                        <input type="text" name="shipping" id="" value="Alden Town 2333" title="Email Address" class="input-text required-entry validate-email">
+                      <?php echo $account->getError(Constants::$minor); ?>
+                      <?php echo $account->getError(Constants::$nullAge); ?>
+                      <?php echo $account->getError(Constants::$overAge); ?>
+                        <input type="date" name="birthdate" id="birthdate" class="input-text required-entry ">
                       </div>
                     </li>
-                    <li>
-                      <label for="">Address Line 2 (optional)<em class="required">*</em></label>
-                      <div class="input-box">
-                        <input type="text" name="po_box" id="" value="Apt 322" title="Email Address" class="input-text required-entry validate-email">
-                      </div>
                     </li>
-                    <li>
-                      <label for="">City<em class="required">*</em></label>
-                      <div class="input-box">
-                        <input type="text" name="nation" id="" value="Chicago" title="Email Address" class="input-text required-entry validate-email">
-                      </div>
-                    </li>
-                    <li>
-                      <label for="">State<em class="required">*</em></label>
-                      <div class="input-box">
-                        <input type="text" name="region" id="" value="E.U" title="Email Address" class="input-text required-entry validate-email">
-                      </div>
-                    </li>
-                      <li>
-                      <label for="">Postal Code<em class="required">*</em></label>
-                      <div class="input-box">
-                        <input type="text" name="code" id="code" value="55245" title="Email Address" class="input-text required-entry validate-email">
-                      </div>
-                    </li>
-                      <label for="Phone">Phone Number<span class="required">*</span></label>
+                      <label for="phone">Phone Number<span class="required">*</span></label>
                           <div class="input-box1">
-                            <input type="number" id="phone" name="phoneNumber" value="xxx-xxx-xxxx" title="" maxlength="255" class="input-text required-entry">
+                            <input type="number" id="phone" name="phone"  maxlength="255" class="input-text required-entry">
                           </div>
                       <li>
-                  <label for="passWord">Password <span class="required">*</span></label>
+                  <label for="password">Password <span class="required">*</span></label>
                   <br>
-                  <input type="passWord" title="passWord" name="passWord" id="passWord" placeholder="password" class="input-text" name="">
+                  <?php echo $account->getError(Constants::$passwordsDoNoMatch); ?>
+                  <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
+                  <?php echo $account->getError(Constants::$passwordCharacters ); ?>
+                  <input type="password" title="" id="password" placeholder="password" class="input-text" name="password">
                 </li>
                       <li>
-                  <label for="password">Confirm Password <span class="required">*</span></label>
+                  <label for="password2">Confirm Password <span class="required">*</span></label>
                   <br>
-                  <input type="password"  title="password" placeholder="Confirm Password"  id="password" class="input-text" name="pass">
+                  <input type="password" title="" placeholder="password" id="password2" class="input-text" name="password2">
                 </li>
-                   <!-- <li class="control">
-                      <input type="checkbox" name="" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="Change Password" class="checkbox">
-                      <label for="change_password">Change Password</label>
-                    </li>-->
-                  </ul>
-                </div>
-                <div class="fieldset" style="display:none;">
-                  <h2 class="legend">Change Password</h2>
-                  <ul class="form-list">
-                    <li>
-                      <label for="current_password">Current Password<em class="required">*</em></label>
-                      <div class="input-box">
-                        <input type="password" title="Current Password" class="input-text" name="" id="current_password">
-                      </div>
-                    </li>
-                    <li class="fields">
-                      <div class="field">
-                        <label for="password">New Password<em class="required">*</em></label>
-                        <div class="input-box">
-                          <input type="password" title="New Password" class="input-text validate-password" name="password" id="password">
-                        </div>
-                      </div>
-                      <div class="field">
-                        <label for="confirmation">Confirm New Password<em class="required">*</em></label>
-                        <div class="input-box">
-                          <input type="password" title="Confirm New Password" class="input-text validate-password" name="password2" id="confirmation">
-                        </div>
-                      </div>
-                    </li>
                   </ul>
                 </div>
                 <div class="buttons-set">
                   <p class="required">* Required Fields</p>
-                  <button type="submit" title="Save" class="button" ><span>Create Account</span></button>
+                  <button type="submit" title="Save" class="button" name="register"><span>Create Account</span></button>
                   <a href="#"><small>« </small>Back</a> </div>
               </form>
             </div>

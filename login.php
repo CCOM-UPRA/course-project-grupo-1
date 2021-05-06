@@ -38,9 +38,16 @@
 <div id="page"> 
   
 <?php
-include("includes/header.php");
-include("includes/navbar.php");
-include("customer_login.php");
+include "includes/config.php";
+
+include "includes/classes/Constants.php";
+include "includes/classes/Account.php";
+
+$account = new Account($connect);
+
+include("includes/handlers/login-handler.php");
+include "includes/header.php";
+include "includes/navbar.php";
 ?>
   <!-- Navbar -->
 
@@ -66,7 +73,7 @@ include("customer_login.php");
          
           <div class="col-2 registered-users"><strong>Registered Customers</strong>
             <div class="content">
-           <form class="form-horizontal "action="login.php" method="post">
+           <form class="form-horizontal "action="" method="post">
               <p>If you have an account with us, please log in.</p>
               
               <ul class="form-list">

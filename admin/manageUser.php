@@ -162,7 +162,7 @@
         font-size: 13px;
     }
     </style>
-    
+     
 <?php
     include("adminpartials/head.php");
     ?>
@@ -174,7 +174,7 @@
 error_reporting(0);
 include("adminpartials/header.php");
 include("adminpartials/aside.php");
-include("../partials/connect.php");
+include "../includes/config.php";
 ?>
   
 
@@ -234,7 +234,7 @@ include("../partials/connect.php");
                                 <td><?php echo $final['phoneNumber']?></td>
                                 <td><?php if($final['user_type'] == 1){echo 'admin';} else{echo 'customer';}?></td>
                                 <td>
-                                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-bars"></i></a>
+                                <?php echo "<a class='btn btn-primary' style='color: white;' title='Edit' data-toggle='tooltip' href='edituser.php?userID={$final["userID"]}'>Edit</a>";?>
                                 </td>
                             </tr>
                             <?php } ?>

@@ -10,11 +10,7 @@
 		}
 
 		public function login($email, $pw) {
-
-			$pw = md5($pw);
-
-			$query = mysqli_query($this->con, "SELECT * FROM users WHERE email='$email' AND password='$pw'");
-
+			$query = mysqli_query($this->con, "SELECT * FROM user WHERE email='$email' AND password='$pw'");
 			if(mysqli_num_rows($query) == 1) {
 				return true;
 			}
@@ -25,21 +21,28 @@
 
 		}
 
-		public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {
-			$this->validateUsername($un);
-			$this->validateFirstName($fn);
-			$this->validateLastName($ln);
-			$this->validateEmails($em, $em2);
+		public function register($fn, $ln, $em, $pw, $pw2, $birth, $phone){
+			$this->validateFirstname($fn);
+			$this->validateLastname($ln);
+			$this->validateEmails($em);
 			$this->validatePasswords($pw, $pw2);
-
-			if(empty($this->errorArray) == true) {
-				//Insert into db
-				return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
+			$this->validateBirthDate($birth);
+			if(empty($this->errorArray)){
+				//Insert into database
+				return $this->insertUserDetails($fn, $ln, $em, $pw, $birth, $phone);
 			}
-			else {
+			else{
 				return false;
 			}
+		}
 
+		public function registerAddress($id, $address1, $address2, $city, $state, $zipcode){
+			if(empty($this->errorArray)){
+				return $this->insertUserAddress($id, $address1, $address2, $city, $state, $zipcode, $phone);
+			}
+			else{
+				return false;
+			}
 		}
 
 		public function getError($error) {
@@ -49,30 +52,49 @@
 			return "<span class='errorMessage'>$error</span>";
 		}
 
-		private function insertUserDetails($un, $fn, $ln, $em, $pw) {
-			$encryptedPw = md5($pw);
-			$profilePic = "assets/images/profile-pics/head_emerald.png";
-			$date = date("Y-m-d");
 
-			$result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
 
-			return $result;
+		private function insertUserDetails($fn, $ln, $em, $pw, $birth, $phone){
+			
+			$status= "active";
+			$user_type = 0;
+			//This query insert the user basic information to create an account.
+			$results = mysqli_query($this->con, "INSERT INTO user(firstName, lastName, email, password, phoneNumber, birthdate, user_type, status) VALUES ('$fn', '$ln', '$em', '$pw', '$phone', '$birth', '$user_type', '$status')");
+			return $results;
 		}
 
-		private function validateUsername($un) {
-
-			if(strlen($un) > 25 || strlen($un) < 5) {
-				array_push($this->errorArray, Constants::$usernameCharacters);
-				return;
-			}
-
-			$checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username='$un'");
-			if(mysqli_num_rows($checkUsernameQuery) != 0) {
-				array_push($this->errorArray, Constants::$usernameTaken);
-				return;
-			}
-
+		private function insertUserAddress($id, $address1, $address2, $city, $state, $zipcode){
+			//This query insert a new address of a user.
+			$results = mysqli_query($this->con, "INSERT INTO address(userID, street1, street2, postal_code, city, country, address_type) VALUES ('$id', '$address1', '$address2', '$zipcode', '$city', '$state', 0)");
+			return $results;
 		}
+
+		public function updateAddress($id, $address1, $address2, $city, $state, $zipcode){
+			//This query will update user Address
+			$results = mysqli_query($this->con, "UPDATE address SET street1 = '$address1', street2 = '$address2', country = '$state', city = '$city', postal_code = '$zipcode' WHERE userID = '$id'");
+			return $results;
+		}
+		public function updateUser($id, $firstName, $lastName, $email, $password, $phoneNumber, $birthdate){
+			//This query will update user Address
+			$results = mysqli_query($this->con, "UPDATE user SET firstName = '$firstName', lastName = '$lastName', email = '$email', password = '$password', phoneNumber = '$phoneNumber', birthdate = '$birthdate' WHERE userID = '$id'");
+			return $results;
+		}
+
+		public function getID($email){
+			//This query get the id of the user trying to logged in. Every email is unique.
+			$query = mysqli_query($this->con, "SELECT userID FROM user WHERE email='$email'");
+			$result = mysqli_fetch_array($query);
+			return $result['userID'];
+		}
+
+		public function getRole($id){
+			//This query select the role of the user recently logged in.
+			$query = mysqli_query($this->con,"SELECT user_type FROM user WHERE userID='$id'");
+			$result = mysqli_fetch_assoc($query);
+			return $result['user_type'];
+		}
+
+
 
 		private function validateFirstName($fn) {
 			if(strlen($fn) > 25 || strlen($fn) < 2) {
@@ -88,18 +110,9 @@
 			}
 		}
 
-		private function validateEmails($em, $em2) {
-			if($em != $em2) {
-				array_push($this->errorArray, Constants::$emailsDoNotMatch);
-				return;
-			}
+		private function validateEmails($em) {
 
-			if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
-				array_push($this->errorArray, Constants::$emailInvalid);
-				return;
-			}
-
-			$checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email='$em'");
+			$checkEmailQuery = mysqli_query($this->con, "SELECT email FROM user WHERE email='$em'");
 			if(mysqli_num_rows($checkEmailQuery) != 0) {
 				array_push($this->errorArray, Constants::$emailTaken);
 				return;
@@ -124,6 +137,20 @@
 				return;
 			}
 
+		}
+
+		private function validateBirthDate($birth){
+			$age = date_diff(date_create($birth), date_create('today'))->y;
+			if($age < 18){
+				array_push($this->errorArray, Constants::$minor);
+			}
+			else if($age > 129){
+				array_push($this->errorArray, Constants::$overAge);
+			}
+			else if($age == null){
+				array_push($this->errorArray, Constants::$nullAge);
+			}
+			return;
 		}
 
 
