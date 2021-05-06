@@ -215,11 +215,14 @@ include("includes/navbar.php");
             while($final = $results->fetch_assoc()){ ?>
 
               
- 
+            <?php 
+                $i= 0+1;
+                ?>
 
               <ul class="products-grid">
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
+                    <form action="" method="POST">
                     <div class="item-img">
                       <div class="item-img-info">
                       <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
@@ -229,12 +232,13 @@ include("includes/navbar.php");
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                            <button class="button btn-cart" type="button" name="add" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
   
                       </div>
                     </div>
+                    </form>
                     <div class="item-info">
                       <div class="info-inner">
                         <div class="item-title"><?php echo $final['product_name']?> </div>
@@ -243,6 +247,14 @@ include("includes/navbar.php");
                             <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                           </div>
                         </div>
+                          <?php
+                                
+                                $_SESSION['photos'][$i]=$final['photo'];             
+                                $_SESSION['price'][$i]=$final['price'];
+                                $_SESSION['trailer'][$i]=$final['trailer'];
+                                   
+                          
+                          ?>
                       </div>
                     </div>
                   </div>
