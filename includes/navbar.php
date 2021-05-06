@@ -1,3 +1,11 @@
+<style>
+  li span{
+    color:#CCA000;
+  }
+  li span:hover{
+    color:#fff;
+  }
+</style>
 <nav>
     <div class="container">
           <!-- Header Logo -->
@@ -20,52 +28,52 @@
                   <div class="level0-wrapper2">
                     <div class="nav-block nav-block-center">
                       <ul class="level0">
-                        <li class="level1 nav-6-1 parent item"><a href="#.php" class=""><span>Drama</span></a>
+                        <li class="level1 nav-6-1 parent item"><a href="grid.php" class=""><span>Drama</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/sport-shoes.php"><span>Titanic</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/casual-shoes.php"><span>Parasite</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/leather-shoes.php"><span>The Wolf of Wallstreet</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/canvas-shoes.php"><span>The Godfather</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>Titanic</span></li>
+                            <li class="level2 nav-6-1-1"><span>Parasite</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Wolf of Wallstreet</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Godfather</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#.php"><span>Horror</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/casual-dresses.php"><span>US</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/evening.php"><span>Get Out</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/designer.php"><span>Psycho</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/party.php"><span>The Invisible Man</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>US</span></li>
+                            <li class="level2 nav-6-1-1"><span>Get Out</span></li>
+                            <li class="level2 nav-6-1-1"><span>Psycho</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Invisible Man</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#.php"><span>Family</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/coats.php"><span>DR. DoLittle</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/formal-jackets.php"><span>The Greatest Showman</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/leather-jackets.php"><span>Toy Story</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/blazers.php"><span>The Karate Kid</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>DR. DoLittle</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Greatest Showman</span></li>
+                            <li class="level2 nav-6-1-1"><span>Toy Story</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Karate Kid</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#.php"><span>Comedy</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/fasttrack.php"><span>The Mask</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/casio.php"><span>Mrs Doubtfire</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/titan.php"><span>Elf</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/tommy-hilfiger.php"><span>Ghostbusters</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>The Mask</span></li>
+                            <li class="level2 nav-6-1-1"><span>Mrs Doubtfire</span></li>
+                            <li class="level2 nav-6-1-1"><span>Elf</span></li>
+                            <li class="level2 nav-6-1-1"><span>Ghostbusters</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#/sunglasses.php"><span>Action</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/sunglasses/ray-ban.php"><span>Avengers Endgame</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/sunglasses/fasttrack.php"><span>Logan</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/sunglasses/police.php"><span>Skyfall</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/sunglasses/oakley.php"><span>StarWars</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>Avengers Endgame</span></li>
+                            <li class="level2 nav-6-1-1"><span>Logan</span></li>
+                            <li class="level2 nav-6-1-1"><span>Skyfall</span></li>
+                            <li class="level2 nav-6-1-1"><span>StarWars</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#/accesories.php"><span>Romance</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/backpacks.php"><span>The Notebook</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/wallets.php"><span>Love Jones</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/laptops-bags.php"><span>In the Mood for Love</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/accesories/belts.php"><span>The Best Man</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>The Notebook</span></li>
+                            <li class="level2 nav-6-1-1"><span>Love Jones</span></li>
+                            <li class="level2 nav-6-1-1"><span>In the Mood for Love</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Best Man</span></li>
                           </ul>
                         </li>
                       </ul>
@@ -86,50 +94,50 @@
                       <ul class="level0">
                         <li class="level1 nav-6-1 parent item"><a href="#/mobiles.php"><span>Drama</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/mobiles/samsung.php"><span>The Queens Gambit</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/mobiles/nokia.php"><span>The Crown</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/mobiles/iphone.php"><span>Lucifer</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/mobiles/sony.php"><span>The Good Doctor</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>The Queens Gambit</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Crown</span></li>
+                            <li class="level2 nav-6-1-1"><span>Lucifer</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Good Doctor</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#.php" class=""><span>Horror</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/mobile-memory-cards.php"><span>American Horror Story</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/cases-covers.php"><span>The Walking Dead</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/mobile-haedphones.php"><span>The Haunting of Hill House</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/bluetooth-headsets.php"><span>Supernatural</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>American Horror Story</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Walking Dead</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Haunting of Hill House</span></li>
+                            <li class="level2 nav-6-1-1"><span>Supernatural</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#/cameras.php"><span>Family</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/cameras/camcorders.php"><span>Full House</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/cameras/point-shoot.php"><span>The Mandolorian</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/cameras/digital-slr.php"><span>Lost in Space</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#camera-accesories.php"><span>Once Upon a Time</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>Full House</span></li>
+                            <li class="level2 nav-6-1-1"><span>The Mandolorian</span></li>
+                            <li class="level2 nav-6-1-1"><span>Lost in Space</span></li>
+                            <li class="level2 nav-6-1-1"><span>Once Upon a Time</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#/audio-video.php"><span>Comedy</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/audio-video/mp3-players.php"><span>The Office</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/audio-video/ipods.php"><span>Friends</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/audio-video/speakers.php"><span>How I Met Your Mother</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/audio-video/video-players.php"><span>Parks and Recreation</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>The Office</span></li>
+                            <li class="level2 nav-6-1-1"><span>Friends</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>How I Met Your Mother</span></li>
+                            <li class="level2 nav-6-1-1"><span>Parks and Recreation</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#/computer.php"><span>Action</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/external-hard-disk.php"><span>The Witcher</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/computer/pendrives.php"><span>Cobra Kai</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/computer/headphones.php"><span>Arrow</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/computer/pc-components.php"><span>Vikings</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>The Witcher</span></li>
+                            <li class="level2 nav-6-1-1"><span>Cobra Kai</span></li>
+                            <li class="level2 nav-6-1-1"><span>Arrow</span></li>
+                            <li class="level2 nav-6-1-1"><span>Vikings</span></li>
                           </ul>
                         </li>
                         <li class="level1 nav-6-1 parent item"><a href="#/home-appliances.php"><span>Romance</span></a>
                           <ul class="level1">
-                            <li class="level2 nav-6-1-1"><a href="#/vaccum-cleaners.php"><span>Bridgerton</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/indoor-lighting.php"><span>Riverdale</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/kitchen-tools.php"><span>Love</span></a></li>
-                            <li class="level2 nav-6-1-1"><a href="#/water-purifier.php"><span>New Girl</span></a></li>
+                            <li class="level2 nav-6-1-1"><span>Bridgerton</span></li>
+                            <li class="level2 nav-6-1-1"><span>Riverdale</span></li>
+                            <li class="level2 nav-6-1-1"><span>Love</span></li>
+                            <li class="level2 nav-6-1-1"><span>New Girl</span></li>
                           </ul>
                         </li>
                       </ul>
