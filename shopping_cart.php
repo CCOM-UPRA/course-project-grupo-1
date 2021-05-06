@@ -1,6 +1,7 @@
 ﻿
 <?php
 require_once("includes/config.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,25 +100,24 @@ include("includes/navbar.php");
 
 
                  <?php
-                   // $results = $connect->query($sql);
-                   //            $sql = "SELECT *
-                   // FROM cart
+                        $i = 0 ;
+                        if(isset($_GET['productID'])){
+                        $id[$i + 1]=$_GET['productID'];
+
+                        $sql ="SELECT photo, product_id, product_name, price
+                        FROM products WHERE product_id = '$id[$i]'";
+                        $resultsCart = $connect->query($sql);
+
+                        $row = $resultsCart->fetch_assoc();
+                      }
 
 
 
 
 
-             $websiteProductName = $_SESSION['name'];
 
 
-             $sql = "SELECT photo, product_id, product_name, price
-                    FROM products";
-                    $results = $connect->query($sql);
-                     $totalPrice = 0;
-                    $totalPrice = $totalPrice + $final['price'];
-
-
-                  while($final = $results->fetch_assoc()){ ?>
+                  while($final = $resultsCart->fetch_assoc()){ ?>
 
                   <!-- Scripts para anadir y remover -->
 
