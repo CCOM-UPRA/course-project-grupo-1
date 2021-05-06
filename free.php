@@ -233,8 +233,10 @@ include("includes/classes/Cart.php")
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" type="button" name="add" onclick="<php addToCart($i);?>" data-toggle="tooltip" value="<?php $i?> "data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                              
+                              <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Add to Cart'> <span>Quick View</span></a>"?> </div>
                           </div>
+                            
                         </div>
   
   
@@ -246,7 +248,7 @@ include("includes/classes/Cart.php")
                         <div class="item-title"><?php echo $final['product_name']?> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                           </div>
                         </div>
                           <?php
