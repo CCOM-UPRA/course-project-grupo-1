@@ -129,6 +129,7 @@ include("includes/classes/Cart.php")
                 </form>
                   </div>
                   <?php 
+    
                 error_reporting(0);
                    if(isset($_GET["submit"])):
                     $getoption=$_GET['sort'];
@@ -152,7 +153,7 @@ include("includes/classes/Cart.php")
                         $sql = "Select * from products  where category = 'FREE' ORDER BY ASC";
                         $results = $connect->query($sql);
                     }
-                
+                            
                         
                         while($final = $results->fetch_assoc()): ?>
                        
@@ -164,7 +165,8 @@ include("includes/classes/Cart.php")
                                                   <div class="item-img-info">
                                                   <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                                                     <div class="actions">
-                                                      <div class="quick-view-btn"><a href="quick_view.php?$final['photo']" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+                                                      <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                                       <div class="add_cart">
                                                         <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
@@ -211,7 +213,7 @@ include("includes/classes/Cart.php")
             $sql = "Select * from products  where category = 'FREE'$append";
             
             $results = $connect->query($sql);
-
+               
             while($final = $results->fetch_assoc()){ ?>
 
               
@@ -227,8 +229,7 @@ include("includes/classes/Cart.php")
                       <div class="item-img-info">
                       <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                         <div class="actions">
-                        <div  class="quick-view-btn"><a href="quick_view.php?final['product_id']"  class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
-
+                        <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
@@ -245,7 +246,7 @@ include("includes/classes/Cart.php")
                         <div class="item-title"><?php echo $final['product_name']?> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                           <?php
