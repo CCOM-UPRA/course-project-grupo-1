@@ -1,5 +1,14 @@
 <?php
 require_once("includes/config.php");
+                      if(isset($_GET['productID'])){
+                        $id=$_GET['productID'];
+
+                        $sql ="SELECT * FROM products WHERE product_id = '$id'";
+                        $results = $connect->query($sql);
+
+                        $row = $results->fetch_assoc();
+                      }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
