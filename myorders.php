@@ -277,7 +277,7 @@ include("includes/navbar.php");
             <div class="block-content">
               <ul>
                 
-                <li ><a>Account Information</a></li>
+                <li ><a href="account_information.php">Account Information</a></li>
                 <li class="current"><a href="myorders.php"><span> My Orders</span></a></li>
           </div>
           <!--block block-account--> 
