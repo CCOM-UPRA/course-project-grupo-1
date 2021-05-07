@@ -17,16 +17,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS Style -->
-<link rel="stylesheet" type="text/css" href="css/internal.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-<link rel="stylesheet" type="text/css" href="css/revslider.css" >
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="css/owl.theme.css">
-<link rel="stylesheet" type="text/css" href="css/flexslider.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
+<link rel="stylesheet" type="text/css" href="assets/css/internal.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/animate.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/revslider.css" >
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.css">
+<link rel="stylesheet" type="text/css" href="assets/css/flexslider.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-menu.css">
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>

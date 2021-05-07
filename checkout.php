@@ -69,9 +69,9 @@ include("includes/navbar.php");
                       <li>
                         <label for="billing-address-select">Select a billing address from your address book or enter a new address.</label>
                         <br>
-                        <select name="" id="billing-address-select" class="address-select" title="" onChange="#">
+                        <select name="" id="billing-address-select" class="address-select" title="" onchange="billingAddresSelectHandler(this)">
                           <option value="1" selected="selected">pranali d, aundh, tyyrt, Alabama 46532, United States</option>
-                          <option >New Address</option>
+                          <option value ="2">New Address</option>
                         </select>
                       </li>
                       <li id="billing-new-address-form" style="display: none;">
@@ -173,7 +173,7 @@ include("includes/navbar.php");
                       </li>
                     </ul>
                     <p class="require"><em class="required">* </em>Required Fields</p>
-                    <button type="button" class="button continue" ><span>Continue</span></button>
+                    <button onClick = "openForm();hideForm();" type="button" class="button continue" ><span>Continue</span></button>
                   </fieldset>
                 </form>
               </div>
@@ -291,7 +291,7 @@ include("includes/navbar.php");
                     </ul>
                     <p class="require"><em class="required">* </em>Required Fields</p>
                     <div class="buttons-set1" id="shipping-buttons-container">
-                      <button type="button" class="button" ><span>Continue</span></button>
+                      <button  onClick="openForm2();hideForm2();" type="button" class="button" ><span>Continue</span></button>
                       <a href="#" class="back-link">« Back</a> </div>
                   </fieldset>
                 </form>
@@ -318,7 +318,7 @@ include("includes/navbar.php");
                         </dd>
                       </dl>
                     </div>
-                    <div id="onepage-checkout-shipping-method-additional-load">
+                    <!-- <div id="onepage-checkout-shipping-method-additional-load">
                       <div class="add-gift-message">
                         <h4>Do you have any gift items in your order?</h4>
                         <p>
@@ -329,9 +329,9 @@ include("includes/navbar.php");
                       <div style="display: none;" class="gift-message-form" id="allow-gift-message-container">
                         <div class="inner-box"> </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="buttons-set1" id="shipping-method-buttons-container">
-                      <button type="button" class="button" ><span>Continue</span></button>
+                      <button onClick="openForm3();hideForm3();"type="button" class="button" ><span>Continue</span></button>
                       <a href="#" class="back-link">« Back</a> </div>
                   </fieldset>
                 </form>
@@ -442,7 +442,7 @@ include("includes/navbar.php");
                 </form>
                 <p class="require"><em class="required">* </em>Required Fields</p>
                 <div class="buttons-set1" id="payment-buttons-container">
-                  <button type="button" class="button" ><span>Continue</span></button>
+                  <button onClick="openForm4();hideForm4();" type="button" class="button"><span>Continue</span></button>
                   <a href="#" class="back-link">« Back</a> </div>
                 <div style="clear: both;"></div>
               </div>
@@ -545,223 +545,7 @@ include("includes/footer.php");
 ?>
     <!-- Footer  -->
 </div>
-<div id="mobile-menu">
-  <ul>
-    <li>
-      <div class="mm-search">
-        <form id="search_mob" name="search">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> </button>
-            </div>
-            <input type="text" class="form-control simple" placeholder="Search ..." name="assets/h-term" id="srch-term">
-          </div>
-        </form>
-      </div>
-    </li>
-    <li>
-      <div class="home"><a href="#"><i class="icon-home"></i>Home</a> </div>
-    </li>
-    <li><a href="#">Pages</a>
-      <ul>
-        <li><a href="grid.php">Grid</a> </li>
-        <li> <a href="list.php">List</a> </li>
-        <li> <a href="product_detail.php">Product Detail</a> </li>
-        <li> <a href="shopping_cart.php">Shopping Cart</a> </li>
-        <li><a href="checkout.php">Checkout</a>
-          <ul>
-            <li><a href="checkout_method.php">Checkout Method</a> </li>
-            <li><a href="checkout_billing_info.php">Checkout Billing Info</a> </li>
-          </ul>
-        </li>
-        <li> <a href="wishlist.php">Wishlist</a> </li>
-        <li> <a href="dashboard.php">Dashboard</a> </li>
-        <li> <a href="multiple_addresses.php">Multiple Addresses</a> </li>
-        <li> <a href="about_us.php">About us</a> </li>
-        <li><a href="blog.php">Blog</a>
-          <ul>
-            <li><a href="blog-detail.php">Blog Detail</a> </li>
-          </ul>
-        </li>
-        <li><a href="contact_us.php">Contact us</a> </li>
-        <li><a href="404error.php">404 Error Page</a> </li>
-      </ul>
-    </li>
-    <li><a href="#">Women</a>
-      <ul>
-        <li> <a href="#" class="">Stylish Bag</a>
-          <ul>
-            <li> <a href="#" class="">Clutch Handbags</a> </li>
-            <li> <a href="#l" class="">Diaper Bags</a> </li>
-            <li> <a href="#" class="">Bags</a> </li>
-            <li> <a href="#" class="">Hobo handbags</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Material Bag</a>
-          <ul>
-            <li> <a href="#">Beaded Handbags</a> </li>
-            <li> <a href="#">Fabric Handbags</a> </li>
-            <li> <a href="#">Handbags</a> </li>
-            <li> <a href="#">Leather Handbags</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Shoes</a>
-          <ul>
-            <li> <a href="#">Flat Shoes</a> </li>
-            <li> <a href="#">Flat Sandals</a> </li>
-            <li> <a href="#">Boots</a> </li>
-            <li> <a href="#">Heels</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Jwellery</a>
-          <ul>
-            <li> <a href="#">Bracelets</a> </li>
-            <li> <a href="#">Necklaces &amp; Pendent</a> </li>
-            <li> <a href="#l">Pendants</a> </li>
-            <li> <a href="#">Pins &amp; Brooches</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Dresses</a>
-          <ul>
-            <li> <a href="#">Casual Dresses</a> </li>
-            <li> <a href="#">Evening</a> </li>
-            <li> <a href="#">Designer</a> </li>
-            <li> <a href="#">Party</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Swimwear</a>
-          <ul>
-            <li> <a href="#">Swimsuits</a> </li>
-            <li> <a href="#">Beach Clothing</a> </li>
-            <li> <a href="#">Clothing</a> </li>
-            <li> <a href="#">Bikinis</a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Men</a>
-      <ul>
-        <li> <a href="#" class="">Shoes</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Sport Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Casual Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Leather Shoes</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">canvas shoes</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Dresses</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Casual Dresses</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Evening</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Designer</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Party</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Jackets</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Coats</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Formal Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Leather Jackets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Blazers</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Watches</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Casio</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Titan</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Tommy-Hilfiger</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Sunglasses</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Ray Ban</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Fasttrack</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Police</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Oakley</a> </li>
-          </ul>
-        </li>
-        <li> <a href="#">Accesories</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"><a href="#">Backpacks</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Wallets</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Laptops Bags</a> </li>
-            <li class="level2 nav-6-1-1"><a href="#">Belts</a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Electronics</a>
-      <ul>
-        <li> <a href="#"><span>Mobiles</span></a>
-          <ul>
-            <li> <a href="#"><span>Samsung</span></a> </li>
-            <li> <a href="#"><span>Nokia</span></a> </li>
-            <li> <a href="#"><span>IPhone</span></a> </li>
-            <li> <a href="#"><span>Sony</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#" class=""><span>Accesories</span></a>
-          <ul>
-            <li> <a href="#"><span>Mobile Memory Cards</span></a> </li>
-            <li> <a href="#"><span>Cases &amp; Covers</span></a> </li>
-            <li> <a href="#"><span>Mobile Headphones</span></a> </li>
-            <li> <a href="#"><span>Bluetooth Headsets</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Cameras</span></a>
-          <ul>
-            <li> <a href="#"><span>Camcorders</span></a> </li>
-            <li> <a href="#"><span>Point &amp; Shoot</span></a> </li>
-            <li> <a href="#"><span>Digital SLR</span></a> </li>
-            <li> <a href="#"><span>Camera Accesories</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Audio &amp; Video</span></a>
-          <ul>
-            <li> <a href="#"><span>MP3 Players</span></a> </li>
-            <li> <a href="#"><span>IPods</span></a> </li>
-            <li> <a href="#"><span>Speakers</span></a> </li>
-            <li> <a href="#"><span>Video Players</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Computer</span></a>
-          <ul>
-            <li> <a href="#"><span>External Hard Disk</span></a> </li>
-            <li> <a href="#"><span>Pendrives</span></a> </li>
-            <li> <a href="#"><span>Headphones</span></a> </li>
-            <li> <a href="#"><span>PC Components</span></a> </li>
-          </ul>
-        </li>
-        <li> <a href="#"><span>Appliances</span></a>
-          <ul>
-            <li> <a href="#"><span>Vaccum Cleaners</span></a> </li>
-            <li> <a href="#"><span>Indoor Lighting</span></a> </li>
-            <li> <a href="#"><span>Kitchen Tools</span></a> </li>
-            <li> <a href="#"><span>Water Purifier</span></a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#">Furniture</a> </li>
-    <li><a href="#">Kids</a> </li>
-    <li><a href="contact-us.php">Contact Us</a> </li>
-  </ul>
-  <div class="dropdown block-language-wrapper">
-                <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/english.png" alt="language"> English </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/francais.png" alt="language"> French </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="assets/images/german.png" alt="language"> German </a></li>
-                </ul>
-              </div>
-              <div class="dropdown block-currency-wrapper"> 
-                <ul>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
-                </ul>
-              </div>
-</div>
+
 <!-- JavaScript --> 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script> 
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
@@ -771,5 +555,41 @@ include("includes/footer.php");
 <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script> 
 <script type="text/javascript" src="assets/js/jquery.mobile-menu.min.js"></script> 
 <script type="text/javascript" src="assets/js/cloud-zoom.js"></script>
+<script>
+
+  function hideForm(){
+    document.getElementById('checkout-step-billing').style.display = 'none';
+  }
+  function openForm(){
+    document.getElementById('checkout-step-shipping').style.display = '';
+  }
+  function hideForm2(){
+    document.getElementById('checkout-step-shipping').style.display = 'none';
+  }
+  function openForm2(){
+    document.getElementById('checkout-step-shipping_method').style.display = '';
+  }
+  function hideForm3(){
+    document.getElementById('checkout-step-shipping_method').style.display = 'none';
+  }
+  function openForm3(){
+    document.getElementById('checkout-step-payment').style.display = '';
+  }
+  function hideForm4(){
+    document.getElementById('checkout-step-payment').style.display = 'none';
+  }
+  function openForm4(){
+    document.getElementById('checkout-step-review').style.display = '';
+  }
+  function open(){
+    document.getElementById('billing-new-address-form').style.display = 'none';
+  }
+  function billingAddresSelectHandler(select){
+    if(select.value == '2'){
+      open();
+    }
+    
+  }
+</script>
 </body>
 </html>
