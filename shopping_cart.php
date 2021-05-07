@@ -104,6 +104,7 @@ include("includes/navbar.php");
                 
                   if(isset($_SESSION['cart'])){ 
                     $dolars = 0;
+                    $taxprice = 0;
                     $item_price =0;
                     foreach($_SESSION['cart'] as $value){
                       $dolars += $value['price'];
@@ -154,20 +155,32 @@ include("includes/navbar.php");
                     <col>
                     <col width="1">
                     </colgroup>
-                    <tfoot>
-                      <tr>
-                        <td colspan="1" class="a-left" style="color: #001D3D;"><strong>Grand Total</strong></td>
-                        <td class="a-right"><strong><span class="price">--</span></strong></td>
-                      </tr>
-                    </tfoot>
+                   
                     <tbody>
                       <tr>
                         <td colspan="1" class="a-left" style="color: #001D3D;"> Subtotal </td>
-                        <td class="a-right"><span class="price"><?php
-                        echo $dolars
+                        <td class="a-right"><span class="price">$<?php
+                        echo $dolars;
+                        ?></span></td>
+                      </tr>
+                      <tr>
+                        <td colspan="1" class="a-left" style="color: #001D3D;"> Tax </td>
+                        <td class="a-right"><span class="price">$<?php
+                         $tax = 0.115;
+                         $taxprice = $tax * $dolars;
+                         echo $taxprice;
                         ?></span></td>
                       </tr>
                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="1" class="a-left" style="color: #001D3D;"><strong>Grand Total</strong></td>
+                        <td class="a-right"><strong><span class="price">$<?php 
+                        $total = $dolars + $taxprice;
+                        echo $total;
+                        ?></span></strong></td>
+                      </tr>
+                    </tfoot>
                   </table>
                   <ul class="checkout">
                     <li>
