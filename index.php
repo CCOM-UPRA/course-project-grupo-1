@@ -106,15 +106,30 @@ include "includes/navbar.php";
       </div>
       <div id="featured-slider" class="product-flexslider hidden-buttons">
         <div class="slider-items slider-width-col4 products-grid">
+
+
+
+
+
+
+         <?php
+
+          $sql = "Select * from products  where product_ID > 1  AND price > 0";
+         $results = $connect->query($sql);
+
+            while($final = $results->fetch_assoc()){ ?>
+
           <div class="item">
             <div class="item-inner">
               <div class="item-img">
-                <div class="item-img-info">  <img class = "newimg" alt="Sonic The Hedgehog" src="assets/newImages/HomeImages/secondSliderImages/sonicHedhog.jpeg">
-                  <div class="actions">
-                    <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
+                <div class="item-img-info">  <img class = "newimg" alt="<?php echo $final['product_name']?>" src="<?php echo $final['photo']?>">
+                 <div class="actions">
+                    <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <p data-original-title="Out of Stock" title="" data-placement="right" data-toggle="tooltip" class="availability out-of-stock"><span class="ava-out-of-stock">Out of stock</span></p>
+                    <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                    <div class="add_cart">
+                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                    </div>
                   </div>
                   <!-- <div class="rating">
                     <div class="ratings">
@@ -128,241 +143,19 @@ include "includes/navbar.php";
               </div>
               <div class="item-info">
                 <div class="info-inner">
-                  <div class="item-title"> <a title="Sonic the Hedgehog" href="#">Sonic The Hedgehog</a> </div>
+                  <div class="item-title"> <a title="<?php echo $final['product_name']?>" href="#"><?php echo $final['product_name']?></a> </div>
                   <div class="item-content">
                     <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$9.99</span> </span> </div>
+                      <div class="price-box"> <span class="regular-price"> <span class="price">$<?php echo $final['price']?></span> </span> </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
           
-          <!-- Item -->
-          <div class="item">
-            <div class="item-inner">
-              <div class="item-img">
-                <div class="item-img-info"> <img class= "newimg" title="Avenger's End Game" href="#" alt="Avengers End Game" src="assets/newImages/HomeImages/secondSliderImages/AvengersEndGame.jpg"> 
-                    
-                   
-                    
-                    
-                    
-                  <div class="actions">
-                    <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <div class="add_cart">
-                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                    </div>
-                  </div>
-                  <!-- <div class="rating">
-                    <div class="ratings">
-                      <div class="rating-box">
-                        <div style="width:80%" class="rating"></div>
-                      </div>
-                      <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-              <div class="item-info">
-                <div class="info-inner">
-                  <div class="item-title"> <a title="Avenger's EndGame" href="#"> Avengers EndGame </a> </div>
-                  <div class="item-content">
-                    <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$19.99</span> </span> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Item --> 
-          
-          <!-- Item -->
-          <div class="item">
-            <div class="item-inner">
-              <div class="item-img">
-                <div class="item-img-info"> <img class="newimg" title="Moana The Songs" href="#" alt="Moana The Songs" src="assets/newImages/HomeImages/secondSliderImages/Moana.webp"> 
-                  <div class="sale-label new-top-left">Sale</div>
-                  <div class="actions">
-                    <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <div class="add_cart">
-                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                    </div>
-                  </div>
-                  <!-- <div class="rating">
-                    <div class="ratings">
-                      <div class="rating-box">
-                        <div style="width:80%" class="rating"></div>
-                      </div>
-                      <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-              <div class="item-info">
-                <div class="info-inner">
-                  <div class="item-title"> <a title="Moana The Songs" href="#"> Moana The Songs </a> </div>
-                  <div class="item-content">
-                    <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$4.99</span> </span> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Item -->
-          
-          <div class="item">
-            <div class="item-inner">
-              <div class="item-img">
-                <div class="item-img-info"> <img class= "newimg" title="Frozen 2" href="#" alt="Frozen 2" src="assets/newImages/HomeImages/secondSliderImages/frozen2.jpg"> 
-                  <div class="actions">
-                      
-                  
-                      
-                    <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <div class="add_cart">
-                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                    </div>
-                  </div>
-                  <!-- <div class="rating">
-                    <div class="ratings">
-                      <div class="rating-box">
-                        <div style="width:80%" class="rating"></div>
-                      </div>
-                      <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-              <div class="item-info">
-                <div class="info-inner">
-                  <div class="item-title"> <a title="Frozen 2" href="#"> Frozen 2 </a> </div>
-                  <div class="item-content">
-                    <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$6.99</span> </span> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Item -->
-          <div class="item">
-            <div class="item-inner">
-              <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="Jumanji the Next Level" href="#"> <img alt="Retis lapen casen" src="assets/newImages/HomeImages/secondSliderImages/Jumanji.jpg"> </a>
-                  <div class="actions">
-                    <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <div class="add_cart">
-                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                    </div>
-                  </div>
-                  <!-- <div class="rating">
-                    <div class="ratings">
-                      <div class="rating-box">
-                        <div style="width:80%" class="rating"></div>
-                      </div>
-                      <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-              <div class="item-info">
-                <div class="info-inner">
-                  <div class="item-title"> <a title="Jumanji the Next Level" href="#"> Jumanji the Next Level </a> </div>
-                  <div class="item-content">
-                    <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$7.99</span> </span> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Item -->
-          <div class="item">
-            <div class="item-inner">
-              <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="The Conjuring 2" href="#"> <img alt="Retis lapen casen" src="assets/newImages/HomeImages/secondSliderImages/TheConjuring.jpg"> </a>
-                  <div class="actions">
-                    <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <div class="add_cart">
-                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                    </div>
-                  </div>
-                  <!-- <div class="rating">
-                    <div class="ratings">
-                      <div class="rating-box">
-                        <div style="width:80%" class="rating"></div>
-                      </div>
-                      <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-              <div class="item-info">
-                <div class="info-inner">
-                  <div class="item-title"> <a title="The Conjuring 2" href="#">The Conjuring 2 </a> </div>
-                  <div class="item-content">
-                    <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$2.99</span> </span> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Item -->
-          <div class="item">
-            <div class="item-inner">
-              <div class="item-img">
-                <div class="item-img-info"> <a class="product-image" title="Batman vs Superman" href="#"> <img alt="Retis lapen casen" src="assets/newImages/HomeImages/secondSliderImages/BatmanVSSuperman.jpg"> </a>
-                     <div class="actions">
-                    <!-- <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div> -->
-                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
-                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <div class="add_cart">
-                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                    </div>
-                  </div>
-                  <!-- <div class="rating">
-                    <div class="ratings">
-                      <div class="rating-box">
-                        <div style="width:80%" class="rating"></div>
-                      </div>
-                      <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-              <div class="item-info">
-                <div class="info-inner">
-                  <div class="item-title"> <a title="Batman vs Superman" href="#"> Batman vs Superman </a> </div>
-                  <div class="item-content">
-                    <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$3.99</span> </span> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Item --> 
+          <?php } ?>
           
         </div>
       </div>
@@ -392,19 +185,31 @@ include "includes/navbar.php";
                       </ul>
                     </div>
                     <!-- End Tab Nav --> 
+
+
+
+
+                    <!--              Best Seller                    -->
+
+                     <?php
+
+                      $sql = "Select * from products  where product_name = 'Thor Love and Thunder'  ";
+                      $results = $connect->query($sql);
+
+                      while($final = $results->fetch_assoc()){ ?>
                     <!--Begin Tab Content -->
                     <div class="thm-pdt-content wide-5">
                       <div class="pdt-content is-loaded pdt_best_sales">
+
                         <ul class="pdt-list products-grid zoomOut play">
                           <li class="item item-animate wide-first">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Frozen 2" class="product-image"><img src="assets/newImages/HomeImages/secondSliderImages/frozen2.jpg" alt="Retis lapen casen"></a>
-                       
+                                <div class="item-img-info"><a href="#" title="Frozen 2" class="product-image"><img src="<?php echo $final['photo']?>" alt="Retis lapen casen"></a>
                                   <div class="actions">
-                                   <!--  <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                                     <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+                                   <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
+                                    <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                     <div class="add_cart">
                                       <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                                     </div>
@@ -419,62 +224,38 @@ include "includes/navbar.php";
                                   </div>-->
                                 </div>
                               </div>
+
+
                               <div class="item-info">
                                 <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Frozen 2">Frozen 2</a> </div>
+                                  <div class="item-title"><a href="#" title=""><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$6.99</span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </li>
+
+
+                          <?php } ?>
+                          <?php
+
+                      $sql = "Select * from products  where category = 'series' ORDER BY price ASC limit 3";
+                      $results = $connect->query($sql);
+
+                      while($final = $results->fetch_assoc()){ ?>
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Spiderman Far From Home" class="product-image"><img src="assets/newImages/HomeImages/BestSellers/spidermanFarFromHome.jpg"></a>
+                                <div class="item-img-info"><a href="#" title="<?php echo $final['product_name']?>" class="product-image"><img src="<?php echo $final['photo']?>"></a>
                       
                                   <div class="actions">
-                                 <!--    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                 <!--  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>-->
-                                </div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Spiderman Far From Home">Spiderman Far From Home</a> </div>
-                                  <div class="item-content">
-                                    <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$10.99</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="item item-animate">
-                            <div class="item-inner">
-                              <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Wonder Woman" class="product-image"><img src="assets/newImages/HomeImages/BestSellers/wonderwoman2.jpg"></a>
-                      
-                                  <div class="actions">
-                                  <!--   <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                                  <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+                                   <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
+                                    <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                     <div class="add_cart">
                                       <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                                     </div>
@@ -491,30 +272,46 @@ include "includes/navbar.php";
                               </div>
                               <div class="item-info">
                                 <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Wonder Woman">Wonder Woman </a> </div>
+                                  <div class="item-title"><a href="<?php echo $final['trailer']?>" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$10.99</span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </li>
-                          <li class="item last item-animate">
+                          <?php } ?>
+
+
+                        </ul>
+                      </div>
+
+
+
+                      <!--                               New Releases                       -->
+                        <?php
+
+                      $sql = "Select * from products  where product_name = 'Jurassic World Dominion'  ";
+                      $results = $connect->query($sql);
+
+                      while($final = $results->fetch_assoc()){ ?>
+                      <div class="pdt-content pdt_new_arrivals is-loaded  tab-content-actived">
+                        <ul class="pdt-list products-grid zoomOut play">
+                          <li class="item item-animate wide-first">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Harry Potter and the Philosopher's Stone" class="product-image"><img src="assets/newImages/HomeImages/BestSellers/Harry-Potter-and-the-Sorcerers-Stone.jpg" alt="Retis lapen casen"></a>
-                   
-                                  <div class="actions">
-                                   <!--  <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                                <div class="item-img-info"><a href="#" title="<?php echo $final['product_name']?>" class="product-image"><img src="<?php echo $final['photo']?>"></a>
+                                            <div class="actions">
+                                    <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+                                   <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
+                                    <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                     <div class="add_cart">
                                       <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                                     </div>
                                   </div>
-                            <!--       <div class="rating">
+                                <!-- <div class="rating">
                                     <div class="ratings">
                                       <div class="rating-box">
                                         <div class="rating" style="width:80%"></div>
@@ -526,297 +323,133 @@ include "includes/navbar.php";
                               </div>
                               <div class="item-info">
                                 <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Harry Potter and the Philosopher's Stone">Harry Potter and The Philosopher's Stone</a> </div>
+                                  <div class="item-title"><a href="#" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$2.99</span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </li>
+                             <?php } ?>
+                               <?php
+
+                      $sql = "Select * from products  where category = 'Movie' limit 3 ";
+                      $results = $connect->query($sql);
+
+                      while($final = $results->fetch_assoc()){ ?>
+                          <li class="item item-animate">
+                            <div class="item-inner">
+                              <div class="item-img">
+                                <div class="item-img-info"><a href="#" title="<?php echo $final['product_name']?>" class="product-image"><img src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>"></a>
+                                         <div class="actions">
+                                  <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+                                   <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
+                                    <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                                    <div class="add_cart">
+                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                              <div class="item-info">
+                                <div class="info-inner">
+                                  <div class="item-title"><a href="#" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
+                                  <div class="item-content">
+                                    <div class="item-price">
+                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                             <?php } ?>
+
                         </ul>
                       </div>
-                      <div class="pdt-content pdt_new_arrivals is-loaded  tab-content-actived">
+
+
+
+
+
+                      <!--                               Featured                        -->
+                    <?php
+
+                      $sql = "Select * from products  where product_name = 'Avatar'";
+                      $results = $connect->query($sql);
+
+                      while($final = $results->fetch_assoc()){ ?>
+
+                        <div class="pdt-content pdt_featured is-loaded">
                         <ul class="pdt-list products-grid zoomOut play">
                           <li class="item item-animate wide-first">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Aquaman" class="product-image"><img src="assets/newImages/HomeImages/NewRelease/aquaMan.jpg"></a>
-                                            <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Aquaman">Aquaman</a> </div>
-                                  <div class="item-content">
-                                    <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$9.99</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="item item-animate">
-                            <div class="item-inner">
-                              <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="The Incredibles 2" class="product-image"><img src="assets/newImages/HomeImages/NewRelease/increibles-2.jpg" alt="The Incredibles 2"></a>
-                                         <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="The Incredibles 2">The Incredibles 2</a> </div>
-                                  <div class="item-content">
-                                    <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$9.99</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="item item-animate">
-                            <div class="item-inner">
-                              <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Star Wars Rise of the Skywalker" class="product-image"><img src="assets/newImages/Movies/movies/starwars.jpg" alt="Star Wars Rise of the Skywalker"></a>
-                            
-                                  <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Star Wars Rise of the Skywalker">Star Wars Rise of the Skywalker</a> </div>
-                                  <div class="item-content">
-                                    <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$7.99</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="item item-animate last">
-                            <div class="item-inner">
-                              <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="American Pie The Book of Love" class="product-image"><img src="assets/newImages/HomeImages/NewRelease/americanPie.jpg" alt="American Pie"></a>
-                                         <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="American Pie">American Pie The Book of Love</a> </div>
-                                  <div class="item-content">
-                                    <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$2.99</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="pdt-content pdt_featured is-loaded">
-                        <ul class="pdt-list products-grid zoomOut play">
-                          <li class="item item-animate wide-first">
-                            <div class="item-inner">
-                              <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Beauty and the Beast" class="product-image"><img src="assets/newImages/HomeImages/Featured/BeautyandtheBeast.jpg" alt="Beauty and the Beast"></a>
+                                <div class="item-img-info"><a href="#" title="<?php echo $final['product_name']?>" class="product-image"><img src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>"></a>
                                       <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                                   <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+
+                                    <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                     <div class="add_cart">
                                       <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="item-info">
                                 <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Beauty and The Beast">Beauty and The Beast</a> </div>
+                                  <div class="item-title"><a href="<?php echo $final['trailer']?>" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$4.99</span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['product_name']?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </li>
+                          <?php } ?>
+
+                    <?php
+                      $sql = "Select * from products  where category = 'Movie' limit 3 ";
+                      $results = $connect->query($sql);
+
+                      while($final = $results->fetch_assoc()){ ?>
+
                           <li class="item item-animate">
                             <div class="item-inner">
                               <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="Parasite" class="product-image"><img src="assets/newImages/HomeImages/Featured/Parasite.jpg" alt="Parasite"></a>
+                                <div class="item-img-info"><a href="#" title="<?php echo $final['product_name']?>" class="product-image"><img src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>"></a>
                                   <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+
+                                     <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+
+                                    <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                     <div class="add_cart">
                                       <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                                     </div>
                                   </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>
+
                                 </div>
                               </div>
                               <div class="item-info">
                                 <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="Parasite">Parasite </a> </div>
+                                  <div class="item-title"><a href="#" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$11.99</span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </li>
-                          <li class="item item-animate">
-                            <div class="item-inner">
-                              <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="American Horror Story Collection" class="product-image"><img src="assets/newImages/Series/tv/american.jpg" alt="Retis lapen casen"></a>
-                                          <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="American Horror Story">American Horror Story</a> </div>
-                                  <div class="item-content">
-                                    <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$24.99</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="item item-animate last">
-                            <div class="item-inner">
-                              <div class="item-img">
-                                <div class="item-img-info"><a href="#" title="The Conjuring 2" class="product-image"><img src="assets/newImages/HomeImages/secondSliderImages/TheConjuring.jpg" alt="Retis lapen casen"></a>
-                                      <div class="actions">
-                                    <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                                    <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>
-                                    <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                    </div>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="ratings">
-                                      <div class="rating-box">
-                                        <div class="rating" style="width:80%"></div>
-                                      </div>
-                                      <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="item-info">
-                                <div class="info-inner">
-                                  <div class="item-title"><a href="#" title="The Conjuring 2">The Conjuring 2</a> </div>
-                                  <div class="item-content">
-                                    <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$2.99</span> </span> </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
+                          <?php } ?>
+
                         </ul>
                       </div>
                     </div>
