@@ -25,7 +25,6 @@
 
 
 <!-- CSS Style -->
-<link rel="stylesheet" type="text/css" href="assets/css/quick.css" media="all">
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
 <link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
@@ -35,6 +34,8 @@
 <link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css">
 <link rel="stylesheet" type="text/css" href="assets/css/jquery.mobile-menu.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/newstyle.css" media="all">
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
 
@@ -151,7 +152,7 @@ include("includes/navbar.php");
             </div>
             <div class="toolbar">
               <div class="sorter">
-                <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="list.php" title="List" class="button-list">&nbsp;</a> </div>
+              
               </div>
 
 
@@ -212,12 +213,12 @@ include("includes/navbar.php");
                                                   <div class="item-img-info">
                                                   <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                                                     <div class="actions">
-<<<<<<< Updated upstream
+
                                                       <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
-=======
+
                                                       <div class="quick-view-btn"><a href="quick_view.php" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
                                                       
->>>>>>> Stashed changes
+
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                                       <div class="add_cart">
                                                         <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>

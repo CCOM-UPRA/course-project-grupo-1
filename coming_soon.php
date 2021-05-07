@@ -102,28 +102,56 @@
             </div>
             <div class="toolbar">
               <div class="sorter">
-                <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="list_comingsoon.php" title="List" class="button-list">&nbsp;</a> </div>
+              
               </div>
-              <div id="sort-by">
-              <form>
-                <label class="left">Sort By: </label>
-                <select id="sorting" onchange="selectionChange()">
-                    <option  value="Sort By" selected>Sort Products</option>
-                    <option value="Sort By Price" id="price" >Sort By Price</option>
-                    <option value="Sort By A-Z" id="az" >Sort By A-Z</option>
-                    <option value="Sort By Z-A" id="az" >Sort By Z-A</option>
-                  </select>
-                  <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
-                </form>
-            <?php
-                  if(isset($_POST["submit"])):
-                    $getoption=$_POST['sort'];
-                    
-                      if($getoption == 'price'):
-                        $sql = "Select * from products  where category = 'Movie' ORDER BY price ASC";
-                        $results = $connect->query($sql);
-                        while($final = $results->fetch_assoc()): ?>
 
+
+              <!--  -->
+              <div id="sort-by">
+              <form method="GET">
+                <label class="left">Sort By: </label>
+                <select id="sorting" name="sort" >
+                    <option  value="SortBy" selected disabled > Sort Products </option>
+                    <option value="price" id="price" > Sort By Date </option>
+                    <option value="AZ" id="az" > Sort By A-Z </option>
+                    <option value="ZA" id="za" > Sort By Z-A </option>
+                  </select>
+                  <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> 
+                <br><br>
+<span style="margin-right:11em" ></span>
+ <input class="button button-active" type="submit" name="submit">
+
+                </form>
+                  </div>
+                  <?php 
+                error_reporting(0);
+                   if(isset($_GET["submit"])):
+                    $getoption=$_GET['sort'];
+                    
+
+
+                    if($getoption == 'price'):{
+                        $sql = "Select * from products  where category = 'coming soon' ORDER BY release_date ASC";
+                        $results = $connect->query($sql);
+                    }
+                    elseif($getoption == 'AZ'):{
+                        $sql = "Select * from products  where category = 'coming soon' ORDER BY DESC";
+                        $results = $connect->query($sql);
+                    }
+                    elseif($getoption == 'ZA'):{
+                        $sql = "Select * from products  where category = 'coming soon' ORDER BY ASC";
+                        $results = $connect->query($sql);
+                    }
+        
+                    else:{
+                        $sql = "Select * from products  where category = 'coming soon' ORDER BY ASC";
+                        $results = $connect->query($sql);
+                    }
+                
+                        
+                        while($final = $results->fetch_assoc()): ?>
+                       
+                
                             <ul class="products-grid">
                                             <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                                               <div class="item-inner">
@@ -131,7 +159,12 @@
                                                   <div class="item-img-info">
                                                   <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                                                     <div class="actions">
-                                                      <div class="quick-view-btn"><a href="#" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+
+                                                      <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+
+                                                      <div class="quick-view-btn"><a href="quick_view.php" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+                                                      
+
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                                       <div class="add_cart">
                                                         <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
@@ -152,17 +185,28 @@
                                                 </div>
                                               </div>
                                             </li>
-                       
+                                            </ul>
                       <?php endwhile; ?>
                      <?php endif; ?> 
                   <?php endif; ?>
+                
             </div>
 
 
             <div class="category-products">
 
                 <?php
-            $sql = "Select * from products  where category = 'Coming Soon'";
+                if($getoption=='price'):{
+                $append = " ORDER BY price DESC";}
+                endif;
+                if($getoption=='AZ'):{
+                $append = " ORDER BY product_name ASC";}
+                endif;
+                if($getoption=='ZA'):{
+                $append = " ORDER BY product_name DESC";}
+                endif;
+            $sql = "Select * from products  where category = 'coming soon'$append";
+            
             $results = $connect->query($sql);
 
             while($final = $results->fetch_assoc()){ ?>
@@ -177,7 +221,7 @@
                       <div class="item-img-info">
                       <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                         <div class="actions">
-                          <div class="quick-view-btn"><a href="#" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+                           <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>

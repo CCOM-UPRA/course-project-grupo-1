@@ -19,7 +19,7 @@
 
 <!-- CSS Style -->
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href=assets/css/font-awesome.css" media="all">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="all">
 <link rel="stylesheet" type="text/css" href="assets/css/simple-line-icons.css" media="all">
 
 
@@ -110,42 +110,149 @@ include "includes/navbar.php";
             </div>
             <div class="toolbar">
               <div class="sorter">
-                <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="series_list.php" title="List" class="button-list">&nbsp;</a> </div>
+              
               </div>
+
+
+              <!--  -->
               <div id="sort-by">
-              <form>
+              <form method="GET">
                 <label class="left">Sort By: </label>
-                <select id="sorting" onchange="selectionChange()">
-                    <option  value="Sort By" selected>Sort Products</option>
-                    <option value="Sort By Price" id="price" >Sort By Price</option>
-                    <option value="Sort By A-Z" id="az" >Sort By A-Z</option>
-                    <option value="Sort By Z-A" id="az" >Sort By Z-A</option>
+                <select id="sorting" name="sort" >
+                    <option  value="SortBy" selected disabled > Sort Products </option>
+                    <option value="price" id="price" > Sort By Price </option>
+                    <option value="AZ" id="az" > Sort By A-Z </option>
+                    <option value="ZA" id="za" > Sort By Z-A </option>
+                    <option value="rate" id="rate" > Rating R-PG</option>
                   </select>
-                  <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
+                  <a class="button-asc left" href="" title="Set Descending Direction"><span class="top_arrow"></span></a> 
+                <br><br>
+<span style="margin-right:11em" ></span>
+ <input class="button button-active" type="submit" name="submit">
+
                 </form>
-               
-  
+                  </div>
+                  <?php 
+                error_reporting(0);
+                   if(isset($_GET["submit"])):
+                    $getoption=$_GET['sort'];
+                    
+
+
+                    if($getoption == 'price'):{
+                        $sql = "Select * from products  where category = 'series' ORDER BY price ASC";
+                        $results = $connect->query($sql);
+                    }
+                    elseif($getoption == 'AZ'):{
+                        $sql = "Select * from products  where category = 'series' ORDER BY DESC";
+                        $results = $connect->query($sql);
+                    }
+                    elseif($getoption == 'ZA'):{
+                        $sql = "Select * from products  where category = 'series' ORDER BY ASC";
+                        $results = $connect->query($sql);
+                    }
+                elseif($getoption == 'rate'):{
+                        $sql = "Select * from products  where category = 'series' order by rating ASC";
+                        $results = $connect->query($sql);
+                    }
+                    else:{
+                        $sql = "Select * from products  where category = 'series' ORDER BY ASC";
+                        $results = $connect->query($sql);
+                    }
+                
+                        
+                        while($final = $results->fetch_assoc()): ?>
+                       
+                
+                            <ul class="products-grid">
+                                            <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                                              <div class="item-inner">
+                                                <div class="item-img">
+                                                  <div class="item-img-info">
+                                                  <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
+                                                    <div class="actions">
+
+                                                      <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+
+                                                      <div class="quick-view-btn"><a href="quick_view.php" class="popup-btn" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a> </div>
+                                                      
+
+                                                      <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                                                      <div class="add_cart">
+                                                        <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                                      </div>
+                                                    </div>
+                              
+                                                  </div>
+                                                </div>
+                                                <div class="item-info">
+                                                  <div class="info-inner">
+                                                    <div class="item-title"><?php echo $final['product_name']?> </div>
+                                                    <div class="item-content">
+                                                      <div class="item-price">
+                                                        <div class="price-box"><span class="regular-price"><span class="price"> $ <?php echo $final['price']?></span> </span> </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </li>
+                                            </ul>
+                      <?php endwhile; ?>
+                     <?php endif; ?> 
+                  <?php endif; ?>
+                
             </div>
+
+
             <div class="category-products">
-            <?php
-            $sql = "Select * from products where category = 'Series'";
-            $results = $connect->query($sql);
+
+                <?php
+                if($getoption=='price'):{
+                $append = " ORDER BY price DESC";}
+                endif;
+                if($getoption=='AZ'):{
+                $append = " ORDER BY product_name ASC";}
+                endif;
+                if($getoption=='ZA'):{
+                $append = " ORDER BY product_name DESC";}
+                endif;
+                if($getoption=='rate'):{
+                $append = " ORDER BY rating DESC";}
+                endif;
+            $sql = "Select * from products  where category = 'series'$append";
             
+            $results = $connect->query($sql);
 
             while($final = $results->fetch_assoc()){ ?>
+
+              
+            <?php 
+                $i= $i+1;
+                ?>
+
               <ul class="products-grid">
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
+                    <form action="" method="POST">
                     <div class="item-img">
-                      <div class="item-img-info"><img class="dbimg"src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>">
+                      <div class="item-img-info">
+                      <img class = "product-img" src="<?php echo $final['photo']?>" alt="<?php echo $final['product_name']?>" title="<?php echo $final['product_name']?>" class="product-image">
                         <div class="actions">
                         <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
+
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                              
+                              <div  class="quick-view-btn"><?php echo "<a href='shopping_cart.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Add to Cart'> <span>Quick View</span></a>"?> </div>
                           </div>
+                            
+                        </div>
+  
+  
                       </div>
                     </div>
+                    </form>
                     <div class="item-info">
                       <div class="info-inner">
                         <div class="item-title"><?php echo $final['product_name']?> </div>
@@ -154,16 +261,27 @@ include "includes/navbar.php";
                             <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                           </div>
                         </div>
+                          <?php
+                                $_SESSION['photos'][$i]=$final['photo'];  
+                                $_SESSION['product_name']=$final['product_name'];
+                                $_SESSION['price'][$i]=$final['price'];
+                                $_SESSION['trailer'][$i]=$final['trailer'];
+                                   
+                          
+                          ?>
                       </div>
                     </div>
                   </div>
                 </li>
-                </ul>
+              </ul>
+                
                 <?php } ?>
+                
+                
                 <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="How I Met Your Mother" class="product-image"><img src="newImages/Series/tv/howimetyourmother.jpg" alt="How I Met Your Mother" title="How I Met Your Mother"></a>
+                      <div class="item-img-info"><a href="#" title="Grown Ups" class="product-image"><img src="newImages/Free/GrownUps.png" alt="Grown Ups" title="Grown Ups"></a>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
@@ -171,65 +289,15 @@ include "includes/navbar.php";
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
+            
                       </div>
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="How I Met Your Mother">How I Met Your Mother</a> </div>
+                        <div class="item-title"><a href="#" title="Avengers Infinity War">Grown Ups</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$74.99</span> </span> </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li> -->
-                <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
-                  <div class="item-inner">
-                    <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="The Crown" class="product-image"><img src="newImages/Series/tv/crown.jpg" alt="The Crown" title="The Crown"></a>
-                        <div class="actions">
-                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                          <div class="add_cart">
-                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title"><a href="#" title="The Crown">The Crown</a> </div>
-                        <div class="item-content">
-                          <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$39.99</span> </span> </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li> -->
-  
-                <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
-                  <div class="item-inner">
-                    <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="Arrow" class="product-image"><img src="newImages/Series/tv/arrow.jpg" alt="Arrow" title="Arrow"></a>
-                        <div class="actions">
-                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                          <div class="add_cart">
-                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title"><a href="unnamed.png" title="Arrow">Arrow</a> </div>
-                        <div class="item-content">
-                          <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$119.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -239,22 +307,23 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="The Office" class="product-image"><img src="newImages/Series/tv/theoffice.jpeg" alt="The Office" title="The Office"></a>
+                      <div class="item-img-info"><a href="#" title="Avatar" class="product-image"><img src="newImages/Free/Avatar.png" alt="Avatar" title="Avatar"></a>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
-                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>AWatch Trailer</span></a></div>
+                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
                             <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                           </div>
                         </div>
+                 
                       </div>
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="The Office">The Office</a> </div>
+                        <div class="item-title"><a href="#" title="Avatar">Avatar</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$99.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -264,7 +333,57 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="wonder" class="product-image"><img src="newImages/Series/tv/vikings.jpg" alt="Vikings" title="Vikings"></a>
+                      <div class="item-img-info"><a href="#" title="Tangled" class="product-image"><img src="newImages/Free/tangled.png" alt="Tangled" title="Tangled"></a>
+                        <div class="actions">
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
+                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                          <div class="add_cart">
+                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-info">
+                      <div class="info-inner">
+                        <div class="item-title"><a href="unnamed.png" title="Tangled">Tangled</a> </div>
+                        <div class="item-content">
+                          <div class="item-price">
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                  <div class="item-inner">
+                    <div class="item-img">
+                      <div class="item-img-info"><a href="#" title="The Blind Side" class="product-image"><img src="newImages/Free/TheBlindSide.png" alt="The Blind Side" title="The Blind Side"></a>
+                        <div class="actions">
+                          <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
+                          <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
+                          <div class="add_cart">
+                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-info">
+                      <div class="info-inner">
+                        <div class="item-title"><a href="#" title="The Blind Side">The Blind Side</a> </div>
+                        <div class="item-content">
+                          <div class="item-price">
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
+                  <div class="item-inner">
+                    <div class="item-img">
+                      <div class="item-img-info"><a href="#" title="Gahoole The Legend of the Guardians" class="product-image"><img src="newImages/Free/gahooleLegendOfTheGuardians.png" alt="Gahoole The Legend of the Guardians" title="Gahoole The Legend of the Guardians"></a>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
@@ -277,10 +396,10 @@ include "includes/navbar.php";
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Vikings">Vikings</a> </div>
+                        <div class="item-title"><a href="#" title="Wonder Woman">Gahoole Legend of the Guardians</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$96.72</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">Free</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -290,7 +409,7 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="Cobra Kai" class="product-image"><img src="newImages/Series/tv/cobra.jpg" alt="Cobra Kai" title="Cobra Kai"></a>
+                      <div class="item-img-info"><a href="#" title="Tooth Fairy" class="product-image"><img src="newImages/Free/Tooth%20Fairy.png" alt="Tooth Fairy" title="Tooth Fairy"></a>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
@@ -302,10 +421,10 @@ include "includes/navbar.php";
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Cobra Kai">Cobra Kai</a> </div>
+                        <div class="item-title"><a href="#" title="Tooth Fairy">Tooth Fairy</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$29.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -315,7 +434,7 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="Supernatural" class="product-image"><img src="newImages/Series/tv/super.png" alt="Supernatural" title="Supernatural"></a>
+                      <div class="item-img-info"><a href="#" title="Alpha and Omega" class="product-image"><img src="newImages/Free/AlphaandOmega.png" alt="Alpha and Omega" title="Alpha and Omega"></a>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
@@ -327,10 +446,10 @@ include "includes/navbar.php";
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Supernatural">Supernatural</a> </div>
+                        <div class="item-title"><a href="#" title="Alpha and Omega">Alpha and Omega</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$199.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -340,7 +459,7 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="American Horror Story" class="product-image"><img src="newImages/Series/tv/american.jpg" alt="American Horror Story" title="American Horror Story"></a>
+                      <div class="item-img-info"><a href="#" title="Marmaduke" class="product-image"><img src="newImages/Free/Marmaduke.png" alt="Marmaduke" title="Marmaduke"></a>
                         <div class="new-label new-top-left">New</div>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
@@ -353,10 +472,10 @@ include "includes/navbar.php";
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="American Horror Story">American Horror Story</a> </div>
+                        <div class="item-title"><a href="#" title="Marmaduke">Marmaduke</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$109.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -366,7 +485,7 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="Naruto" class="product-image"><img src="newImages/Series/tv/naruto2.jpg" alt="Naruto" title="Naruto"></a>
+                      <div class="item-img-info"><a href="#" title="Despicable Me" class="product-image"><img src="newImages/Free/DespicableMe.png" alt="Despicable Me" title="Despicable Me"></a>
                         <div class="new-label new-top-left">New</div>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
@@ -379,10 +498,10 @@ include "includes/navbar.php";
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Naruto">Naruto</a> </div>
+                        <div class="item-title"><a href="#" title="Despicable Me">Despicable Me</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$199.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -392,7 +511,7 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="Attack on Titan" class="product-image"><img src="newImages/Series/tv/attack.jpg" alt="Attack on Titan" title="Attack on Titan"></a>
+                      <div class="item-img-info"><a href="#" title="Yogi Bear 2" class="product-image"><img src="newImages/Free/YogiBear2.png" alt="Yogi Bear 2" title="Yogi Bear 2"></a>
                          <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
@@ -404,10 +523,10 @@ include "includes/navbar.php";
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Attack on Titan">Attack on Titan</a> </div>
+                        <div class="item-title"><a href="#" title="Yogi Bear 2">Yogi Bear 2</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$149.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
@@ -417,7 +536,7 @@ include "includes/navbar.php";
                 <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
-                      <div class="item-img-info"><a href="#" title="deadpool" class="product-image"><img src="newImages/Series/tv/demon.jpg" alt="Demon Slayer" title="Demon Slayer"></a>
+                      <div class="item-img-info"><a href="#" title="Cats vs Dogs" class="product-image"><img src="newImages/Free/CatsVsDogs.png" alt="Cats vs Dogs" title="Deadpool 2"></a>
                         <div class="actions">
                           <div class="quick-view-btn"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quick View"> <span>Quick View</span></a></div>
                           <div class="link-compare"><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
@@ -429,22 +548,21 @@ include "includes/navbar.php";
                     </div>
                     <div class="item-info">
                       <div class="info-inner">
-                        <div class="item-title"><a href="#" title="Demon Slayer">Demon Slayer</a> </div>
+                        <div class="item-title"><a href="#" title="Cats vs Dogs">Cats vs Dogs</a> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$49.99</span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </li> -->
-              </ul>
-            </div>
+                </div>
           </article>
           <!--	//////======    End article  ========= ///// --> 
         </div>
-        <div class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9">
+       <!-- <div class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9">
           <aside class="col-left sidebar">
             <div class="side-nav-categories">
             </div>
@@ -479,7 +597,7 @@ include "includes/navbar.php";
                       <li> <a href="#">Blue</a> (1) </li>
                     </ol>
                   </dd>
--->
+
                   <dt class="last even">Rating</dt>
                   <dd class="last even">
                     <ol>
@@ -517,7 +635,7 @@ include "includes/navbar.php";
                       <strong>1</strong> x <span class="price">$10.99</span>
                       <p class="product-name"> <a href="#">Spiderman Far From Home</a> </p>
                       
-                      <!--access clearfix--> 
+                      <!--access clearfix
                     </div>
                   </li>
                 </ul>
@@ -541,7 +659,7 @@ include "includes/navbar.php";
                   <button type="submit" title="Submit" class="button button-clear"><span>Clear</span></button>
                 </div>
               </div>
-            </div>-->
+            </div>
             <div class="block block-list block-viewed">
               <div class="block-title"> Recently Viewed </div>
               <div class="block-content">
@@ -618,10 +736,10 @@ include "includes/navbar.php";
                 </ul>
                 <div class="actions"> <a href="#" class="view-all">View All Tags</a> </div>
               </div>
-            </div> -->
+            </div> 
 
           </aside>
-        </div>
+        </div>-->
       </div>
     </div>
   </section>

@@ -119,13 +119,13 @@ include("includes/classes/Cart.php")
             </div>
             <div class="toolbar">
               <div class="sorter">
-                <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="list.php" title="List" class="button-list">&nbsp;</a> </div>
+         
               </div>
              <div id="sort-by">
               <form method="GET">
                 <label class="left">Sort By: </label>
                 <select id="sorting" name="sort" >
-                    <option  value="SortBy" selected disabled > Sort Products </option>
+                    <option value="SortBy" selected disabled > Sort Products </option>
                     <option value="AZ" id="az" > Sort By A-Z </option>
                     <option value="ZA" id="za" > Sort By Z-A </option>
                     <option value="rate" id="rate" > Rating R-PG</option>
