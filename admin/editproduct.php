@@ -84,10 +84,7 @@ $rowProduct = mysqli_fetch_assoc($resultProduct);
                   <label for="trailer">Trailer</label>
                   <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Enter Trailer Link" value = <?php echo $rowProduct['trailer']?>>
                 </div>
-                <div class="form-group">
-                  <label for="photo">File input</label>
-                  <input type="file" id="photo" name="photo" value="Upload" value = <?php echo $rowProduct['photo']?>>
-                </div>
+
                 
                 <?php
                   

@@ -122,9 +122,8 @@ include("includes/navbar.php");
             <div class="block-title"> My Account </div>
             <div class="block-content">
               <ul>
-                <li><a href="#"><span> Account Dashboard</span></a></li>
+                
                 <li class="current"><a>Account Information</a></li>
-                <li><a href="#"><span> My Wishlist</span></a></li>
                 <li><a href="#"><span> My Orders</span></a></li>
           </div>
           <!--block block-account--> 
