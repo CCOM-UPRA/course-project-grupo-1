@@ -110,6 +110,7 @@ include("includes/navbar.php");
                         $sql ="SELECT photo, product_id, product_name, price
                         FROM products WHERE product_id = '$id'";
                         $resultsCart = $connect->query($sql);
+                               
 //                        $final = $resultsCart->fetch_assoc();
 //                        echo $final['product_name'];     
                                
@@ -120,7 +121,7 @@ include("includes/navbar.php");
                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <tbody>
                     <tr class="first odd">
-                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="<?php echo $_SESSION['ID'][$i]?>"></a></td>
+                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="<?php echo $final['photo']?>"></a></td>
                         <td><h2 class="product-name">
                             <a href="<?php echo $final['photo'] ?>">
                                 <?php echo $final['product_name']?>
