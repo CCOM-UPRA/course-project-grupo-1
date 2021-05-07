@@ -257,7 +257,7 @@ include("includes/classes/Cart.php")
                         <div class="item-title"><?php echo $final['product_name']?> </div>
                         <div class="item-content">
                           <div class="item-price">
-                            <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                            <div class="price-box"><span class="regular-price"><span class="price"><?php echo "Free"; ?></span> </span> </div>
                           </div>
                         </div>
                           <?php

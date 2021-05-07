@@ -7,6 +7,11 @@
                         $results = $connect->query($sql);
 
                         $row = $results->fetch_assoc();
+                          
+                        $sql2 ="SELECT genre_name FROM genres natural join products WHERE product_id = '$getoption'";
+                        $result = $connect->query($sql2);
+                        $genre = $result->fetch_assoc();
+                          
                       }
                         
 
@@ -65,7 +70,7 @@ include("includes/navbar.php");
 <div id="fancybox-overlay">
   <div id="fancybox-wrap">
     <div id="fancybox-outer">
-      <div id="fancybox-content"> <a href="grid.php"></a>
+        <div id="fancybox-content"> <a href="<script>history.back()</script>"></a>
         <div>
           <div class="product-view">
             <div class="product-essential">
@@ -99,15 +104,39 @@ include("includes/navbar.php");
                   </div>
               
                     <div class="short-description">
-                      <p><?php echo "Genre Query" . " Rated " . $row['rating']  ?></p>
+                      <p><?php echo $genre['genre_name'] . " Rated " . $row['rating']  ?></p>
                     </div>
                   <div class="price-block">
                     <div class="price-box">
-                      <p class="special-price"> <span class="price-label">Price</span> <span id="product-price-48" class="price"><?php echo  "$".$row['price'] ?> </span></p>
+                      <p class="special-price"> <span class="price-label">Price</span> <span id="product-price-48" class="price"><?php
+                        if($row['price']>0):{
+                        echo  "$".$row['price']; }
+                        endif; 
+                        if($row['price']<0):{
+                        echo  "Coming Soon"; }
+                        endif; 
+                        if($row['price']==0):{
+                        echo  "Free"; }
+                        endif; 
+                          
+                          
+                          ?> 
+                          </span></p>
                       
                     </div>
-                      
-                    <p class="availability in-stock pull-right"><span>In Stock</span></p>
+                      <?php
+                        if($row['inventory_amount']>0):{ echo '<p class="availability in-stock pull-right"><span>In Stock</span></p>';}
+                        endif; 
+                        if($row['inventory_amount']<0):{ echo '
+                        <p class="availability out-of-stock pull-right"><span>Not in Stock</span></p>';}
+                        endif; 
+                        if($row['inventory_amount']==0):{ echo '
+                        <p class="availability out-of-stock pull-right"><span>Out of Stock</span></p>';}
+                        endif; 
+                          
+                          
+                          ?> 
+                    
                 
                   </div>
                   <div class="short-description">
@@ -142,7 +171,12 @@ include("includes/navbar.php");
           
         </div>
       </div>
-      <a id="fancybox-close" href="grid.php"></a> </div>
+     <button id="fancybox-close" onclick="Previous()"></button>
+    <script>
+        function Previous() {
+            window.history.go(-1);
+        }
+    </script> 
   </div>
 </div>
 <!-- JavaScript --> 

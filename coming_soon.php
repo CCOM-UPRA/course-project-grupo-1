@@ -98,7 +98,7 @@
           </div>
           <article class="col-main">
             <div class="page-title">
-              <h1>Pre-order now</h1>
+              <h1>Coming Soon</h1>
             </div>
             <div class="toolbar">
               <div class="sorter">
@@ -112,7 +112,6 @@
                 <label class="left">Sort By: </label>
                 <select id="sorting" name="sort" >
                     <option  value="SortBy" selected disabled > Sort Products </option>
-                    <option value="price" id="price" > Sort By Date </option>
                     <option value="AZ" id="az" > Sort By A-Z </option>
                     <option value="ZA" id="za" > Sort By Z-A </option>
                   </select>
