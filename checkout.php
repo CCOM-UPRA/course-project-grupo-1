@@ -297,10 +297,10 @@ include("includes/navbar.php");
                 </form>
               </div>
             </li>
-            <li id="opc-shipping_method" class="section">
+            <!-- <li id="opc-shipping_method" class="section">
               <div class="step-title"> <span class="number">3</span>
                 <h3 class="one_page_heading">Shipping Method</h3>
-                <!--<a href="#">Edit</a>--> 
+             
               </div>
               <div id="checkout-step-shipping_method" class="step a-item" style="display: none;">
                 <form id="co-shipping-method-form" >
@@ -318,27 +318,16 @@ include("includes/navbar.php");
                         </dd>
                       </dl>
                     </div>
-                    <!-- <div id="onepage-checkout-shipping-method-additional-load">
-                      <div class="add-gift-message">
-                        <h4>Do you have any gift items in your order?</h4>
-                        <p>
-                          <input type="checkbox" name="" id="allow_gift_messages" value="1" class="checkbox">
-                          <label for="allow_gift_messages">Check this checkbox if you want to add gift messages.</label>
-                        </p>
-                      </div>
-                      <div style="display: none;" class="gift-message-form" id="allow-gift-message-container">
-                        <div class="inner-box"> </div>
-                      </div>
-                    </div> -->
+                
                     <div class="buttons-set1" id="shipping-method-buttons-container">
                       <button onClick="openForm3();hideForm3();"type="button" class="button" ><span>Continue</span></button>
                       <a href="#" class="back-link">« Back</a> </div>
                   </fieldset>
                 </form>
               </div>
-            </li>
+            </li> -->
             <li id="opc-payment" class="section">
-              <div class="step-title"> <span class="number">4</span>
+              <div class="step-title"> <span class="number">3</span>
                 <h3 class="one_page_heading">Payment Information</h3>
                 <!--<a href="#">Edit</a>--> 
               </div>
@@ -442,13 +431,13 @@ include("includes/navbar.php");
                 </form>
                 <p class="require"><em class="required">* </em>Required Fields</p>
                 <div class="buttons-set1" id="payment-buttons-container">
-                  <button onClick="openForm4();hideForm4();" type="button" class="button"><span>Continue</span></button>
+                  <button onClick="openForm3();hideForm3();" type="button" class="button"><span>Continue</span></button>
                   <a href="#" class="back-link">« Back</a> </div>
                 <div style="clear: both;"></div>
               </div>
             </li>
             <li id="opc-review" class="section">
-              <div class="step-title"> <span class="number">5</span>
+              <div class="step-title"> <span class="number">4</span>
                 <h3 class="one_page_heading">Order Review</h3>
               </div>
               <div style="float: right;"><button type="button" class="button continue" ><a href="recibo.php" style="color: #FFF;"><span>Submit</span></a></button></div>
@@ -567,20 +556,15 @@ include("includes/footer.php");
     document.getElementById('checkout-step-shipping').style.display = 'none';
   }
   function openForm2(){
-    document.getElementById('checkout-step-shipping_method').style.display = '';
-  }
-  function hideForm3(){
-    document.getElementById('checkout-step-shipping_method').style.display = 'none';
-  }
-  function openForm3(){
     document.getElementById('checkout-step-payment').style.display = '';
   }
-  function hideForm4(){
+  function hideForm3(){
     document.getElementById('checkout-step-payment').style.display = 'none';
   }
-  function openForm4(){
+  function openForm3(){
     document.getElementById('checkout-step-review').style.display = '';
   }
+  
   function open(){
     document.getElementById('billing-new-address-form').style.display = 'none';
   }
