@@ -99,117 +99,52 @@ include("includes/navbar.php");
                   </tfoot>
 
 
-                 <?php
-                        $i=0;
-                        $_SESSION['ID'][$i]=$_GET['productID'];
-                               if($_SESSION['ID'][$i] != null){
-                                   $i++;
-                               }
-                        $id=$_GET['productID'];
-                        $_SESSION['ID'][$i];
-                        $sql ="SELECT photo, product_id, product_name, price
-                        FROM products WHERE product_id = '$id'";
-                        $resultsCart = $connect->query($sql);
-                               
-//                        $final = $resultsCart->fetch_assoc();
-//                        echo $final['product_name'];     
-                               
-                  while($final = $resultsCart->fetch_assoc()){ ?>
+                 <?php   
+                 
+                
+                  if(isset($_SESSION['cart'])){ 
+                    $dolars = 0;
+                    $taxprice = 0;
+                    $item_price =0;
+                    foreach($_SESSION['cart'] as $value){
+                      $dolars += $value['price'];
+                      $item_price = $value['inventory_amount']*$value['price'];
+                    ?>
 
                   <!-- Scripts para anadir y remover -->
-                               echo $final['product_name'];
+                            
                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <tbody>
                     <tr class="first odd">
-                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="<?php echo $final['photo']?>"></a></td>
+                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="" src="<?php echo $value['photo']?>"></a></td>
                         <td><h2 class="product-name">
-                            <a href="<?php echo $final['photo'] ?>">
-                                <?php echo $final['product_name']?>
+                            <a href="<?php echo $value['photo'] ?>">
+                                <?php echo $value['product_name']?>
                             </a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
                       
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
                       <td class="a-center movewishlist"><span class="cart-price"> <span class="price"><?php 
-                      if($final['price'] == 0){
+                      if($value['price'] == 0){
                           echo "Free";
                       }else{
-                          echo $final['price'];
+                        
+                        echo $value['price'];
                       } ?>
                           
                           </span> </span></td>
                       <td class="a-center last"><a class="button remove-item" title="Remove item" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>
                  </tbody>
-                  <?php } ?>
+                  <?php }
+                  
+                  }?>
                 </table>
               </fieldset>
             </form>
           </div>
-          <!-- BEGIN CART COLLATERALS -->
-         <!-- <div class="cart-collaterals row">
-            <div class="col-sm-4">
-              <div class="shipping">
-                <h3>Estimate Shipping and Tax</h3>
-                <div class="shipping-form">
-                  <form id="shipping-zip-form" method="post" action="#">
-                    <p style="color: #001D3D;">Enter your destination to get a shipping estimate.</p>
-                    <ul class="form-list">
-                      <li>
-                        <label class="required" for="country" style="color: #001D3D;"><em>*</em>Country</label>
-                        <div class="input-box">
-                          <select title="Country" class="validate-select" id="country" name="country_id" style="color: #001D3D;">
-                            <option value=""> </option>
-                            <option value="AF">Afghanistan</option>
-                            <option value="AX">Åland Islands</option>
-                            <option value="AL">Albania</option>
-                            <option value="PR">Puerto Rico</option>
-                            <option value="VQ">Vieques</option>
-                            <option value="CL">Culebra</option>
-                          </select>
-                        </div>
-                      </li>
-                      <li>
-                        <label for="region_id" style="color: #001D3D;">State/Province</label>
-                        <div class="input-box">
-                          <select title="State/Province" name="region_id" id="region_id" style="color: #001D3D;">
-                            <option value="">Please select region, state or province</option>
-                            <option value="1" title="Alabama">Alabama</option>
-                            <option value="2" title="Alaska">Alaska</option>
-                          </select>
-                        </div>
-                      </li>
-                      <li>
-                        <label for="postcode" style="color: #001D3D;">Zip/Postal Code</label>
-                        <div class="input-box">
-                          <input type="text" name="estimate_postcode" id="postcode" class="input-text validate-postcode">
-                        </div>
-                      </li>
-                    </ul>
-                    <div class="buttons-set11">
-                      <button onclick = "alert('Free Shipping!')" class="button get-quote" title="Get a Quote" type="button" ><span>Get a Quote</span></button>
-                    </div>
-                    <!--buttons-set11
-                  </form>
-                </div>
-              </div>
-            </div>
-            -->
-
-            <!--
-             <div class="cart-collaterals row">
-             <div class="col-sm-4">
-              <div class="discount">
-                <h3>Discount Codes</h3>
-                <form method="post" action="#" id="discount-coupon-form">
-                  <label for="coupon_code" style="color: #001D3D;">Enter your coupon code if you have one.</label>
-                  <input type="hidden" value="0" id="remove-coupone" name="remove">
-                  <input type="text" name="coupon_code" id="coupon_code" class="input-text fullwidth">
-                  <button value="Apply Coupon" class="button coupon " title="Apply Coupon" type="button" onclick = "alert('Invalid Code')"><span>Apply Coupon</span></button>
-                </form>
-              </div>
-            </div>
-            </div>-->
+         <?php include("includes/handlers/addToCart-handler.php");?>
             <div class="cart-collaterals row">
             <div class="col-sm-4">
               <div class="totals">
@@ -220,18 +155,32 @@ include("includes/navbar.php");
                     <col>
                     <col width="1">
                     </colgroup>
-                    <tfoot>
-                      <tr>
-                        <td colspan="1" class="a-left" style="color: #001D3D;"><strong>Grand Total</strong></td>
-                        <td class="a-right"><strong><span class="price">--</span></strong></td>
-                      </tr>
-                    </tfoot>
+                   
                     <tbody>
                       <tr>
                         <td colspan="1" class="a-left" style="color: #001D3D;"> Subtotal </td>
-                        <td class="a-right"><span class="price">$20.98</span></td>
+                        <td class="a-right"><span class="price">$<?php
+                        echo $dolars;
+                        ?></span></td>
+                      </tr>
+                      <tr>
+                        <td colspan="1" class="a-left" style="color: #001D3D;"> Tax </td>
+                        <td class="a-right"><span class="price">$<?php
+                         $tax = 0.115;
+                         $taxprice = $tax * $dolars;
+                         echo $taxprice;
+                        ?></span></td>
                       </tr>
                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="1" class="a-left" style="color: #001D3D;"><strong>Grand Total</strong></td>
+                        <td class="a-right"><strong><span class="price">$<?php 
+                        $total = $dolars + $taxprice;
+                        echo $total;
+                        ?></span></strong></td>
+                      </tr>
+                    </tfoot>
                   </table>
                   <ul class="checkout">
                     <li>
