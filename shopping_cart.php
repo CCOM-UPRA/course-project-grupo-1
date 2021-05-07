@@ -82,9 +82,9 @@ include("includes/navbar.php");
                       <th rowspan="1"><span class="nobr">Product Name</span></th>
                       <th rowspan="1" class="hidden-phone"></th>
                       <th rowspan="1" class="hidden-phone"><span class="nobr">Move to Wishlist</span></th>
-                      <th colspan="1" class="a-center"><span class="nobr">Unit Price</span></th>
+                      
                       <th class="a-center " rowspan="1">Qty</th>
-                      <th colspan="1" class="a-center">Subtotal</th>
+                      <th colspan="1" class="a-center">Price</th>
                       <th class="a-center" rowspan="1">&nbsp;</th>
                     </tr>
                   </thead>
@@ -100,37 +100,43 @@ include("includes/navbar.php");
 
 
                  <?php
-                        $i = 0 ;
-                        if(isset($_GET['productID'])){
-                        $id[$i + 1]=$_GET['productID'];
-
+                        $i=0;
+                        $_SESSION['ID'][$i]=$_GET['productID'];
+                               if($_SESSION['ID'][$i] != null){
+                                   $i++;
+                               }
+                        $id=$_GET['productID'];
+                        $_SESSION['ID'][$i];
                         $sql ="SELECT photo, product_id, product_name, price
-                        FROM products WHERE product_id = '$id[$i]'";
+                        FROM products WHERE product_id = '$id'";
                         $resultsCart = $connect->query($sql);
-
-                        $row = $resultsCart->fetch_assoc();
-                      }
-
-
-
-
-
-
-
+//                        $final = $resultsCart->fetch_assoc();
+//                        echo $final['product_name'];     
+                               
                   while($final = $resultsCart->fetch_assoc()){ ?>
 
                   <!-- Scripts para anadir y remover -->
-
+                               echo $final['product_name'];
                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <tbody>
                     <tr class="first odd">
-                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="<?php echo $final['photo']?>"></a></td>
-                        <td><h2 class="product-name"> <a href="<?php echo $final['photo'] ?>"><?php echo $final['product_name']?></a> </h2></td>
+                      <td class="image"><a class="product-image" title="" href="#"><img width="75" height="75" alt="Women's Crepe Printed Black" src="<?php echo $_SESSION['ID'][$i]?>"></a></td>
+                        <td><h2 class="product-name">
+                            <a href="<?php echo $final['photo'] ?>">
+                                <?php echo $final['product_name']?>
+                            </a> </h2></td>
                       <td class="a-center hidden-table"><a title="Edit item parameters" class="edit-bnt" href="#"></a></td>
                       <td class="a-center hidden-table"><a class="link-wishlist1 use-ajax" href="#">Move</a></td>
-                      <td class="a-center hidden-table"><span class="cart-price"> <span class="price"><?php echo $final['price'] ?></span> </span></td>
+                      
                       <td class="a-center movewishlist"><input maxlength="12" class="input-text qty" title="Qty" size="4" value="1" name=""></td>
-                      <td class="a-center movewishlist"><span class="cart-price"> <span class="price"><?php echo $totalPrice ?></span> </span></td>
+                      <td class="a-center movewishlist"><span class="cart-price"> <span class="price"><?php 
+                      if($final['price'] == 0){
+                          echo "Free";
+                      }else{
+                          echo $final['price'];
+                      } ?>
+                          
+                          </span> </span></td>
                       <td class="a-center last"><a class="button remove-item" title="Remove item" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
                     </tr>
                  </tbody>
