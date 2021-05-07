@@ -179,7 +179,8 @@ include "includes/navbar.php";
 
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                                       <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                          
+                                                      <?php echo "<a href='series_grid.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'> <span>Quick View</span></a>"?>
                                                       </div>
                                                     </div>
                               
@@ -243,9 +244,9 @@ include "includes/navbar.php";
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                              
-                              <div  class="quick-view-btn"><?php echo "<a href='shopping_cart.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Add to Cart'> <span>Quick View</span></a>"?> </div>
-                          </div>
+                          
+                                                      <?php echo "<a href='series_grid.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'> <span>Quick View</span></a>"?>
+                                                      </div>
                             
                         </div>
   
@@ -261,14 +262,7 @@ include "includes/navbar.php";
                             <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
                           </div>
                         </div>
-                          <?php
-                                $_SESSION['photos'][$i]=$final['photo'];  
-                                $_SESSION['product_name']=$final['product_name'];
-                                $_SESSION['price'][$i]=$final['price'];
-                                $_SESSION['trailer'][$i]=$final['trailer'];
-                                   
-                          
-                          ?>
+                        
                       </div>
                     </div>
                   </div>
@@ -276,7 +270,8 @@ include "includes/navbar.php";
               </ul>
                 
                 <?php } ?>
-                
+                <?php
+                          include("includes/handlers/addToCart-handler.php"); ?>
                 
                 <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">

@@ -221,8 +221,9 @@ include("includes/navbar.php");
 
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                                       <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                                      </div>
+                          
+                                                    <?php echo "<a href='grid.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'> <span>Quick View</span></a>"?>
+                                                    </div>
                                                     </div>
                               
                                                   </div>
@@ -282,7 +283,8 @@ include("includes/navbar.php");
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                           <div class="add_cart">
-                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                          
+                          <?php echo "<a href='grid.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'> <span>Quick View</span></a>"?>
                           </div>
                         </div>
   
@@ -303,6 +305,8 @@ include("includes/navbar.php");
               </ul>
                 
                 <?php } ?>
+                <?php
+                          include("includes/handlers/addToCart-handler.php"); ?>
                 <!-- <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-6">
                   <div class="item-inner">
                     <div class="item-img">
