@@ -224,7 +224,7 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                   <dl id="checkout-payment-method-load">
                     <dt>
                       <input type="radio" id="p_method_checkmo" value="checkmo" name="" title="Check / Money order" class="radio">
-                      <label for="p_method_checkmo">Check / Money order</label>
+                      <label for="p_method_checkmo">Paypal</label>
                     </dt>
                     <dd>
                       <fieldset class="form-list">
