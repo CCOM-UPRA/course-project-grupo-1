@@ -104,7 +104,7 @@ include "includes/config.php";
       </table>
      
       <div id="notices">
-      <button ><a href="index.php" style="color:black">Back</a></button>
+      <button ><a href="index.php" style="color:black">Home</a></button>
       </div>
     </main>
     <footer>

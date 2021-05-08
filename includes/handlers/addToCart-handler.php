@@ -7,7 +7,7 @@ if(isset($_GET['cart_id']) != null){
            
         }else{
         $count=count($_SESSION['cart']);
-        $_SESSION['cart'][$count]=array('product_id'=> $_GET['cart_id'], 'product_name'=> $_GET['cart_name'], 'price'=> $_GET['cart_price'],'photo'=> $_GET['cart_photo']);
+        $_SESSION['cart'][$count] =array('product_id'=> $_GET['cart_id'], 'product_name'=> $_GET['cart_name'], 'price'=> $_GET['cart_price'],'photo'=> $_GET['cart_photo']);
             }
         }else{
             $_SESSION['cart'][0]=array('product_id'=> $_GET['cart_id'], 'product_name'=> $_GET['cart_name'], 'price'=> $_GET['cart_price'],'photo'=> $_GET['cart_photo'],'quantity' => 1);

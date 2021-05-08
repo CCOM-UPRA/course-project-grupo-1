@@ -1,5 +1,5 @@
 <?php 
-
+ $_SESSION['cart'][$count] =array('product_id'=> $_GET['cart_id'], 'product_name'=> $_GET['cart_name'], 'price'=> $_GET['cart_price'],'photo'=> $_GET['cart_photo']);
 if(isset($_POST['submit'])){
 
     
@@ -15,8 +15,16 @@ if(isset($_POST['submit'])){
     $city = $_POST['city'];
     $zip = $_POST['zipcode'];
     $state = $_POST['state']; 
-    $addAddress = $account->registerAddress($id, $street1, $street2, $city, $state, $zip);
+    $_SESSION['checkout'] =array('street1'=> $_POST['address1'], 'street2'=> $_POST['cart_name'], 'price'=> $_GET['cart_price'],'photo'=> $_GET['cart_photo']);
+   if(){
+   $addAddress = $account->registerAddress($id, $street1, $street2, $city, $state, $zip);
+
+   }
     
+
+
+
+
     $card_number = $_POST['card_number'];
     $secNumber = $_POST['secNumber'];
     $expDate = $_POST['expDate'];
@@ -31,6 +39,6 @@ if(isset($_POST['submit'])){
         
        
     }
-
+    
 }
 ?>
