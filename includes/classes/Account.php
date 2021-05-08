@@ -32,21 +32,25 @@
 				return $this->insertUserDetails($fn, $ln, $em, $pw, $birth, $phone);
 			}
 			else{
-				return false; 
+				return false;
 			}
 		}
 
 		public function registerAddress($id, $address1, $address2, $city, $state, $zipcode){
 			if(empty($this->errorArray)){
-				return $this->insertUserAddress($id, $address1, $address2, $city, $state, $zipcode);
+				return $this->insertUserAddress($id, $address1, $address2, $city, $state, $zipcode, $phone);
 			}
 			else{
 				return false;
 			}
 		}
-		public function addPayment($card_number,$secNumber,$expDate){
-			$results = mysqli_query($this ->con, "INSERT INTO payment(  card_number, secNumber, expDate) VALUES('$card_number','$secNumber','$expDate')");
-			return $results;
+		public function registerShipping($id, $address1, $address2, $city, $state, $zipcode){
+			if(empty($this->errorArray)){
+				return $this->insertUserAddress($id, $address1, $address2, $city, $state, $zipcode, $phone);
+			}
+			else{
+				return false;
+			}
 		}
 
 		public function getError($error) {
@@ -56,7 +60,10 @@
 			return "<span class='errorMessage'>$error</span>";
 		}
 
-
+		public function addPayment($card_number,$secNumber,$expDate){
+			$results = mysqli_query($this->con, "INSERT INTO payment(card_number, secNumber, expDate) VALUES ('$card_number','$secNumber','$expDate')");
+			return $results;
+		}
 
 		private function insertUserDetails($fn, $ln, $em, $pw, $birth, $phone){
 			
@@ -70,14 +77,6 @@
 		private function insertUserAddress($id, $address1, $address2, $city, $state, $zipcode){
 			//This query insert a new address of a user.
 			$results = mysqli_query($this->con, "INSERT INTO address(userID, street1, street2, postal_code, city, country, address_type) VALUES ('$id', '$address1', '$address2', '$zipcode', '$city', '$state', 0)");
-			return $results;
-		}
-		private function validateUserAddress($id, $address1, $address2, $city, $state, $zipcode){
-			//This query insert a new address of a user.
-			if (){
-
-			}
-			
 			return $results;
 		}
 

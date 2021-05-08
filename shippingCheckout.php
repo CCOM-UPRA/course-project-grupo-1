@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include "includes/config.php";
 
 ?>
@@ -57,8 +57,8 @@ include("includes/header.php");
 include "includes/classes/Account.php";
 include("includes/navbar.php");
 $account = new Account($connect);
-include "includes/handlers/checkoutAddAddress-handler.php";
-include "includes/handlers/addPayment-handler.php";
+include "includes/handlers/checkoutShipAddress-handler.php";
+
 
     
     
@@ -71,7 +71,7 @@ include "includes/handlers/addPayment-handler.php";
   <!-- Main Container -->
   <section class="main-container col2-right-layout bounceInUp animated">
     <div class="main container">
-    <form id="co-billing-form1" method="POST">
+    <div id="co-billing-form1" >
       <div class="row">
         <div class="col-main col-sm-9">
           <div class="page-title">
@@ -84,7 +84,8 @@ include "includes/handlers/addPayment-handler.php";
           </div>
         <div class="col-sm-6">
         <form role="form" action="" method="post" enctype="multipart/form-data">
-            <h3>Billing Address</h3>
+           
+              <h3>Shipping Address</h3>
               <div class="box-body">
                
                 <div class="form-group">
@@ -112,8 +113,8 @@ include "includes/handlers/addPayment-handler.php";
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" name="continueShipping" value="submit" class="btn btn-primary">Continue</button>
-                <button ><a href="shopping_cart.php">Back</a></button>
+                <button type="submit" name="continuePayment" class="btn btn-primary">Continue</button>
+                <button ><a href="checkout.php">Back</a></button>
               </div>
 
             </form>
@@ -124,33 +125,9 @@ include "includes/handlers/addPayment-handler.php";
         </div>
     </section>
         </div>
-        <aside class="col-right sidebar col-sm-3">
-          <div class="block block-progress">
-            <div class="block-title ">Your Checkout</div>
-            <div class="block-content">
-              <dl>
-                <dt class="complete"> Billing Address <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete">
-                  <address>
-                  No Information
-                  </address>
-                </dd>
-                <dt class="complete"> Shipping Address <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete">
-                  <address>
-                  No Information
-                  </address>
-                </dd>
-                <dt class="complete"> Shipping Method <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete"> Flat Rate - Fixed <br>
-                  <span class="price">$0.00</span> </dd>
-                <dt> Payment Method </dt>
-              </dl>
-            </div>
-          </div>
-        </aside>
+   
       </div>
-      </form>
+      </div>
     </div>
   </section>
   <!-- Main Container End --> 

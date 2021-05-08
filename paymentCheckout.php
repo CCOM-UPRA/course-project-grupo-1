@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include "includes/config.php";
 
 ?>
@@ -57,8 +57,8 @@ include("includes/header.php");
 include "includes/classes/Account.php";
 include("includes/navbar.php");
 $account = new Account($connect);
-include "includes/handlers/checkoutAddAddress-handler.php";
-include "includes/handlers/addPayment-handler.php";
+include "includes/handlers/checkoutPayment-handler.php";
+
 
     
     
@@ -71,7 +71,7 @@ include "includes/handlers/addPayment-handler.php";
   <!-- Main Container -->
   <section class="main-container col2-right-layout bounceInUp animated">
     <div class="main container">
-    <form id="co-billing-form1" method="POST">
+    <div id="co-billing-form1" >
       <div class="row">
         <div class="col-main col-sm-9">
           <div class="page-title">
@@ -84,36 +84,29 @@ include "includes/handlers/addPayment-handler.php";
           </div>
         <div class="col-sm-6">
         <form role="form" action="" method="post" enctype="multipart/form-data">
-            <h3>Billing Address</h3>
+           
+              <h3>Payment Method</h3>
               <div class="box-body">
                
                 <div class="form-group">
-                  <label for="street1">Address</label>
-                  <input type="text" class="form-control" id="address1" name="address1" required placeholder="Address" value =<?php echo $rowProduct['street1']?>>
+                  <label for="card_number">Card Number</label>
+                  <input type="text" class="form-control" id="card_number" name="card_number" required placeholder="Card Number" >
                 </div>
                 <div class="form-group">
-                  <label for="street2">Address 2</label>
-                  <input type="text" class="form-control" id="address2" name="address2" placeholder="Address 2" value =<?php echo $rowProduct['street2']?>>
+                  <label for="secNumber">Security Number</label>
+                  <input type="text" class="form-control" id="secNumber" name="secNumber" placeholder="Security Number" >
                 </div>
                 <div class="form-group">
-                  <label for="state">Country</label>
-                  <input type="text" class="form-control" id="state" name="state" required placeholder="Country" value =<?php echo $rowProduct['country']?>>
+                  <label for="expDate">Expiration Date</label>
+                  <input type="text" class="form-control" id="expDate" name="expDate" required placeholder="Expiration Date">
                 </div>
-                <div class="form-group">
-                  <label for="city">City</label>
-                  <input type="text" class="form-control" id="city" name="city" required placeholder="City" value =<?php echo $rowProduct['city']?>>
-                </div>
-                <div class="form-group">
-                  <label for="zipcode">Zip Code</label>
-                  <input type="text" class="form-control" id="zipcode" name="zipcode" required placeholder="Zip Code" value =<?php echo $rowProduct['postal_code']?>>
-                </div>
+                
               </div>
-              
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" name="continueShipping" value="submit" class="btn btn-primary">Continue</button>
-                <button ><a href="shopping_cart.php">Back</a></button>
+                <button type="submit" name="payment" class="btn btn-primary">Submit</button>
+                <button ><a href="shippingCheckout.php">Back</a></button>
               </div>
 
             </form>
@@ -124,33 +117,9 @@ include "includes/handlers/addPayment-handler.php";
         </div>
     </section>
         </div>
-        <aside class="col-right sidebar col-sm-3">
-          <div class="block block-progress">
-            <div class="block-title ">Your Checkout</div>
-            <div class="block-content">
-              <dl>
-                <dt class="complete"> Billing Address <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete">
-                  <address>
-                  No Information
-                  </address>
-                </dd>
-                <dt class="complete"> Shipping Address <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete">
-                  <address>
-                  No Information
-                  </address>
-                </dd>
-                <dt class="complete"> Shipping Method <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete"> Flat Rate - Fixed <br>
-                  <span class="price">$0.00</span> </dd>
-                <dt> Payment Method </dt>
-              </dl>
-            </div>
-          </div>
-        </aside>
+   
       </div>
-      </form>
+      </div>
     </div>
   </section>
   <!-- Main Container End --> 

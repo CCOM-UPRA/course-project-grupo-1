@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_POST['continueShipping'])){
+if(isset($_POST['continuePayment'])){
 
     $id = $_SESSION['userLoggedIn'];
 
@@ -14,7 +14,7 @@ if(isset($_POST['continueShipping'])){
     $city = $_POST['city'];
     $zip = $_POST['zipcode'];
     $state = $_POST['state']; 
-    $addAddress = $account->registerAddress($id, $street1, $street2, $city, $state, $zip);
-    header("location: shippingCheckout.php");
+    $addAddress = $account->registerShipping($id, $street1, $street2, $city, $state, $zip);
+    header("location: paymentCheckout.php");
 }
 ?>
