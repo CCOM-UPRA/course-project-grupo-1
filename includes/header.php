@@ -36,7 +36,29 @@ if(isset($_SESSION['userLoggedIn'])){
               
 
 
-
+<div class="top-search">
+            <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="assets/images/close_icon.png" alt="close"> </button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="navbar-form">
+                        <div id="search">
+                          <div class="input-group">
+                            <input name="search" placeholder="Search" class="form-control" type="text">
+                            <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -54,7 +76,12 @@ if(isset($_SESSION['userLoggedIn'])){
                   <div class="login"><a href="shopping_cart.php"><span class="hidden-xs">My Cart</span></a></div>
                   <!-- Header Company -->
                   <?php 
-                 
+                 if(isset($_GET["search"])){
+                      $sr=$_GET['search'];
+                     header("location: searchclutch.php?searchreq=".$sr);
+                 }
+                    
+                    
                  if(isset($_SESSION['userLoggedIn'])){ // I use false condition
                      echo '<div class="login"><a href="account_information.php"><span class="hidden-xs">';
                      echo "My Account";
@@ -66,6 +93,8 @@ if(isset($_SESSION['userLoggedIn'])){
                      echo '<div class="login"><a href="login.php"><span class="hidden-xs">Log In</span></a></div>
                      </div> ';
                  }
+                    
+                    
                  ?>
         
                 </div> 
