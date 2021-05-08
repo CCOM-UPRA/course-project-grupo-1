@@ -72,6 +72,14 @@
 			$results = mysqli_query($this->con, "INSERT INTO address(userID, street1, street2, postal_code, city, country, address_type) VALUES ('$id', '$address1', '$address2', '$zipcode', '$city', '$state', 0)");
 			return $results;
 		}
+		private function validateUserAddress($id, $address1, $address2, $city, $state, $zipcode){
+			//This query insert a new address of a user.
+			if (){
+
+			}
+			
+			return $results;
+		}
 
 		public function updateAddress($id, $address1, $address2, $city, $state, $zipcode){
 			//This query will update user Address
