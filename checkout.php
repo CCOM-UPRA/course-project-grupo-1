@@ -39,7 +39,7 @@ include "includes/config.php";
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <style>
 li{
-  color:black;
+  color:white;
 }
 
 </style>
@@ -70,6 +70,7 @@ include "includes/handlers/checkoutAddAddress-handler.php";
   <!-- Main Container -->
   <section class="main-container col2-right-layout bounceInUp animated">
     <div class="main container">
+    <form id="co-billing-form1" method="POST">
       <div class="row">
         <div class="col-main col-sm-9">
           <div class="page-title">
@@ -89,8 +90,8 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                         <label for="billing-address-select">Select a billing address from your address book or enter a new address.</label>
                         <br>
                         <select name="" id="billing-address-select" class="address-select" title="" onchange="billingAddresSelectHandler(this)">
-                          <option value="1" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
-                          <option value ="2">New Address</option>
+                          <option value="0" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
+                          <option value ="1">New Address</option>
                         </select>
                       </li>
                       <li id="billing-new-address-form" style="display: none;">
@@ -128,23 +129,19 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                               </div>
                           
                             </li>
-                            
-                            <li>
-                             
-                              <button  type="submit" name="address"  class="button continue" ><span>Save</span></button>
-                            </li>
+  
                           </ul>
                         </fieldset>
                       </li>
                      
                     </ul>
                     <p class="require"><em class="required">* </em>Required Fields</p>
-                    <button onClick = "openForm();hideForm();" type="button" class="button continue" ><span>Continue</span></button>
+                    <button onClick = "openForm();" type="button" class="button" ><span>Continue</span></button>
                   </fieldset>
                 </form>
               </div>
             </li>
-            <li id="opc-shipping" class="section">
+            <li id="opc-shipping" class="section allow active">
               <div class="step-title"> <span class="number">2</span>
                 <h3 class="one_page_heading"> Shipping Information</h3>
                 <!--<a href="#">Edit</a>--> 
@@ -157,8 +154,8 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                         <label for="shipping-address-select">Select a shipping address from your address book or enter a new address.</label>
                         <br>
                         <select name="" id="shipping-address-select" class="address-select" title="" onchange="shippingAddresSelectHandler(this)">
-                          <option value="1" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
-                          <option value="2">New Address</option>
+                          <option value="0" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
+                          <option value="1">New Address</option>
                         </select>
                       </li>
                       <li id="shipping-new-address-form" style="display: none;">
@@ -196,25 +193,20 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                               </div>
                           
                             </li>
-                            
-                            <li>
-                             
-                              <button  type="submit" name="address"  class="button continue" ><span>Save</span></button>
-                            </li>
                           </ul>
                         </fieldset>
                       </li>
                     </ul>
                     <p class="require"><em class="required">* </em>Required Fields</p>
                     <div class="buttons-set1" id="shipping-buttons-container">
-                      <button  onClick="openForm2();hideForm2();" type="button" class="button" ><span>Continue</span></button>
-                      <a href="#" class="back-link">« Back</a> </div>
+                      <button  onClick="openForm2();" type="button" class="button" ><span>Continue</span></button>
+                       </div>
                   </fieldset>
                 </form>
               </div>
             </li>
            
-            <li id="opc-payment" class="section">
+            <li id="opc-payment" class="section allow active">
               <div class="step-title"> <span class="number">3</span>
                 <h3 class="one_page_heading">Payment Information</h3>
                 <!--<a href="#">Edit</a>--> 
@@ -222,18 +214,15 @@ include "includes/handlers/checkoutAddAddress-handler.php";
               <div id="checkout-step-payment" class="step a-item" style="display: none;">
                 <form id="co-payment-form">
                   <dl id="checkout-payment-method-load">
-                    <dt>
-                      <input type="radio" id="p_method_checkmo" value="checkmo" name="" title="Check / Money order" class="radio">
-                      <label for="p_method_checkmo">Paypal</label>
-                    </dt>
-                    <dd>
-                      <fieldset class="form-list">
-                      </fieldset>
-                    </dd>
-                    <dt>
-                      <input type="radio" id="p_method_ccsave" value="ccsave" name="" title="Credit Card (saved)" class="radio">
-                      <label for="p_method_ccsave">Credit Card (saved)</label>
-                    </dt>
+                  <li>
+                        <label for="billing-address-select">Select a payment method.</label>
+                        <br>
+                        <select name="" id="billing-address-select" class="address-select" title="" onchange="paymentMethod(this)">
+                          <option value ="3" selected="selected">Choose a payment option</option>
+                          <option value="0" >Credit Card</option>
+                          <option value ="1">Visa</option>
+                        </select>
+                      </li>
                     <dd>
                       <fieldset class="form-list">
                         <ul id="payment_form_ccsave" style="display: none;">
@@ -241,14 +230,14 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                             <div class="input-box">
                               <label for="ccsave_cc_owner">Name on Card <span class="required">*</span></label>
                               <br>
-                              <input type="text" disabled="" title="Name on Card" class="input-text" id="ccsave_cc_owner" name="" >
+                              <input type="text"  title="Name on Card" class="input-text" id="ccsave_cc_owner" name="" >
                             </div>
                           </li>
                           <li>
                             <div class="input-box">
                               <label for="ccsave_cc_type">Credit Card Type <span class="required">*</span></label>
                               <br>
-                              <select disabled="" id="ccsave_cc_type" name="" class="required-entry validate-cc-type-select">
+                              <select  id="ccsave_cc_type" name="" class="required-entry validate-cc-type-select">
                                 <option >--Please Select--</option>
                                 <option value="AE">American Express</option>
                                 <option value="VI">Visa</option>
@@ -261,7 +250,7 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                             <div class="input-box">
                               <label for="ccsave_cc_number">Credit Card Number <span class="required">*</span></label>
                               <br>
-                              <input type="text" disabled="" id="ccsave_cc_number" name="" title="Credit Card Number" class="input-text validate-cc-number validate-cc-type" >
+                              <input type="text"  id="ccsave_cc_number" name="" title="Credit Card Number" class="input-text validate-cc-number validate-cc-type" >
                             </div>
                           </li>
                           <li>
@@ -269,7 +258,7 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                               <label for="ccsave_expiration">Expiration Date <span class="required">*</span></label>
                               <br>
                               <div class="v-fix">
-                                <select disabled="" id="ccsave_expiration" style="width: 140px;" name="" class="required-entry">
+                                <select id="ccsave_expiration" style="width: 140px;" name="" class="required-entry">
                                   <option  selected="selected">Month</option>
                                   <option value="1">01 - January</option>
                                   <option value="2">02 - February</option>
@@ -286,7 +275,7 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                                 </select>
                               </div>
                               <div class="v-fix">
-                                <select disabled="" id="ccsave_expiration_yr" style="width: 103px;" name="" class="required-entry">
+                                <select  id="ccsave_expiration_yr" style="width: 103px;" name="" class="required-entry">
                                   <option  selected="selected">Year</option>
                                   <option value="2011">2011</option>
                                   <option value="2012">2012</option>
@@ -310,7 +299,7 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                               <div class="v-fix">
                                 <input type="text" title="Card Verification Number" class="input-text" id="ccsave_cc_cid" name="" style="width: 3em;" >
                               </div>
-                              <a href="#" class="cvv-what-is-this">What is this?</a> </div>
+                               </div>
                           </li>
                         </ul>
                       </fieldset>
@@ -319,21 +308,20 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                 </form>
                 <p class="require"><em class="required">* </em>Required Fields</p>
                 <div class="buttons-set1" id="payment-buttons-container">
-                  <button onClick="openForm3();hideForm3();" type="button" class="button"><span>Continue</span></button>
-                  <a href="#" class="back-link">« Back</a> </div>
+                  <button onClick="openForm3();" type="button" class="button"><span>Continue</span></button>
+                   </div>
                 <div style="clear: both;"></div>
               </div>
             </li>
-            <li id="opc-review" class="section">
+            <li id="opc-review" class="section allow active">
               <div class="step-title"> <span class="number">4</span>
                 <h3 class="one_page_heading">Order Review</h3>
               </div>
-              <div style="float: right;"><button type="button" class="button continue" ><a href="recibo.php" style="color: #FFF;"><span>Submit</span></a></button></div>
+              <div style="float: right;"><button type="submit" name="address" class="button" ><a href="recibo.php" style="color: #FFF;"><span>Submit</span></a></button></div>
               <div id="checkout-step-review" class="step a-item" style="display: none;">
                 <div class="order-review" id="checkout-review-load"> </div>
                 <div class="buttons-set13" id="review-buttons-container">
-                  <p class="f-left">Forgot an Item? <a href="shopping-cart.php">Edit Your Cart</a></p>
-                  <button type="submit" class="button" ><span>Place Order</span></button>
+                  <p class="f-left">Forgot an Item? <a href="shopping_cart.php">Edit Your Cart</a></p>
                 </div>
               </div>
             </li>
@@ -365,6 +353,7 @@ include "includes/handlers/checkoutAddAddress-handler.php";
           </div>
         </aside>
       </div>
+      </form>
     </div>
   </section>
   <!-- Main Container End --> 
@@ -434,20 +423,11 @@ include("includes/footer.php");
 <script type="text/javascript" src="assets/js/cloud-zoom.js"></script>
 <script>
 
-  function hideForm(){
-    document.getElementById('checkout-step-billing').style.display = 'none';
-  }
   function openForm(){
     document.getElementById('checkout-step-shipping').style.display = '';
   }
-  function hideForm2(){
-    document.getElementById('checkout-step-shipping').style.display = 'none';
-  }
   function openForm2(){
     document.getElementById('checkout-step-payment').style.display = '';
-  }
-  function hideForm3(){
-    document.getElementById('checkout-step-payment').style.display = 'none';
   }
   function openForm3(){
     document.getElementById('checkout-step-review').style.display = '';
@@ -456,18 +436,59 @@ include("includes/footer.php");
   function open(){
     document.getElementById('billing-new-address-form').style.display = '';
   }
+  function close(){
+    document.getElementById('billing-new-address-form').style.display = 'none';
+  }
   function open2(){
     document.getElementById('shipping-new-address-form').style.display = '';
   }
+  function close2(){
+    document.getElementById('shipping-new-address-form').style.display = 'none';
+  }
+  function openVisa(){
+    document.getElementById('shipping-new-address-form').style.display = '';
+  }
+  function closeVisa(){
+    document.getElementById('shipping-new-address-form').style.display = 'none';
+  }
+  function openCredit(){
+    document.getElementById('payment_form_ccsave').style.display = '';
+  }
+  function closeCredit(){
+    document.getElementById('payment_form_ccsave').style.display = 'none';
+  }
+
+
+
   function billingAddresSelectHandler(select){
-    if(select.value == '2'){
+    if(select.value == '1'){
       open();
     } 
+    else{
+      close();
+    }
+  }
+  function paymentMethod(select){
+    if(select.value == '1'){
+      openVisa();
+      closeCredit();
+    } 
+    else if(select.value == '3'){
+      openVisa();
+      closeCredit();
+    } 
+    else{
+      openCredit();
+      //closeVisa();
+    }
   }
   function shippingAddresSelectHandler(select){
-    if(select.value == '2'){
+    if(select.value == '1'){
       open2();
     } 
+    else{
+      close2();
+    }
   }
 </script>
 </body>

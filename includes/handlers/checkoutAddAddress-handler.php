@@ -21,8 +21,9 @@ if(isset($_POST['address'])){
         // $ship_id = $account->addressID($id);
         // $account->changeShippingDefault($id, $ship_id);
         echo "<script> alert('Address Added');</script>";
-        header("Location: checkout.php");
+        
        
     }
 
 }
+?>
