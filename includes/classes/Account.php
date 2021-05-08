@@ -64,6 +64,20 @@
 			$results = mysqli_query($this->con, "INSERT INTO payment(card_number, secNumber, expDate) VALUES ('$card_number','$secNumber','$expDate')");
 			return $results;
 		}
+		public function addOrder($id){
+			$dolars = 0;
+			$order_status = "Pending";
+			foreach($_SESSION['cart'] as $value){
+				$dolars += $value['price'];
+			}
+			$tax = 0.115;
+			$taxprice = $tax * $dolars;
+			$total = $dolars + $taxprice;
+			$tracking_number = rand();
+			$address_id= "SELECT * from address where $id = userID";
+			$results = mysqli_query($this->con, "INSERT INTO orders(userID,shipping_address_id,paymentID,billing_address_id,order_status,total,tracking_number) VALUES('$id','$address_id','$id','$address_id','$order_status','$total','$tracking_number')");
+			return $results;
+		}
 
 		private function insertUserDetails($fn, $ln, $em, $pw, $birth, $phone){
 			
