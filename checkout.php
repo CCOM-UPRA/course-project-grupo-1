@@ -89,9 +89,9 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                       <li>
                         <label for="billing-address-select">Select a billing address from your address book or enter a new address.</label>
                         <br>
-                        <select name="" id="billing-address-select" class="address-select" title="" onchange="billingAddresSelectHandler(this)">
-                          <option value="0" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
-                          <option value ="1">New Address</option>
+                        <select style="color:black;" name="" id="billing-address-select" class="address-select" title="" onchange="billingAddresSelectHandler(this)">
+                          <option  value="0" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
+                          <option  value ="1">New Address</option>
                         </select>
                       </li>
                       <li id="billing-new-address-form" style="display: none;">
@@ -147,13 +147,13 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                 <!--<a href="#">Edit</a>--> 
               </div>
               <div id="checkout-step-shipping" class="step a-item" style="display: none;">
-                <form  id="co-shipping-form">
+                <form  id="co-shipping-form" method="POST">
                   <fieldset class="group-select">
                     <ul>
                       <li>
                         <label for="shipping-address-select">Select a shipping address from your address book or enter a new address.</label>
                         <br>
-                        <select name="" id="shipping-address-select" class="address-select" title="" onchange="shippingAddresSelectHandler(this)">
+                        <select style="color:black;" name="" id="shipping-address-select" class="address-select" title="" onchange="shippingAddresSelectHandler(this)">
                           <option value="0" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
                           <option value="1">New Address</option>
                         </select>
@@ -212,92 +212,47 @@ include "includes/handlers/checkoutAddAddress-handler.php";
                 <!--<a href="#">Edit</a>--> 
               </div>
               <div id="checkout-step-payment" class="step a-item" style="display: none;">
-                <form id="co-payment-form">
+                <form id="co-payment-form" method="POST">
                   <dl id="checkout-payment-method-load">
                   <li>
                         <label for="billing-address-select">Select a payment method.</label>
                         <br>
-                        <select name="" id="billing-address-select" class="address-select" title="" onchange="paymentMethod(this)">
+                        <select style="color:black;" name="" id="billing-address-select" class="address-select" title="" onchange="paymentMethod(this)">
                           <option value ="3" selected="selected">Choose a payment option</option>
-                          <option value="0" >Credit Card</option>
-                          <option value ="1">Visa</option>
+                          <option value="0" >Credit Card/Visa</option>
+                          <option value ="1">Paypal</option>
                         </select>
                       </li>
                     <dd>
                       <fieldset class="form-list">
                         <ul id="payment_form_ccsave" style="display: none;">
-                          <li>
+                          <!-- <li>
                             <div class="input-box">
                               <label for="ccsave_cc_owner">Name on Card <span class="required">*</span></label>
                               <br>
                               <input type="text"  title="Name on Card" class="input-text" id="ccsave_cc_owner" name="" >
                             </div>
-                          </li>
+                          </li> -->
+                   
                           <li>
                             <div class="input-box">
-                              <label for="ccsave_cc_type">Credit Card Type <span class="required">*</span></label>
+                              <label for="card_number">Credit Card Number <span class="required">*</span></label>
                               <br>
-                              <select  id="ccsave_cc_type" name="" class="required-entry validate-cc-type-select">
-                                <option >--Please Select--</option>
-                                <option value="AE">American Express</option>
-                                <option value="VI">Visa</option>
-                                <option value="MC">MasterCard</option>
-                                <option value="DI">Discover</option>
-                              </select>
+                              <input type="text"  id="card_number" name="card_number " title="Credit Card Number" class="input-text validate-cc-number validate-cc-type" >
                             </div>
                           </li>
-                          <li>
-                            <div class="input-box">
-                              <label for="ccsave_cc_number">Credit Card Number <span class="required">*</span></label>
+                 
+                          <div class="input-box">
+                          <label for="expDate">Expiration Date <span class="required">*</span></label>
                               <br>
-                              <input type="text"  id="ccsave_cc_number" name="" title="Credit Card Number" class="input-text validate-cc-number validate-cc-type" >
+                              <input type="text"  title="Expiration Date" class="input-text" id="expDate" name="expDate">
                             </div>
-                          </li>
                           <li>
                             <div class="input-box">
-                              <label for="ccsave_expiration">Expiration Date <span class="required">*</span></label>
+                              <label for="secNumber">Card Verification Number <span class="required">*</span></label>
                               <br>
                               <div class="v-fix">
-                                <select id="ccsave_expiration" style="width: 140px;" name="" class="required-entry">
-                                  <option  selected="selected">Month</option>
-                                  <option value="1">01 - January</option>
-                                  <option value="2">02 - February</option>
-                                  <option value="3">03 - March</option>
-                                  <option value="4">04 - April</option>
-                                  <option value="5">05 - May</option>
-                                  <option value="6">06 - June</option>
-                                  <option value="7">07 - July</option>
-                                  <option value="8">08 - August</option>
-                                  <option value="9">09 - September</option>
-                                  <option value="10">10 - October</option>
-                                  <option value="11">11 - November</option>
-                                  <option value="12">12 - December</option>
-                                </select>
-                              </div>
-                              <div class="v-fix">
-                                <select  id="ccsave_expiration_yr" style="width: 103px;" name="" class="required-entry">
-                                  <option  selected="selected">Year</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2018">2018</option>
-                                  <option value="2019">2019</option>
-                                  <option value="2020">2020</option>
-                                  <option value="2021">2021</option>
-                                </select>
-                              </div>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="input-box">
-                              <label for="ccsave_cc_cid">Card Verification Number <span class="required">*</span></label>
-                              <br>
-                              <div class="v-fix">
-                                <input type="text" title="Card Verification Number" class="input-text" id="ccsave_cc_cid" name="" style="width: 3em;" >
+                                <input type="text" title="Card Verification Number" class="input-text" id="secNumber" name="secNumber" style="width: 5em;" >
                               </div>
                                </div>
                           </li>

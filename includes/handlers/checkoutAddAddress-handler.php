@@ -13,14 +13,20 @@ if(isset($_POST['address'])){
     }
     $city = $_POST['city'];
     $zip = $_POST['zipcode'];
-    $state = $_POST['state'];
+    $state = $_POST['state']; 
 
+   
+    $card_number = $_POST['card_number'];
+    $secNumber = $_POST['secNumber'];
+    $expDate = $_POST['expDate'];
+
+    $wasSuccessful = $account->addPayment($id, $card_number, $secNumber, $expDate);
     $wasSuccessful = $account->registerAddress($id, $street1, $street2, $city, $state, $zip);
+    
 
     if($wasSuccessful){
-        // $ship_id = $account->addressID($id);
-        // $account->changeShippingDefault($id, $ship_id);
-        echo "<script> alert('Address Added');</script>";
+       
+        echo "<script> alert('Checkout');</script>";
         
        
     }

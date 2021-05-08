@@ -32,17 +32,21 @@
 				return $this->insertUserDetails($fn, $ln, $em, $pw, $birth, $phone);
 			}
 			else{
-				return false;
+				return false; 
 			}
 		}
 
 		public function registerAddress($id, $address1, $address2, $city, $state, $zipcode){
 			if(empty($this->errorArray)){
-				return $this->insertUserAddress($id, $address1, $address2, $city, $state, $zipcode, $phone);
+				return $this->insertUserAddress($id, $address1, $address2, $city, $state, $zipcode);
 			}
 			else{
 				return false;
 			}
+		}
+		public function addPayment($id,$card_number,$secNumber,$expDate){
+			$results = mysqli_query($this ->con, "INSERT INTO payment(id,  card_number, secNumber, expDate) VALUES('$id','$card_number','$secNumber','$expDate')");
+			return $results;
 		}
 
 		public function getError($error) {
