@@ -143,25 +143,7 @@ include("adminpartials/aside.php");
                   <label for="status">Status</label>
                   <input type="text" class="form-control" id="status" name="status" required placeholder="Enter Status">
                 </div>
-                <!-- <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea name="description" id="description" title="description" class="form-control" rows=4 style="color: black;"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="photos">File input</label>
-                  <input type="file" id="photos" name="file">
-                </div> -->
-                
-                 <!--<div class= "form-group">
-                       <label for="category_type">Category Type</label>
-                      <select id= "category_type" name="category_type">
-                          <option>Movies</option>
-                          <option>Series</option>
-                          <option>Sales</option>
-                          <option>Free</option>
-                          <option>Coming Soon</option>
-                      </select>
-                  </div> -->
+      
                 
               </div>
               <!-- /.box-body -->

@@ -1,6 +1,6 @@
 ﻿
 <?php
-require_once("includes/config.php");
+include "includes/config.php";
 
 ?>
 <!DOCTYPE html>
@@ -91,7 +91,7 @@ include("includes/navbar.php");
 
                  <tfoot>
                     <tr class="first last">
-                      <td class="a-right last" colspan="50"><button  class="button btn-continue" onclick = "sendtoIndex()" title="Continue Shopping" type="submit"><span>Continue Shopping</span></button>
+                      <td class="a-right last" colspan="50"><button  onclick="location.href = 'index.php'"class="button btn-continue"  title="Continue Shopping" type="button"><span>Continue Shopping</span></button>
 
                             <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>
                         <button id="empty_cart_button" class="button" title="Clear Cart" value="empty_cart" name="update_cart_action" onclick = "$('#shopping-cart-table tbody tr').remove()" type="submit"><span>Clear Cart</span></button></td>
@@ -108,7 +108,7 @@ include("includes/navbar.php");
                     $item_price =0;
                     foreach($_SESSION['cart'] as $value){
                       $dolars += $value['price'];
-                      $item_price = $value['inventory_amount']*$value['price'];
+                      //$item_price = $value['inventory_amount']*$value['price'];
                     ?>
 
                   <!-- Scripts para anadir y remover -->
@@ -134,7 +134,14 @@ include("includes/navbar.php");
                       } ?>
                           
                           </span> </span></td>
-                      <td class="a-center last"><a class="button remove-item" title="Remove item" onClick="$(this).closest('tr').remove()"><span><span>Remove item</span></span></a></td>
+                      <td class="a-center last"> 
+
+                      <?php echo "<a class='button remove-item' title='Remove item' onClick='$(this).closest('tr').remove()' href= 'shopping_cart.php?remove={$value['product_id']}'><span><span>Remove item</span></span></a>" ?>
+                      <!-- <form action="" method="POST">
+                      <button class="btn btn-sm btn-outline-danger" name="remove">Remove</button>
+                      <input type="hidden" name="product_name" value="">
+                      </form> -->
+                      </td>
                     </tr>
                  </tbody>
                   <?php }
@@ -144,7 +151,11 @@ include("includes/navbar.php");
               </fieldset>
             </form>
           </div>
-         <?php include("includes/handlers/addToCart-handler.php");?>
+         <?php 
+         
+         include("includes/handlers/addToCart-handler.php");
+         include("includes/handlers/remove-handler.php");    
+         ?>
             <div class="cart-collaterals row">
             <div class="col-sm-4">
               <div class="totals">

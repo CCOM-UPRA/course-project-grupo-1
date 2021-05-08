@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+include "includes/config.php";
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -33,6 +37,12 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<style>
+li{
+  color:black;
+}
+
+</style>
 </head>
 
 <body class="onestepcheckout-index-index inner-page">
@@ -44,10 +54,19 @@ include("includes/header.php");
 ?>
   <!-- Navbar -->
 <?php
+include "includes/classes/Account.php";
 include("includes/navbar.php");
+$account = new Account($connect);
+include "includes/handlers/checkoutAddAddress-handler.php";
 
-?> 
-  
+    
+    
+    $id = $_SESSION['userLoggedIn'];
+          $query = "SELECT * FROM user NATURAL JOIN address WHERE userID = $id";
+          $resultProduct = mysqli_query($connect, $query);
+          $rowProduct = mysqli_fetch_assoc($resultProduct);
+   
+  ?>
   <!-- Main Container -->
   <section class="main-container col2-right-layout bounceInUp animated">
     <div class="main container">
@@ -63,14 +82,14 @@ include("includes/navbar.php");
                 <!--<a href="#">Edit</a> --> 
               </div>
               <div id="checkout-step-billing" class="step a-item" >
-                <form id="co-billing-form" >
+                <form id="co-billing-form" method="POST">
                   <fieldset class="group-select">
                     <ul>
                       <li>
                         <label for="billing-address-select">Select a billing address from your address book or enter a new address.</label>
                         <br>
                         <select name="" id="billing-address-select" class="address-select" title="" onchange="billingAddresSelectHandler(this)">
-                          <option value="1" selected="selected">pranali d, aundh, tyyrt, Alabama 46532, United States</option>
+                          <option value="1" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
                           <option value ="2">New Address</option>
                         </select>
                       </li>
@@ -80,97 +99,44 @@ include("includes/navbar.php");
                           <input type="hidden" name="" value="4269" id="billing:address_id">
                           <ul>
                             <li>
-                              <div class="customer-name">
-                                <div class="input-box name-firstname">
-                                  <label for="billing:firstname"> First Name <span class="required">*</span> </label>
-                                  <br>
-                                  <input type="text" id="billing:firstname" name="" value="pranali" title="First Name" class="input-text">
-                                </div>
-                                <div class="input-box name-lastname">
-                                  <label for="billing:lastname"> Last Name <span class="required">*</span> </label>
-                                  <br>
-                                  <input type="text" id="billing:lastname" name="" value="d" title="Last Name" class="input-text">
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="input-box">
-                                <label for="billing:company">Company</label>
-                                <br>
-                                <input type="text" id="billing:company" name=""  title="Company" class="input-text">
-                              </div>
-                            </li>
-                            <li>
-                              <label>Address <span class="required">*</span></label>
+                              <label for="street1">Address <span class="required">*</span></label>
                               <br>
-                              <input type="text" title="Street Address" name="" value="aundh" class="input-text">
+                              <input type="text" title="Street Address" id="street1" name="address1" class="input-text">
                             </li>
                             <li>
-                              <input type="text" title="Street Address 2" name="" class="input-text">
+                            <label for="street2">Address 2</label>
+                              <input type="text" title="Street Address 2" id="street2" name="address2" class="input-text">
                             </li>
                             <li>
                               <div class="input-box">
-                                <label for="billing:city">City <span class="required">*</span></label>
+                                <label for="city">City <span class="required">*</span></label>
                                 <br>
-                                <input type="text" title="City" name="" value="tyyrt" class="input-text" id="billing:city">
+                                <input type="text" title="City" name="city" id="city" class="input-text" >
                               </div>
                               <div class="input-box">
-                                <label for="billing:region">State/Province <span class="required">*</span></label>
+                                <label for="country">Country <span class="required">*</span></label>
                                 <br>
-                                <select id="billing:region_id" name="billing[region_id]" title="State/Province" class="validate-select" >
-                                  <option >Please select region, state or province</option>
-                                  <option value="1">Alabama</option>
-                                  <option value="2">Alaska</option>
-                                  <option value="3">American Samoa</option>
-                                  <option value="4">Arizona</option>
-                                </select>
-                                <input type="text" id="billing:region" name="" value="Alabama" title="State/Province" class="input-text" style="display: none;">
+                                <input type="text" title="City" name="state" id="country"class="input-text" >
+                                
                               </div>
                             </li>
                             <li>
                               <div class="input-box">
-                                <label for="billing:postcode">Zip/Postal Code <span class="required">*</span></label>
+                                <label for="postal_code">Zip/Postal Code <span class="required">*</span></label>
                                 <br>
-                                <input type="text" title="Zip/Postal Code" name="" id="billing:postcode" value="46532" class="input-text validate-zip-international">
+                                <input type="text" title="Zip/Postal Code" name="zipcode" id="postal_code"  class="input-text validate-zip-international">
                               </div>
-                              <div class="input-box">
-                                <label for="billing:country_id">Country <span class="required">*</span></label>
-                                <br>
-                                <select name="billing[country_id]" id="billing:country_id" class="validate-select" title="Country">
-                                  <option > </option>
-                                  <option value="AF">Afghanistan</option>
-                                  <option value="AL">Albania</option>
-                                  <option value="DZ">Algeria</option>
-                                  <option value="AS">American Samoa</option>
-                                  <option value="AD">Andorra</option>
-                                </select>
-                              </div>
+                          
                             </li>
+                            
                             <li>
-                              <div class="input-box">
-                                <label for="billing:telephone">Telephone <span class="required">*</span></label>
-                                <br>
-                                <input type="text" name="" value="454541" title="Telephone" class="input-text" id="billing:telephone">
-                              </div>
-                              <div class="input-box">
-                                <label for="billing:fax">Fax</label>
-                                <br>
-                                <input type="text" name=""  title="Fax" class="input-text" id="billing:fax">
-                              </div>
-                            </li>
-                            <li>
-                              <input type="checkbox" name="" value="1" title="Save in address book" id="billing:save_in_address_book" onChange="#;" class="checkbox">
-                              <label for="billing:save_in_address_book">Save in address book</label>
+                             
+                              <button  type="submit" name="address"  class="button continue" ><span>Save</span></button>
                             </li>
                           </ul>
                         </fieldset>
                       </li>
-                      <li>
-                        <input type="radio" name="shipwhere" id="billing:use_for_shipping_yes" value="1" class="radio">
-                        <label for="billing:use_for_shipping_yes">Ship to this address</label>
-                        <input type="radio" name="shipwhere" id="billing:use_for_shipping_no" value="0" checked="checked" class="radio">
-                        <label for="billing:use_for_shipping_no">Ship to different address</label>
-                      </li>
+                     
                     </ul>
                     <p class="require"><em class="required">* </em>Required Fields</p>
                     <button onClick = "openForm();hideForm();" type="button" class="button continue" ><span>Continue</span></button>
@@ -190,100 +156,50 @@ include("includes/navbar.php");
                       <li>
                         <label for="shipping-address-select">Select a shipping address from your address book or enter a new address.</label>
                         <br>
-                        <select name="" id="shipping-address-select" class="address-select" title="" onChange="#">
-                          <option value="1" selected="selected">Sarsha Smith, Main Rd, tyyrt, Alabama 46532, United States</option>
-                          <option >New Address</option>
+                        <select name="" id="shipping-address-select" class="address-select" title="" onchange="shippingAddresSelectHandler(this)">
+                          <option value="1" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
+                          <option value="2">New Address</option>
                         </select>
                       </li>
                       <li id="shipping-new-address-form" style="display: none;">
-                        <fieldset>
-                          <input type="hidden" name=""  id="shipping:address_id">
+                      <fieldset>
+                          <legend>New Address</legend>
+                          <input type="hidden" name="" value="4269" id="billing:address_id">
                           <ul>
                             <li>
-                              <div class="customer-name">
-                                <div class="input-box name-firstname">
-                                  <label for="shipping:firstname"> First Name <span class="required">*</span> </label>
-                                  <br>
-                                  <input type="text" id="shipping:firstname" name=""  title="First Name" class="input-text" onChange="#">
-                                </div>
-                                <div class="input-box name-lastname">
-                                  <label for="shipping:lastname"> Last Name <span class="required">*</span> </label>
-                                  <br>
-                                  <input type="text" id="shipping:lastname" name=""  title="Last Name" class="input-text" onChange="#">
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="input-box">
-                                <label for="shipping:company">Company</label>
-                                <br>
-                                <input type="text" id="shipping:company" name=""  title="Company" class="input-text" onChange="#;">
-                              </div>
-                            </li>
-                            <li>
-                              <label for="shipping:street1">Address <span class="required">*</span></label>
+                              <label for="street1">Address <span class="required">*</span></label>
                               <br>
-                              <input type="text" title="Street Address" name="" id="shipping:street1"  class="input-text" onChange="#;">
+                              <input type="text" title="Street Address" id="street1" name="address1" class="input-text">
                             </li>
                             <li>
-                              <input type="text" title="Street Address 2" name="" id="shipping:street2"  class="input-text" onChange="#;">
+                            <label for="street2">Address 2</label>
+                              <input type="text" title="Street Address 2" id="street2" name="address2" class="input-text">
                             </li>
                             <li>
                               <div class="input-box">
-                                <label for="shipping:city">City <span class="required">*</span></label>
+                                <label for="city">City <span class="required">*</span></label>
                                 <br>
-                                <input type="text" title="City" name=""  class="input-text" id="shipping:city" onChange="#;">
+                                <input type="text" title="City" name="city" id="city" class="input-text" >
                               </div>
                               <div class="input-box">
-                                <label for="shipping:region">State/Province <span class="required">*</span></label>
+                                <label for="country">Country <span class="required">*</span></label>
                                 <br>
-                                <select id="shipping:region_id" name="" title="State/Province" class="validate-select" >
-                                  <option >Please select region, state or province</option>
-                                  <option value="1">Alabama</option>
-                                  <option value="2">Alaska</option>
-                                  <option value="3">American Samoa</option>
-                                </select>
-                                <input type="text" id="shipping:region" name=""  title="State/Province" class="input-text" style="display: none;">
+                                <input type="text" title="City" name="state" id="country"class="input-text" >
+                                
                               </div>
                             </li>
                             <li>
                               <div class="input-box">
-                                <label for="shipping:postcode">Zip/Postal Code <span class="required">*</span></label>
+                                <label for="postal_code">Zip/Postal Code <span class="required">*</span></label>
                                 <br>
-                                <input type="text" title="Zip/Postal Code" name="" id="shipping:postcode"  class="input-text validate-zip-international" onChange="#;">
+                                <input type="text" title="Zip/Postal Code" name="zipcode" id="postal_code"  class="input-text validate-zip-international">
                               </div>
-                              <div class="input-box">
-                                <label for="shipping:country_id">Country <span class="required">*</span></label>
-                                <br>
-                                <select name="" id="shipping:country_id" class="validate-select" title="Country" onChange="#;">
-                                  <option > </option>
-                                  <option value="AF">Afghanistan</option>
-                                  <option value="AL">Albania</option>
-                                  <option value="DZ">Algeria</option>
-                                  <option value="AS">American Samoa</option>
-                                  <option value="AD">Andorra</option>
-                                </select>
-                              </div>
+                          
                             </li>
+                            
                             <li>
-                              <div class="input-box">
-                                <label for="shipping:telephone">Telephone <span class="required">*</span></label>
-                                <br>
-                                <input type="text" name=""  title="Telephone" class="input-text" id="shipping:telephone" onChange="#;">
-                              </div>
-                              <div class="input-box">
-                                <label for="shipping:fax">Fax</label>
-                                <br>
-                                <input type="text" name=""  title="Fax" class="input-text" id="shipping:fax" onChange="#;">
-                              </div>
-                            </li>
-                            <li>
-                              <input type="checkbox" name="shipping[save_in_address_book]" value="1" title="Save in address book" id="shipping:save_in_address_book" onChange="#;" class="checkbox">
-                              <label for="shipping:save_in_address_book">Save in address book</label>
-                            </li>
-                            <li>
-                              <input type="checkbox" name="" id="shipping:same_as_billing" value="1" class="checkbox">
-                              <label for="shipping:same_as_billing">Use Billing Address</label>
+                             
+                              <button  type="submit" name="address"  class="button continue" ><span>Save</span></button>
                             </li>
                           </ul>
                         </fieldset>
@@ -297,35 +213,7 @@ include("includes/navbar.php");
                 </form>
               </div>
             </li>
-            <!-- <li id="opc-shipping_method" class="section">
-              <div class="step-title"> <span class="number">3</span>
-                <h3 class="one_page_heading">Shipping Method</h3>
-             
-              </div>
-              <div id="checkout-step-shipping_method" class="step a-item" style="display: none;">
-                <form id="co-shipping-method-form" >
-                  <fieldset>
-                    <div id="checkout-shipping-method-load">
-                      <dl class="shipping-methods">
-                        <dt>Flat Rate</dt>
-                        <dd>
-                          <ul>
-                            <li>
-                              <input type="radio" name="" value="flatrate_flatrate" id="s_method_flatrate_flatrate" checked="checked" class="radio">
-                              <label for="s_method_flatrate_flatrate">Fixed <span class="price">$35.00</span> </label>
-                            </li>
-                          </ul>
-                        </dd>
-                      </dl>
-                    </div>
-                
-                    <div class="buttons-set1" id="shipping-method-buttons-container">
-                      <button onClick="openForm3();hideForm3();"type="button" class="button" ><span>Continue</span></button>
-                      <a href="#" class="back-link">« Back</a> </div>
-                  </fieldset>
-                </form>
-              </div>
-            </li> -->
+           
             <li id="opc-payment" class="section">
               <div class="step-title"> <span class="number">3</span>
                 <h3 class="one_page_heading">Payment Information</h3>
@@ -566,13 +454,20 @@ include("includes/footer.php");
   }
   
   function open(){
-    document.getElementById('billing-new-address-form').style.display = 'none';
+    document.getElementById('billing-new-address-form').style.display = '';
+  }
+  function open2(){
+    document.getElementById('shipping-new-address-form').style.display = '';
   }
   function billingAddresSelectHandler(select){
     if(select.value == '2'){
       open();
-    }
-    
+    } 
+  }
+  function shippingAddresSelectHandler(select){
+    if(select.value == '2'){
+      open2();
+    } 
   }
 </script>
 </body>

@@ -41,7 +41,7 @@
           include "includes/classes/Constants.php";
           include "includes/classes/Account.php";
           include "includes/config.php";
-          include "includes/header.php";
+          include "includes/header.php"; 
           include "includes/navbar.php";
           
           $account = new Account($connect);
