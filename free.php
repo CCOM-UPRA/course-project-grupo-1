@@ -24,6 +24,7 @@ require_once("includes/config.php");
 <!-- Favicons Icon -->
 <link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="http://demo.thmthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>PRISM - Buy Movies Online</title>
  
 <!-- Mobile Specific -->
@@ -177,9 +178,9 @@ include("includes/classes/Cart.php")
                                                       <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
 
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                                      <div class="add_cart">
+                                                      <div style='background-color:white;' class="add_cart">
                           
-                                                      <?php echo "<a href='free.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']} &cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'> <span>Quick View</span></a>"?>
+                                                      <?php echo "<a href='free.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']} &cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                                                       </div>
                                                     </div>
                               
@@ -242,9 +243,9 @@ include("includes/classes/Cart.php")
                         <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
 
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                          <div class="add_cart">
+                          <div style='background-color:white;' class="add_cart">
                           
-                          <?php echo "<a href='free.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']} &cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'> <span>Quick View</span></a>"?>
+                          <?php echo "<a href='free.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i  style='font-size:18px' class='fa fa-shopping-cart'><span></span></i></a>"?>
                           </div>
                             
                         </div>
