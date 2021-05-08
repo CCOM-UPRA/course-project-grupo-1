@@ -44,8 +44,8 @@
 				return false;
 			}
 		}
-		public function addPayment($id,$card_number,$secNumber,$expDate){
-			$results = mysqli_query($this ->con, "INSERT INTO payment(id,  card_number, secNumber, expDate) VALUES('$id','$card_number','$secNumber','$expDate')");
+		public function addPayment($card_number,$secNumber,$expDate){
+			$results = mysqli_query($this ->con, "INSERT INTO payment(  card_number, secNumber, expDate) VALUES('$card_number','$secNumber','$expDate')");
 			return $results;
 		}
 

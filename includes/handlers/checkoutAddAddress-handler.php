@@ -1,7 +1,8 @@
 <?php 
 
-if(isset($_POST['address'])){
+if(isset($_POST['submit'])){
 
+    
     $id = $_SESSION['userLoggedIn'];
 
     $street1 = $_POST['address1']; 
@@ -14,19 +15,19 @@ if(isset($_POST['address'])){
     $city = $_POST['city'];
     $zip = $_POST['zipcode'];
     $state = $_POST['state']; 
-
-   
+    $addAddress = $account->registerAddress($id, $street1, $street2, $city, $state, $zip);
+    
     $card_number = $_POST['card_number'];
     $secNumber = $_POST['secNumber'];
     $expDate = $_POST['expDate'];
 
-    $wasSuccessful = $account->addPayment($id, $card_number, $secNumber, $expDate);
-    $wasSuccessful = $account->registerAddress($id, $street1, $street2, $city, $state, $zip);
-    
+    $addPayment = $account->addPayment( $card_number, $secNumber, $expDate);
 
-    if($wasSuccessful){
+
+    if(isset($_POST['submit'])){
        
         echo "<script> alert('Checkout');</script>";
+        header("location: recibo.php");
         
        
     }

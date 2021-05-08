@@ -36,7 +36,7 @@ include "includes/config.php";
             <th class="service">Product</th>
             <th>PRICE</th>
             <th>QTY</th>
-          
+            
           </tr>
         </thead>
         <tbody>

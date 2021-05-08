@@ -59,6 +59,7 @@ include("includes/navbar.php");
 $account = new Account($connect);
 include "includes/handlers/checkoutAddAddress-handler.php";
 
+
     
     
     $id = $_SESSION['userLoggedIn'];
@@ -70,245 +71,102 @@ include "includes/handlers/checkoutAddAddress-handler.php";
   <!-- Main Container -->
   <section class="main-container col2-right-layout bounceInUp animated">
     <div class="main container">
-    <form id="co-billing-form1" method="POST">
+    <div id="co-billing-form1" >
       <div class="row">
         <div class="col-main col-sm-9">
           <div class="page-title">
             <h1>Checkout</h1>
           </div>
-          <ol class="one-page-checkout" id="checkoutSteps">
-            <li id="opc-billing" class="section allow active">
-              <div class="step-title"> <span class="number">1</span>
-                <h3>Checkout Method</h3>
-                <!--<a href="#">Edit</a> --> 
-              </div>
-              <div id="checkout-step-billing" class="step a-item" >
-                <form id="co-billing-form" method="POST">
-                  <fieldset class="group-select">
-                    <ul>
-                      <li>
-                        <label for="billing-address-select">Select a billing address from your address book or enter a new address.</label>
-                        <br>
-                        <select style="color:black;" name="" id="billing-address-select" class="address-select" title="" onchange="billingAddresSelectHandler(this)">
-                          <option  value="0" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
-                          <option  value ="1">New Address</option>
-                        </select>
-                      </li>
-                      <li id="billing-new-address-form" style="display: none;">
-                        <fieldset>
-                          <legend>New Address</legend>
-                          <input type="hidden" name="" value="4269" id="billing:address_id">
-                          <ul>
-                            <li>
-                              <label for="street1">Address <span class="required">*</span></label>
-                              <br>
-                              <input type="text" title="Street Address" id="street1" name="address1" class="input-text">
-                            </li>
-                            <li>
-                            <label for="street2">Address 2</label>
-                              <input type="text" title="Street Address 2" id="street2" name="address2" class="input-text">
-                            </li>
-                            <li>
-                              <div class="input-box">
-                                <label for="city">City <span class="required">*</span></label>
-                                <br>
-                                <input type="text" title="City" name="city" id="city" class="input-text" >
-                              </div>
-                              <div class="input-box">
-                                <label for="country">Country <span class="required">*</span></label>
-                                <br>
-                                <input type="text" title="City" name="state" id="country"class="input-text" >
-                                
-                              </div>
-                            </li>
-                            <li>
-                              <div class="input-box">
-                                <label for="postal_code">Zip/Postal Code <span class="required">*</span></label>
-                                <br>
-                                <input type="text" title="Zip/Postal Code" name="zipcode" id="postal_code"  class="input-text validate-zip-international">
-                              </div>
-                          
-                            </li>
-  
-                          </ul>
-                        </fieldset>
-                      </li>
-                     
-                    </ul>
-                    <p class="require"><em class="required">* </em>Required Fields</p>
-                    <button onClick = "openForm();" type="button" class="button" ><span>Continue</span></button>
-                  </fieldset>
-                </form>
-              </div>
-            </li>
-            <li id="opc-shipping" class="section allow active">
-              <div class="step-title"> <span class="number">2</span>
-                <h3 class="one_page_heading"> Shipping Information</h3>
-                <!--<a href="#">Edit</a>--> 
-              </div>
-              <div id="checkout-step-shipping" class="step a-item" style="display: none;">
-                <form  id="co-shipping-form" method="POST">
-                  <fieldset class="group-select">
-                    <ul>
-                      <li>
-                        <label for="shipping-address-select">Select a shipping address from your address book or enter a new address.</label>
-                        <br>
-                        <select style="color:black;" name="" id="shipping-address-select" class="address-select" title="" onchange="shippingAddresSelectHandler(this)">
-                          <option value="0" selected="selected"><?php echo $rowProduct['street1']; echo $rowProduct['street2']; echo "   ";echo $rowProduct['postal_code']; echo "   ";echo $rowProduct['city']; echo "   ";echo $rowProduct['country'];?></option>
-                          <option value="1">New Address</option>
-                        </select>
-                      </li>
-                      <li id="shipping-new-address-form" style="display: none;">
-                      <fieldset>
-                          <legend>New Address</legend>
-                          <input type="hidden" name="" value="4269" id="billing:address_id">
-                          <ul>
-                            <li>
-                              <label for="street1">Address <span class="required">*</span></label>
-                              <br>
-                              <input type="text" title="Street Address" id="street1" name="address1" class="input-text">
-                            </li>
-                            <li>
-                            <label for="street2">Address 2</label>
-                              <input type="text" title="Street Address 2" id="street2" name="address2" class="input-text">
-                            </li>
-                            <li>
-                              <div class="input-box">
-                                <label for="city">City <span class="required">*</span></label>
-                                <br>
-                                <input type="text" title="City" name="city" id="city" class="input-text" >
-                              </div>
-                              <div class="input-box">
-                                <label for="country">Country <span class="required">*</span></label>
-                                <br>
-                                <input type="text" title="City" name="state" id="country"class="input-text" >
-                                
-                              </div>
-                            </li>
-                            <li>
-                              <div class="input-box">
-                                <label for="postal_code">Zip/Postal Code <span class="required">*</span></label>
-                                <br>
-                                <input type="text" title="Zip/Postal Code" name="zipcode" id="postal_code"  class="input-text validate-zip-international">
-                              </div>
-                          
-                            </li>
-                          </ul>
-                        </fieldset>
-                      </li>
-                    </ul>
-                    <p class="require"><em class="required">* </em>Required Fields</p>
-                    <div class="buttons-set1" id="shipping-buttons-container">
-                      <button  onClick="openForm2();" type="button" class="button" ><span>Continue</span></button>
-                       </div>
-                  </fieldset>
-                </form>
-              </div>
-            </li>
-           
-            <li id="opc-payment" class="section allow active">
-              <div class="step-title"> <span class="number">3</span>
-                <h3 class="one_page_heading">Payment Information</h3>
-                <!--<a href="#">Edit</a>--> 
-              </div>
-              <div id="checkout-step-payment" class="step a-item" style="display: none;">
-                <form id="co-payment-form" method="POST">
-                  <dl id="checkout-payment-method-load">
-                  <li>
-                        <label for="billing-address-select">Select a payment method.</label>
-                        <br>
-                        <select style="color:black;" name="" id="billing-address-select" class="address-select" title="" onchange="paymentMethod(this)">
-                          <option value ="3" selected="selected">Choose a payment option</option>
-                          <option value="0" >Credit Card/Visa</option>
-                          <option value ="1">Paypal</option>
-                        </select>
-                      </li>
-                    <dd>
-                      <fieldset class="form-list">
-                        <ul id="payment_form_ccsave" style="display: none;">
-                          <!-- <li>
-                            <div class="input-box">
-                              <label for="ccsave_cc_owner">Name on Card <span class="required">*</span></label>
-                              <br>
-                              <input type="text"  title="Name on Card" class="input-text" id="ccsave_cc_owner" name="" >
-                            </div>
-                          </li> -->
-                   
-                          <li>
-                            <div class="input-box">
-                              <label for="card_number">Credit Card Number <span class="required">*</span></label>
-                              <br>
-                              <input type="text"  id="card_number" name="card_number " title="Credit Card Number" class="input-text validate-cc-number validate-cc-type" >
-                            </div>
-                          </li>
-                 
-                          <div class="input-box">
-                          <label for="expDate">Expiration Date <span class="required">*</span></label>
-                              <br>
-                              <input type="text"  title="Expiration Date" class="input-text" id="expDate" name="expDate">
-                            </div>
-                          <li>
-                            <div class="input-box">
-                              <label for="secNumber">Card Verification Number <span class="required">*</span></label>
-                              <br>
-                              <div class="v-fix">
-                                <input type="text" title="Card Verification Number" class="input-text" id="secNumber" name="secNumber" style="width: 5em;" >
-                              </div>
-                               </div>
-                          </li>
-                        </ul>
-                      </fieldset>
-                    </dd>
-                  </dl>
-                </form>
-                <p class="require"><em class="required">* </em>Required Fields</p>
-                <div class="buttons-set1" id="payment-buttons-container">
-                  <button onClick="openForm3();" type="button" class="button"><span>Continue</span></button>
-                   </div>
-                <div style="clear: both;"></div>
-              </div>
-            </li>
-            <li id="opc-review" class="section allow active">
-              <div class="step-title"> <span class="number">4</span>
-                <h3 class="one_page_heading">Order Review</h3>
-              </div>
-              <div style="float: right;"><button type="submit" name="address" class="button" ><a href="recibo.php" style="color: #FFF;"><span>Submit</span></a></button></div>
-              <div id="checkout-step-review" class="step a-item" style="display: none;">
-                <div class="order-review" id="checkout-review-load"> </div>
-                <div class="buttons-set13" id="review-buttons-container">
-                  <p class="f-left">Forgot an Item? <a href="shopping_cart.php">Edit Your Cart</a></p>
+          <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+          <div class="col-sm-3">
+          </div>
+        <div class="col-sm-6">
+        <form role="form" action="" method="post" enctype="multipart/form-data">
+            <h3>Billing Address</h3>
+              <div class="box-body">
+               
+                <div class="form-group">
+                  <label for="street1">Address</label>
+                  <input type="text" class="form-control" id="address1" name="address1" required placeholder="Address" value =<?php echo $rowProduct['street1']?>>
+                </div>
+                <div class="form-group">
+                  <label for="street2">Address 2</label>
+                  <input type="text" class="form-control" id="address2" name="address2" placeholder="Address 2" value =<?php echo $rowProduct['street2']?>>
+                </div>
+                <div class="form-group">
+                  <label for="state">Country</label>
+                  <input type="text" class="form-control" id="state" name="state" required placeholder="Country" value =<?php echo $rowProduct['country']?>>
+                </div>
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" name="city" required placeholder="City" value =<?php echo $rowProduct['city']?>>
+                </div>
+                <div class="form-group">
+                  <label for="zipcode">Zip Code</label>
+                  <input type="text" class="form-control" id="zipcode" name="zipcode" required placeholder="Zip Code" value =<?php echo $rowProduct['postal_code']?>>
                 </div>
               </div>
-            </li>
-          </ol>
-        </div>
-        <aside class="col-right sidebar col-sm-3">
-          <div class="block block-progress">
-            <div class="block-title ">Your Checkout</div>
-            <div class="block-content">
-              <dl>
-                <dt class="complete"> Billing Address <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete">
-                  <address>
-                  No Information
-                  </address>
-                </dd>
-                <dt class="complete"> Shipping Address <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete">
-                  <address>
-                  No Information
-                  </address>
-                </dd>
-                <dt class="complete"> Shipping Method <span class="separator">|</span> <a href="#">Change</a> </dt>
-                <dd class="complete"> Flat Rate - Fixed <br>
-                  <span class="price">$0.00</span> </dd>
-                <dt> Payment Method </dt>
-              </dl>
+              <h3>Shipping Address</h3>
+              <div class="box-body">
+               
+                <div class="form-group">
+                  <label for="street1">Address</label>
+                  <input type="text" class="form-control" id="address1" name="address1" required placeholder="Address" value =<?php echo $rowProduct['street1']?>>
+                </div>
+                <div class="form-group">
+                  <label for="street2">Address 2</label>
+                  <input type="text" class="form-control" id="address2" name="address2" placeholder="Address 2" value =<?php echo $rowProduct['street2']?>>
+                </div>
+                <div class="form-group">
+                  <label for="state">Country</label>
+                  <input type="text" class="form-control" id="state" name="state" required placeholder="Country" value =<?php echo $rowProduct['country']?>>
+                </div>
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" name="city" required placeholder="City" value =<?php echo $rowProduct['city']?>>
+                </div>
+                <div class="form-group">
+                  <label for="zipcode">Zip Code</label>
+                  <input type="text" class="form-control" id="zipcode" name="zipcode" required placeholder="Zip Code" value =<?php echo $rowProduct['postal_code']?>>
+                </div>
+              </div>
+              <h3>Payment Method</h3>
+              <div class="box-body">
+               
+                <div class="form-group">
+                  <label for="card_number">Card Number</label>
+                  <input type="text" class="form-control" id="card_number" name="card_number" required placeholder="Card Number" >
+                </div>
+                <div class="form-group">
+                  <label for="secNumber">Security Number</label>
+                  <input type="text" class="form-control" id="secNumber" name="secNumber" placeholder="Security Number" >
+                </div>
+                <div class="form-group">
+                  <label for="expDate">Expiration Date</label>
+                  <input type="text" class="form-control" id="expDate" name="expDate" required placeholder="Expiration Date">
+                </div>
+                
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+                <button ><a href="shopping_cart.php">Back</a></button>
+              </div>
+
+            </form>
             </div>
-          </div>
-        </aside>
+        </div>
+      
+        <div class="col-sm-3">
+        </div>
+    </section>
+        </div>
+   
       </div>
-      </form>
+      </div>
     </div>
   </section>
   <!-- Main Container End --> 
