@@ -41,7 +41,7 @@
 				return $this->insertUserAddress($id, $address1, $address2, $city, $state, $zipcode, $phone);
 			}
 			else{
-				return false;
+				return false; 
 			}
 		}
 		public function registerShipping($id, $address1, $address2, $city, $state, $zipcode){
@@ -78,7 +78,7 @@
 			$results = mysqli_query($this->con, "INSERT INTO orders(userID,shipping_address_id,paymentID,billing_address_id,order_status,total,tracking_number) VALUES('$id','$address_id','$id','$address_id','$order_status','$total','$tracking_number')");
 			return $results;
 		}
-
+	
 		private function insertUserDetails($fn, $ln, $em, $pw, $birth, $phone){
 			
 			$status= "active";
@@ -118,9 +118,32 @@
 			$result = mysqli_fetch_assoc($query);
 			return $result['user_type'];
 		}
+		public function getorderID($id){
+			//This query get the id of the user trying to logged in. Every email is unique.
+			$query = mysqli_query($this->con, "SELECT order_id FROM orders WHERE userID='$id'");
+			$result = mysqli_fetch_array($query);
+			return $result['order_id'];
+		}
+		public function getStatus($id){
+			//This query get the id of the user trying to logged in. Every email is unique.
+			$query = mysqli_query($this->con, "SELECT order_status FROM orders WHERE userID='$id'");
+			$result = mysqli_fetch_array($query);
+			return $result['order_status'];
+		}
+		public function getTotal($id){
+			//This query get the id of the user trying to logged in. Every email is unique.
+			$query = mysqli_query($this->con, "SELECT total FROM orders WHERE userID='$id'");
+			$result = mysqli_fetch_array($query);
+			return $result['total'];
+		}
+		public function getTracking($id){
+			//This query get the id of the user trying to logged in. Every email is unique.
+			$query = mysqli_query($this->con, "SELECT tracking_number FROM orders WHERE userID='$id'");
+			$result = mysqli_fetch_array($query);
+			return $result['tracking_number'];
+		}
 
-
-
+		
 		private function validateFirstName($fn) {
 			if(strlen($fn) > 25 || strlen($fn) < 2) {
 				array_push($this->errorArray, Constants::$firstNameCharacters);

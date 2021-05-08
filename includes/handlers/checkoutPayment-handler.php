@@ -14,6 +14,6 @@ if(isset($_POST['payment'])){
     
     $addOrder = $account->addOrder($id);
 
-    // header("location: recibo.php");
+    header("location: recibo.php");
 }
 ?>

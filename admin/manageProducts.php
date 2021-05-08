@@ -216,12 +216,12 @@ include "../includes/config.php";
                                 <th></th>
                             <tbody>
                             
-            <?php
-            $sql = "Select * from products";
-            $results = $connect->query($sql);
-            
-            while($final = $results->fetch_assoc()){ 
-                ?>
+                                <?php
+                                $sql = "Select * from products";
+                                $results = $connect->query($sql);
+                                
+                                while($final = $results->fetch_assoc()){ 
+                                    ?>
                             <tr>
                                 <td><?php echo $final['product_id']?></td>
                                 <td><?php echo $final['product_name']?></td>

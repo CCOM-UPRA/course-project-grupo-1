@@ -178,7 +178,7 @@
 error_reporting(0);
 include("adminpartials/header.php");
 include("adminpartials/aside.php");
-include("../partials/connect.php");
+include("../includes/config.php");
 ?>
   
 
@@ -221,7 +221,7 @@ include("../partials/connect.php");
                             <tbody>
                             
             <?php
-            $sql = "Select * from products";
+            $sql = "Select * from products NATURAL JOIN genres";
             $results = $connect->query($sql);
             
 
@@ -230,8 +230,8 @@ include("../partials/connect.php");
                                 <td><img src="../<?php echo $final['photo']?>"></td>
                                 <td><?php echo $final['product_name']?></td>
                                 <td><?php echo $final['category']?></td>   
-                                <td><?php echo $final['genres']?></td>
-                                <td><?php echo $final['stocks_amount']?></td>
+                                <td><?php echo $final['genre_name']?></td>
+                                <td><?php echo $final['inventory_amount']?></td>
                             </tr>
                             <?php } ?>
                         </tbody>

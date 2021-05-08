@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <?php
 include "includes/config.php";
 ?>
@@ -209,7 +209,12 @@ include "includes/config.php";
 <?php
 
 include "includes/header.php";
-include "includes/handlers/account-handler.php";
+include "includes/classes/Account.php";
+
+$account = new Account($connect);
+
+include "includes/handlers/myorders-handler.php";
+    
 ?>
   <!-- Navbar -->
 <?php
@@ -244,22 +249,29 @@ include("includes/navbar.php");
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Quantity</th>						
+                                <th>Order</th>
+                                <th>Tracking Number</th>
+                                <th>Total</th>						
                                 <th>Status</th>
-                                
-                            <tbody>
+                                <tbody>
+                                <?php
+                                 $id = $_SESSION['userLoggedIn'];
+                                    $sql = "SELECT * FROM orders WHERE userID = $id";
+                                    $results = $connect->query($sql);
+                                    
+                                    while($final = $results->fetch_assoc()){ 
+                                        ?> 
+                           
                             
            
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>   
-                                <td></td>
+                                <td style="color:black"><?php echo $final['order_id']?></td>
+                                <td style="color:black"><?php echo $final['tracking_number']?></td>
+                                <td style="color:black">$<?php echo $final['total']?></td>   
+                                <td style="color:black"><?php echo $final['order_status']?></td>
                               
                             </tr>
-                           
+                            <?php } ?>
                         </tbody>
                     </table>
 
