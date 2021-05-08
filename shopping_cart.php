@@ -155,6 +155,7 @@ include("includes/navbar.php");
          
          include("includes/handlers/addToCart-handler.php");
          include("includes/handlers/remove-handler.php");    
+         error_reporting(0);
          ?>
             <div class="cart-collaterals row">
             <div class="col-sm-4">
@@ -171,7 +172,11 @@ include("includes/navbar.php");
                       <tr>
                         <td colspan="1" class="a-left" style="color: #001D3D;"> Subtotal </td>
                         <td class="a-right"><span class="price">$<?php
+                        if($dolars == 0){
+                          echo "0";
+                        }else{
                         echo $dolars;
+                        }
                         ?></span></td>
                       </tr>
                       <tr>
@@ -179,7 +184,12 @@ include("includes/navbar.php");
                         <td class="a-right"><span class="price">$<?php
                          $tax = 0.115;
                          $taxprice = $tax * $dolars;
-                         echo $taxprice;
+                         if($taxprice == 0){
+                           echo "0";
+                         }else{
+                           echo $taxprice;
+                         }
+                         
                         ?></span></td>
                       </tr>
                     </tbody>
@@ -188,7 +198,12 @@ include("includes/navbar.php");
                         <td colspan="1" class="a-left" style="color: #001D3D;"><strong>Grand Total</strong></td>
                         <td class="a-right"><strong><span class="price">$<?php 
                         $total = $dolars + $taxprice;
-                        echo $total;
+                        if($total == 0){
+                          echo "0";
+                        }else{
+                          echo $total;
+                        }
+                        
                         ?></span></strong></td>
                       </tr>
                     </tfoot>
