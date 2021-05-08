@@ -211,10 +211,10 @@ include("includes/navbar.php");
                   <ul class="checkout">
                     <li>
                         
-                      <button onclick="sendtocheckout()" href="checkout.php" class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+                      <button   class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><a href="checkout.php"><span>Proceed to Checkout</span></a></button>
                     </li>
                     <br>
-                    <li><a title="Checkout with Multiple Addresses" href="#">Checkout with Multiple Addresses</a> </li>
+                    
                     <br>
                   </ul>
                 </div>
