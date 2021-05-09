@@ -146,25 +146,15 @@ include("includes/navbar.php");
                    <p><?php echo $row['description'] ?></p>
                   </div>
                   <div class="add-to-box">
-                    <div class="add-to-cart">
-                      <div class="pull-left">
-                        <div class="custom pull-left">
-                          <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp &amp qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button>
-                          <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                          <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
-                        </div>
-                      </div>
-                      <div >
-                      <?php echo "<a style= 'padding-left: 50px; margin-top:25px;' href='index.php?cart_id={$row['product_id']} &cart_name={$row['product_name']} &cart_price={$row['price']}&cart_photo={$row['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><span>Add to Cart</span></a>"?>
-                    </div>
-                    </div>
+                    
                     <div class="email-addto-box">
                       <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
                       
                       
                     </div>
                   </div>
-                  
+                  <?php
+                          include("includes/handlers/addToCart-handler.php"); ?>
                 </div>
               </form>
             </div>
