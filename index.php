@@ -127,8 +127,8 @@ include "includes/navbar.php";
                     <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
                     <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
                     <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                    <div class="add_cart">
-                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                    <div style='background-color:white;' class="add_cart">
+                    <?php echo "<a href='index.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                     </div>
                   </div>
                   <!-- <div class="rating">
@@ -211,7 +211,7 @@ include "includes/navbar.php";
                                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
                                     <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                     <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                    <?php echo "<a href='index.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                                     </div>
                                   </div>
                                  <!--  <div class="rating">
@@ -256,8 +256,8 @@ include "includes/navbar.php";
                                   <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
                                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
                                     <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                    <div style='background-color:white;' class="add_cart">
+                                    <?php echo "<a href='index.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                                     </div>
                                   </div>
                                <!--    <div class="rating">
@@ -308,7 +308,7 @@ include "includes/navbar.php";
                                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div>-->
                                     <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
                                     <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                    <?php echo "<a href='index.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                                     </div>
                                   </div>
                                 <!-- <div class="rating">
@@ -348,8 +348,8 @@ include "includes/navbar.php";
                                   <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
                                    <!-- <div class="link-wishlist"><a href="wishlist.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="Wishlist"><span>Add to Wishlist</span></a></div> -->
                                     <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                    <div style='background-color:white;' class="add_cart">
+                                    <?php echo "<a href='index.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                                     </div>
                                   </div>
 
@@ -394,8 +394,8 @@ include "includes/navbar.php";
                                    <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
 
                                     <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                    <div style='background-color:white;' class="add_cart">
+                                    <?php echo "<a href='index.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                                     </div>
                                   </div>
                                 </div>
@@ -429,8 +429,8 @@ include "includes/navbar.php";
                                      <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
 
                                     <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                    <div class="add_cart">
-                                      <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
+                                    <div style='background-color:white;' class="add_cart">
+                                    <?php echo "<a href='index.php?cart_id={$final['product_id']} &cart_name={$final['product_name']} &cart_price={$final['price']}&cart_photo={$final['photo']}' class='popup-btn' data-toggle='tooltip' data-placement='right' type='button' data-original-title='Add to Cart'><i class='fa fa-shopping-cart'><span></span></i></a>"?>
                                     </div>
                                   </div>
 
