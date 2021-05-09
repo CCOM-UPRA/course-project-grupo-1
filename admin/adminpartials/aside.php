@@ -182,7 +182,7 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>-->
-        <li><a href="#"><i class="fa fa-book"></i> <span>Orders</span></a></li>
+        <li><a href="adminvieworders.php"><i class="fa fa-book"></i> <span>Orders</span></a></li>
           <li><a href="../index.php"><i class="fa fa-circle-o"></i> <span>Log Out</span></a></li>
       </ul>
     </section>

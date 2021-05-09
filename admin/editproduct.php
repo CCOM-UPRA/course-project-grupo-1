@@ -85,12 +85,7 @@ $rowProduct = mysqli_fetch_assoc($resultProduct);
                   <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Enter Trailer Link" value = <?php echo $rowProduct['trailer']?>>
                 </div>
 
-                
-                <?php
-                  
-                  
-                  $cat
-                  ?>
+           
       
                 
               </div>
