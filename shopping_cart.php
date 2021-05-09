@@ -94,7 +94,7 @@ include("includes/navbar.php");
                       <td class="a-right last" colspan="50"><button  onclick="location.href = 'index.php'"class="button btn-continue"  title="Continue Shopping" type="button"><span>Continue Shopping</span></button>
 
                             <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>
-                        <button id="empty_cart_button" class="button" title="Clear Cart" value="empty_cart" name="update_cart_action" onclick = "$('#shopping-cart-table tbody tr').remove()" type="submit"><span>Clear Cart</span></button></td>
+                        
                     </tr>
                   </tfoot>
 
