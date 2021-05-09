@@ -255,7 +255,7 @@ include("includes/navbar.php");
                                 <th>Status</th>
                                 <tbody>
                                 <?php
-                                 $id = $_SESSION['userLoggedIn'];
+                                    $id = $_SESSION['userLoggedIn'];
                                     $sql = "SELECT * FROM orders WHERE userID = $id";
                                     $results = $connect->query($sql);
                                     

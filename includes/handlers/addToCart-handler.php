@@ -16,7 +16,7 @@ if(isset($_GET['cart_id']) != null){
         echo $item['photo'];
     };
     
-}
+} 
 
 if(isset($_GET['remove']) != null){
     foreach($_SESSION['cart'] as $key =>$item){

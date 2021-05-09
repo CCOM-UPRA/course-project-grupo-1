@@ -87,7 +87,7 @@
 			$results = mysqli_query($this->con, "INSERT INTO user(firstName, lastName, email, password, phoneNumber, birthdate, user_type, status) VALUES ('$fn', '$ln', '$em', '$pw', '$phone', '$birth', '$user_type', '$status')");
 			return $results;
 		}
-
+ 
 		private function insertUserAddress($id, $address1, $address2, $city, $state, $zipcode){
 			//This query insert a new address of a user.
 			$results = mysqli_query($this->con, "INSERT INTO address(userID, street1, street2, postal_code, city, country, address_type) VALUES ('$id', '$address1', '$address2', '$zipcode', '$city', '$state', 0)");
@@ -111,7 +111,7 @@
 			$result = mysqli_fetch_array($query);
 			return $result['userID'];
 		}
-
+		
 		public function getRole($id){
 			//This query select the role of the user recently logged in.
 			$query = mysqli_query($this->con,"SELECT user_type FROM user WHERE userID='$id'");

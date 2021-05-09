@@ -256,7 +256,7 @@ include("adminpartials/aside.php");
                     <div class="table-title">
                         <div class="row">
                             <div class="col-xs-5">
-                                <h2>Sales <b>Reports</b></h2>
+                                <h2>Revenue <b>Reports</b></h2>
                             </div>
                         </div>
                     </div>

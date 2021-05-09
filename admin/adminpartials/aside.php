@@ -56,9 +56,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="reports.php"><i class="fa fa-circle-o"></i> Sales Report</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Sales Report</a></li>
             <!-- <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Product Sales</a></li> -->
-            <li><a href=""><i class="fa fa-circle-o"></i> Revenue Report</a></li>
+            <li><a href="reports.php"><i class="fa fa-circle-o"></i> Revenue Report</a></li>
             <li><a href="../admin/inventory.php"><i class="fa fa-circle-o"></i> Inventory</a></li>
           </ul>
         </li>
