@@ -164,9 +164,7 @@
                                                      
 
                                                       <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                                                      <div class="add_cart">
-                                                        <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                                                      </div>
+                                                     
                                                     </div>
                               
                                                   </div>
@@ -221,9 +219,7 @@
                         <div class="actions">
                            <div  class="quick-view-btn"><?php echo "<a href='quick_view.php?productID={$final["product_id"]}' class='popup-btn' data-toggle='tooltip' data-placement='right' data-original-title='Quick View'> <span>Quick View</span></a>"?> </div>
                           <div class="link-compare"><a href="<?php echo $final['trailer']?>" data-toggle="tooltip" data-placement="right" title="" data-original-title="Watch Trailer"><span>Watch Trailer</span></a></div>
-                          <div class="add_cart">
-                            <button class="button btn-cart" type="button" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
-                          </div>
+                         
                         </div>
   
                       </div>

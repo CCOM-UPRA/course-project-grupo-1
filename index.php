@@ -146,7 +146,19 @@ include "includes/navbar.php";
                   <div class="item-title"> <a title="<?php echo $final['product_name']?>" href="#"><?php echo $final['product_name']?></a> </div>
                   <div class="item-content">
                     <div class="item-price">
-                      <div class="price-box"> <span class="regular-price"> <span class="price">$<?php echo $final['price']?></span> </span> </div>
+                      <div class="price-box"> <span class="regular-price"> <span class="price"><?php
+                        if($final['price']>0):{
+                        echo  "$".$final['price']; }
+                        endif; 
+                        if($final['price']<0):{
+                        echo  "Coming Soon"; }
+                        endif; 
+                        if($final['price']==0):{
+                        echo  "Free"; }
+                        endif; 
+                          
+                          
+                          ?></span> </span> </div>
                     </div>
                   </div>
                 </div>
@@ -231,7 +243,19 @@ include "includes/navbar.php";
                                   <div class="item-title"><a href="#" title=""><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price"><?php
+                        if($final['price']>0):{
+                        echo  "$".$final['price']; }
+                        endif; 
+                        if($final['price']<0):{
+                        echo  "Coming Soon"; }
+                        endif; 
+                        if($final['price']==0):{
+                        echo  "Free"; }
+                        endif; 
+                          
+                          
+                          ?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
@@ -275,7 +299,19 @@ include "includes/navbar.php";
                                   <div class="item-title"><a href="<?php echo $final['trailer']?>" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price"><?php
+                        if($final['price']>0):{
+                        echo  "$".$final['price']; }
+                        endif; 
+                        if($final['price']<0):{
+                        echo  "Coming Soon"; }
+                        endif; 
+                        if($final['price']==0):{
+                        echo  "Free"; }
+                        endif; 
+                          
+                          
+                          ?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
@@ -326,7 +362,19 @@ include "includes/navbar.php";
                                   <div class="item-title"><a href="#" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price"><?php
+                        if($final['price']>0):{
+                        echo  "$".$final['price']; }
+                        endif; 
+                        if($final['price']<0):{
+                        echo  "Coming Soon"; }
+                        endif; 
+                        if($final['price']==0):{
+                        echo  "Free"; }
+                        endif; 
+                          
+                          
+                          ?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
@@ -360,7 +408,19 @@ include "includes/navbar.php";
                                   <div class="item-title"><a href="#" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price"><?php
+                        if($final['price']>0):{
+                        echo  "$".$final['price']; }
+                        endif; 
+                        if($final['price']<0):{
+                        echo  "Coming Soon"; }
+                        endif; 
+                        if($final['price']==0):{
+                        echo  "Free"; }
+                        endif; 
+                          
+                          
+                          ?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
@@ -405,7 +465,7 @@ include "includes/navbar.php";
                                   <div class="item-title"><a href="<?php echo $final['trailer']?>" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['product_name']?></span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price">FREE</span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
@@ -441,7 +501,19 @@ include "includes/navbar.php";
                                   <div class="item-title"><a href="#" title="<?php echo $final['product_name']?>"><?php echo $final['product_name']?></a> </div>
                                   <div class="item-content">
                                     <div class="item-price">
-                                      <div class="price-box"><span class="regular-price"><span class="price">$<?php echo $final['price']?></span> </span> </div>
+                                      <div class="price-box"><span class="regular-price"><span class="price"><?php
+                        if($final['price']>0):{
+                        echo  "$".$final['price']; }
+                        endif; 
+                        if($final['price']<0):{
+                        echo  "Coming Soon"; }
+                        endif; 
+                        if($final['price']==0):{
+                        echo  "Free"; }
+                        endif; 
+                          
+                          
+                          ?></span> </span> </div>
                                     </div>
                                   </div>
                                 </div>
