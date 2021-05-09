@@ -1,6 +1,33 @@
-<!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons Icon -->
+
+<title>PRISM - Buy Movies Online</title>
+
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600,600italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+
 <style>
     /* body {
         color: #566787;
@@ -161,95 +188,138 @@
         margin-top: 10px;
         font-size: 13px;
     }
+    #side{
+        text-align: right;
+    }
+    body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
     </style>
-    
 <?php
     include("adminpartials/head.php");
-    ?>
-    
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+?>
 
-<?php 
-error_reporting(0);
+</head>
+
+<body id="new1" class="hold-transition skin-blue sidebar-mini">
+<div id="wrapper"> 
+  
+<?php
 include("adminpartials/header.php");
 include("adminpartials/aside.php");
-include "../includes/config.php";
-?>
+
+?> 
   
+  <!-- Main Container -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1> 
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-     
-      <div class="container">
+          <div class="content-wrapper">
             <div class="table-responsive">
+                <div>
+                    
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
                             <div class="col-xs-5">
-                                <h2>View <b>Orders</b></h2>
+                                <h2>Sales <b>Reports</b></h2>
                             </div>
                         </div>
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Order</th>
-                                <th>Tracking Number</th>
-                                <th>Total</th>						
-                                <th>Status</th>
-                             
+                                <th>Product#</th>						
+                                <th>Product Name</th>
+                                <th>Quantity Sold</th>
+                                <th>Sold Date</th>
+                                <th>Total</th>
                             <tbody>
-                            <?php
-                                    $id = "SELECT userID FROM user WHERE user_type = 0";
-                                    $resultProduct = mysqli_query($connect, $id);
-                                    $rowProduct = mysqli_fetch_assoc($resultProduct);
-                                    $id2 = $rowProduct['userID'];
-                                    $sql = "SELECT * FROM orders WHERE userID = $id2";
-                                    $results = $connect->query($sql);
-                                    
-                                    while($final = $results->fetch_assoc() ){ 
-                                        ?> 
-                            <tr> 
-                                <td><?php echo $final['order_id']?></td>
-                                
-                                <td><?php echo $final['tracking_number']?></td>
-                                <td>$<?php echo $final['total']?></td>   
-                                <td><?php echo $final['order_status']?></td>
-                                <td>
-                                    <?php echo "<a class='btn btn-primary' style='color: white;' title='Edit' data-toggle='tooltip' href='editorder.php?track={$final["tracking_number"]}'>Edit</a>";?>
-                                </td>
+                            <tr>
+                                <td>1</td>
+                                <td>Avengers EndGame</td>
+                                <td>1</td>
+                                <td>3/5/2021</td>
+                                <td>$19.99</td>                     
                             </tr>
-                            <?php } ?>
+                            <tr>
+                                <td>2</td>
+                                <td>Friends</td>
+                                <td>1</td>
+                                <td>3/5/2021</td>
+                                <td>$74.99</td>                         
+                                
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Iron Man 2</td>
+                                <td>1</td>
+                                <td>3/5/2021</td>
+                                <td>Free</td>  
+                                                      
+                            </tr>
                         </tbody>
                     </table>
 
                 </div>
-            </div>        
-        </div>
+            </div> 
+            </div>     
+  
+        </div>     
+
+
         
-    </section>
-    <!-- /.content -->
-  </div>
-</div>
-  <?php
-    include("adminpartials/footer.php");
-      ?>
-    
- </body>
+  </section>
+  <!-- Main Container End --> 
+  
+  
+       <!-- Footer  --> 
+  
+<?php
+include("adminpartials/footer.php");
+?>
+<!-- JavaScript --> 
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="js/parallax.js"></script> 
+<script type="text/javascript" src="js/common.js"></script> 
+<script type="text/javascript" src="js/jquery.flexslider.js"></script> 
+<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
+<script type="text/javascript" src="js/jquery.mobile-menu.min.js"></script> 
+<script type="text/javascript" src="js/cloud-zoom.js"></script>
+</body>
 </html>
